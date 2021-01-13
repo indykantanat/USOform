@@ -6,15 +6,16 @@
 <head runat="server">
     <title>PreventiveMaintenanceReportBB2.2,3.2</title>
     <link href="~/style/Mystyle.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
     <%--font style--%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
+
 <body style="background-color: lightgray">
-    <div class="container bg-white Myfont">
-      
+
+    <div class="container bg-white Myfont"> 
         <div class="row mt-3">
             <div class="col-12 text-left ">
                 <div>
@@ -30,21 +31,21 @@
         <div class="form-row mt-3">
             <label class="control-label col-sm-1" for="">กลุ่ม :</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="" name="">
+                <input type="text" class="form-control" id="" name="" />
             </div>
         </div>
 
         <div class="form-row mt-3">
             <label class="control-label col-sm-1" for="">ภาค :</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="" name="">
+                <input type="text" class="form-control" id="" name="" />
             </div>
         </div>
 
         <div class="form-row mt-3">
             <label class="control-label col-sm-1" for="">บริษัท :</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="" name="">
+                <input type="text" class="form-control" id="" name="" />
             </div>
         </div>
 
@@ -59,7 +60,7 @@
             </div>
             <div class="form-check-inline">
                 <label class="form-check-label" for="">
-                    <input type="radio" class="form-check-input" id="" name="" value="">3.2
+                    <input type="radio" class="form-check-input" id="" name="" value="" />3.2
                 </label>
             </div>
         </div>
@@ -68,11 +69,11 @@
         <div class="form-row mt-3">
             <label class="control-label col-sm-2" for="">รอบการบำรุงรักษา ครั้งที่ </label>
             <div class="col-sm-1">
-                <input type="text" class="form-control" id="" name="">
+                <input type="text" class="form-control" id="" name="" />
             </div>
             /
               <div class="col-sm-1">
-                  <input type="text" class="form-control" id="" name="">
+                  <input type="text" class="form-control" id="" name="" />
               </div>
         </div>
 
@@ -82,12 +83,12 @@
                     <label>
                         <div>วัน เดือน ปี</div>
                     </label>
-                    <input data-date-format="dd/mm/yyyy" id="">
+                    <input data-date-format="dd/mm/yyyy" id="" />
 
                     <label>
                         <div>ถึง</div>
                     </label>
-                    <input data-date-format="dd/mm/yyyy" id="">
+                    <input data-date-format="dd/mm/yyyy" id="" />
                 </div>
             </div>
         </div>
