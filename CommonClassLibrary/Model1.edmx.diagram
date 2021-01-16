@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a2b5e534784d4255a0963cb8f8613ff9" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="USOModel.Answer" Width="1.5" PointX="7.25" PointY="0.75" />
+        <EntityTypeShape EntityType="USOModel.AnswerType" Width="1.5" PointX="4" PointY="4.5" />
+        <EntityTypeShape EntityType="USOModel.Head" Width="1.5" PointX="0.5" PointY="1.375" />
+        <EntityTypeShape EntityType="USOModel.Organization" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="USOModel.Question" Width="1.5" PointX="5" PointY="1.25" />
+        <EntityTypeShape EntityType="USOModel.Section" Width="1.5" PointX="2.75" PointY="1.25" />
+        <EntityTypeShape EntityType="USOModel.User" Width="1.5" PointX="5" PointY="7.375" />
+        <EntityTypeShape EntityType="USOModel.TBAnswer_Type" Width="1.5" PointX="0.5" PointY="4.5" />
+        <EntityTypeShape EntityType="USOModel.TBSurvey_answer01" Width="1.5" PointX="7.5" PointY="5.5" />
+        <EntityTypeShape EntityType="USOModel.TBSurvey_Head" Width="1.5" PointX="9.5" PointY="0.5" />
+        <EntityTypeShape EntityType="USOModel.TBSurvey_Question" Width="1.5" PointX="9.5" PointY="3.5" />
+        <EntityTypeShape EntityType="USOModel.TBSurvey_Section" Width="1.5" PointX="9.5" PointY="6.5" />
+        <AssociationConnector Association="USOModel.FK_Answer_AnswerType" />
+        <AssociationConnector Association="USOModel.FK_Answer_Question" />
+        <AssociationConnector Association="USOModel.FK_Answer_User" />
+        <AssociationConnector Association="USOModel.FK_Section_Head" />
+        <AssociationConnector Association="USOModel.FK_User_Organization" />
+        <AssociationConnector Association="USOModel.FK_Question_Section" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

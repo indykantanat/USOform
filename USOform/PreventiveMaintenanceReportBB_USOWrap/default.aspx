@@ -5,21 +5,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>รายงาน PM From BB Zone C+ บริการ USO Wrap</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="~/style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="previewImg.js"></script>
-   
+
     <%--font style--%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
+
+
+
+
+    <%--    date time picker JQURRY--%>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <body style="background-color: lightgrey;">
 
     <form id="form1" runat="server">
         <div class="container bg-white">
-
+            <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
+                This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+            </div>
 
             <%--////////////////////////////////    HEADER CONTENT    ///////////////////////////////////////////////--%>
             <div class="row">
@@ -37,21 +48,21 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">กลุ่ม :</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="" name="" />
+                    <asp:TextBox ID="GroupNameTextBox" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">ภาค :</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="" name="" />
+                    <input type="text" class="form-control" id="AreaTextbox" runat="server" required="required" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">บริษัท :</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="" name="" />
+                    <input type="text" class="form-control" id="CompanyTextbox" runat="server" required="required" />
                 </div>
             </div>
 
@@ -63,36 +74,40 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">รอบการบำรุงรักษา ครั้งที่ </label>
+                <label class="control-label col-sm-2" for="">รอบการบำรุงรักษาครั้งที่</label>
                 <div class="col-sm-1">
-                    <input type="text" class="form-control" id="" name="" />
+                    <input type="text" class="form-control" id="maintenanceCountTextbox" runat="server" required="required" />
                 </div>
                 /
               <div class="col-sm-3">
-                  <input type="text" class="form-control" id="" name="" placeholder="ปีพุทธศักราช" />
+                  <input type="text" class="form-control" placeholder="ปีพุทธศักราช" id="yearTextbox" runat="server" required="required" />
               </div>
             </div>
 
+            <%-- QuestionId = 8,--%>
             <div class="row text-left mt-3">
                 <div class="col-md-12">
                     <div>
                         <label>
                             <div>วัน เดือน ปี</div>
                         </label>
-                        <input data-date-format="dd/mm/yyyy" id="" />
+                        <input class="form-control" type="text" id="startDatepicker" runat="server" required="required" />
 
+                        <%-- QuestionId = 9,--%>
                         <label>
                             <div>ถึง</div>
                         </label>
-                        <input data-date-format="dd/mm/yyyy" id="" />
+                        <input class="form-control" type="text" id="endDatepicker" runat="server" required="required" />
                     </div>
                 </div>
             </div>
 
+
+            <%-- QuestionId = 10,--%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">สถานที่ (Site code)</label>
+                <label class="control-label col-sm-2">สถานที่ (Site code)</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="" name="" />
+                    <input type="text" class="form-control" id="siteCodeTextbox" runat="server" required="required" />
                 </div>
             </div>
             <%--////////////////////////////////    END HEADER CONTENT    ///////////////////////////////////////////////--%>
@@ -107,107 +122,120 @@
 
 
 
-            <%--//////////////  FORM START  //////////////////--%>
+            <%--////////////// SECTION 2  //////////////////--%>
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center">
                     <h3>PREVENTIVE MAINTENANCE SITE REPORT (PM)</h3>
                 </div>
             </div>
 
-
+            <%-- QuestionId = 11,--%>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">Cabinet ID :</label>
                 <div class="col-sm-11">
-                    <input type="email" class="form-control" id="" name="">
+                    <input type="text" class="form-control" id="cabinetIdTextbox" runat="server" required="required" />
                 </div>
             </div>
 
+            <%-- QuestionId = 12,--%>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">Site Code :</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="" name="">
+                    <input class="form-control" type="text" id="sitecodeTextboxSection2" runat="server" required="required" />
                 </div>
             </div>
 
+            <%-- QuestionId = 13,--%>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">Village ID :</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="" name="">
+                    <input type="text" class="form-control" id="VillageIdTextbox" runat="server" required="required" />
                 </div>
             </div>
 
+            <%-- QuestionId = 14,--%>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">Village :</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="" name="">
+                    <input type="text" class="form-control" id="villageTextbox" runat="server" required="required" />
                 </div>
             </div>
 
+
+            <%-- QuestionId = 15,--%>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">School’s name :</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="" name="">
+                    <input type="text" class="form-control" id="schoolnameTextbox" runat="server" required="required" />
                 </div>
             </div>
 
-
+            <%-- QuestionId = 16,--%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Sub-District:</label>
+                <label class="control-label col-sm-1" for="">Sub-District :</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="" name="">
+                    <input type="text" class="form-control" id="subdistrictTextbox" runat="server" required="required" />
                 </div>
             </div>
 
+            <%-- QuestionId = 17,--%>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">Province :</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="" name="">
+                    <input type="text" class="form-control" id="provinceTextbox" runat="server" required="required" />
                 </div>
             </div>
 
-
+            <%-- QuestionId = 18,--%>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">Type :</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="" name="" />
+                    <input type="text" class="form-control" id="typeTextbox" runat="server" required="required" />
                 </div>
             </div>
 
 
+            <%-- QuestionId = 19,--%>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">PM Date : </label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="" name="" />
+                    <input type="text" class="form-control" id="pmdateTextbox" runat="server" required="required" />
                 </div>
             </div>
 
-         
 
-
+            <%-- QuestionId = 6, --%>
             <div class="row mt-3">
                 <div class="col-sm-12 bg-primary text-white">ใส่ป้ายหน้าโรงเรียน</div>
 
-                <input type="file" name="image0" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_0" />
-            </div>
+                <asp:FileUpload ID="signboardschoolImage" runat="server" data-thumbnail="user_img_0" accept="image/*" onchange="previewImage(this)" required="required" />
 
+                <%--    OLD RESOUCE    <input type="file" name="image0" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_0" />--%>
+            </div>
+            <%-- onchange="previewImage(this)"--%>
             <div class="row ml-3 mt-3">
                 <img id="user_img_0" src="https://placehold.it/250x250" class="placeholder2" />
             </div>
 
 
-
+            <%-- QuestionId = 20, --%>
             <div class="row mt-3">
                 <div class="col-sm-12 bg-primary text-white">ใส่รูปหน้าอาคารศูนย์ USO Net</div>
-                <input type="file" name="image1" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_1" />
+                <%--OLD RESOUCE <asp:FileUpload ID="Building2Image" runat="server" data-thumbnail="user_img_1" accept="image/*" onchange="previewImage(this)" />--%>
+                <asp:FileUpload ID="usonetsignboardImage" runat="server" data-thumbnail="user_img_1" accept="image/*" onchange="previewImage(this)" required="required" />
             </div>
-
-
             <div class="row ml-3 mt-3">
-                <img id="user_img_1" src="https://placehold.it/250x250" class="placeholder" />
+                <img id="user_img_1" src="https://placehold.it/250x250" class="placeholder2" />
             </div>
 
 
+            <%--////////////// -------------END  SECTION ID 2-----------------  //////////////////--%>
 
+
+
+
+
+            <%--////////////// -------------START  SECTION ID 3 -----------------  //////////////////--%>
             <div class="row mt-3">
                 <div class="col-md-12 bg-warning text-white text-center Myfont">
                     <h4>Contractor</h4>
@@ -229,10 +257,12 @@
                     <span>Signature</span>
                 </div>
                 <div class="col-md-5 text-center">
-                    <input type="text" class="form-control" id="" name="">
+                    <%-- QuestionId = 21, --%>
+                    <input type="text" class="form-control" id="signatureExecutorTextbox" runat="server" required="required" />
                 </div>
                 <div class="col-md-6 text-center">
-                    <input type="text" class="form-control" id="" name="">
+                    <%-- QuestionId = 22, --%>
+                    <input type="text" class="form-control" id="signatureSupervisorTextbox" runat="server" required="required" />
                 </div>
             </div>
 
@@ -241,10 +271,12 @@
                     <span>Name</span>
                 </div>
                 <div class="col-md-5 text-center">
-                    <input type="text" class="form-control" id="" name="">
+                    <%-- QuestionId = 23, --%>
+                    <input type="text" class="form-control" id="nameExecutorTextbox" runat="server" required="required" />
                 </div>
                 <div class="col-md-6 text-center">
-                    <input type="text" class="form-control" id="" name="">
+                    <%-- QuestionId = 24, --%>
+                    <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server" required="required" />
                 </div>
             </div>
 
@@ -254,30 +286,20 @@
                     <span>Date</span>
                 </div>
                 <div class="col-md-5 text-center">
-                    <input type="text" class="form-control" id="" name="">
+                    <%-- QuestionId = 25, --%>
+                    <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" required="required" />
                 </div>
                 <div class="col-md-6 text-center">
-                    <input type="text" class="form-control" id="" name="" />
+                    <%-- QuestionId = 26, --%>
+                    <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server" required="required" />
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
+              <%--////////////// -------------END  SECTION ID 3-----------------  //////////////////--%>
             <br />
 
 
-
-
-
+              <%--////////////// ------------- SECTION ID 4-----------------  //////////////////--%>
             <div class="row ">
                 <div class="col-md-12 bg-success text-white text-center Myfont">
                     <h3>1. รายละเอียดศูนย์</h3>
@@ -333,8 +355,18 @@
                         <input type="email" class="form-control" id="" name="">
                     </div>
                 </div>
+                  <%--////////////// -------------END  SECTION ID 4-----------------  //////////////////--%>
 
-                <%-- ข้อ2--%>
+
+
+
+
+
+
+
+
+
+  <%--////////////// -------------END  SECTION ID 5-----------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
                         <h3>2. ระบบไฟฟ้า (หลัก)</h3>
@@ -477,22 +509,22 @@
                     </div>
                     <label class="control-label col-sm-2" for="">A.</label>
                 </div>
-
+                <%--                ezsample--%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2" for="">UPS MODE</label>
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">LINE
+                            <input type="radio" class="form-check-input" id="" name="upsModeRadio" value="LINE" required="required">LINE
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">BATT.
+                            <input type="radio" class="form-check-input" id="" name="upsModeRadio" value="BATT." required="required">BATT.
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">BYPASS
+                            <input type="radio" class="form-check-input" id="" name="upsModeRadio" value="BYPASS" required="required">BYPASS
                         </label>
                     </div>
                 </div>
@@ -2003,7 +2035,7 @@
                 </div>
 
 
-                <div class="form-row mt-3">
+                                <div class="form-row mt-3">
                     <label class="control-label col-sm-4" for="">รูปภาพป้ายชื่อโรงเรียน</label>
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
@@ -2016,6 +2048,7 @@
                         </label>
                     </div>
                 </div>
+
 
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4" for="">รูปภาพด้านหน้าศูนย์ (ถ่ายคู่กับ จนท.ประจำศูนย์)</label>
@@ -2793,48 +2826,62 @@
 
 
 
-                 <div class="row mt-3">
-                      <div class="col-sm-12 text-black text-center Myfont">
+                <div class="row mt-3">
+                    <div class="col-sm-12 text-black text-center Myfont">
                         <h3>รูปภาพประกอบรายงาน</h3>
                     </div>
-                        </div>
+                </div>
 
-                          <div class="row mt-3 ">
-                              <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
-                             <input type="file" name="image2" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_2"/>
-                           </div>
-                          <div class="row ml-3 mt-3">
-                           <img id="user_img_2" src="https://placehold.it/250x250" class="placeholder2" />
-                            </div>
+                <div class="row mt-3 ">
+                    <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
+                    <input type="file" name="image2" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_2" />
+                </div>
+                <div class="row ml-3 mt-3">
+                    <img id="user_img_2" src="https://placehold.it/250x250" class="placeholder2" />
+                </div>
 
-                  <div class="row mt-3">
-                              <div class="col-sm-12">2.รูป VSAT PICTURE CHECKLIST</div>
-                             <input type="file" name="image3" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_3"/>
-                           </div>
-                          <div class="row ml-3 mt-3">
-                           <img id="user_img_3" src="https://placehold.it/250x250" class="placeholder2" />
-                            </div>
-                  
-                 <div class="row mt-3">
-                              <div class="col-sm-12">3.รูป SOLAR CELL PICTURE CHECKLISTT</div>
-                             <input type="file" name="image4" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_4"/>
-                           </div>
-                          <div class="row ml-3 mt-3">
-                           <img id="user_img_4" src="https://placehold.it/250x250" class="placeholder2" />
-                            </div>
+                <div class="row mt-3">
+                    <div class="col-sm-12">2.รูป VSAT PICTURE CHECKLIST</div>
+                    <input type="file" name="image3" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_3" />
+                </div>
+                <div class="row ml-3 mt-3">
+                    <img id="user_img_3" src="https://placehold.it/250x250" class="placeholder2" />
+                </div>
 
-                     <div class="row mt-3">
-                              <div class="col-sm-12">4.COMPUTER PICTURE CHECKLIST</div>
-                             <input type="file" name="image5" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_5"/>
-                           </div>
-                          <div class="row ml-3 mt-3">
-                           <img id="user_img_5" src="https://placehold.it/250x250" class="placeholder2" />
-                            </div>
-                  
-                  
-                        
+                <div class="row mt-3">
+                    <div class="col-sm-12">3.รูป SOLAR CELL PICTURE CHECKLISTT</div>
+                    <input type="file" name="image4" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_4" />
+                </div>
+                <div class="row ml-3 mt-3">
+                    <img id="user_img_4" src="https://placehold.it/250x250" class="placeholder2" />
+                </div>
 
-<%--  OLD RESOUCE              <div class="row mt-3">
+                <div class="row mt-3">
+                    <div class="col-sm-12">4.COMPUTER PICTURE CHECKLIST</div>
+                    <input type="file" name="image5" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_5" />
+                </div>
+                <div class="row ml-3 mt-3">
+                    <img id="user_img_5" src="https://placehold.it/250x250" class="placeholder2" />
+                </div>
+
+                <%--                  EXSAMPLE DATAAA--%>
+                <%--                <table>
+                    <asp:Repeater runat="server" ID="ResultRepeater">
+                        <ItemTemplate>
+                            <tr>
+                                <td>
+                                    <%# Eval("AnsDes") %>
+                                </td>
+                                <td>
+                                    <%# Eval("CreateDate") %></td>
+                                <td>
+                                    <%# Eval("User.FirstName") %></td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </table>--%>
+
+                <%--  OLD RESOUCE              <div class="row mt-3">
                     <div class="col-md-12  text-black text-center Myfont">
                         <h3>รูปภาพประกอบรายงาน</h3>
                     </div>
@@ -2858,27 +2905,20 @@
                         <input type="file" class="form-control-file" id="">
                     </div>
                 </div>--%>
+
+                <div class="row">
+                    <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-primary btn-block" OnClick="SubmitButton_Click" />
+                </div>
+
             </form>
-
-            <br>
-
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
         </div>
     </form>
 
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--%>
+    <%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>--%>
+    <%--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>--%>
 
 
 
@@ -2892,7 +2932,7 @@
 
 
 
-<%--/////////////////    script START !!   /////////////////////////////--%>
+    <%--/////////////////    script START !!   /////////////////////////////--%>
 
     <script type="text/javascript">
         var input = $("#exampleFormControlFile1").change(function () {
@@ -2900,9 +2940,9 @@
         })
     </script>
 
-     <script type="text/javascript">
+    <%-- <script type="text/javascript">
          $(function () {
-             $('#startDate').datepicker({
+             $('#startDateTextbox').datepicker({
                  // ...relevant options...
                  weekStart: 1,
                  daysOfWeekHighlighted: "6,0",
@@ -2918,17 +2958,42 @@
                  todayHighlight: true,
              });
          });
-     </script>
+     </script>--%>
+
+
+
+    <%--    <script>
+        $(function () {
+            $("#startDateTextbox2").datepicker();
+        });
+    </script>--%>
 
 
 
 
+    <script>
+        $(function () {
+            $("#startDatepicker").datepicker();
+        });
+    </script>
 
+    <script>
+        $(function () {
+            $("#endDatepicker").datepicker();
+        });
+    </script>
 
+    <script>
+        $(function () {
+            $("#DateExecutorTextbox").datepicker();
+        });
+    </script>
 
-
-
-
+    <script>
+        $(function () {
+            $("#DateSupervisorTextbox").datepicker();
+        });
+    </script>
 
 
 
@@ -2943,7 +3008,7 @@
 
 
     <%----------------------------//////////    CSS ONLY !!   ////////--------------------------%>
-    <style type="text/css">
+    <%--  <style type="text/css">
         .datepicker {
             font-size: 0.875em;
         }
@@ -2977,11 +3042,6 @@
              width:250px;
            height:250px;
         }
-    </style>
-
-
-   
-
-   
+    </style>--%>
 </body>
 </html>
