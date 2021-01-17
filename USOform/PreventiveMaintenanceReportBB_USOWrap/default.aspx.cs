@@ -303,6 +303,716 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             };
             uSOEntities.Answers.Add(answer26);
 
+            //Location name :
+            Answer answer27 = new Answer()
+            {
+                AnsDes = this.LocationnameTextbox.Value,
+                QuestionId = 27,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer27);
+
+            //Site code section 4 :
+            Answer answer28 = new Answer()
+            {
+                AnsDes = this.sitecodeTextboxSection4.Value,
+                QuestionId = 28,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer28);
+
+
+            //villageIDsection 4 :
+            Answer answer29 = new Answer()
+            {
+                AnsDes = this.villageIDTextboxSection4.Value,
+                QuestionId = 29,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer29);
+
+            //lat and long  :
+            Answer answer30 = new Answer()
+            {
+                AnsDes = this.latandlongTextbox.Value,
+                QuestionId = 30,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer30);
+
+            //type of signal Radio  :
+            string typeOf = Request.Form["typeofsignalRadio"];
+            Answer answer31 = new Answer()
+            {
+                AnsDes = typeOf,
+                QuestionId = 31,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer31);
+
+            //ISP (Existing Network)  :
+            Answer answer32 = new Answer()
+            {
+                AnsDes = this.ispTextbox.Value,
+                QuestionId = 32,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer32);
+
+            //elecSystem Radio  :
+            string elecradioSection5 = Request.Form["elecRadio"];
+            Answer answer33 = new Answer()
+            {
+                AnsDes = elecradioSection5,
+                QuestionId = 33,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer33);
+
+            //tranformer Radio  :
+            string tranRadio = Request.Form["transformerRadio"];
+            Answer answer34 = new Answer()
+            {
+                AnsDes = tranRadio,
+                QuestionId = 34,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer34);
+
+
+            //หมายเลขผู้ใช้ไฟ  :
+            Answer answer35 = new Answer()
+            {
+                AnsDes = this.numberuserTextbox.Value,
+                QuestionId = 35,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer35);
+
+
+            //หน่วยใช้ไฟไฟ  :
+            Answer answer36 = new Answer()
+            {
+                AnsDes = this.kwhMeterTextbox.Value,
+                QuestionId = 36,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer36);
+
+
+            //แรงดัน AC (kWh Meter) :
+            Answer answer37 = new Answer()
+            {
+                AnsDes = this.acTextbox.Value,
+                QuestionId = 37,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer37);
+
+
+            //กระแส Line AC (kWh Meter) :
+            Answer answer38 = new Answer()
+            {
+                AnsDes = this.lineAcTextbox.Value,
+                QuestionId = 38,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer38);
+
+
+            // กระแส Neutron AC(kWh Meter) :          
+            Answer answer39 = new Answer()
+            {
+                AnsDes = this.neutronacTextbox.Value,
+                QuestionId = 39,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer39);
+
+            //สภาพ kWh Meter Radio  :
+            string conRadio = Request.Form["conditionRadio"];
+            Answer answer40 = new Answer()
+            {
+                AnsDes = conRadio,
+                QuestionId = 40,
+                AnserTypeId = 3, 
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer40);
+
+            //สภาพ MDB/ Circuit Breaker Radio  :
+            string CircuitBreakerRadio = Request.Form["MDBCircuitBreakerRadio"];
+            Answer answer41 = new Answer()
+            {
+                AnsDes = CircuitBreakerRadio,
+                QuestionId = 41,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer41);
+
+
+            //UPS ภายในตู้ Radio  :
+            string innerUPS = Request.Form["inupsRadio"];
+            Answer answer42 = new Answer()
+            {
+                AnsDes = innerUPS,
+                QuestionId = 42,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer42);
+
+
+            // AC from UPS :          
+            Answer answer43 = new Answer()
+            {
+                AnsDes = this.acfromupsTextbox.Value,
+                QuestionId = 43,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer43);
+
+            // กระเเส โหลด :          
+            Answer answer44 = new Answer()
+            {
+                AnsDes = this.electricloadTextbox.Value,
+                QuestionId = 44,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer44);
+
+
+            //EMER GENNNARATOR   :
+            string emergen = Request.Form["emergeneratorRadio"];
+            Answer answer45 = new Answer()
+            {
+                AnsDes = emergen,
+                QuestionId = 45,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer45);
+
+            //สภาพ batterry bank  :
+            string statebat = Request.Form["stateBatteryBankRadio"];
+            Answer answer46 = new Answer()
+            {
+                AnsDes = statebat,
+                QuestionId = 46,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer46);
+
+
+            //ONU/Modem Network  :
+            string modemnet = Request.Form["onuModemRadio"];
+            Answer answer47 = new Answer()
+            {
+                AnsDes = modemnet,
+                QuestionId = 47,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer47);
+
+
+            //Swicth 8 part :
+            string swiftpart = Request.Form["switchportRadio"];
+            Answer answer48 = new Answer()
+            {
+                AnsDes = swiftpart,
+                QuestionId = 48,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer48);
+
+
+            //Swicth 48 part :
+            string ee = Request.Form["switch48portRadio"];
+            Answer answer49 = new Answer()
+            {
+                AnsDes = ee,
+                QuestionId = 49,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer49);
+
+
+            //Outdoor AP ตัวที่ 1 :
+            string otap = Request.Form["outdoorapRadio"];
+            Answer answer50 = new Answer()
+            {
+                AnsDes = otap,
+                QuestionId = 50,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer50);
+
+
+
+            //Outdoor AP ตัวที่ 2 :
+            string otap2 = Request.Form["outdoorap2Radio"];
+            Answer answer51 = new Answer()
+            {
+                AnsDes = otap2,
+                QuestionId = 51,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer51);
+
+
+            //indoor AP ตัวที่ 1 :
+            string inap2 = Request.Form["indoorapRadio"];
+            Answer answer52 = new Answer()
+            {
+                AnsDes = inap2,
+                QuestionId = 52,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer52);
+
+
+            //indoor AP ตัวที่ 2 :
+            string inapp = Request.Form["indoorap2Radio"];
+            Answer answer53 = new Answer()
+            {
+                AnsDes = inapp,
+                QuestionId = 53,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer53);
+
+
+            //การ Wiring สายไฟ :
+            string wiring = Request.Form["wiringelecRadio"];
+            Answer answer54 = new Answer()
+            {
+                AnsDes = wiring,
+                QuestionId = 54,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer54);
+
+
+            //การ Wiring Patch cord และ สาย LAN :
+            string wiringPatch = Request.Form["wiringpatchRadio"];
+            Answer answer55 = new Answer()
+            {
+                AnsDes = wiringPatch,
+                QuestionId = 55,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer55);
+
+            //ความแข็งแรงจุดต่อ Ground Bar :
+            string gb = Request.Form["groundbarRadio"];
+            Answer answer57 = new Answer()
+            {
+                AnsDes = gb,
+                QuestionId = 57,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer57);
+
+
+
+            //ความแข็งแรงของน็อตขันหางปลาอุปกรณ์ :
+            string fishnot = Request.Form["notfishRadio"];
+            Answer answer58 = new Answer()
+            {
+                AnsDes = fishnot,
+                QuestionId = 58,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer58);
+
+            //สายกราวด์เรียบร้อย ปลอดภัย สมบูรณ์ :
+            string ffss = Request.Form["safegroundRadio"];
+            Answer answer59 = new Answer()
+            {
+                AnsDes = ffss,
+                QuestionId = 59,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer59);
+
+
+            //สถานะไฟฟ้ารั่วลง Ground :
+            string elecground = Request.Form["brokenElecRadio"];
+            Answer answer60 = new Answer()
+            {
+                AnsDes = elecground,
+                QuestionId = 60,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer60);
+
+
+
+
+            //Fire Alarm และ Smoke Detector :
+            string firesmokeDetec = Request.Form["firesmokedDectorRadio"];
+            Answer answer61 = new Answer()
+            {
+                AnsDes = firesmokeDetec,
+                QuestionId = 61,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer61);
+
+
+
+            //Fire Alarm Manual Switch :
+            string FireAlarmManualSwitch = Request.Form["firealarmManualswitchRadio"];
+            Answer answer62 = new Answer()
+            {
+                AnsDes = FireAlarmManualSwitch,
+                QuestionId = 62,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer62);
+
+
+
+            // Battery Fire Alarm ก้อนที่ 1 :          
+            Answer answer63 = new Answer()
+            {
+                AnsDes = this.battFirealarm1Textbox.Value,
+                QuestionId = 63,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer63);
+
+            // Battery Fire Alarm ก้อนที่ 2 :          
+            Answer answer64 = new Answer()
+            {
+                AnsDes = this.battFirealarm2Textbox.Value,
+                QuestionId = 64,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer64);
+
+
+            //ไฟแสงสว่างฉุกเฉิน :
+            string emerr = Request.Form["emerLightRadio"];
+            Answer answer65 = new Answer()
+            {
+                AnsDes = emerr,
+                QuestionId = 65,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer65);
+
+
+            //ระบบ Monitor กล้องวงจรปิด :
+            string monitorr = Request.Form["monitorCameraRadio"];
+            Answer answer66 = new Answer()
+            {
+                AnsDes = emerr,
+                QuestionId = 66,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer66);
+
+
+            //  กล้องวงจรปิด Computer :
+            string cameraCom = Request.Form["monitorCameraRadio"];
+            Answer answer67 = new Answer()
+            {
+                AnsDes = cameraCom,
+                QuestionId = 67,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer67);
+
+
+
+            //  กล้องวงจรปิดภายนอกอาคาร  :
+            string cameraout = Request.Form["cameraOutRadio"];
+            Answer answer68 = new Answer()
+            {
+                AnsDes = cameraout,
+                QuestionId = 68,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer68);
+
+
+            //  กล้องวงจรปิดภายนอกอาคาร 2  :
+            string cameraout2 = Request.Form["cameraOut2Radio"];
+            Answer answer69 = new Answer()
+            {
+                AnsDes = cameraout2,
+                QuestionId = 69,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer69);
+
+
+            //  จอทีวีห้องประชุม   :
+            string tv = Request.Form["televisRadio"];
+            Answer answer70 = new Answer()
+            {
+                AnsDes = tv,
+                QuestionId = 70,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer70);
+
+
+            //  คอมพิวเตอร์เจ้าหน้าที่ศูนย์  :
+            string comagent = Request.Form["computerAgentRadio"];
+            Answer answer71 = new Answer()
+            {
+                AnsDes = comagent,
+                QuestionId = 71,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer71);
+
+
+            //  Printer  :
+            string print = Request.Form["printerRadio"];
+            Answer answer72 = new Answer()
+            {
+                AnsDes = print,
+                QuestionId = 72,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer72);
+
+
+            // คอมพิวเตอร์ตัวที่ 1  :
+            string com1 = Request.Form["Com1Radio"];
+            Answer answer73 = new Answer()
+            {
+                AnsDes = com1,
+                QuestionId = 73,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer73);
+
+
+            // คอมพิวเตอร์ตัวที่ 2  :
+            string com2 = Request.Form["com2Radio"];
+            Answer answer74 = new Answer()
+            {
+                AnsDes = com2,
+                QuestionId = 74,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer74);
+
+
+            // คอมพิวเตอร์ตัวที่ 3  :
+            string com3 = Request.Form["com3Radio"];
+            Answer answer75 = new Answer()
+            {
+                AnsDes = com3,
+                QuestionId = 75,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer75);
+
+
+            // คอมพิวเตอร์ตัวที่ 4  :
+            string com4 = Request.Form["com4Radio"];
+            Answer answer76 = new Answer()
+            {
+                AnsDes = com4,
+                QuestionId = 76,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer76);
+
+
+
+            // คอมพิวเตอร์ตัวที่ 5  :
+            string com5 = Request.Form["com5Radio"];
+            Answer answer77 = new Answer()
+            {
+                AnsDes = com5,
+                QuestionId = 77,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer77);
+
+
+
+
+            // คอมพิวเตอร์ตัวที่ 6  :
+            string com6 = Request.Form["com6Radio"];
+            Answer answer78 = new Answer()
+            {
+                AnsDes = com6,
+                QuestionId = 78,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer78);
+
+
+
+            // คอมพิวเตอร์ตัวที่ 7  :
+            string com7 = Request.Form["com7Radio"];
+            Answer answer79 = new Answer()
+            {
+                AnsDes = com7,
+                QuestionId = 79,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer79);
+
+
+
+            // คอมพิวเตอร์ตัวที่ 8  :
+            string com8 = Request.Form["com8Radio"];
+            Answer answer80 = new Answer()
+            {
+                AnsDes = com8,
+                QuestionId = 80,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer80);
+
+
+
+            // คอมพิวเตอร์ตัวที่ 9  :
+            string com9 = Request.Form["com9Radio"];
+            Answer answer81 = new Answer()
+            {
+                AnsDes = com9,
+                QuestionId = 81,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer81);
+
+
+
+            // คอมพิวเตอร์ตัวที่ 10  :
+            string com10 = Request.Form["com10Radio"];
+            Answer answer82 = new Answer()
+            {
+                AnsDes = com10,
+                QuestionId = 82,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer82);
+
+
+
+
+
+
+
+
+
+
 
 
 
