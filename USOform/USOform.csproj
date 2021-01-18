@@ -86,6 +86,7 @@
     <Content Include="Web.config" />
     <Content Include="PreventiveMaintenanceReportMB_2.4\default.aspx" />
     <Content Include="Success.aspx" />
+    <Content Include="testtable.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PreventiveMaintenanceReportBB2.1_3.1\default.aspx.cs">
@@ -151,6 +152,13 @@
     </Compile>
     <Compile Include="Success.aspx.designer.cs">
       <DependentUpon>Success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testtable.aspx.cs">
+      <DependentUpon>testtable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testtable.aspx.designer.cs">
+      <DependentUpon>testtable.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

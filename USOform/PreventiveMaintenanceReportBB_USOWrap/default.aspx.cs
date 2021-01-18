@@ -754,7 +754,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             // Battery Fire Alarm ก้อนที่ 2 :          
             Answer answer64 = new Answer()
             {
-                AnsDes = this.battFirealarm2Textbox.Value,
+                AnsDes = this.battFirealarm3Textbox.Value,
                 QuestionId = 64,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
@@ -1005,12 +1005,743 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             uSOEntities.Answers.Add(answer82);
 
 
+            // แอ 1  :
+            string air1 = Request.Form["airRadio"];
+            Answer answer83 = new Answer()
+            {
+                AnsDes = air1,
+                QuestionId = 83,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer83);
+
+
+
+            // แอ 2  :
+            string air2 = Request.Form["air2Radio"];
+            Answer answer84 = new Answer()
+            {
+                AnsDes = air2,
+                QuestionId = 84,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer84);
+
+
+
+
+            // ความสะอาดภายในห้อง   :
+            string clean1 = Request.Form["cleaninroomRadio"];
+            Answer answer85 = new Answer()
+            {
+                AnsDes = clean1,
+                QuestionId = 85,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer85);
+
+
+
+            // ความสะอาดภายในห้อง   :
+            string cleanout = Request.Form["cleanoutroomRadio"];
+            Answer answer86 = new Answer()
+            {
+                AnsDes = cleanout,
+                QuestionId = 86,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer86);
+
+
+
+
+
+            // ประตู   :
+            string dOOr = Request.Form["doorRadio"];
+            Answer answer87 = new Answer()
+            {
+                AnsDes = dOOr,
+                QuestionId = 87,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer87);
+
+
+
+            // อุปกรณ์ LNB/BUC   :
+            string tools = Request.Form["toolslnbRadio"];
+            Answer answer88 = new Answer()
+            {
+                AnsDes = tools,
+                QuestionId = 88,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer88);
+
+
+            // การเก็บสาย RG และการพันหัว   :
+            string toolsRG = Request.Form["wiringrgRadio"];
+            Answer answer89 = new Answer()
+            {
+                AnsDes = toolsRG,
+                QuestionId = 89,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer89);
+
+
+
+            // ฐานและระดับของเสาจาน  :
+            string baseOneiei = Request.Form["baseOnRadio"];
+            Answer answer90 = new Answer()
+            {
+                AnsDes = baseOneiei,
+                QuestionId = 90,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer90);
+
+
+            // ฐานและระดับของเสาจาน  :
+            string lineOf = Request.Form["lineOfsightRadio"];
+            Answer answer91 = new Answer()
+            {
+                AnsDes = lineOf,
+                QuestionId = 91,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer91);
+
+
+            // ความสะอาดของหน้าจาน  :
+            string clendDish = Request.Form["cleaningDishRadio"];
+            Answer answer92 = new Answer()
+            {
+                AnsDes = clendDish,
+                QuestionId = 92,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer92);
+
+
+            // LNB Band Switch  :
+            string lnbswitch = Request.Form["lnbbandswitchRadio"];
+            Answer answer93 = new Answer()
+            {
+                AnsDes = lnbswitch,
+                QuestionId = 93,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer93);
+
+
+            // ระบบ Solar Cell :
+            string solarCells = Request.Form["solarcellSystemRadio"];
+            Answer answer94 = new Answer()
+            {
+                AnsDes = solarCells,
+                QuestionId = 94,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer94);
+
+
+            // แผง PV Panel:
+            string pv = Request.Form["pvPanelRadio"];
+            Answer answer95 = new Answer()
+            {
+                AnsDes = pv,
+                QuestionId = 95,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer95);
+
+
+
+            // อุปกรณ์ Charger :
+            string charGer = Request.Form["toolsCharger"];
+            Answer answer96 = new Answer()
+            {
+                AnsDes = charGer,
+                QuestionId = 96,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer96);
+
+
+
+
+            // ความสะอาดแผง PV :
+            string cleanPv = Request.Form["cleanIngpvRadio"];
+            Answer answer97 = new Answer()
+            {
+                AnsDes = cleanPv,
+                QuestionId = 97,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer97);
+
+
+
+            // การติดตั้งแผง PV :
+            string intPv = Request.Form["installPvRadio"];
+            Answer answer98 = new Answer()
+            {
+                AnsDes = intPv,
+                QuestionId = 98,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer98);
+
+
+
+
+            // แรงดันไฟจาก Inverter :          
+            Answer answer99 = new Answer()
+            {
+                AnsDes = this.voltageInverterTextbox.Value,
+                QuestionId = 99,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer99);
+
+
+            // กระแส Load :          
+            Answer answer100 = new Answer()
+            {
+                AnsDes = this.voltageLoadTextbox.Value,
+                QuestionId = 100,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer100);
+
+
+            // Download (for ONU/VSAT) :          
+            Answer answer101 = new Answer()
+            {
+                AnsDes = this.dowloadforOnuTextbox.Value,
+                QuestionId = 101,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer101);
+
+
+            // Upload (for ONU/VSAT) :          
+            Answer answer102 = new Answer()
+            {
+                AnsDes = this.uploadforOnuTextbox.Value,
+                QuestionId = 102,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer102);
+
+
+            // Ping Test (for ONU/VSAT):          
+            Answer answer103 = new Answer()
+            {
+                AnsDes = this.pingTestTextbox.Value,
+                QuestionId = 103,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer103);
+
+
+            // Download (for WIFI):          
+            Answer answer104 = new Answer()
+            {
+                AnsDes = this.dowloadForwifiTextbox.Value,
+                QuestionId = 104,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer104);
+
+
+            // Upload (for WIFI):          
+            Answer answer105 = new Answer()
+            {
+                AnsDes = this.uploadForwifiTextbox.Value,
+                QuestionId = 105,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer105);
+
+            // Ping Test (for WIFI) :          
+            Answer answer106 = new Answer()
+            {
+                AnsDes = this.pingtestForwifiTextbox.Value,
+                QuestionId = 106,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer106);
+
+            // Download (for LAN) :          
+            Answer answer107 = new Answer()
+            {
+                AnsDes = this.dowlaodForlanTextbox.Value,
+                QuestionId = 107,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer107);
+
+
+            //Upload (for LAN) :          
+            Answer answer108 = new Answer()
+            {
+                AnsDes = this.uploadForlandTextbox.Value,
+                QuestionId = 108,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer108);
+
+
+            //Ping Test  (for LAN) :          
+            Answer answer109 = new Answer()
+            {
+                AnsDes = this.pingtestForlanTextbox.Value,
+                QuestionId = 109,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer109);
+
+
+            //  ปัญหาที่พบ 1 :           
+            Answer answer110 = new Answer()
+            {
+                AnsDes = this.problemTextbox1.Value,
+                QuestionId = 110,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer110);
+
+            //  วิธีแก้ปัญหา 1 :           
+            Answer answer111 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox1.Value,
+                QuestionId = 111,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer111);
+
+
+
+            //  ปัญหาที่พบ 2 :           
+            Answer answer112 = new Answer()
+            {
+                AnsDes = this.problemTextbox2.Value,
+                QuestionId = 112,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer112);
+
+            //  วิธีแก้ปัญหา 2 :           
+            Answer answer113 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox2.Value,
+                QuestionId = 113,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer113);
+
+
+
+            //  ปัญหาที่พบ 3 :           
+            Answer answer114 = new Answer()
+            {
+                AnsDes = this.problemTextbox3.Value,
+                QuestionId = 114,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer114);
+
+            //  วิธีแก้ปัญหา 3 :           
+            Answer answer115 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox3.Value,
+                QuestionId = 115,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer115);
+
+
+
+            //  ปัญหาที่พบ 4 :           
+            Answer answer116 = new Answer()
+            {
+                AnsDes = this.problemTextbox4.Value,
+                QuestionId = 116,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer116);
+
+            //  วิธีแก้ปัญหา 4 :           
+            Answer answer117 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox4.Value,
+                QuestionId = 117,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer117);
+
+
+
+
+
+            //  ปัญหาที่พบ 5 :           
+            Answer answer118 = new Answer()
+            {
+                AnsDes = this.problemTextbox5.Value,
+                QuestionId = 118,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer118);
+
+            //  วิธีแก้ปัญหา 5 :           
+            Answer answer119 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox5.Value,
+                QuestionId = 119,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer119);
+
+
+            //  ปัญหาที่พบ 6 :           
+            Answer answer120 = new Answer()
+            {
+                AnsDes = this.problemTextbox6.Value,
+                QuestionId = 120,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer120);
+
+            //  วิธีแก้ปัญหา 6 :           
+            Answer answer121 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox6.Value,
+                QuestionId = 121,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer121);
+
+            //  ปัญหาที่พบ 7 :           
+            Answer answer122 = new Answer()
+            {
+                AnsDes = this.problemTextbox7.Value,
+                QuestionId = 122,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer122);
+
+            //  วิธีแก้ปัญหา 7 :           
+            Answer answer123 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox7.Value,
+                QuestionId = 123,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer123);
+
+
+
+            ///////////////////////////////////////////////////////////////////////////////
+            //  ปัญหาที่พบ 8 :           
+            Answer answer124 = new Answer()
+            {
+                AnsDes = this.problemTextbox8.Value,
+                QuestionId = 124,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer124);
+
+            //  วิธีแก้ปัญหา 8 :           
+            Answer answer125 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox8.Value,
+                QuestionId = 125,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer125);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+            ///////////////////////////////////////////////////////////////////////////////
+            //  ปัญหาที่พบ 9 :           
+            Answer answer126 = new Answer()
+            {
+                AnsDes = this.problemTextbox9.Value,
+                QuestionId = 126,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer126);
+
+            //  วิธีแก้ปัญหา 9 :           
+            Answer answer127 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox9.Value,
+                QuestionId = 127,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer127);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+            ///////////////////////////////////////////////////////////////////////////////
+            //  ปัญหาที่พบ 10 :           
+            Answer answer128 = new Answer()
+            {
+                AnsDes = this.problemTextbox10.Value,
+                QuestionId = 128,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer128);
+
+            //  วิธีแก้ปัญหา 10 :           
+            Answer answer129 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox10.Value,
+                QuestionId = 129,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer129);
+            //////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+
+
+            ///////////////////////////////////////////////////////////////////////////////
+            //  ปัญหาที่พบ 11 :           
+            Answer answer130 = new Answer()
+            {
+                AnsDes = this.problemTextbox11.Value,
+                QuestionId = 130,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer130);
+
+            //  วิธีแก้ปัญหา 11 :           
+            Answer answer131 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox11.Value,
+                QuestionId = 131,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer131);
+            //////////////////////////////////////////////////////////////////////////////////
+            ///
 
 
 
 
 
 
+            ///////////////////////////////////////////////////////////////////////////////
+            //  ปัญหาที่พบ 12 :           
+            Answer answer132 = new Answer()
+            {
+                AnsDes = this.problemTextbox12.Value,
+                QuestionId = 132,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer132);
+
+            //  วิธีแก้ปัญหา 12 :           
+            Answer answer133 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox12.Value,
+                QuestionId = 133,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer133);
+            //////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+
+
+            ///////////////////////////////////////////////////////////////////////////////
+            //  ปัญหาที่พบ 13 :           
+            Answer answer134 = new Answer()
+            {
+                AnsDes = this.problemTextbox13.Value,
+                QuestionId = 134,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer134);
+
+            //  วิธีแก้ปัญหา 13 :           
+            Answer answer135 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox13.Value,
+                QuestionId = 135,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer135);
+            //////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+
+            ///////////////////////////////////////////////////////////////////////////////
+            //  ปัญหาที่พบ 14 :           
+            Answer answer136 = new Answer()
+            {
+                AnsDes = this.problemTextbox14.Value,
+                QuestionId = 136,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer136);
+
+            //  วิธีแก้ปัญหา 14 :           
+            Answer answer137 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox14.Value,
+                QuestionId = 137,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer137);
+            //////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+
+
+            ///////////////////////////////////////////////////////////////////////////////
+            //  ปัญหาที่พบ 15 :           
+            Answer answer138 = new Answer()
+            {
+                AnsDes = this.problemTextbox15.Value,
+                QuestionId = 138,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer138);
+
+            //  วิธีแก้ปัญหา 15 :           
+            Answer answer139 = new Answer()
+            {
+                AnsDes = this.howtoSolveTextbox15.Value,
+                QuestionId = 139,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer139);
+            //////////////////////////////////////////////////////////////////////////////////
+            
 
 
 

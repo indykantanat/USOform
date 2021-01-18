@@ -295,11 +295,11 @@
                 </div>
             </div>
 
-              <%--////////////// -------------END  SECTION ID 3-----------------  //////////////////--%>
+            <%--////////////// -------------END  SECTION ID 3-----------------  //////////////////--%>
             <br />
 
 
-              <%--////////////// ------------- SECTION ID 4-----------------  //////////////////--%>
+            <%--////////////// ------------- SECTION ID 4-----------------  //////////////////--%>
             <div class="row ">
                 <div class="col-md-12 bg-success text-white text-center Myfont">
                     <h3>1. รายละเอียดศูนย์</h3>
@@ -317,8 +317,8 @@
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-1" for="">Site Code</label>
                     <div class="col-sm-11">
-                         <%-- QuestionId = 28, --%>
-                        <input type="text" class="form-control" id="sitecodeTextboxSection4"  runat="server" required="required" />
+                        <%-- QuestionId = 28, --%>
+                        <input type="text" class="form-control" id="sitecodeTextboxSection4" runat="server" required="required" />
                     </div>
                 </div>
 
@@ -333,35 +333,35 @@
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-1" for="">LAT & LONG</label>
                     <div class="col-sm-11">
-                         <%-- QuestionId = 30, --%>
-                        <input type="text" class="form-control" id="latandlongTextbox"  runat="server" required="required" />
+                        <%-- QuestionId = 30, --%>
+                        <input type="text" class="form-control" id="latandlongTextbox" runat="server" required="required" />
                     </div>
                 </div>
 
 
-                 <%-- QuestionId = 31, --%>
+                <%-- QuestionId = 31, --%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2" for="">Type of Signal</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label">                          
-                            <input type="radio" class="form-check-input"  name="typeofsignalRadio" value="OFC" />OFC
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="typeofsignalRadio" value="OFC" />OFC
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="typeofsignalRadio" value="Satellite" />Satellite
+                            <input type="radio" class="form-check-input" name="typeofsignalRadio" value="Satellite" />Satellite
                         </label>
                     </div>
                 </div>
-                 
-                   <%-- QuestionId = 32, --%>
+
+                <%-- QuestionId = 32, --%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2" for="">ISP (Existing Network)</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="ispTextbox" runat="server" required="required" />
                     </div>
                 </div>
-                  <%--////////////// -------------END  SECTION ID 4-----------------  //////////////////--%>
+                <%--////////////// -------------END  SECTION ID 4-----------------  //////////////////--%>
 
 
 
@@ -372,23 +372,23 @@
 
 
 
-  <%--////////////// -------------START  SECTION ID 5-----------------  //////////////////--%>
+                <%--////////////// -------------START  SECTION ID 5-----------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
                         <h3>2.ระบบไฟฟ้า (หลัก)</h3>
                     </div>
                 </div>
                 <div class="form-row mt-3">
-                       <%------ QuestionId = 33, ------------------------------------------------------------------------------------------------------------%>
+                    <%------ QuestionId = 33, ------------------------------------------------------------------------------------------------------------%>
                     <label class="control-label col-sm-2">ระบบไฟฟ้า</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="elecRadio" value="PEA" />PEA
+                            <input type="radio" class="form-check-input" name="elecRadio" value="PEA" />PEA
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="elecRadio" value="SolarCell" />Solar Cell
+                            <input type="radio" class="form-check-input" name="elecRadio" value="SolarCell" />Solar Cell
                         </label>
                     </div>
                 </div>
@@ -396,31 +396,31 @@
 
 
                 <div class="form-row mt-3">
-                      <%------ QuestionId = 34, ---------------------------------------------------------------------------------------------------------%>
+                    <%------ QuestionId = 34, ---------------------------------------------------------------------------------------------------------%>
                     <label class="control-label col-sm-2" for="">หม้อแปลงไฟฟ้า</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" >
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="transformerRadio" value="1Phase" />1 Phase
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="transformerRadio" value="3Phase" />3 Phase
+                            <input type="radio" class="form-check-input" name="transformerRadio" value="3Phase" />3 Phase
                         </label>
                     </div>
                 </div>
 
 
                 <div class="form-row mt-3">
-                      <%------ QuestionId = 35, ----------------------------------------------------------------------------------------------------------%>
+                    <%------ QuestionId = 35, ----------------------------------------------------------------------------------------------------------%>
                     <label class="control-label col-sm-2" for="">หมายเลขผู้ใช้ไฟ</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="numberuserTextbox"  runat="server" required="required" />
+                        <input type="text" class="form-control" id="numberuserTextbox" runat="server" required="required" />
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                      <%------ QuestionId = 36, ----------------------------------------------------------------------------------------------------------%>
+                    <%------ QuestionId = 36, ----------------------------------------------------------------------------------------------------------%>
                     <label class="control-label col-sm-2" for="">หน่วยใช้ไฟ (kWh Meter)</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="kwhMeterTextbox" runat="server" required="required" />
@@ -430,7 +430,7 @@
 
 
                 <div class="form-row mt-3">
-                      <%------ QuestionId = 37, ---------------------------------------------------------------------------------------------------------%>
+                    <%------ QuestionId = 37, ---------------------------------------------------------------------------------------------------------%>
                     <label class="control-label col-sm-2" for="">แรงดัน AC (kWh Meter)</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="acTextbox" runat="server" required="required" />
@@ -439,7 +439,7 @@
                 </div>
 
                 <div class="form-row mt-3">
-                     <%------ QuestionId = 38, ----------------------------------------------------------------------------------------------------------%>
+                    <%------ QuestionId = 38, ----------------------------------------------------------------------------------------------------------%>
                     <label class="control-label col-sm-2" for="">กระแส Line AC (kWh Meter)</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="lineAcTextbox" runat="server" required="required" />
@@ -448,7 +448,7 @@
                 </div>
 
                 <div class="form-row mt-3">
-                     <%------ QuestionId = 39, -----------------------------------------------------------------------------------------------------------%>
+                    <%------ QuestionId = 39, -----------------------------------------------------------------------------------------------------------%>
                     <label class="control-label col-sm-2">กระแส Neutron AC (kWh Meter)</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="neutronacTextbox" runat="server" required="required" />
@@ -457,35 +457,35 @@
                 </div>
 
                 <div class="form-row mt-3">
-                      <%------ QuestionId = 40, -----------------------------------------------------------------------------------------------------------%>
+                    <%------ QuestionId = 40, -----------------------------------------------------------------------------------------------------------%>
                     <label class="control-label col-sm-2" for="">สภาพ kWh Meter</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" >
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="conditionRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" >
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="conditionRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                     <%------ QuestionId = 41, ----------------------------------------------------------------------------------------------------------%>
+                    <%------ QuestionId = 41, ----------------------------------------------------------------------------------------------------------%>
                     <label class="control-label col-sm-2" for="">สภาพ MDB/ Circuit Breaker</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" >
-                            <input type="radio" class="form-check-input"  name="MDBCircuitBreakerRadio" value="ปกติ" />ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="MDBCircuitBreakerRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" >
-                            <input type="radio" class="form-check-input"  name="MDBCircuitBreakerRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="MDBCircuitBreakerRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
-                 <%--////////////// -------------END  SECTION ID 5-----------------  //////////////////--%>
+                <%--////////////// -------------END  SECTION ID 5-----------------  //////////////////--%>
 
 
 
@@ -497,7 +497,7 @@
 
 
 
-                 <%--////////////// -------------START  SECTION ID 6 -----------------  //////////////////--%>
+                <%--////////////// -------------START  SECTION ID 6 -----------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
                         <h3>3.ระบบไฟ (สำรอง)</h3>
@@ -505,11 +505,11 @@
                 </div>
 
                 <div class="form-row mt-3">
-                     <%------ QuestionId = 42, ----------------------------------------------------------------------------------------------------------%>
+                    <%------ QuestionId = 42, ----------------------------------------------------------------------------------------------------------%>
                     <label class="control-label col-sm-2" for="">UPS ภายในตู้</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" >
-                            <input type="radio" class="form-check-input"  name="inupsRadio" value="มี" />มี
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="inupsRadio" value="มี" />มี
                         </label>
                     </div>
                     <div class="form-check-inline">
@@ -521,7 +521,7 @@
 
 
                 <div class="form-row mt-3">
-                      <%------ QuestionId = 43, ---------------------------------------------------------------------------------------------------------%>
+                    <%------ QuestionId = 43, ---------------------------------------------------------------------------------------------------------%>
                     <label class="control-label col-sm-2" for="">แรงดัน AC จาก UPS</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="acfromupsTextbox" runat="server" required="required" />
@@ -529,44 +529,44 @@
                     <label class="control-label col-sm-2" for="">V.</label>
                 </div>
 
-                 <%------ QuestionId = 44, --------------------------------------------------------------------------------------------------------%>
+                <%------ QuestionId = 44, --------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2" for="">กระแส Load</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="electricloadTextbox"  runat="server" required="required" />
+                        <input type="text" class="form-control" id="electricloadTextbox" runat="server" required="required" />
                     </div>
                     <label class="control-label col-sm-2" for="">A.</label>
                 </div>
 
 
-               <%------ QuestionId = 7 , ---------------------------------------------------------------------------------------------------------%>
+                <%------ QuestionId = 7 , ---------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2" for="">UPS MODE</label>
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input"  name="upsModeRadio" value="LINE" required="required" />LINE
+                            <input type="radio" class="form-check-input" name="upsModeRadio" value="LINE" required="required" />LINE
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input"  name="upsModeRadio" value="BATT." required="required" />BATT.
+                            <input type="radio" class="form-check-input" name="upsModeRadio" value="BATT." required="required" />BATT.
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input"  name="upsModeRadio" value="BYPASS" required="required" />BYPASS
+                            <input type="radio" class="form-check-input" name="upsModeRadio" value="BYPASS" required="required" />BYPASS
                         </label>
                     </div>
                 </div>
 
 
 
-                  <%------ QuestionId = 45, ---------------------------------------------------------------------------------------------------------%>
+                <%------ QuestionId = 45, ---------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2" for="">การทำงานของระบบไฟสำรอง</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="emergeneratorRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="emergeneratorRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
 
@@ -577,7 +577,7 @@
                     </div>
                 </div>
 
-                 <%------ QuestionId = 46, ----------------------------------------------------------------------------------------------------------%>
+                <%------ QuestionId = 46, ----------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2" for="">สภาพ Battery Bank</label>
                     <div class="form-check-inline">
@@ -588,11 +588,11 @@
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="stateBatteryBankRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="stateBatteryBankRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
-                  <%--////////////// -------------END  SECTION ID 6 -----------------  //////////////////--%>
+                <%--////////////// -------------END  SECTION ID 6 -----------------  //////////////////--%>
 
 
 
@@ -602,7 +602,7 @@
 
 
 
-                  <%--////////////// -------------START  SECTION ID 7 -----------------  //////////////////--%>
+                <%--////////////// -------------START  SECTION ID 7 -----------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
                         <h3>4.รายละเอียดอุปกรณ์ Network ภายในศูนย์</h3>
@@ -610,29 +610,29 @@
                 </div>
 
                 <div class="form-row mt-3">
-                      <%------ QuestionId = 47, --------------------------------------------------------------------------------------------------------%>
+                    <%------ QuestionId = 47, --------------------------------------------------------------------------------------------------------%>
                     <label class="control-label col-sm-2">ONU/Modem Network</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="onuModemRadio" value="USO" />USO
+                            <input type="radio" class="form-check-input" name="onuModemRadio" value="USO" />USO
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="onuModemRadio" value="TRUE" />TRUE
+                            <input type="radio" class="form-check-input" name="onuModemRadio" value="TRUE" />TRUE
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="onuModemRadio" value="3BB" />3BB
+                            <input type="radio" class="form-check-input" name="onuModemRadio" value="3BB" />3BB
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="onuModemRadio" value="Satellite" />Satellite
+                            <input type="radio" class="form-check-input" name="onuModemRadio" value="Satellite" />Satellite
                         </label>
                     </div>
                 </div>
@@ -643,79 +643,79 @@
                     <label class="control-label col-sm-2" for="">Switch 8 Port</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="switchportRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="switchportRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
-                <div class="form-check-inline">
-                        <label class="form-check-label" >
-                            <input type="radio" class="form-check-input"  name="switchportRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="switchportRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
-                 <%------ QuestionId = 49, --------------------------------------------------------------------------------------------------------%>
+                <%------ QuestionId = 49, --------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2" for="">Switch 48 Port</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="switch48portRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="switch48portRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="switch48portRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="switch48portRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
-                  <%------ QuestionId = 50, --------------------------------------------------------------------------------------------------------%>
+                <%------ QuestionId = 50, --------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2">Outdoor AP ตัวที่ 1</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="outdoorapRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="outdoorapRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="outdoorapRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="outdoorapRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
-                  <%------ QuestionId = 51, -------------------------------------------------------------------------------------------------------%>
+                <%------ QuestionId = 51, -------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2" for="">Outdoor AP ตัวที่ 2</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="outdoorap2Radio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="outdoorap2Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="outdoorap2Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="outdoorap2Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
-                   <%------ QuestionId = 52, --------------------------------------------------------------------------------------------------------%>
+                <%------ QuestionId = 52, --------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2" for="">Indoor AP ตัวที่ 1</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="indoorapRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="indoorapRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="indoorapRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="indoorapRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -726,12 +726,12 @@
                     <label class="control-label col-sm-2" for="">Indoor AP ตัวที่ 2</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="indoorap2Radio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="indoorap2Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="indoorap2Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="indoorap2Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -741,36 +741,36 @@
                     <label class="control-label col-sm-2" for="">การ Wiring สายไฟ</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="wiringelecRadio" value="เรียบร้อย" />เรียบร้อย
+                            <input type="radio" class="form-check-input" name="wiringelecRadio" value="เรียบร้อย" />เรียบร้อย
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="wiringelecRadio" value="ไม่เรียบร้อย" />ไม่เรียบร้อย
+                            <input type="radio" class="form-check-input" name="wiringelecRadio" value="ไม่เรียบร้อย" />ไม่เรียบร้อย
                         </label>
                     </div>
                 </div>
 
-                 <%------ QuestionId = 55, ------------------------------------------------------------------------------------------------------------%>
+                <%------ QuestionId = 55, ------------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2">การ Wiring Patch cord และ สาย LAN</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="wiringpatchRadio" value="เรียบร้อย" />เรียบร้อย
+                            <input type="radio" class="form-check-input" name="wiringpatchRadio" value="เรียบร้อย" />เรียบร้อย
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="wiringpatchRadio" value="ไม่เรียบร้อย" />ไม่เรียบร้อย
+                            <input type="radio" class="form-check-input" name="wiringpatchRadio" value="ไม่เรียบร้อย" />ไม่เรียบร้อย
                         </label>
                     </div>
                 </div>
-                 <%--////////////// -------------END  SECTION ID 7 -----------------  //////////////////--%>
+                <%--////////////// -------------END  SECTION ID 7 -----------------  //////////////////--%>
 
 
 
-                  <%--////////////// -------------START  SECTION ID 8 -----------------  //////////////////--%>
+                <%--////////////// -------------START  SECTION ID 8 -----------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-success text-white text-center Myfont">
                         <h3>5.ระบบ Ground</h3>
@@ -778,16 +778,16 @@
                 </div>
 
                 <div class="form-row mt-3">
-                     <%---------------------- QuestionId = 57, ---------------------------%>
+                    <%---------------------- QuestionId = 57, ---------------------------%>
                     <label class="control-label col-sm-4">ความแข็งแรงจุดต่อ Ground Bar</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="groundbarRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="groundbarRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="groundbarRadio" value="ชำรุด" />ชำรุด
+                            <input type="radio" class="form-check-input" name="groundbarRadio" value="ชำรุด" />ชำรุด
                         </label>
                     </div>
                 </div>
@@ -802,17 +802,17 @@
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="notfishRadio" value="ชำรุด" />ชำรุด
+                            <input type="radio" class="form-check-input" name="notfishRadio" value="ชำรุด" />ชำรุด
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                      <%---------------------- QuestionId = 59, ---------------------------%>
+                    <%---------------------- QuestionId = 59, ---------------------------%>
                     <label class="control-label col-sm-4">สายกราวด์เรียบร้อย ปลอดภัย สมบูรณ์</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="safegroundRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="safegroundRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
@@ -826,57 +826,57 @@
 
                 <%---------------------- QuestionId = 60, ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" >สถานะไฟฟ้ารั่วลง Ground</label>
+                    <label class="control-label col-sm-4">สถานะไฟฟ้ารั่วลง Ground</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="brokenElecRadio" value="ไม่พบไฟฟ้ารั่ว" />ไม่พบไฟฟ้ารั่ว
+                            <input type="radio" class="form-check-input" name="brokenElecRadio" value="ไม่พบไฟฟ้ารั่ว" />ไม่พบไฟฟ้ารั่ว
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="brokenElecRadio" value="พบไฟฟ้ารั่ว" />พบไฟฟ้ารั่ว
+                            <input type="radio" class="form-check-input" name="brokenElecRadio" value="พบไฟฟ้ารั่ว" />พบไฟฟ้ารั่ว
                         </label>
                     </div>
                 </div>
-                  <%--////////////// -------------END  SECTION ID 8 -----------------  //////////////////--%>
+                <%--////////////// -------------END  SECTION ID 8 -----------------  //////////////////--%>
 
 
 
 
 
-                 <%--////////////// -------------START  SECTION ID 9 -----------------  //////////////////--%>
+                <%--////////////// -------------START  SECTION ID 9 -----------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-success text-white text-center Myfont">
                         <h3>6.ระบบความปลอดภัยและเตือนภัย</h3>
                     </div>
                 </div>
-                  <%---------------------- QuestionId = 61 ---------------------------%>
+                <%---------------------- QuestionId = 61 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">Fire Alarm และ Smoke Detector</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="firesmokedDectorRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="firesmokedDectorRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="firesmokedDectorRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="firesmokedDectorRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
                 <div class="form-row mt-3">
-                     <%---------------------- QuestionId = 62 ---------------------------%>
+                    <%---------------------- QuestionId = 62 ---------------------------%>
                     <label class="control-label col-sm-4">Fire Alarm Manual Switch</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="firealarmManualswitchRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="firealarmManualswitchRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="firealarmManualswitchRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="firealarmManualswitchRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -884,58 +884,59 @@
 
 
                 <div class="form-row mt-3">
-                     <%---------------------- QuestionId = 63 ---------------------------%>
+                    <%---------------------- QuestionId = 63 ---------------------------%>
                     <label class="control-label col-sm-2">Battery Fire Alarm ก้อนที่ 1</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="battFirealarm1Textbox" runat="server"  required="required"  />
+                        <input type="text" class="form-control" id="battFirealarm1Textbox" runat="server" required="required" />
                     </div>
                     <label class="control-label col-sm-2" for="">V.</label>
                 </div>
 
 
-                 <%---------------------- QuestionId = 64 ---------------------------%>
+                <%---------------------- QuestionId = 64 ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Battery Fire Alarm ก้อนที่ 2</label>
+                    <label class="control-label col-sm-2">Battery Fire Alarm ก้อนที่ 2</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" id="battFirealarm2Textbox" runat="server"  required="required"  />
+                        <%--                        <input type="text" class="form-control"  runat="server"  required="required" id="battFirealarm2Textbox" />--%>
+                        <input type="text" class="form-control" id="battFirealarm3Textbox" runat="server" required="required" />
                     </div>
                     <label class="control-label col-sm-2" for="">V.</label>
                 </div>
 
-                  <%---------------------- QuestionId = 65 ---------------------------%>
+                <%---------------------- QuestionId = 65 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">ไฟแสงสว่างฉุกเฉิน</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="emerLightRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="emerLightRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="emerLightRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="emerLightRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
-                  <%---------------------- QuestionId = 66 ---------------------------%>
+                <%---------------------- QuestionId = 66 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">ระบบ Monitor กล้องวงจรปิด</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="monitorCameraRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="monitorCameraRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="monitorCameraRadio" value="ไม่สามารถ Monitor ได้" />ไม่สามารถ Monitor ได้
+                            <input type="radio" class="form-check-input" name="monitorCameraRadio" value="ไม่สามารถ Monitor ได้" />ไม่สามารถ Monitor ได้
                         </label>
                     </div>
                 </div>
 
 
 
-                 <%---------------------- QuestionId = 67 ---------------------------%>
+                <%---------------------- QuestionId = 67 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">กล้องวงจรปิดห้อง Computer</label>
                     <div class="form-check-inline">
@@ -951,7 +952,7 @@
                 </div>
 
 
-                  <%---------------------- QuestionId = 68 ---------------------------%>
+                <%---------------------- QuestionId = 68 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">กล้องวงจรปิดภายนอกอาคาร 1</label>
                     <div class="form-check-inline">
@@ -970,28 +971,28 @@
 
 
 
-                 <%---------------------- QuestionId = 69 ---------------------------%>
+                <%---------------------- QuestionId = 69 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">กล้องวงจรปิดภายนอกอาคาร 2</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="cameraOut2Radio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="cameraOut2Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="cameraOut2Radio" value="ชำรุด" />ชำรุด
+                            <input type="radio" class="form-check-input" name="cameraOut2Radio" value="ชำรุด" />ชำรุด
                         </label>
                     </div>
                 </div>
 
-                 <%--////////////// -------------END  SECTION ID 9 -----------------  //////////////////--%>
+                <%--////////////// -------------END  SECTION ID 9 -----------------  //////////////////--%>
 
 
 
 
 
-                 <%--////////////// -------------START  SECTION ID 10 -----------------  //////////////////--%>
+                <%--////////////// -------------START  SECTION ID 10 -----------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
                         <h3>7.ระบบสารสนเทศ</h3>
@@ -1003,28 +1004,28 @@
                     <label class="control-label col-sm-4">จอทีวีห้องประชุม</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="televisRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="televisRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="televisRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="televisRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
-                  <%---------------------- QuestionId = 71 ---------------------------%>
+                <%---------------------- QuestionId = 71 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">คอมพิวเตอร์เจ้าหน้าที่ศูนย์</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="computerAgentRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="computerAgentRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="computerAgentRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="computerAgentRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1034,67 +1035,67 @@
 
 
 
-                  <%---------------------- QuestionId = 72 ---------------------------%>
+                <%---------------------- QuestionId = 72 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">Printer</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="printerRadio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="printerRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="printerRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="printerRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
 
-                 <%---------------------- QuestionId = 73 ---------------------------%>
+                <%---------------------- QuestionId = 73 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 1</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="Com1Radio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="Com1Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="Com1Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="Com1Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
-                  <%---------------------- QuestionId = 74 ---------------------------%>
+                <%---------------------- QuestionId = 74 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 2</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com2Radio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="com2Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com2Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com2Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
 
-                  <%---------------------- QuestionId = 75 ---------------------------%>
+                <%---------------------- QuestionId = 75 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 3</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com3Radio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="com3Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" >
-                            <input type="radio" class="form-check-input"  name="com3Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="com3Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1102,34 +1103,34 @@
 
 
 
-                 <%---------------------- QuestionId = 76 ---------------------------%>
+                <%---------------------- QuestionId = 76 ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" >คอมพิวเตอร์ตัวที่ 4</label>
+                    <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 4</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com4Radio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="com4Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com4Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com4Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
 
-                  <%---------------------- QuestionId = 77 ---------------------------%>
+                <%---------------------- QuestionId = 77 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 5</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com5Radio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="com5Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com5Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com5Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1142,12 +1143,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 6</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com6Radio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="com6Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com6Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com6Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1160,12 +1161,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 7</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com7Radio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="com7Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com7Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com7Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1173,56 +1174,56 @@
 
 
 
-                
+
                 <%---------------------- QuestionId = 80 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 8</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com8Radio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="com8Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com8Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com8Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
 
-                 <%---------------------- QuestionId = 81 ---------------------------%>
+                <%---------------------- QuestionId = 81 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 9</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="" value="" />ปกติ
+                            <input type="radio" class="form-check-input" name="" value="" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" >
-                            <input type="radio" class="form-check-input"  name="" value="" />ชำรุด/ใช้งานไม่ได้
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="" value="" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
 
 
-                  <%---------------------- QuestionId = 82 ---------------------------%>
+                <%---------------------- QuestionId = 82 ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 10</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com10Radio" value="ปกติ" />ปกติ
+                            <input type="radio" class="form-check-input" name="com10Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input"  name="com10Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com10Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
-                 <%--////////////// -------------END  SECTION ID 10 -----------------  //////////////////--%>
+                <%--////////////// -------------END  SECTION ID 10 -----------------  //////////////////--%>
 
 
 
@@ -1238,98 +1239,114 @@
                 <%--////////////// -------------START  SECTION ID 11 -----------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
-                        <h3>8. ระบบเครื่องปรับอากาศและระบายอากาศ</h3>
+                        <h3>8.ระบบเครื่องปรับอากาศและระบายอากาศ</h3>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">เครื่องปรับอากาศ 2</label>
+                    <%---------------------- QuestionId = 83 ---------------------------%>
+                    <label class="control-label col-sm-4">เครื่องปรับอากาศ 1</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="" />ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="airRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="" />ชำรุด/ใช้งานไม่ได้
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="airRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">เครื่องปรับอากาศ 2</label>
+                    <%---------------------- QuestionId = 84 ---------------------------%>
+                    <label class="control-label col-sm-4">เครื่องปรับอากาศ 2</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="air2Radio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="air2Radio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
+                <%--////////////// -------------END  SECTION ID 11 -----------------  //////////////////--%>
 
 
 
+
+
+
+
+                <%--////////////// -------------START  SECTION ID 12 -----------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
                         <h3>9.อาคาร</h3>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 85 ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">ความสะอาดภายในห้อง</label>
+                    <label class="control-label col-sm-2">ความสะอาดภายในห้อง</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="radio2">
-                            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">สะอาด
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="cleaninroomRadio" value="สะอาด">สะอาด
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="radio3">
-                            <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">ไม่สะอาด/ไม่เรียบร้อย
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="cleaninroomRadio" value="ไม่สะอาด/ไม่เรียบร้อย">ไม่สะอาด/ไม่เรียบร้อย
                         </label>
                     </div>
                 </div>
 
-
-
-
-
-                <div class="row mt-3">
-                    <div class="col-md-12 bg-primary text-white text-center Myfont">
-                        <h3>9. อาคาร (ต่อ)</h3>
-                    </div>
-                </div>
-
+                <%---------------------- QuestionId = 86 ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">ความสะอาดรอบห้องภายนอก</label>
+                    <label class="control-label col-sm-2">ความสะอาดรอบห้องภายนอก</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="radio2">
-                            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">สะอาด
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="cleanoutroomRadio" value="สะอาด" />สะอาด
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="radio3">
-                            <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">ไม่สะอาด/ไม่เรียบร้อย
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="cleanoutroomRadio" value="ไม่สะอาด/ไม่เรียบร้อย" />ไม่สะอาด/ไม่เรียบร้อย
                         </label>
                     </div>
                 </div>
 
+
+                <%---------------------- QuestionId = 87 ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">ประตูห้อง</label>
+                    <label class="control-label col-sm-2">ประตูห้อง</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="radio2">
-                            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="doorRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="radio3">
-                            <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">ชำรุด
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="doorRadio" value="ชำรุด" />ชำรุด
                         </label>
                     </div>
                 </div>
 
+
+                <%--////////////// -------------EnD  SECTION ID 12 -----------------  //////////////////--%>
+
+
+
+
+
+
+
+
+
+
+
+                <%--////////////// -------------START  SECTION ID 13 -----------------  //////////////////--%>
 
 
 
@@ -1339,785 +1356,734 @@
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 88 ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">อุปกรณ์ LNB/BUC</label>
+                    <label class="control-label col-sm-4">อุปกรณ์ LNB/BUC</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="toolslnbRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="toolslnbRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
+
+                <%---------------------- QuestionId = 89 ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">การเก็บสาย RG และการพันหัว</label>
+                    <label class="control-label col-sm-4">การเก็บสาย RG และการพันหัว</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="wiringrgRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ไม่เรียบร้อย/ไม่แน่น
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="wiringrgRadio" value="ไม่เรียบร้อย/ไม่แน่น" />ไม่เรียบร้อย/ไม่แน่น
                         </label>
                     </div>
                 </div>
 
+
+
+                <%---------------------- QuestionId = 90  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">ฐานและระดับของเสาจาน</label>
+                    <label class="control-label col-sm-4">ฐานและระดับของเสาจาน</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="baseOnRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ไม่ได้ระดับ/เอียง
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="baseOnRadio" value="ไม่ได้ระดับ/เอียง" />ไม่ได้ระดับ/เอียง
                         </label>
                     </div>
                 </div>
 
+
+
+                <%---------------------- QuestionId = 91  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">แนว Line Of Sight</label>
+                    <label class="control-label col-sm-4">แนว Line Of Sight</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="lineOfsightRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">โดนบัง
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="lineOfsightRadio" value="โดนบัง" />โดนบัง
                         </label>
                     </div>
                 </div>
 
+
+
+
+                <%---------------------- QuestionId = 92  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">ความสะอาดของหน้าจาน</label>
+                    <label class="control-label col-sm-4">ความสะอาดของหน้าจาน</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="cleaningDishRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">สกปรก
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="cleaningDishRadio" value="สกปรก" />สกปรก
                         </label>
                     </div>
                 </div>
 
+
+
+
+                <%---------------------- QuestionId = 93  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">LNB Band Switch</label>
+                    <label class="control-label col-sm-4">LNB Band Switch</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">HIGH BAND
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="lnbbandswitchRadio" value="HIGHBAND" />HIGH BAND
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">LOW BAND
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="lnbbandswitchRadio" value="LOWBAND" />LOW BAND
                         </label>
                     </div>
                 </div>
+                <%--////////////// -------------END  SECTION ID 13 -----------------  //////////////////--%>
 
+
+
+
+
+
+
+
+
+
+
+
+                <%--////////////// --------------------- START  SECTION ID 14 ---------------------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
                         <h3>11.อุปกรณ์ระบบ Solar Cell (เฉพาะศูนย์ที่ใช้ Solar Cell)</h3>
                     </div>
                 </div>
 
+
+                <%---------------------- QuestionId = 94  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">ระบบ Solar Cell</label>
+                    <label class="control-label col-sm-4">ระบบ Solar Cell</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="solarcellSystemRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="solarcellSystemRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
+
+                <%---------------------- QuestionId = 95  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">แผง PV Panel</label>
+                    <label class="control-label col-sm-4">แผง PV Panel</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="pvPanelRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="pvPanelRadio" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
+
+                <%---------------------- QuestionId = 96  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">อุปกรณ์ Charger</label>
+                    <label class="control-label col-sm-4">อุปกรณ์ Charger</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="toolsCharger" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="toolsCharger" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
 
+
+
+                <%---------------------- QuestionId = 97  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">ความสะอาดแผง PV</label>
+                    <label class="control-label col-sm-4">ความสะอาดแผง PV</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="cleanIngpvRadio" value="ปกติ" />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">สกปรก
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="cleanIngpvRadio" value="สกปรก" />สกปรก
                         </label>
                     </div>
                 </div>
 
+
+
+                <%---------------------- QuestionId = 98  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">การติดตั้งแผง PV</label>
+                    <label class="control-label col-sm-4">การติดตั้งแผง PV</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">ที่โล่งรับแดดปกติ
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="installPvRadio" value="ที่โล่งรับแดดปกติ" />ที่โล่งรับแดดปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">มีอาคาร/ต้นไม้บัง
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="installPvRadio" value="มีอาคาร/ต้นไม้บัง" />มีอาคาร/ต้นไม้บัง
                         </label>
                     </div>
                 </div>
 
+
+
+                <%---------------------- QuestionId = 99  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">แรงดันไฟจาก Inverter</label>
+                    <label class="control-label col-sm-2">แรงดันไฟจาก Inverter</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" id="" name="">
+                        <input type="text" class="form-control" id="voltageInverterTextbox" runat="server" required="required" />
                     </div>
-                    <label class="control-label col-sm-2" for="">V.</label>
+                    <label class="control-label col-sm-2">V.</label>
                 </div>
 
+
+
+                <%---------------------- QuestionId = 100  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">กระแส Load</label>
+                    <label class="control-label col-sm-2">กระแส Load</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" id="" name="">
+                        <input type="text" class="form-control" id="voltageLoadTextbox" runat="server" required="required" />
                     </div>
-                    <label class="control-label col-sm-2" for="">A.</label>
+                    <label class="control-label col-sm-2">A.</label>
                 </div>
+                <%--////////////// ---------------------------END  SECTION ID 14 -----------------------------  //////////////////--%>
 
 
 
 
+
+
+
+
+
+
+
+
+                <%--////////////// --------------------- START  SECTION ID 15 ---------------------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
                         <h3>12. คุณภาพของสัญญาณ</h3>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 101  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Download (for ONU/VSAT)</label>
+                    <label class="control-label col-sm-2">Download (for ONU/VSAT)</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" id="" name="">
+                        <input type="text" class="form-control" id="dowloadforOnuTextbox" runat="server" required="required" />
                     </div>
-                    <label class="control-label col-sm-2" for="">Mb/s</label>
+                    <label class="control-label col-sm-2">Mb/s</label>
                 </div>
 
-
+                <%---------------------- QuestionId = 102  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Upload (for ONU/VSAT)</label>
+                    <label class="control-label col-sm-2">Upload (for ONU/VSAT)</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" id="" name="">
+                        <input type="text" class="form-control" id="uploadforOnuTextbox" runat="server" required="required" />
                     </div>
-                    <label class="control-label col-sm-2" for="">Mb/s</label>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Ping Test (for ONU/VSAT)</label>
-                    <div class="col-sm-8">
-                        <input type="email" class="form-control" id="" name="">
-                    </div>
-                    <label class="control-label col-sm-2" for="">ms</label>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Download (for WIFI)</label>
-                    <div class="col-sm-8">
-                        <input type="email" class="form-control" id="" name="">
-                    </div>
-                    <label class="control-label col-sm-2" for="">Mb/s</label>
-                </div>
-
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Upload (for WIFI)</label>
-                    <div class="col-sm-8">
-                        <input type="email" class="form-control" id="" name="">
-                    </div>
-                    <label class="control-label col-sm-2" for="">Mb/s</label>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Ping Test (for WIFI)</label>
-                    <div class="col-sm-8">
-                        <input type="email" class="form-control" id="" name="">
-                    </div>
-                    <label class="control-label col-sm-2" for="">ms</label>
-                </div>
-
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Download (for LAN)</label>
-                    <div class="col-sm-8">
-                        <input type="email" class="form-control" id="" name="">
-                    </div>
-                    <label class="control-label col-sm-2" for="">Mb/s</label>
-                </div>
-
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Upload (for LAN)</label>
-                    <div class="col-sm-8">
-                        <input type="email" class="form-control" id="" name="">
-                    </div>
-                    <label class="control-label col-sm-2" for="">Mb/s</label>
-                </div>
-
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Ping Test  (for LAN)</label>
-                    <div class="col-sm-8">
-                        <input type="email" class="form-control" id="" name="">
-                    </div>
-                    <label class="control-label col-sm-2" for="">ms</label>
+                    <label class="control-label col-sm-2">Mb/s</label>
                 </div>
 
 
 
+                <%---------------------- QuestionId = 103  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-2">Ping Test (for ONU/VSAT)</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="pingTestTextbox" runat="server" required="required" />
+                    </div>
+                    <label class="control-label col-sm-2">ms</label>
+                </div>
+
+
+
+                <%---------------------- QuestionId = 104  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-2">Download (for WIFI)</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="dowloadForwifiTextbox" runat="server" required="required" />
+                    </div>
+                    <label class="control-label col-sm-2">Mb/s</label>
+                </div>
+
+                <%---------------------- QuestionId = 105  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-2">Upload (for WIFI)</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="uploadForwifiTextbox" runat="server" required="required" />
+                    </div>
+                    <label class="control-label col-sm-2">Mb/s</label>
+                </div>
+
+
+                <%---------------------- QuestionId = 106  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-2">Ping Test (for WIFI)</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="pingtestForwifiTextbox" runat="server" required="required" />
+                    </div>
+                    <label class="control-label col-sm-2">ms</label>
+                </div>
+
+
+                <%---------------------- QuestionId = 107  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-2">Download (for LAN)</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="dowlaodForlanTextbox" runat="server" required="required" />
+                    </div>
+                    <label class="control-label col-sm-2">Mb/s</label>
+                </div>
+
+
+
+                <%---------------------- QuestionId = 108  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-2">Upload (for LAN)</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="uploadForlandTextbox" runat="server" required="required" />
+                    </div>
+                    <label class="control-label col-sm-2">Mb/s</label>
+                </div>
+
+
+
+                <%---------------------- QuestionId = 109  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-2">Ping Test  (for LAN)</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="pingtestForlanTextbox" runat="server" required="required" />
+                    </div>
+                    <label class="control-label col-sm-2">ms</label>
+                </div>
+                <%--////////////// --------------------- END  SECTION ID 15 ---------------------------  //////////////////--%>
+
+
+
+
+
+
+
+
+                <%--////////////// --------------------- START  SECTION ID 16 ---------------------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
-                        <h3>13. ปัญหาที่พบและการแก้ไข</h3>
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>ลำดับ</span>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <span>ปัญหาที่พบ</span>
-                    </div>
-                    <div class="col-md-7 text-center">
-                        <span>แนวทางการแก้ไข</span>
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>1</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
+                        <h3>13.ปัญหาที่พบและการแก้ไข</h3>
                     </div>
                 </div>
 
 
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>2</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
+                <div class="divTable" style="width: 100%;">
+                    <div class="divTableBody">
+                        <div class="divTableRow">
+                            <div class="divTableCell">ลำดับ</div>
+                            <div class="divTableCell">ปัญหาที่พบ</div>
+                            <div class="divTableCell">แนวทางการแก้ไข</div>
+                        </div>
+
+
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;1</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 110  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox1" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 111  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox1" runat="server" />
+                            </div>
+                        </div>
+
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;2</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 112  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox2" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 113  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox2" runat="server" />
+                            </div>
+                        </div>
+
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;3</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 114  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox3" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 115  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox3" runat="server" />
+                            </div>
+                        </div>
+
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;4</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 116  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox4" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 117  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox4" runat="server" />
+                            </div>
+                        </div>
+
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;5</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 118  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox5" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 119  ---------------------------%>
+                                <input type="text" class="form-control " id="howtoSolveTextbox5" runat="server" />
+                            </div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;6</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 120  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox6" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 121  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox6" runat="server" />
+                            </div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;7</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 122  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox7" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 123  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox7" runat="server" />
+                            </div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;8</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 124  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox8" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 125  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox8" runat="server" />
+                            </div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;9</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 126  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox9" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 127  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox9" runat="server" />
+                            </div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;10</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 128  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox10" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 129  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox10" runat="server" />
+                            </div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;11</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 130  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox11" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 131  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox11" runat="server" />
+                            </div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;12</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 132  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox12" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 133  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox12" runat="server" />
+                            </div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;13</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 134  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox13" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 135  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox13" runat="server" />
+                            </div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;14</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 136  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox14" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 137  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox14" runat="server" />
+                            </div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="divTableCell">&nbsp;15</div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 138  ---------------------------%>
+                                <input type="text" class="form-control" id="problemTextbox15" runat="server" />
+                            </div>
+                            <div class="divTableCell">
+                                <%---------------------- QuestionId = 139  ---------------------------%>
+                                <input type="text" class="form-control" id="howtoSolveTextbox15" runat="server" />
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <%--////////////// --------------------- END  SECTION ID 16 ---------------------------  //////////////////--%>
+
+                <br />
 
 
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>3</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>4</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>5</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>6</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>7</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>8</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>9</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>10</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>11</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>12</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>13</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>14</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>15</span>
-                    </div>
-                    <div class="col-md-5 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
+                <%--////////////// --------------------- START  SECTION ID 17 ---------------------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
                         <h3>14.ข้อมูลรายการทรัพย์สิน</h3>
                     </div>
                 </div>
 
+               <div class="table-responsive-sm text-center Myfont">
+                    <table class="table table-sm table-hover" style="width: 100%;" border="0">
+                        <thead>
+                            <tr>
+                                <th scope="col">ลำดับ</th>
+                                <th scope="col">รายการอุปกรณ์</th>
+                                <th scope="col">Serial Number</th>
+                                <th scope="col">Serial Number ใหม่</th>
+                                <th scope="col">หมายเหตุ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>ลำดับ</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <span>รายการอุปกรณ์</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <span>Serial Number</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <span>Serial Number ใหม่</span>
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <span>หมายเหตุ</span>
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>1</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>2</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>3</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>4</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>5</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>6</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>7</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>8</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>9</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
                 </div>
 
 
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>10</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
 
+                <%--////////////// --------------------- END  SECTION ID 16 ---------------------------  //////////////////--%>
 
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>11</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>12</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>13</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>14</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-1 text-center">
-                        <span>15</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <input type="text" class="form-control" id="" name="">
-                    </div>
-                </div>
 
 
                 <div class="row mt-3">
@@ -2177,7 +2143,7 @@
                 </div>
 
 
-                                <div class="form-row mt-3">
+                <div class="form-row mt-3">
                     <label class="control-label col-sm-4" for="">รูปภาพป้ายชื่อโรงเรียน</label>
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
@@ -3022,6 +2988,23 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </table>--%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <%--  OLD RESOUCE              <div class="row mt-3">
                     <div class="col-md-12  text-black text-center Myfont">
