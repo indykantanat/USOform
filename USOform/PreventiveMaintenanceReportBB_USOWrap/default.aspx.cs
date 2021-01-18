@@ -27,7 +27,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             // กลุ่ม
-            Answer answer1 = new Answer() { 
+            Answer answer1 = new Answer()
+            {
                 AnsDes = this.GroupNameTextBox.Text,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
@@ -64,7 +65,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 AnsDes = this.maintenanceCountTextbox.Value,
                 QuestionId = 4,
                 AnserTypeId = 1,
-                CreateDate = DateTime.Now,               
+                CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer4);
@@ -148,7 +149,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             };
             uSOEntities.Answers.Add(answer13);
 
-            
+
             //Village  :
             Answer answer14 = new Answer()
             {
@@ -215,7 +216,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             };
             uSOEntities.Answers.Add(answer19);
 
-          
+
 
 
             //ใส่รูปหน้าอาคารศูนย์ USO Net :
@@ -461,7 +462,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             {
                 AnsDes = conRadio,
                 QuestionId = 40,
-                AnserTypeId = 3, 
+                AnserTypeId = 3,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
@@ -1741,12 +1742,1296 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             };
             uSOEntities.Answers.Add(answer139);
             //////////////////////////////////////////////////////////////////////////////////
-            
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 1 :      
+            Answer answer141 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox1.Value,
+                QuestionId = 141,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer141);
+
+            //  SerialNumber :           
+            Answer answer142 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox1.Value,
+                QuestionId = 142,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer142);
+
+            //  new SerialNumber :           
+            Answer answer143 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox1.Value,
+                QuestionId = 143,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer143);
+
+            //  หมายเหตุ :           
+            Answer answer144 = new Answer()
+            {
+                AnsDes = this.noteTextbox1.Value,
+                QuestionId = 144,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer144);
+            //////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 2 :      
+            Answer answer145 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox2.Value,
+                QuestionId = 145,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer145);
+
+            //  SerialNumber 2 :           
+            Answer answer146 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox2.Value,
+                QuestionId = 146,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer146);
+
+            //  new SerialNumber 2 :           
+            Answer answer147 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox2.Value,
+                QuestionId = 147,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer147);
+
+            //  หมายเหตุ  2:           
+            Answer answer148 = new Answer()
+            {
+                AnsDes = this.noteTextbox2.Value,
+                QuestionId = 148,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer148);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 3 :      
+            Answer answer149 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox3.Value,
+                QuestionId = 149,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer149);
+
+            //  SerialNumber 3 :           
+            Answer answer150 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox3.Value,
+                QuestionId = 150,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer150);
+
+            //  new SerialNumber 3 :           
+            Answer answer151 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox3.Value,
+                QuestionId = 151,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer151);
+
+            //  หมายเหตุ  3:           
+            Answer answer152 = new Answer()
+            {
+                AnsDes = this.noteTextbox3.Value,
+                QuestionId = 152,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer152);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 4 :      
+            Answer answer153 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox4.Value,
+                QuestionId = 153,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer153);
+
+            //  SerialNumber 4 :           
+            Answer answer154 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox4.Value,
+                QuestionId = 154,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer154);
+
+            //  new SerialNumber 4 :           
+            Answer answer155 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox4.Value,
+                QuestionId = 155,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer155);
+
+            //  หมายเหตุ  4:           
+            Answer answer156 = new Answer()
+            {
+                AnsDes = this.noteTextbox4.Value,
+                QuestionId = 156,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer156);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 5 :      
+            Answer answer157 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox5.Value,
+                QuestionId = 157,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer157);
+
+            //  SerialNumber 5 :           
+            Answer answer158 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox5.Value,
+                QuestionId = 158,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer158);
+
+            //  new SerialNumber 5 :           
+            Answer answer159 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox5.Value,
+                QuestionId = 159,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer159);
+
+            //  หมายเหตุ  5:           
+            Answer answer160 = new Answer()
+            {
+                AnsDes = this.noteTextbox5.Value,
+                QuestionId = 160,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer160);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 6 :      
+            Answer answer161 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox6.Value,
+                QuestionId = 161,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer161);
+
+            //  SerialNumber 6 :           
+            Answer answer162 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox6.Value,
+                QuestionId = 162,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer162);
+
+            //  new SerialNumber 6 :           
+            Answer answer163 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox6.Value,
+                QuestionId = 163,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer163);
+
+            //  หมายเหตุ  6:           
+            Answer answer164 = new Answer()
+            {
+                AnsDes = this.noteTextbox6.Value,
+                QuestionId = 164,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer164);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 7 :      
+            Answer answer165 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox7.Value,
+                QuestionId = 165,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer165);
+
+            //  SerialNumber 7 :           
+            Answer answer166 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox7.Value,
+                QuestionId = 166,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer166);
+
+            //  new SerialNumber 7 :           
+            Answer answer167 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox7.Value,
+                QuestionId = 167,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer167);
+
+            //  หมายเหตุ  7:           
+            Answer answer168 = new Answer()
+            {
+                AnsDes = this.noteTextbox7.Value,
+                QuestionId = 168,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer168);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 8 :      
+            Answer answer169 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox8.Value,
+                QuestionId = 169,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer169);
+
+            //  SerialNumber 8 :           
+            Answer answer170 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox8.Value,
+                QuestionId = 170,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer170);
+
+            //  new SerialNumber 8 :           
+            Answer answer171 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox8.Value,
+                QuestionId = 171,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer171);
+
+            //  หมายเหตุ  8:           
+            Answer answer172 = new Answer()
+            {
+                AnsDes = this.noteTextbox8.Value,
+                QuestionId = 172,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer172);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 9 :      
+            Answer answer173 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox9.Value,
+                QuestionId = 173,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer173);
+
+            //  SerialNumber 9 :           
+            Answer answer174 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox9.Value,
+                QuestionId = 174,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer174);
+
+            //  new SerialNumber 9 :           
+            Answer answer175 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox9.Value,
+                QuestionId = 175,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer175);
+
+            //  หมายเหตุ  9:           
+            Answer answer176 = new Answer()
+            {
+                AnsDes = this.noteTextbox9.Value,
+                QuestionId = 176,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer176);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 10 :      
+            Answer answer177 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox10.Value,
+                QuestionId = 177,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer177);
+
+            //  SerialNumber 10 :           
+            Answer answer178 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox10.Value,
+                QuestionId = 178,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer178);
+
+            //  new SerialNumber 10 :           
+            Answer answer179 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox10.Value,
+                QuestionId = 179,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer179);
+
+            //  หมายเหตุ  10:           
+            Answer answer180 = new Answer()
+            {
+                AnsDes = this.noteTextbox10.Value,
+                QuestionId = 180,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer180);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 11 :      
+            Answer answer181 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox11.Value,
+                QuestionId = 181,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer181);
+
+            //  SerialNumber 11 :           
+            Answer answer182 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox11.Value,
+                QuestionId = 182,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer182);
+
+            //  new SerialNumber 11 :           
+            Answer answer183 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox11.Value,
+                QuestionId = 183,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer183);
+
+            //  หมายเหตุ  11:           
+            Answer answer184 = new Answer()
+            {
+                AnsDes = this.noteTextbox11.Value,
+                QuestionId = 184,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer184);
+            //////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+
+
+
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 12 :      
+            Answer answer185 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox12.Value,
+                QuestionId = 185,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer185);
+
+            //  SerialNumber 12 :           
+            Answer answer186 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox12.Value,
+                QuestionId = 186,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer186);
+
+            //  new SerialNumber 12 :           
+            Answer answer187 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox12.Value,
+                QuestionId = 187,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer187);
+
+            //  หมายเหตุ  12:           
+            Answer answer188 = new Answer()
+            {
+                AnsDes = this.noteTextbox12.Value,
+                QuestionId = 188,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer188);
+            //////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 13 :      
+            Answer answer189 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox13.Value,
+                QuestionId = 189,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer189);
+
+            //  SerialNumber 13 :           
+            Answer answer190 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox13.Value,
+                QuestionId = 190,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer190);
+
+            //  new SerialNumber 13 :           
+            Answer answer191 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox13.Value,
+                QuestionId = 191,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer191);
+
+            //  หมายเหตุ  13   :    
+            Answer answer192 = new Answer()
+            {
+                AnsDes = this.noteTextbox13.Value,
+                QuestionId = 192,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer192);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 14 :      
+            Answer answer193 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox14.Value,
+                QuestionId = 193,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer193);
+
+            //  SerialNumber 14 :           
+            Answer answer194 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox14.Value,
+                QuestionId = 194,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer194);
+
+            //  new SerialNumber 14 :           
+            Answer answer195 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox14.Value,
+                QuestionId = 195,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer195);
+
+            //  หมายเหตุ  143   :    
+            Answer answer196 = new Answer()
+            {
+                AnsDes = this.noteTextbox14.Value,
+                QuestionId = 196,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer196);
+            //////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // รายการอุปกรณ์ 15 :      
+            Answer answer197 = new Answer()
+            {
+                AnsDes = this.toolsListTextbox15.Value,
+                QuestionId = 197,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer197);
+
+            //  SerialNumber 15 :           
+            Answer answer198 = new Answer()
+            {
+                AnsDes = this.serialNumberTextbox15.Value,
+                QuestionId = 198,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer198);
+
+            //  new SerialNumber 15 :           
+            Answer answer199 = new Answer()
+            {
+                AnsDes = this.newSerialNumberTextbox15.Value,
+                QuestionId = 199,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer199);
+
+            //  หมายเหตุ  15   :    
+            Answer answer200 = new Answer()
+            {
+                AnsDes = this.noteTextbox15.Value,
+                QuestionId = 200,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer200);
+            //////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+
+
+
+
+
+
+
+
+
+            // team name :    
+            Answer answer201 = new Answer()
+            {
+                AnsDes = this.nameTeampmTextbox.Value,
+                QuestionId = 201,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer201);
+
+
+            // วันที่ทำ PM :    
+            Answer answer202 = new Answer()
+            {
+                AnsDes = this.dayDopmTextbox.Value,
+                QuestionId = 202,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer202);
+
+
+            // ชื่อเจ้าหน้าที่ประจำศูนย์ :    
+            Answer answer203 = new Answer()
+            {
+                AnsDes = this.nameAgentareaTextbox.Value,
+                QuestionId = 203,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer203);
+
+
+            // เบอร์โทรติดต่อ :    
+            Answer answer204 = new Answer()
+            {
+                AnsDes = this.telephoneAgentTextbox.Value,
+                QuestionId = 204,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer204);
+
+
+
+
+            // รูปภาพป้ายชื่อโรงเรียน  :
+            string billBoardSchool = Request.Form["billBoardSchoolRadio"];
+            Answer answer205 = new Answer()
+            {
+                AnsDes = billBoardSchool,
+                QuestionId = 205,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer205);
+
+
+            // รูปภาพด้านหน้าศูนย์ (ถ่ายคู่กับ จนท.ประจำศูนย์)  :
+            string picTuragent = Request.Form["pictureWithagentRadio"];
+            Answer answer206 = new Answer()
+            {
+                AnsDes = picTuragent,
+                QuestionId = 206,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer206);
+
+
+            // รูปภาพด้านหลังศูนย์ :
+            string behinddHall = Request.Form["pictureBehindHallRadio"];
+            Answer answer207 = new Answer()
+            {
+                AnsDes = behinddHall,
+                QuestionId = 207,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer207);
+
+
+            // รูปภาพบริเวณห้องโถง :
+            string picInhall = Request.Form["picInlobbyRadio"];
+            Answer answer208 = new Answer()
+            {
+                AnsDes = picInhall,
+                QuestionId = 208,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer208);
+
+            // รูปภาพบริเวณห้องประชุม :
+            string picMett = Request.Form["picinMeetingroomRadio"];
+            Answer answer209 = new Answer()
+            {
+                AnsDes = picMett,
+                QuestionId = 209,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer209);
+
+            // รูปภาพบริเวณห้อง Server :
+            string picinserVer = Request.Form["picInserverRadio"];
+            Answer answer210 = new Answer()
+            {
+                AnsDes = picinserVer,
+                QuestionId = 210,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer210);
+
+
+
+            // รูปภาพบริเวณห้องน้ำ :
+            string picIntoileteiei = Request.Form["picIntoiletRadio"];
+            Answer answer211 = new Answer()
+            {
+                AnsDes = picIntoileteiei,
+                QuestionId = 211,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer211);
+
+
+
+
+            // รูปภาพบริเวณห้องปั๊มน้ำ  :
+            string picinWaterpump = Request.Form["pictureInwaterpumpRadio"];
+            Answer answer212 = new Answer()
+            {
+                AnsDes = picinWaterpump,
+                QuestionId = 212,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer212);
+
+
+
+            // รูป PEA Meter  :
+            string picMeter = Request.Form["picpeaMeterRadio"];
+            Answer answer213 = new Answer()
+            {
+                AnsDes = picMeter,
+                QuestionId = 213,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer213);
+
+            // รูป PEA Meter  :
+            string acPic = Request.Form["acPicRadio"];
+            Answer answer214 = new Answer()
+            {
+                AnsDes = acPic,
+                QuestionId = 214,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer214);
+
+
+            // รูป PEA Meter  :
+            string recGroundBar = Request.Form["recGroundBargroundRadio"];
+            Answer answer215 = new Answer()
+            {
+                AnsDes = recGroundBar,
+                QuestionId = 215,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer215);
+
+
+            // รูปการตรวจสอบสถานะไฟฟ้ารั่วลง Ground (Lamp Test)   :
+            string lightleak = Request.Form["lightleakRadio"];
+            Answer answer216 = new Answer()
+            {
+                AnsDes = lightleak,
+                QuestionId = 216,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer216);
+
+
+            // รูป MDB  :
+            string mdbPic = Request.Form["mdbPicRadio"];
+            Answer answer217 = new Answer()
+            {
+                AnsDes = mdbPic,
+                QuestionId = 217,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer217);
+
+            // รูป Fire Alarm Control  :
+            string picFilealarm = Request.Form["picFilealarmRadio"];
+            Answer answer218 = new Answer()
+            {
+                AnsDes = picFilealarm,
+                QuestionId = 218,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer218);
+
+            // รูปภาพรวมอุปกรณ์ทั้งหมดภายในตู้ Rack  :
+            string alltoolsInrack = Request.Form["alltoolsInrackRadio"];
+            Answer answer219 = new Answer()
+            {
+                AnsDes = alltoolsInrack,
+                QuestionId = 219,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer219);
+
+
+            // รูปหน้าจอ UPS แสดงค่าต่างๆ และ Serial NO. :
+            string upsAndserial = Request.Form["upsAndserialRadio"];
+            Answer answer220 = new Answer()
+            {
+                AnsDes = upsAndserial,
+                QuestionId = 220,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer220);
+
+
+            // รูป ONU/Modem พร้อม Serial NO. และ MAC. :
+            string picOnu = Request.Form["picOnuRadio"];
+            Answer answer221 = new Answer()
+            {
+                AnsDes = upsAndserial,
+                QuestionId = 221,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer221);
+
+            // รูป Power Supply พร้อม Serial NO :
+            string picPsu = Request.Form["picPsuRadio"];
+            Answer answer222 = new Answer()
+            {
+                AnsDes = picPsu,
+                QuestionId = 222,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer222);
+
+
+            // รูป Power Supply พร้อม Serial NO :
+            string picSwitch = Request.Form["picSwitchRadio"];
+            Answer answer223 = new Answer()
+            {
+                AnsDes = picSwitch,
+                QuestionId = 223,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer223);
+
+
+
+            // รูป Switch 48 Port พร้อม Serial NO. และ MAC:
+            string picSwitch48 = Request.Form["picSwitch48Radio"];
+            Answer answer224 = new Answer()
+            {
+                AnsDes = picSwitch48,
+                QuestionId = 224,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer224);
+
+
+            // รูป Outdoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC :
+            string picOutdoor = Request.Form["picOutdoorRadio"];
+            Answer answer225 = new Answer()
+            {
+                AnsDes = picOutdoor,
+                QuestionId = 225,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer225);
+
+
+            // รูป Indoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC:
+            string picIndoortwoway = Request.Form["picIndoortwowayRadio"];
+            Answer answer226 = new Answer()
+            {
+                AnsDes = picIndoortwoway,
+                QuestionId = 226,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer226);
+
+
+
+            // รูปการ Test Speed จาก App Nperf โดยใช้ WIFI :
+            string picspeedTest = Request.Form["picspeedTestRadio"];
+            Answer answer227 = new Answer()
+            {
+                AnsDes = picspeedTest,
+                QuestionId = 227,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer227);
+
+
+
+            // รูปการ Test Speed จาก App Nperf โดยใช้ LAN :
+            string picspeedTestwithLan = Request.Form["picspeedTestwithLanRadio"];
+            Answer answer228 = new Answer()
+            {
+                AnsDes = picspeedTestwithLan,
+                QuestionId = 228,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer228);
+
+
+            // รูป ก่อน-หลัง การทำความสะอาดรางระบายน้ำ :
+            string picbeforeAftercanel = Request.Form["picbeforeAftercanelRadio"];
+            Answer answer229 = new Answer()
+            {
+                AnsDes = picbeforeAftercanel,
+                QuestionId = 229,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer229);
+
+
+            // รูปหน้าจอ Monitor กล้องวงจรปิดผ่านจอทีวีในห้องประชุม :
+            string picMonitor = Request.Form["picMonitorRadio"];
+            Answer answer230 = new Answer()
+            {
+                AnsDes = picMonitor,
+                QuestionId = 230,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer230);
+
+
+
+            // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องโถง  :
+            string beforeArterairClean = Request.Form["beforeArterairCleanRadio"];
+            Answer answer231 = new Answer()
+            {
+                AnsDes = beforeArterairClean,
+                QuestionId = 231,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer231);
+
+
+
+            // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องประชุม :
+            string picairInmeeting = Request.Form["picairInmeetingRadio"];
+            Answer answer232 = new Answer()
+            {
+                AnsDes = picairInmeeting,
+                QuestionId = 232,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer232);
+
+
+
+            // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server :
+            string picAirserver = Request.Form["picAirserverRadio"];
+            Answer answer233 = new Answer()
+            {
+                AnsDes = picAirserver,
+                QuestionId = 233,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer233);
+
+
+            // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server :
+            string inStallBase = Request.Form["inStallBaseRadio"];
+            Answer answer234 = new Answer()
+            {
+                AnsDes = inStallBase,
+                QuestionId = 234,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer234);
+
+
+
+            // รูปความสะอาดบริเวณจานดาวเทียมr :
+            string picCleansatellite = Request.Form["picCleansatelliteRadio"];
+            Answer answer235 = new Answer()
+            {
+                AnsDes = picCleansatellite,
+                QuestionId = 235,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer235);
+
+
+
+
+            // รูป LNB พร้อม Part NO. :
+            string picLnb = Request.Form["picLnbRadio"];
+            Answer answer236 = new Answer()
+            {
+                AnsDes = picLnb,
+                QuestionId = 236,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer236);
+
+
+
+            // รูป BUC พร้อม Part NO :
+            string picBUC = Request.Form["picBUCRadio"];
+            Answer answer237 = new Answer()
+            {
+                AnsDes = picBUC,
+                QuestionId = 237,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer237);
+
+
+
+
+            // รูปการเก็บสายและพันหัวที่ LNB/BUC :
+            string picWiringLnb = Request.Form["picWiringLnbRadio"];
+            Answer answer238 = new Answer()
+            {
+                AnsDes = picWiringLnb,
+                QuestionId = 238,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer238);
+
+
+
+            // รูปแนว Line Of Sight (ดูการถูกบังของหน้าจานดาวเทียม) :
+            string picLineofSight = Request.Form["picLineofSightRadio"];
+            Answer answer239 = new Answer()
+            {
+                AnsDes = picLineofSight,
+                QuestionId = 239,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer239);
+
+
+            // รูปจุดติดตั้ง Solar Cell :
+            string picBaseSolarcell = Request.Form["picBaseSolarcellRadio"];
+            Answer answer240 = new Answer()
+            {
+                AnsDes = picBaseSolarcell,
+                QuestionId = 240,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer240);
 
 
 

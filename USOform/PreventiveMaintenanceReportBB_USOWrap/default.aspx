@@ -46,21 +46,21 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">กลุ่ม :</label>
+                <label class="control-label col-sm-1">กลุ่ม :</label>
                 <div class="col-sm-4">
                     <asp:TextBox ID="GroupNameTextBox" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">ภาค :</label>
+                <label class="control-label col-sm-1">ภาค :</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="AreaTextbox" runat="server" required="required" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">บริษัท :</label>
+                <label class="control-label col-sm-1">บริษัท :</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="CompanyTextbox" runat="server" required="required" />
                 </div>
@@ -69,12 +69,12 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-12" for="">ส่วนที่ 1 การจัดให้มีบริการอินเทอร์เน็ตความเร็วสูง (Broadband Internet Service) บริการ USO Wrap</label>
+                <label class="control-label col-sm-12">ส่วนที่ 1 การจัดให้มีบริการอินเทอร์เน็ตความเร็วสูง (Broadband Internet Service) บริการ USO Wrap</label>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">รอบการบำรุงรักษาครั้งที่</label>
+                <label class="control-label col-sm-2">รอบการบำรุงรักษาครั้งที่</label>
                 <div class="col-sm-1">
                     <input type="text" class="form-control" id="maintenanceCountTextbox" runat="server" required="required" />
                 </div>
@@ -131,7 +131,7 @@
 
             <%-- QuestionId = 11,--%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Cabinet ID :</label>
+                <label class="control-label col-sm-1">Cabinet ID :</label>
                 <div class="col-sm-11">
                     <input type="text" class="form-control" id="cabinetIdTextbox" runat="server" required="required" />
                 </div>
@@ -139,7 +139,7 @@
 
             <%-- QuestionId = 12,--%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Site Code :</label>
+                <label class="control-label col-sm-1">Site Code :</label>
                 <div class="col-sm-11">
                     <input class="form-control" type="text" id="sitecodeTextboxSection2" runat="server" required="required" />
                 </div>
@@ -147,7 +147,7 @@
 
             <%-- QuestionId = 13,--%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Village ID :</label>
+                <label class="control-label col-sm-1">Village ID :</label>
                 <div class="col-sm-11">
                     <input type="text" class="form-control" id="VillageIdTextbox" runat="server" required="required" />
                 </div>
@@ -155,7 +155,7 @@
 
             <%-- QuestionId = 14,--%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Village :</label>
+                <label class="control-label col-sm-1">Village :</label>
                 <div class="col-sm-11">
                     <input type="text" class="form-control" id="villageTextbox" runat="server" required="required" />
                 </div>
@@ -164,7 +164,7 @@
 
             <%-- QuestionId = 15,--%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">School’s name :</label>
+                <label class="control-label col-sm-1">School’s name :</label>
                 <div class="col-sm-11">
                     <input type="text" class="form-control" id="schoolnameTextbox" runat="server" required="required" />
                 </div>
@@ -172,7 +172,7 @@
 
             <%-- QuestionId = 16,--%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Sub-District :</label>
+                <label class="control-label col-sm-1">Sub-District :</label>
                 <div class="col-sm-11">
                     <input type="text" class="form-control" id="subdistrictTextbox" runat="server" required="required" />
                 </div>
@@ -180,7 +180,7 @@
 
             <%-- QuestionId = 17,--%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Province :</label>
+                <label class="control-label col-sm-1">Province :</label>
                 <div class="col-sm-11">
                     <input type="text" class="form-control" id="provinceTextbox" runat="server" required="required" />
                 </div>
@@ -188,7 +188,7 @@
 
             <%-- QuestionId = 18,--%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Type :</label>
+                <label class="control-label col-sm-1">Type :</label>
                 <div class="col-sm-11">
                     <input type="text" class="form-control" id="typeTextbox" runat="server" required="required" />
                 </div>
@@ -197,7 +197,7 @@
 
             <%-- QuestionId = 19,--%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">PM Date : </label>
+                <label class="control-label col-sm-1">PM Date : </label>
                 <div class="col-sm-11">
                     <input type="text" class="form-control" id="pmdateTextbox" runat="server" required="required" />
                 </div>
@@ -308,14 +308,14 @@
             <form class="mt-3">
                 <div class="form-row mt-3">
                     <%-- QuestionId = 27, --%>
-                    <label class="control-label col-sm-1" for="">Location Name</label>
+                    <label class="control-label col-sm-1">Location Name</label>
                     <div class="col-sm-11">
                         <input type="text" class="form-control" id="LocationnameTextbox" runat="server" required="required" />
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-1" for="">Site Code</label>
+                    <label class="control-label col-sm-1">Site Code</label>
                     <div class="col-sm-11">
                         <%-- QuestionId = 28, --%>
                         <input type="text" class="form-control" id="sitecodeTextboxSection4" runat="server" required="required" />
@@ -323,7 +323,7 @@
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-1" for="">Village ID</label>
+                    <label class="control-label col-sm-1">Village ID</label>
                     <div class="col-sm-11">
                         <%-- QuestionId = 29, --%>
                         <input type="text" class="form-control" id="villageIDTextboxSection4" runat="server" required="required" />
@@ -331,7 +331,7 @@
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-1" for="">LAT & LONG</label>
+                    <label class="control-label col-sm-1">LAT & LONG</label>
                     <div class="col-sm-11">
                         <%-- QuestionId = 30, --%>
                         <input type="text" class="form-control" id="latandlongTextbox" runat="server" required="required" />
@@ -341,7 +341,7 @@
 
                 <%-- QuestionId = 31, --%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Type of Signal</label>
+                    <label class="control-label col-sm-2">Type of Signal</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="typeofsignalRadio" value="OFC" />OFC
@@ -356,7 +356,7 @@
 
                 <%-- QuestionId = 32, --%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">ISP (Existing Network)</label>
+                    <label class="control-label col-sm-2">ISP (Existing Network)</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="ispTextbox" runat="server" required="required" />
                     </div>
@@ -397,7 +397,7 @@
 
                 <div class="form-row mt-3">
                     <%------ QuestionId = 34, ---------------------------------------------------------------------------------------------------------%>
-                    <label class="control-label col-sm-2" for="">หม้อแปลงไฟฟ้า</label>
+                    <label class="control-label col-sm-2">หม้อแปลงไฟฟ้า</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="transformerRadio" value="1Phase" />1 Phase
@@ -413,7 +413,7 @@
 
                 <div class="form-row mt-3">
                     <%------ QuestionId = 35, ----------------------------------------------------------------------------------------------------------%>
-                    <label class="control-label col-sm-2" for="">หมายเลขผู้ใช้ไฟ</label>
+                    <label class="control-label col-sm-2">หมายเลขผู้ใช้ไฟ</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="numberuserTextbox" runat="server" required="required" />
                     </div>
@@ -421,7 +421,7 @@
 
                 <div class="form-row mt-3">
                     <%------ QuestionId = 36, ----------------------------------------------------------------------------------------------------------%>
-                    <label class="control-label col-sm-2" for="">หน่วยใช้ไฟ (kWh Meter)</label>
+                    <label class="control-label col-sm-2">หน่วยใช้ไฟ (kWh Meter)</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="kwhMeterTextbox" runat="server" required="required" />
                     </div>
@@ -431,20 +431,20 @@
 
                 <div class="form-row mt-3">
                     <%------ QuestionId = 37, ---------------------------------------------------------------------------------------------------------%>
-                    <label class="control-label col-sm-2" for="">แรงดัน AC (kWh Meter)</label>
+                    <label class="control-label col-sm-2">แรงดัน AC (kWh Meter)</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="acTextbox" runat="server" required="required" />
                     </div>
-                    <label class="control-label col-sm-2" for="">V.</label>
+                    <label class="control-label col-sm-2">V.</label>
                 </div>
 
                 <div class="form-row mt-3">
                     <%------ QuestionId = 38, ----------------------------------------------------------------------------------------------------------%>
-                    <label class="control-label col-sm-2" for="">กระแส Line AC (kWh Meter)</label>
+                    <label class="control-label col-sm-2">กระแส Line AC (kWh Meter)</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="lineAcTextbox" runat="server" required="required" />
                     </div>
-                    <label class="control-label col-sm-2" for="">A.</label>
+                    <label class="control-label col-sm-2">A.</label>
                 </div>
 
                 <div class="form-row mt-3">
@@ -453,12 +453,12 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="neutronacTextbox" runat="server" required="required" />
                     </div>
-                    <label class="control-label col-sm-2" for="">A.</label>
+                    <label class="control-label col-sm-2">A.</label>
                 </div>
 
                 <div class="form-row mt-3">
                     <%------ QuestionId = 40, -----------------------------------------------------------------------------------------------------------%>
-                    <label class="control-label col-sm-2" for="">สภาพ kWh Meter</label>
+                    <label class="control-label col-sm-2">สภาพ kWh Meter</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="conditionRadio" value="ปกติ" />ปกติ
@@ -473,7 +473,7 @@
 
                 <div class="form-row mt-3">
                     <%------ QuestionId = 41, ----------------------------------------------------------------------------------------------------------%>
-                    <label class="control-label col-sm-2" for="">สภาพ MDB/ Circuit Breaker</label>
+                    <label class="control-label col-sm-2">สภาพ MDB/ Circuit Breaker</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="MDBCircuitBreakerRadio" value="ปกติ" />ปกติ
@@ -506,7 +506,7 @@
 
                 <div class="form-row mt-3">
                     <%------ QuestionId = 42, ----------------------------------------------------------------------------------------------------------%>
-                    <label class="control-label col-sm-2" for="">UPS ภายในตู้</label>
+                    <label class="control-label col-sm-2">UPS ภายในตู้</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="inupsRadio" value="มี" />มี
@@ -522,38 +522,38 @@
 
                 <div class="form-row mt-3">
                     <%------ QuestionId = 43, ---------------------------------------------------------------------------------------------------------%>
-                    <label class="control-label col-sm-2" for="">แรงดัน AC จาก UPS</label>
+                    <label class="control-label col-sm-2">แรงดัน AC จาก UPS</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="acfromupsTextbox" runat="server" required="required" />
                     </div>
-                    <label class="control-label col-sm-2" for="">V.</label>
+                    <label class="control-label col-sm-2">V.</label>
                 </div>
 
                 <%------ QuestionId = 44, --------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">กระแส Load</label>
+                    <label class="control-label col-sm-2">กระแส Load</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="electricloadTextbox" runat="server" required="required" />
                     </div>
-                    <label class="control-label col-sm-2" for="">A.</label>
+                    <label class="control-label col-sm-2">A.</label>
                 </div>
 
 
                 <%------ QuestionId = 7 , ---------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">UPS MODE</label>
+                    <label class="control-label col-sm-2">UPS MODE</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="upsModeRadio" value="LINE" required="required" />LINE
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="upsModeRadio" value="BATT." required="required" />BATT.
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="upsModeRadio" value="BYPASS" required="required" />BYPASS
                         </label>
                     </div>
@@ -563,7 +563,7 @@
 
                 <%------ QuestionId = 45, ---------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">การทำงานของระบบไฟสำรอง</label>
+                    <label class="control-label col-sm-2">การทำงานของระบบไฟสำรอง</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="emergeneratorRadio" value="ปกติ" />ปกติ
@@ -579,7 +579,7 @@
 
                 <%------ QuestionId = 46, ----------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">สภาพ Battery Bank</label>
+                    <label class="control-label col-sm-2">สภาพ Battery Bank</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="stateBatteryBankRadio" value="ปกติ" />ปกติ
@@ -640,7 +640,7 @@
 
                 <%------ QuestionId = 48, --------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Switch 8 Port</label>
+                    <label class="control-label col-sm-2">Switch 8 Port</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="switchportRadio" value="ปกติ" />ปกติ
@@ -656,7 +656,7 @@
 
                 <%------ QuestionId = 49, --------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Switch 48 Port</label>
+                    <label class="control-label col-sm-2">Switch 48 Port</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="switch48portRadio" value="ปกติ" />ปกติ
@@ -690,7 +690,7 @@
 
                 <%------ QuestionId = 51, -------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Outdoor AP ตัวที่ 2</label>
+                    <label class="control-label col-sm-2">Outdoor AP ตัวที่ 2</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="outdoorap2Radio" value="ปกติ" />ปกติ
@@ -707,7 +707,7 @@
 
                 <%------ QuestionId = 52, --------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Indoor AP ตัวที่ 1</label>
+                    <label class="control-label col-sm-2">Indoor AP ตัวที่ 1</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="indoorapRadio" value="ปกติ" />ปกติ
@@ -723,7 +723,7 @@
 
                 <%------ QuestionId = 53, -----------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">Indoor AP ตัวที่ 2</label>
+                    <label class="control-label col-sm-2">Indoor AP ตัวที่ 2</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="indoorap2Radio" value="ปกติ" />ปกติ
@@ -738,7 +738,7 @@
 
                 <%------ QuestionId = 54, ------------------------------------------------------------------------------------------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-2" for="">การ Wiring สายไฟ</label>
+                    <label class="control-label col-sm-2">การ Wiring สายไฟ</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="wiringelecRadio" value="เรียบร้อย" />เรียบร้อย
@@ -889,7 +889,7 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="battFirealarm1Textbox" runat="server" required="required" />
                     </div>
-                    <label class="control-label col-sm-2" for="">V.</label>
+                    <label class="control-label col-sm-2">V.</label>
                 </div>
 
 
@@ -900,7 +900,7 @@
                         <%--                        <input type="text" class="form-control"  runat="server"  required="required" id="battFirealarm2Textbox" />--%>
                         <input type="text" class="form-control" id="battFirealarm3Textbox" runat="server" required="required" />
                     </div>
-                    <label class="control-label col-sm-2" for="">V.</label>
+                    <label class="control-label col-sm-2">V.</label>
                 </div>
 
                 <%---------------------- QuestionId = 65 ---------------------------%>
@@ -1518,7 +1518,7 @@
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="toolsCharger" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
@@ -1898,7 +1898,7 @@
                     </div>
                 </div>
 
-               <div class="table-responsive-sm text-center Myfont">
+                <div class="table-responsive-sm text-center Myfont">
                     <table class="table table-sm table-hover" style="width: 100%;" border="0">
                         <thead>
                             <tr>
@@ -1913,758 +1913,958 @@
                             <tr>
                                 <td>1</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 141  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox1" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 142  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox1" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 143  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox1" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 144  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox1" runat="server" /></td>
                             </tr>
                             <tr>
+
                                 <td>2</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 145  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox2" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 146  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox2" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 147  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox2" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 148  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox2" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 149  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox3" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 150  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox3" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 151  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox3" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 152  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox3" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>4</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 153  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox4" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 154  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox4" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 155  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox4" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 156  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox4" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>5</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 157  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox5" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 158  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox5" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 159  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox5" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 160  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox5" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>6</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 161  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox6" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 162  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox6" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 163  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox6" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 164  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox6" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>7</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 165  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox7" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 166  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox7" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 167  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox7" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 168  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox7" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>8</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 169  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox8" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 170  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox8" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 171  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox8" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 172  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox8" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>9</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 173  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox9" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 174  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox9" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 175  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox9" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 176  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox9" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>10</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 177  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox10" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 178  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox10" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 179  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox10" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 180  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox10" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>11</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 181  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox11" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 182  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox11" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 183  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox11" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 184  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox11" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>12</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 185  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox12" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 186  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox12" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 187  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox12" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 188  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox12" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>13</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 189  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox13" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 190  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox13" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 191  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox13" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 192  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox13" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>14</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 193  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox14" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 194  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox14" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 195  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox14" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 196  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox14" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>15</td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 197  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="toolsListTextbox15" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 198  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="serialNumberTextbox15" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 199  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox15" runat="server" /></td>
                                 <td>
-                                    <input type="text" class="form-control form-control-sm" /></td>
+                                    <%---------------------- QuestionId = 200  ---------------------------%>
+                                    <input type="text" class="form-control form-control-sm" id="noteTextbox15" runat="server" /></td>
                             </tr>
                         </tbody>
                     </table>
 
                 </div>
+                <%--////////////// --------------------- END  SECTION ID 17 ---------------------------  //////////////////--%>
 
 
 
-                <%--////////////// --------------------- END  SECTION ID 16 ---------------------------  //////////////////--%>
 
 
 
+
+
+
+
+                <%--////////////// --------------------- START  SECTION ID 18 ---------------------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
-                        <h3>15. รายละเอียดผู้ทำ PM</h3>
+                        <h3>15.รายละเอียดผู้ทำ PM</h3>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 201  ---------------------------%>
                 <div class="row mt-3">
                     <div class="col-md-3 text-center">
-                        <span>ชื่อ</span>
+                        <span>ชื่อทีม</span>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="" name="">
+                        <input type="text" class="form-control" id="nameTeampmTextbox" runat="server" />
                     </div>
 
                 </div>
 
+                <%---------------------- QuestionId = 202  ---------------------------%>
                 <div class="row mt-3">
                     <div class="col-md-3 text-center">
                         <span>วันที่ทำ PM</span>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="" name="">
+                        <input type="text" class="form-control" id="dayDopmTextbox" runat="server" />
                     </div>
                 </div>
+                <%--////////////// --------------------- END  SECTION ID 18 ---------------------------  //////////////////--%>
 
+
+
+
+
+
+
+
+                <%--////////////// --------------------- START  SECTION ID 19 ---------------------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
-                        <h3>16. รายละเอียด เจ้าหน้าที่ประจำศูนย์</h3>
+                        <h3>16.รายละเอียด เจ้าหน้าที่ประจำศูนย์</h3>
                     </div>
                 </div>
-
+                <%---------------------- QuestionId = 203  ---------------------------%>
                 <div class="row mt-3">
                     <div class="col-md-3 text-center">
                         <span>ชื่อเจ้าหน้าที่ประจำศูนย์</span>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="" name="">
+                        <input type="text" class="form-control" id="nameAgentareaTextbox" runat="server" />
                     </div>
-
                 </div>
 
+                <%---------------------- QuestionId = 204  ---------------------------%>
                 <div class="row mt-3">
                     <div class="col-md-3 text-center">
                         <span>เบอร์โทรติดต่อ</span>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="" name="">
+                        <input type="text" class="form-control" id="telephoneAgentTextbox" runat="server" />
                     </div>
                 </div>
+                <%--////////////// --------------------- END  SECTION ID 19 ---------------------------  //////////////////--%>
 
+
+
+
+
+
+                <%--////////////// --------------------- START  SECTION ID 20 ---------------------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-success text-white text-center Myfont">
                         <h3>PICTURE CHECKLIST</h3>
                     </div>
                 </div>
 
-
+                <%---------------------- QuestionId = 205  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพป้ายชื่อโรงเรียน</label>
+                    <label class="control-label col-sm-4">รูปภาพป้ายชื่อโรงเรียน</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="billBoardSchoolRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="billBoardSchoolRadio" value="NOTPASS" />NOT PASS
+                        </label>
+                    </div>
+                </div>
+
+                <%---------------------- QuestionId = 206  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-4">รูปภาพด้านหน้าศูนย์ (ถ่ายคู่กับ จนท.ประจำศูนย์)</label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="pictureWithagentRadio" value="PASS">PASS
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="pictureWithagentRadio" value="NOTPASS">NOT PASS
+                        </label>
+                    </div>
+                </div>
+
+                <%---------------------- QuestionId = 207  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-4">รูปภาพด้านหลังศูนย์</label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="pictureBehindHallRadio" value="PASS" />PASS
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="pictureBehindHallRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
 
+                <%---------------------- QuestionId = 208  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพด้านหน้าศูนย์ (ถ่ายคู่กับ จนท.ประจำศูนย์)</label>
+                    <label class="control-label col-sm-4">รูปภาพบริเวณห้องโถง</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picInlobbyRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพด้านหลังศูนย์</label>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพบริเวณห้องโถง</label>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพบริเวณห้องประชุม</label>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picInlobbyRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
 
+                <%---------------------- QuestionId = 209  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพบริเวณห้อง Server</label>
+                    <label class="control-label col-sm-4">รูปภาพบริเวณห้องประชุม</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picinMeetingroomRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picinMeetingroomRadio" value="NOTPASS" />NOT PASS
+                        </label>
+                    </div>
+                </div>
+
+                <%---------------------- QuestionId = 210  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-4">รูปภาพบริเวณห้อง Server</label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picInserverRadio" value="PASS" />PASS
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picInserverRadio" value="NOTPASS" />NOT PASS
+                        </label>
+                    </div>
+                </div>
+
+                <%---------------------- QuestionId = 211  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-4">รูปภาพบริเวณห้องน้ำ</label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picIntoiletRadio" value="PASS">PASS
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picIntoiletRadio" value="NOTPASS">NOT PASS
+                        </label>
+                    </div>
+                </div>
+                <%---------------------- QuestionId = 212  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-4">รูปภาพบริเวณห้องปั๊มน้ำ</label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="pictureInwaterpumpRadio" value="PASS" />PASS
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="pictureInwaterpumpRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
 
+                <%---------------------- QuestionId = 213  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพบริเวณห้องน้ำ</label>
+                    <label class="control-label col-sm-4">รูป PEA Meter</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picpeaMeterRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picpeaMeterRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 214  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพบริเวณห้องปั๊มน้ำ</label>
+                    <label class="control-label col-sm-4">รูปการวัดแรงดัน AC และกระแส AC </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="acPicRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="acPicRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
-
+                <%---------------------- QuestionId = 215  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป PEA Meter</label>
+                    <label class="control-label col-sm-4">รูปการวัดค่า Ground และ Bar Ground  </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="recGroundBargroundRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                        </label>
-                    </div>
-                </div>
-
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปการวัดแรงดัน AC และกระแส AC </label>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปการวัดค่า Ground และ Bar Ground  </label>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปการตรวจสอบสถานะไฟฟ้ารั่วลง Ground (Lamp Test) </label>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป MDB  </label>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="recGroundBargroundRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
 
+                <%---------------------- QuestionId = 216  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป Fire Alarm Control </label>
+                    <label class="control-label col-sm-4">รูปการตรวจสอบสถานะไฟฟ้ารั่วลง Ground (Lamp Test) </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="lightleakRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="lightleakRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 217  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพรวมอุปกรณ์ทั้งหมดภายในตู้ Rack</label>
+                    <label class="control-label col-sm-4">รูป MDB  </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="mdbPicRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="mdbPicRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 218  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปหน้าจอ UPS แสดงค่าต่างๆ และ Serial NO.</label>
+                    <label class="control-label col-sm-4">รูป Fire Alarm Control </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picFilealarmRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picFilealarmRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 219  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป ONU/Modem พร้อม Serial NO. และ MAC</label>
+                    <label class="control-label col-sm-4">รูปภาพรวมอุปกรณ์ทั้งหมดภายในตู้ Rack</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="alltoolsInrackRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="alltoolsInrackRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 220  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป Power Supply พร้อม Serial NO.</label>
+                    <label class="control-label col-sm-4">รูปหน้าจอ UPS แสดงค่าต่างๆ และ Serial NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="upsAndserialRadio" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป Switch 8 Port พร้อม Serial NO. และ MAC  </label>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="upsAndserialRadio" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
 
 
+                <%---------------------- QuestionId = 221  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-4">รูป ONU/Modem พร้อม Serial NO. และ MAC</label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picOnuRadio" value="PASS">PASS
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picOnuRadio" value="NOTPASS">NOT PASS
+                        </label>
+                    </div>
+                </div>
+
+                <%---------------------- QuestionId = 222  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-4">รูป Power Supply พร้อม Serial NO.</label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picPsuRadio" value="PASS">PASS
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picPsuRadio" value="NOTPASS">NOT PASS
+                        </label>
+                    </div>
+                </div>
+
+                <%---------------------- QuestionId = 223  ---------------------------%>
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-4">รูป Switch 8 Port พร้อม Serial NO. และ MAC  </label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="">
+                            <input type="radio" class="form-check-input" name="picSwitchRadio" value="PASS" />PASS
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picSwitchRadio" value="NOTPASS" />NOT PASS
+                        </label>
+                    </div>
+                </div>
+
+                <%---------------------- QuestionId = 224  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4" for="">รูป Switch 48 Port พร้อม Serial NO. และ MAC </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picSwitch48Radio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input" name="picSwitch48Radio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 225  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป Outdoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC </label>
+                    <label class="control-label col-sm-4">รูป Outdoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picOutdoorRadio" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picOutdoorRadio" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 226  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป Indoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC </label>
+                    <label class="control-label col-sm-4">รูป Indoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picIndoortwowayRadio" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picIndoortwowayRadio" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 227  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปการ Test Speed จาก App Nperf โดยใช้ WIFI </label>
+                    <label class="control-label col-sm-4">รูปการ Test Speed จาก App Nperf โดยใช้ WIFI </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picspeedTestRadio" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picspeedTestRadio" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+                <%---------------------- QuestionId = 228  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปการ Test Speed จาก App Nperf โดยใช้ LAN </label>
+                    <label class="control-label col-sm-4">รูปการ Test Speed จาก App Nperf โดยใช้ LAN </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picspeedTestwithLanRadio" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picspeedTestwithLanRadio" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+                <%---------------------- QuestionId = 229  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป ก่อน-หลัง การทำความสะอาดรางระบายน้ำ </label>
+                    <label class="control-label col-sm-4">รูป ก่อน-หลัง การทำความสะอาดรางระบายน้ำ </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picbeforeAftercanelRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picbeforeAftercanelRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 230  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปหน้าจอ Monitor กล้องวงจรปิดผ่านจอทีวีในห้องประชุม </label>
+                    <label class="control-label col-sm-4">รูปหน้าจอ Monitor กล้องวงจรปิดผ่านจอทีวีในห้องประชุม </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picMonitorRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picMonitorRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+
+                <%---------------------- QuestionId = 231  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องโถง </label>
+                    <label class="control-label col-sm-4">รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องโถง </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="beforeArterairCleanRadio" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="beforeArterairCleanRadio" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 232  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องประชุม </label>
+                    <label class="control-label col-sm-4">รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องประชุม </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picairInmeetingRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picairInmeetingRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 233  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server </label>
+                    <label class="control-label col-sm-4">รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server </label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picAirserverRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picAirserverRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
+                <%--////////////// --------------------- END  SECTION ID 20 ---------------------------  //////////////////--%>
 
 
 
 
+
+
+
+                <%--////////////// --------------------- START  SECTION ID 21 ---------------------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
                         <h3>VSAT PICTURE CHECKLIST</h3>
                     </div>
                 </div>
 
-
+                <%---------------------- QuestionId = 234  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปจุดติดตั้งจานดาวเทียม</label>
+                    <label class="control-label col-sm-4">รูปจุดติดตั้งจานดาวเทียม</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="inStallBaseRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="inStallBaseRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 235  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปความสะอาดบริเวณจานดาวเทียม</label>
+                    <label class="control-label col-sm-4">รูปความสะอาดบริเวณจานดาวเทียม</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picCleansatelliteRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picCleansatelliteRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+
+                <%---------------------- QuestionId = 236  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป LNB พร้อม Part NO.</label>
+                    <label class="control-label col-sm-4">รูป LNB พร้อม Part NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picLnbRadio" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picLnbRadio" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 237  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป BUC พร้อม Part NO.</label>
+                    <label class="control-label col-sm-4">รูป BUC พร้อม Part NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picBUCRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picBUCRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 238  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปการเก็บสายและพันหัวที่ LNB/BUC</label>
+                    <label class="control-label col-sm-4">รูปการเก็บสายและพันหัวที่ LNB/BUC</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picWiringLnbRadio" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picWiringLnbRadio" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 239  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปแนว Line Of Sight (ดูการถูกบังของหน้าจานดาวเทียม)</label>
+                    <label class="control-label col-sm-4">รูปแนว Line Of Sight (ดูการถูกบังของหน้าจานดาวเทียม)</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picLineofSightRadio" value="PASS" />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picLineofSightRadio" value="NOTPASS" />NOT PASS
                         </label>
                     </div>
                 </div>
+                <%--////////////// --------------------- END  SECTION ID 21 ---------------------------  //////////////////--%>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <%--////////////// --------------------- START  SECTION ID 22 ---------------------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
                         <h3>SOLAR CELL PICTURE CHECKLIST</h3>
                     </div>
                 </div>
 
+                <%---------------------- QuestionId = 240  ---------------------------%>
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปจุดติดตั้ง Solar Cell</label>
+                    <label class="control-label col-sm-4">รูปจุดติดตั้ง Solar Cell</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picBaseSolarcellRadio" value="PASS">PASS
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="picBaseSolarcellRadio" value="NOTPASS">NOT PASS
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-4">รูปอุปกรณ์ Solar Cell ภายในห้อง</label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-4">รูปหน้าจอ Charger แสดงค่าต่างๆ</label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-4">รูปหน้าจอ Inverter แสดงค่าต่างๆ</label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-4">รูป Circuit Breaker ภายในตู้</label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
@@ -2672,56 +2872,28 @@
 
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปอุปกรณ์ Solar Cell ภายในห้อง</label>
+                    <label class="control-label col-sm-4">รูป Terminal ต่อสายภายในตู้</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปหน้าจอ Charger แสดงค่าต่างๆ</label>
+                    <label class="control-label col-sm-4">รูปความสะอาดแผง PV</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปหน้าจอ Inverter แสดงค่าต่างๆ</label>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป Circuit Breaker ภายในตู้</label>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
@@ -2729,43 +2901,14 @@
 
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูป Terminal ต่อสายภายในตู้</label>
+                    <label class="control-label col-sm-4">รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปความสะอาดแผง PV</label>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                        </label>
-                    </div>
-                </div>
-
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์</label>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
@@ -2779,154 +2922,154 @@
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO.(เครื่องผู้ดูแล)</label>
+                    <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO.(เครื่องผู้ดูแล)</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO.</label>
+                    <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO.</label>
+                    <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO.</label>
+                    <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.</label>
+                    <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปคอมพิวเตอร์ตัวที่ 6 พร้อม Serial NO.</label>
+                    <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 6 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปคอมพิวเตอร์ตัวที่ 7 พร้อม Serial NO.</label>
+                    <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 7 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปคอมพิวเตอร์ตัวที่ 8 พร้อม Serial NO.</label>
+                    <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 8 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปคอมพิวเตอร์ตัวที่ 9 พร้อม Serial NO.</label>
+                    <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 9 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปคอมพิวเตอร์ตัวที่ 10 พร้อม Serial NO.</label>
+                    <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 10 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-4" for="">รูปคอมพิวเตอร์ตัวที่ 11 พร้อม Serial NO.</label>
+                    <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 11 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                         </label>
                     </div>
@@ -3011,22 +3154,22 @@
                         <h3>รูปภาพประกอบรายงาน</h3>
                     </div>
                     <div class="col-md-12 text-center mt-3 table-bordered">
-                        <label for="">1.รูป PICTURE CHECKLIST</label>
+                        <label >1.รูป PICTURE CHECKLIST</label>
                         <input type="file" class="form-control-file" id="">
                     </div>
 
                     <div class="col-md-12 text-center mt-3 table-bordered">
-                        <label for="">2.รูป VSAT PICTURE CHECKLIST</label>
+                        <label >2.รูป VSAT PICTURE CHECKLIST</label>
                         <input type="file" class="form-control-file" id="">
                     </div>
 
                     <div class="col-md-12 text-center mt-3 table-bordered">
-                        <label for="">3.รูป SOLAR CELL PICTURE CHECKLISTT</label>
+                        <label >3.รูป SOLAR CELL PICTURE CHECKLISTT</label>
                         <input type="file" class="form-control-file" id="">
                     </div>
 
                     <div class="col-md-12 text-center mt-3 table-bordered">
-                        <label for="">4. COMPUTER PICTURE CHECKLIST</label>
+                        <label >4. COMPUTER PICTURE CHECKLIST</label>
                         <input type="file" class="form-control-file" id="">
                     </div>
                 </div>--%>
