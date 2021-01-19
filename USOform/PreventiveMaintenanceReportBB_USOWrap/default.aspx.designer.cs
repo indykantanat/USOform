@@ -1329,6 +1329,42 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlInputText telephoneAgentTextbox;
 
         /// <summary>
+        /// pictureChecklistImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload pictureChecklistImages;
+
+        /// <summary>
+        /// vsatpictureChecklistImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload vsatpictureChecklistImages;
+
+        /// <summary>
+        /// solarcellpictureChecklistImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload solarcellpictureChecklistImages;
+
+        /// <summary>
+        /// compictureChecklistImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload compictureChecklistImages;
+
+        /// <summary>
         /// SubmitButton control.
         /// </summary>
         /// <remarks>

@@ -2813,269 +2813,321 @@
                     </div>
                 </div>
 
-
+                 <%---------------------- QuestionId = 241  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปอุปกรณ์ Solar Cell ภายในห้อง</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input" name="solarcellToolsinroomRadio" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input"  name="solarcellToolsinroomRadio" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+
+                 <%---------------------- QuestionId = 242  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปหน้าจอ Charger แสดงค่าต่างๆ</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input"  name="screenChargerRadio" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input" name="screenChargerRadio" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+                 <%---------------------- QuestionId = 243  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปหน้าจอ Inverter แสดงค่าต่างๆ</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input" name="screenInverterRadio" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input" name="screenInverterRadio" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+                 <%---------------------- QuestionId = 244  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูป Circuit Breaker ภายในตู้</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input"  name="piccircuitBreakerRadio" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input" name="piccircuitBreakerRadio" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
 
-
+                 <%---------------------- QuestionId = 245  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูป Terminal ต่อสายภายในตู้</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input"  name="picTerminalRadio" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input"  name="picTerminalRadio" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+
+
+                 <%---------------------- QuestionId = 246  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปความสะอาดแผง PV</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input"  name="picCleaningPvRadio" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input"  name="picCleaningPvRadio" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
 
 
+
+
+                     <%---------------------- QuestionId = 247  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input"  name="picSunriseRadio" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input"  name="picSunriseRadio" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
+                 <%--////////////// --------------------- END  SECTION ID 22 ---------------------------  //////////////////--%>
 
 
+
+
+
+
+
+                 <%--////////////// --------------------- START  SECTION ID 23 ---------------------------  //////////////////--%>
                 <div class="row mt-3">
                     <div class="col-md-12 bg-primary text-white text-center Myfont">
                         <h3>COMPUTER PICTURE CHECKLIST</h3>
                     </div>
                 </div>
 
+                
+                     <%---------------------- QuestionId = 248  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO.(เครื่องผู้ดูแล)</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio1" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio1" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+                  <%---------------------- QuestionId = 249  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio2" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio2" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+
+                  <%---------------------- QuestionId = 250  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio3" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio3" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+
+
+
+                 <%---------------------- QuestionId = 251  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio4" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio4" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+
+
+                 <%---------------------- QuestionId = 252  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio5" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio5" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+
+                <%---------------------- QuestionId = 253  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 6 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio6" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio6" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+                 <%---------------------- QuestionId = 254  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 7 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio7" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio7" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
 
+                 <%---------------------- QuestionId = 255  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 8 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio8" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio8" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
 
+
+
+                 <%---------------------- QuestionId = 256  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 9 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio9" value="PASS">PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio9" value="NOTPASS">NOT PASS
                         </label>
                     </div>
                 </div>
 
+                 <%---------------------- QuestionId = 257  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 10 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio10" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio10" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
-
+                 <%---------------------- QuestionId = 258  ---------------------------%>
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 11 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                            <input type="radio" class="form-check-input"  name="piccomAgentRadio11" value="PASS"/>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                            <input type="radio" class="form-check-input" " name="piccomAgentRadio11" value="NOTPASS"/>NOT PASS
                         </label>
                     </div>
                 </div>
+                  <%--////////////// --------------------- END  SECTION ID 23 ---------------------------  //////////////////--%>
 
 
+
+
+
+                 <%--////////////// --------------------- START  SECTION ID 24 ---------------------------  //////////////////--%>
 
                 <div class="row mt-3">
                     <div class="col-sm-12 text-black text-center Myfont">
@@ -3083,37 +3135,57 @@
                     </div>
                 </div>
 
+
+
+                <%---------------------- QuestionId = 259  ---------------------------%>
                 <div class="row mt-3 ">
                     <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
-                    <input type="file" name="image2" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_2" />
+                     <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" />
+                   <%-- <input type="file" name="image2" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_2" />--%>
                 </div>
                 <div class="row ml-3 mt-3">
                     <img id="user_img_2" src="https://placehold.it/250x250" class="placeholder2" />
                 </div>
 
+
+
+                 <%---------------------- QuestionId = 260  ---------------------------%>
                 <div class="row mt-3">
                     <div class="col-sm-12">2.รูป VSAT PICTURE CHECKLIST</div>
-                    <input type="file" name="image3" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_3" />
+                       <asp:FileUpload ID="vsatpictureChecklistImages" runat="server" data-thumbnail="user_img_3" accept="image/" onchange="previewImage(this)" required="required" />
+<%--                    <input type="file" name="image3" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_3" />--%>
                 </div>
                 <div class="row ml-3 mt-3">
                     <img id="user_img_3" src="https://placehold.it/250x250" class="placeholder2" />
                 </div>
 
+
+                 <%---------------------- QuestionId = 261  ---------------------------%>
                 <div class="row mt-3">
-                    <div class="col-sm-12">3.รูป SOLAR CELL PICTURE CHECKLISTT</div>
-                    <input type="file" name="image4" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_4" />
+                    <div class="col-sm-12">3.รูป SOLAR CELL PICTURE CHECKLIST</div>
+                       <asp:FileUpload ID="solarcellpictureChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)" required="required" />
+<%--                    <input type="file" name="image4" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_4" />--%>
                 </div>
                 <div class="row ml-3 mt-3">
                     <img id="user_img_4" src="https://placehold.it/250x250" class="placeholder2" />
                 </div>
 
+
+
+                 <%---------------------- QuestionId = 262  ---------------------------%>
                 <div class="row mt-3">
                     <div class="col-sm-12">4.COMPUTER PICTURE CHECKLIST</div>
-                    <input type="file" name="image5" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_5" />
+                       <asp:FileUpload ID="compictureChecklistImages" runat="server" data-thumbnail="user_img_5" accept="image/" onchange="previewImage(this)" required="required" />
+<%--                    <input type="file" name="image5" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_5" />--%>
                 </div>
                 <div class="row ml-3 mt-3">
                     <img id="user_img_5" src="https://placehold.it/250x250" class="placeholder2" />
                 </div>
+                 <%--////////////// --------------------- END  SECTION ID 24 ---------------------------  //////////////////--%>
+
+
+
+
 
                 <%--                  EXSAMPLE DATAAA--%>
                 <%--                <table>

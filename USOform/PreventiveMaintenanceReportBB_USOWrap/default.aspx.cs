@@ -223,7 +223,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             if (this.usonetsignboardImage.HasFile)
             {
                 string extension = this.usonetsignboardImage.PostedFile.FileName.Split('.')[1];
-                string newFileName = "images/" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                string newFileName = "images/UsonetPicture_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
                 this.usonetsignboardImage.PostedFile.SaveAs(Server.MapPath(newFileName));
 
                 Answer answer20 = new Answer()
@@ -3035,6 +3035,329 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
+            // รูปอุปกรณ์ Solar Cell ภายในห้อง :
+            string solarcellToolsinroom = Request.Form["solarcellToolsinroomRadio"];
+            Answer answer241 = new Answer()
+            {
+                AnsDes = solarcellToolsinroom,
+                QuestionId = 241,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer241);
+
+
+            // รูปหน้าจอ Charger แสดงค่าต่างๆ :
+            string screenCharger = Request.Form["screenChargerRadio"];
+            Answer answer242 = new Answer()
+            {
+                AnsDes = screenCharger,
+                QuestionId = 242,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer242);
+
+
+
+            // รูปหน้าจอ Inverter แสดงค่าต่างๆ :
+            string screenInverter = Request.Form["screenInverterRadio"];
+            Answer answer243 = new Answer()
+            {
+                AnsDes = screenInverter,
+                QuestionId = 243,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer243);
+
+
+            // รูป Circuit Breaker ภายในตู้ :
+            string piccircuitBreaker = Request.Form["piccircuitBreakerRadio"];
+            Answer answer244 = new Answer()
+            {
+                AnsDes = screenInverter,
+                QuestionId = 244,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer244);
+
+
+
+            // รูป Terminal ต่อสายภายในตู้ :
+            string picTerminal = Request.Form["picTerminalRadio"];
+            Answer answer245 = new Answer()
+            {
+                AnsDes = picTerminal,
+                QuestionId = 245,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer245);
+
+
+            // รูปความสะอาดแผง PV :
+            string picCleaningPv = Request.Form["picCleaningPvRadio"];
+            Answer answer246 = new Answer()
+            {
+                AnsDes = picCleaningPv,
+                QuestionId = 246,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer246);
+
+
+            // รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์  :
+            string picSunrise = Request.Form["picSunriseRadio"];
+            Answer answer247 = new Answer()
+            {
+                AnsDes = picSunrise,
+                QuestionId = 247,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer247);
+
+
+            // รูปคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO. :
+            string piccomAgent1 = Request.Form["piccomAgentRadio1"];
+            Answer answer248 = new Answer()
+            {
+                AnsDes = piccomAgent1,
+                QuestionId = 248,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer248);
+
+
+            // รูปคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO. :
+            string piccomAgent2 = Request.Form["piccomAgentRadio2"];
+            Answer answer249 = new Answer()
+            {
+                AnsDes = piccomAgent2,
+                QuestionId = 249,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer249);
+
+
+
+            // รูปคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO. :
+            string piccomAgent3 = Request.Form["piccomAgentRadio3"];
+            Answer answer250 = new Answer()
+            {
+                AnsDes = piccomAgent3,
+                QuestionId = 250,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer250);
+
+
+
+            // รูปคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO. :
+            string piccomAgent4 = Request.Form["piccomAgentRadio4"];
+            Answer answer251 = new Answer()
+            {
+                AnsDes = piccomAgent4,
+                QuestionId = 251,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer251);
+
+
+            // รูปคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.  :
+            string piccomAgent5 = Request.Form["piccomAgentRadio5"];
+            Answer answer252 = new Answer()
+            {
+                AnsDes = piccomAgent5,
+                QuestionId = 252,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer252);
+
+
+            // รูปคอมพิวเตอร์ตัวที่ 6 พร้อม Serial NO.  :
+            string piccomAgent6 = Request.Form["piccomAgentRadio6"];
+            Answer answer253 = new Answer()
+            {
+                AnsDes = piccomAgent6,
+                QuestionId = 253,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer253);
+
+
+            // รูปคอมพิวเตอร์ตัวที่ 7 พร้อม Serial NO.  :
+            string piccomAgent7 = Request.Form["piccomAgentRadio7"];
+            Answer answer254 = new Answer()
+            {
+                AnsDes = piccomAgent7,
+                QuestionId = 254,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer254);
+
+
+            // รูปคอมพิวเตอร์ตัวที่ 8 พร้อม Serial NO.  :
+            string piccomAgent8 = Request.Form["piccomAgentRadio8"];
+            Answer answer255 = new Answer()
+            {
+                AnsDes = piccomAgent8,
+                QuestionId = 255,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer255);
+
+            // รูปคอมพิวเตอร์ตัวที่ 9 พร้อม Serial NO.  :
+            string piccomAgent9 = Request.Form["piccomAgentRadio9"];
+            Answer answer256 = new Answer()
+            {
+                AnsDes = piccomAgent9,
+                QuestionId = 256,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer256);
+
+            // รูปคอมพิวเตอร์ตัวที่ 10 พร้อม Serial NO.  :
+            string piccomAgent10 = Request.Form["piccomAgentRadio10"];
+            Answer answer257 = new Answer()
+            {
+                AnsDes = piccomAgent10,
+                QuestionId = 257,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer257);
+
+            // รูปคอมพิวเตอร์ตัวที่ 11 พร้อม Serial NO.  :
+            string piccomAgent11 = Request.Form["piccomAgentRadio11"];
+            Answer answer258 = new Answer()
+            {
+                AnsDes = piccomAgent11,
+                QuestionId = 258,
+                AnserTypeId = 3,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer258);
+
+
+
+            //1.รูป PICTURE CHECKLIST :
+            if (this.pictureChecklistImages.HasFile)
+            {
+                string extension = this.pictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                string newFileName = "images/pictureChecklist_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                this.pictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                Answer answer259 = new Answer()
+                {
+                    AnsDes = newFileName,
+                    QuestionId = 259,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = 1
+                };
+                uSOEntities.Answers.Add(answer259);
+            }
+
+
+            //2.รูป VSAT PICTURE CHECKLIST :
+            if (this.vsatpictureChecklistImages.HasFile)
+            {
+                string extension = this.vsatpictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                string newFileName = "images/VsatPictureChecklist_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                this.vsatpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                Answer answer260 = new Answer()
+                {
+                    AnsDes = newFileName,
+                    QuestionId = 260,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = 1
+                };
+                uSOEntities.Answers.Add(answer260);
+            }
+
+
+
+            //3.รูป SOLAR CELL PICTURE CHECKLISTT :
+            if (this.solarcellpictureChecklistImages.HasFile)
+            {
+                string extension = this.solarcellpictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                string newFileName = "images/SolarcellPictureChecklist_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                this.solarcellpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                Answer answer261 = new Answer()
+                {
+                    AnsDes = newFileName,
+                    QuestionId = 261,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = 1
+                };
+                uSOEntities.Answers.Add(answer261);
+            }
+
+
+            //4.COMPUTER PICTURE CHECKLIST :
+            if (this.compictureChecklistImages.HasFile)
+            {
+                string extension = this.compictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                string newFileName = "images/ComputerPictureChecklist_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                this.compictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                Answer answer262 = new Answer()
+                {
+                    AnsDes = newFileName,
+                    QuestionId = 262,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = 1
+                };
+                uSOEntities.Answers.Add(answer262);
+            }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3050,7 +3373,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             if (this.signboardschoolImage.HasFile)
             {
                 string extension = this.signboardschoolImage.PostedFile.FileName.Split('.')[1];
-                string newFileName = "images/" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                string newFileName = "images/SignboardSchool_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
                 this.signboardschoolImage.PostedFile.SaveAs(Server.MapPath(newFileName));
 
                 Answer answer6 = new Answer()
