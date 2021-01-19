@@ -81,6 +81,7 @@
     <Content Include="PreventiveMaintenanceReportBB2.3_3.3\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_2.4\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\default.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB_USOWrap\spinner.js" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\previewImg.js" />
     <Content Include="style\Mystyle.css" />
     <Content Include="Web.config" />

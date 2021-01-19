@@ -9,6 +9,11 @@
     <link href="~/style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="previewImg.js"></script>
+  
+    
+  
+    <script src="spinner.js"></script>
+
 
     <%--font style--%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -25,9 +30,9 @@
 </head>
 
 <body style="background-color: lightgrey;">
-
-    <form id="form1" runat="server">
-        <div class="container bg-white">
+     
+    <form id="form1" runat="server">   
+        <div class="container bg-white Myfont">
             <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
                 This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
             </div>
@@ -55,7 +60,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">ภาค :</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="AreaTextbox" runat="server" required="required" />
+                    <input type="text" class="form-control" id="AreaTex           tbox" runat="server" required="required" />
                 </div>
             </div>
 

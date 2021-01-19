@@ -6,7 +6,9 @@
 
     <form id="form1" runat="server">
         <div class="container bg-white">
-           
+            <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
+                This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+            </div>
 <%--////////////////////////////////    HEADER CONTENT    ///////////////////////////////////////////////--%>
             <div class="row">
                 <div class="col-12 text-left ">
@@ -21,21 +23,21 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">กลุ่ม :</label>
+                <label class="control-label col-sm-1" >กลุ่ม :</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="groupTextbox11"  runat="server"/>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-1" >ภาค :</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="" name="" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">ภาค :</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="" name="" />
-                </div>
-            </div>
-
-            <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">บริษัท :</label>
+                <label class="control-label col-sm-1" >บริษัท :</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="" name="" />
                 </div>
@@ -44,19 +46,19 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-7" for="">ส่วนที่ 2 การจัดให้มีบริการสัญญาณโทรศัพท์เคลื่อนที่ (Mobile Service) ประเภทบริการ </label>
+                <label class="control-label col-sm-7" >ส่วนที่ 2 การจัดให้มีบริการสัญญาณโทรศัพท์เคลื่อนที่ (Mobile Service) ประเภทบริการ </label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="" />2.1
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="" />2.2
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="" />3
                     </label>
                 </div>
@@ -64,7 +66,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">รอบการบำรุงรักษา ครั้งที่ </label>
+                <label class="control-label col-sm-2" >รอบการบำรุงรักษา ครั้งที่ </label>
                 <div class="col-sm-1">
                     <input type="text" class="form-control" id="" name="" />
                 </div>
@@ -91,7 +93,7 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">สถานที่ (Site code)</label>
+                <label class="control-label col-sm-2" >สถานที่ (Site code)</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="" name="">
                 </div>
@@ -112,43 +114,28 @@
 
           
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-1" for="">Cabinet ID :</label>
+                    <label class="control-label col-sm-1" >Cabinet ID :</label>
                     <div class="col-sm-11">
                         <input type="email" class="form-control" id="" name="">
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-1" for="">Site Code :</label>
+                    <label class="control-label col-sm-1" >Site Code :</label>
                     <div class="col-sm-11">
                         <input class="form-control" id="" name="">
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-1" for="">Village ID :</label>
+                    <label class="control-label col-sm-1" >Village ID :</label>
                     <div class="col-sm-11">
                         <input class="form-control" id="" name="">
                     </div>
                 </div>
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-1" for="">Village :</label>
-                    <div class="col-sm-11">
-                        <input class="form-control" id="" name="">
-                    </div>
-                </div>
-
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-1" for="">Sub-District:</label>
-                    <div class="col-sm-11">
-                        <input class="form-control" id="" name="">
-                    </div>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label class="control-label col-sm-1" for="">Province :</label>
+                    <label class="control-label col-sm-1" >Village :</label>
                     <div class="col-sm-11">
                         <input class="form-control" id="" name="">
                     </div>
@@ -156,7 +143,14 @@
 
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-1" for="">Type :</label>
+                    <label class="control-label col-sm-1" >Sub-District:</label>
+                    <div class="col-sm-11">
+                        <input class="form-control" id="" name="">
+                    </div>
+                </div>
+
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-1" >Province :</label>
                     <div class="col-sm-11">
                         <input class="form-control" id="" name="">
                     </div>
@@ -164,7 +158,15 @@
 
 
                 <div class="form-row mt-3">
-                    <label class="control-label col-sm-1" for="">PM Date : </label>
+                    <label class="control-label col-sm-1" >Type :</label>
+                    <div class="col-sm-11">
+                        <input class="form-control" id="" name="">
+                    </div>
+                </div>
+
+
+                <div class="form-row mt-3">
+                    <label class="control-label col-sm-1" >PM Date : </label>
                     <div class="col-sm-11">
                         <input class="form-control" id="" name="">
                     </div>
@@ -191,35 +193,35 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Cabinet ID</label>
+                <label class="control-label col-sm-1" >Cabinet ID</label>
                 <div class="col-sm-11">
                     <input type="email" class="form-control" id="" name="">
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Site Code</label>
+                <label class="control-label col-sm-1" >Site Code</label>
                 <div class="col-sm-11">
                     <input type="email" class="form-control" id="" name="">
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Village ID</label>
+                <label class="control-label col-sm-1" >Village ID</label>
                 <div class="col-sm-11">
                     <input type="email" class="form-control" id="" name="">
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">LAT & LONG</label>
+                <label class="control-label col-sm-1" >LAT & LONG</label>
                 <div class="col-sm-11">
                     <input type="email" class="form-control" id="" name="">
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">OLT ID (USO Network) or ISP (Existing Network)</label>
+                <label class="control-label col-sm-4" >OLT ID (USO Network) or ISP (Existing Network)</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
@@ -234,7 +236,7 @@
 
             <div class="form-row mt-3">
 
-                <label class="control-label col-sm-2" for="">ระบบไฟฟ้า</label>
+                <label class="control-label col-sm-2" >ระบบไฟฟ้า</label>
                 <div class="form-check-inline">
                     <label class="form-check-label" for="radio2">
                         <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">PEA
@@ -248,60 +250,60 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">หมายเลขผู้ใช้ไฟ</label>
+                <label class="control-label col-sm-2" >หมายเลขผู้ใช้ไฟ</label>
                 <div class="col-sm-10">
                     <input type="email" class="form-control" id="" name="">
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">หน่วยใช้ไฟ (kWh Meter)</label>
+                <label class="control-label col-sm-2" >หน่วยใช้ไฟ (kWh Meter)</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">kWh</label>
+                <label class="control-label col-sm-2" >kWh</label>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">แรงดัน AC (kWh Meter)</label>
+                <label class="control-label col-sm-2" >แรงดัน AC (kWh Meter)</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">V.</label>
+                <label class="control-label col-sm-2" >V.</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">กระแส Line AC (kWh Meter)</label>
+                <label class="control-label col-sm-2" >กระแส Line AC (kWh Meter)</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">A.</label>
+                <label class="control-label col-sm-2" >A.</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">สภาพ kWh Meter</label>
+                <label class="control-label col-sm-2" >สภาพ kWh Meter</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">สภาพ Circuit Breaker</label>
+                <label class="control-label col-sm-2" >สภาพ Circuit Breaker</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
@@ -314,14 +316,14 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">UPS ภายในตู้</label>
+                <label class="control-label col-sm-2" >UPS ภายในตู้</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">มี
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ไม่มี
                     </label>
                 </div>
@@ -329,112 +331,112 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">แรงดัน AC จาก UPS</label>
+                <label class="control-label col-sm-2" >แรงดัน AC จาก UPS</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">V.</label>
+                <label class="control-label col-sm-2" >V.</label>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">UPS ภายในตู้</label>
+                <label class="control-label col-sm-2" >UPS ภายในตู้</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">1
                     </label>
                 </div>
 
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">2
                     </label>
                 </div>
 
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">3
                     </label>
                 </div>
 
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">4
                     </label>
 
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label" >
                             <input type="radio" class="form-check-input" id="" name="" value="">5
                         </label>
                     </div>
                 </div>
-                <label class="control-label col-sm-2" for="">(ขีดล่าง =1 , ขีดบน = 5)</label>
+                <label class="control-label col-sm-2" >(ขีดล่าง =1 , ขีดบน = 5)</label>
 
             </div>
 
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">ระดับความจุ Battery</label>
+                <label class="control-label col-sm-2" >ระดับความจุ Battery</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">1
                     </label>
                 </div>
 
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">2
                     </label>
                 </div>
 
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">3
                     </label>
                 </div>
 
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">4
                     </label>
 
                     <div class="form-check-inline">
-                        <label class="form-check-label" for="">
+                        <label class="form-check-label" >
                             <input type="radio" class="form-check-input" id="" name="" value="">5
                         </label>
                     </div>
                 </div>
-                <label class="control-label col-sm-2" for="">(ขีดล่าง =1 , ขีดบน = 5)</label>
+                <label class="control-label col-sm-2" >(ขีดล่าง =1 , ขีดบน = 5)</label>
             </div>
 
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">การทำงานของระบบไฟสำรอง</label>
+                <label class="control-label col-sm-2" >การทำงานของระบบไฟสำรอง</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
 
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">สภาพ Battery Bank</label>
+                <label class="control-label col-sm-2" >สภาพ Battery Bank</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
 
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
@@ -447,59 +449,59 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">ONU/Modem Network</label>
+                <label class="control-label col-sm-2" >ONU/Modem Network</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">TOT
                     </label>
                 </div>
 
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">TRUE
                     </label>
                 </div>
 
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">3BB
                     </label>
                 </div>
 
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">Satellite
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3 ">
-                <label class="control-label col-sm-2" for="">FEMTO</label>
+                <label class="control-label col-sm-2" >FEMTO</label>
                 <div class="form-check-inline col-4 ">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">3G
                     </label>
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">4G
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3 ">
-                <label class="control-label " for="">การระบายอากาศ (T-Power)</label>
+                <label class="control-label " >การระบายอากาศ (T-Power)</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ                
                     </label>
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
@@ -507,23 +509,23 @@
             </div>
 
             <div class="form-row mt-3 ">
-                <label class="control-label " for="">การ Wiring สายไฟและสาย Ground</label>
+                <label class="control-label " >การ Wiring สายไฟและสาย Ground</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">เรียบร้อย                          
                     </label>
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ไม่เรียบร้อย
                     </label>
                 </div>
             </div>
             <div class="form-row mt-3 ">
-                <label class="control-label " for="">การ Wiring Patch cord และ สาย LAN</label>
+                <label class="control-label " >การ Wiring Patch cord และ สาย LAN</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">เรียบร้อย                          
                     </label>
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ไม่เรียบร้อย
                     </label>
                 </div>
@@ -536,56 +538,56 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">ความแข็งแรงจุดต่อ Ground Bar</label>
+                <label class="control-label col-sm-4" >ความแข็งแรงจุดต่อ Ground Bar</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">ความแข็งแรงของน็อตขันหางปลาอุปกรณ์</label>
+                <label class="control-label col-sm-4" >ความแข็งแรงของน็อตขันหางปลาอุปกรณ์</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">สายกราวด์เรียบร้อย ปลอดภัย สมบูรณ์</label>
+                <label class="control-label col-sm-4" >สายกราวด์เรียบร้อย ปลอดภัย สมบูรณ์</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">สถานะไฟฟ้ารั่วลง Ground</label>
+                <label class="control-label col-sm-4" >สถานะไฟฟ้ารั่วลง Ground</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ไม่พบไฟฟ้ารั่ว
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">พบไฟฟ้ารั่ว
                     </label>
                 </div>
@@ -598,28 +600,28 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">ป้ายและตัวเลขแสดงชื่อสถานี</label>
+                <label class="control-label col-sm-4" >ป้ายและตัวเลขแสดงชื่อสถานี</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ไม่ชัดเจน
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">การติดตั้งและการยึดตู้อุปกรณ์</label>
+                <label class="control-label col-sm-4" >การติดตั้งและการยึดตู้อุปกรณ์</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด
                     </label>
                 </div>
@@ -627,56 +629,56 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">เสาไฟฟ้าที่ติดตั้งอุปกรณ์</label>
+                <label class="control-label col-sm-4" >เสาไฟฟ้าที่ติดตั้งอุปกรณ์</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/เอียง
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">ช่อง Cable Inlet  และความสะอาด</label>
+                <label class="control-label col-sm-4" >ช่อง Cable Inlet  และความสะอาด</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ไม่ได้อุดซิลีโคนง
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">ช่อง Filter ความสะอาด (T-Power)</label>
+                <label class="control-label col-sm-4" >ช่อง Filter ความสะอาด (T-Power)</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">มีฝุ่น/สิ่งสกปรก
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">ประตูและยางขอบประตูของตู้อุปกรณ์</label>
+                <label class="control-label col-sm-4" >ประตูและยางขอบประตูของตู้อุปกรณ์</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด
                     </label>
                 </div>
@@ -689,56 +691,56 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">อุปกรณ์ LNB/BUC</label>
+                <label class="control-label col-sm-4" >อุปกรณ์ LNB/BUC</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">การเก็บสาย RG และการพันหัว</label>
+                <label class="control-label col-sm-4" >การเก็บสาย RG และการพันหัว</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ไม่เรียบร้อย/ไม่แน่น
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">ฐานและระดับของเสาจาน</label>
+                <label class="control-label col-sm-4" >ฐานและระดับของเสาจาน</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ไม่ได้ระดับ/เอียง
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">แนว Line Of Sight</label>
+                <label class="control-label col-sm-4" >แนว Line Of Sight</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">โดนบัง
                     </label>
                 </div>
@@ -746,28 +748,28 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">ความสะอาดของหน้าจาน</label>
+                <label class="control-label col-sm-4" >ความสะอาดของหน้าจาน</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">สกปรก
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">LNB Band Switch</label>
+                <label class="control-label col-sm-4" >LNB Band Switch</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">HIGH BAND
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">LOW BAND
                     </label>
                 </div>
@@ -781,120 +783,120 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">ระบบ Solar Cell</label>
+                <label class="control-label col-sm-4" >ระบบ Solar Cell</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">แผง PV Panel</label>
+                <label class="control-label col-sm-4" >แผง PV Panel</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">อุปกรณ์ Charger</label>
+                <label class="control-label col-sm-4" >อุปกรณ์ Charger</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">ความสะอาดแผง PV </label>
+                <label class="control-label col-sm-4" >ความสะอาดแผง PV </label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">สกปรก
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">การติดตั้งแผง PV </label>
+                <label class="control-label col-sm-4" >การติดตั้งแผง PV </label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">ที่โล่งรับแดดปกติ 
                     </label>
                 </div>
 
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">มีอาคาร/ต้นไม้บัง
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">แรงดันไฟจาก Inverter</label>
+                <label class="control-label col-sm-2" >แรงดันไฟจาก Inverter</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">V.</label>
+                <label class="control-label col-sm-2" >V.</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">กระแส Load</label>
+                <label class="control-label col-sm-2" >กระแส Load</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">A.</label>
+                <label class="control-label col-sm-2" >A.</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">แรงดัน Battery ก้อนที่ 1</label>
+                <label class="control-label col-sm-2" >แรงดัน Battery ก้อนที่ 1</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">V.</label>
+                <label class="control-label col-sm-2" >V.</label>
             </div>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">แรงดัน Battery ก้อนที่ 2</label>
+                <label class="control-label col-sm-2" >แรงดัน Battery ก้อนที่ 2</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">V.</label>
+                <label class="control-label col-sm-2" >V.</label>
             </div>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">แรงดัน Battery ก้อนที่ 3</label>
+                <label class="control-label col-sm-2" >แรงดัน Battery ก้อนที่ 3</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">V.</label>
+                <label class="control-label col-sm-2" >V.</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">แรงดัน Battery ก้อนที่ 4</label>
+                <label class="control-label col-sm-2" >แรงดัน Battery ก้อนที่ 4</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">V.</label>
+                <label class="control-label col-sm-2" >V.</label>
             </div>
 
             <div class="row mt-3">
@@ -904,7 +906,7 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">Call Test (for Femto)</label>
+                <label class="control-label col-sm-2" >Call Test (for Femto)</label>
                 <div class="form-check-inline">
                     <label class="form-check-label" for="radio2">
                         <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">ปกติ
@@ -919,7 +921,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">Cell ID/Bsrid (for Femto)</label>
+                <label class="control-label col-sm-2" >Cell ID/Bsrid (for Femto)</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
@@ -927,19 +929,19 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">Network strength (>= -77.5 dBm) Section 1</label>
+                <label class="control-label col-sm-2" >Network strength (>= -77.5 dBm) Section 1</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">dBm</label>
+                <label class="control-label col-sm-2" >dBm</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">Network strength (>= -77.5 dBm) Section 2</label>
+                <label class="control-label col-sm-2" >Network strength (>= -77.5 dBm) Section 2</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">dBm</label>
+                <label class="control-label col-sm-2" >dBm</label>
             </div>
 
 
@@ -951,62 +953,62 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">Network strength (>= -77.5 dBm) Section 3</label>
+                <label class="control-label col-sm-2" >Network strength (>= -77.5 dBm) Section 3</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">dBm</label>
+                <label class="control-label col-sm-2" >dBm</label>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">Download (for ONU/VSAT)</label>
+                <label class="control-label col-sm-2" >Download (for ONU/VSAT)</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">Mb/s</label>
+                <label class="control-label col-sm-2" >Mb/s</label>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">Upload (for ONU/VSAT)</label>
+                <label class="control-label col-sm-2" >Upload (for ONU/VSAT)</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">Mb/s</label>
+                <label class="control-label col-sm-2" >Mb/s</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">Ping Test (for ONU/VSAT)</label>
+                <label class="control-label col-sm-2" >Ping Test (for ONU/VSAT)</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">ms</label>
+                <label class="control-label col-sm-2" >ms</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">Download (for Mobile)</label>
+                <label class="control-label col-sm-2" >Download (for Mobile)</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">Mb/s</label>
+                <label class="control-label col-sm-2" >Mb/s</label>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">Upload (for Mobile)</label>
+                <label class="control-label col-sm-2" >Upload (for Mobile)</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">Mb/s</label>
+                <label class="control-label col-sm-2" >Mb/s</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">Ping Test (for Mobile)</label>
+                <label class="control-label col-sm-2" >Ping Test (for Mobile)</label>
                 <div class="col-sm-8">
                     <input type="email" class="form-control" id="" name="">
                 </div>
-                <label class="control-label col-sm-2" for="">Ms</label>
+                <label class="control-label col-sm-2" >Ms</label>
             </div>
 
 
@@ -1560,85 +1562,70 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปภาพรวมบริเวณ Site</label>
+                <label class="control-label col-sm-4" >รูปภาพรวมบริเวณ Site</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปหน้าตู้ ก่อน-หลัง</label>
+                <label class="control-label col-sm-4" >รูปหน้าตู้ ก่อน-หลัง</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปภายในตู้ ก่อน-หลัง</label>
+                <label class="control-label col-sm-4" >รูปภายในตู้ ก่อน-หลัง</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปขณะทำความสะอาดตู้ ก่อน-หลัง</label>
+                <label class="control-label col-sm-4" >รูปขณะทำความสะอาดตู้ ก่อน-หลัง</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปสถานะ Circuit Breaker (ON)</label>
+                <label class="control-label col-sm-4" >รูปสถานะ Circuit Breaker (ON)</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                    </label>
-                </div>
-            </div>
-
-
-            <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูป Circuit Breaker ภายในตู้</label>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
@@ -1646,28 +1633,14 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูป Terminal ต่อสายภายในตู้</label>
+                <label class="control-label col-sm-4" >รูป Circuit Breaker ภายในตู้</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการตรวจสอบ Ground และ Bar Ground</label>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
@@ -1675,84 +1648,28 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการตรวจสอบสถานะไฟฟ้ารั่วลง Ground (Lamp Test)</label>
+                <label class="control-label col-sm-4" >รูป Terminal ต่อสายภายในตู้</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูป PEA Meter</label>
+                <label class="control-label col-sm-4" >รูปการตรวจสอบ Ground และ Bar Ground</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการวัดแรงดัน AC และกระแส AC </label>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปหน้าจอ UPS แสดงค่าต่างๆ และ Serial NO.  </label>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูป ONU/Modem พร้อม Serial NO. และ MAC </label>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการ Test Speed ONU (30/10 mbps) </label>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
@@ -1760,84 +1677,84 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการ Test Network strength (>= -77.5 dBm) Section 1 </label>
+                <label class="control-label col-sm-4" >รูปการตรวจสอบสถานะไฟฟ้ารั่วลง Ground (Lamp Test)</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการ Test Network strength (>= -77.5 dBm) Section 2</label>
+                <label class="control-label col-sm-4" >รูป PEA Meter</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการ Test Network strength (>= -77.5 dBm) Section 3</label>
+                <label class="control-label col-sm-4" >รูปการวัดแรงดัน AC และกระแส AC </label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการ Test Speed VSAT (30/5 mbps) *เฉพาะ SAT</label>
+                <label class="control-label col-sm-4" >รูปหน้าจอ UPS แสดงค่าต่างๆ และ Serial NO.  </label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูป Femto พร้อม Serial NO. และ MAC</label>
+                <label class="control-label col-sm-4" >รูป ONU/Modem พร้อม Serial NO. และ MAC </label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการ Test Femto 3G (PSC 408-412)  </label>
+                <label class="control-label col-sm-4" >รูปการ Test Speed ONU (30/10 mbps) </label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
@@ -1845,14 +1762,99 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการ Test Femto 4G (PCI 480-503) *เฉพาะ 4G </label>
+                <label class="control-label col-sm-4" >รูปการ Test Network strength (>= -77.5 dBm) Section 1 </label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4" >รูปการ Test Network strength (>= -77.5 dBm) Section 2</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4" >รูปการ Test Network strength (>= -77.5 dBm) Section 3</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4" >รูปการ Test Speed VSAT (30/5 mbps) *เฉพาะ SAT</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4" >รูป Femto พร้อม Serial NO. และ MAC</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4" >รูปการ Test Femto 3G (PSC 408-412)  </label>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4" >รูปการ Test Femto 4G (PCI 480-503) *เฉพาะ 4G </label>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
@@ -1867,84 +1869,84 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปจุดติดตั้งจานดาวเทียม</label>
+                <label class="control-label col-sm-4" >รูปจุดติดตั้งจานดาวเทียม</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปความสะอาดบริเวณจานดาวเทียม</label>
+                <label class="control-label col-sm-4" >รูปความสะอาดบริเวณจานดาวเทียม</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูป LNB พร้อม Part NO.</label>
+                <label class="control-label col-sm-4" >รูป LNB พร้อม Part NO.</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูป BUC พร้อม Part NO.</label>
+                <label class="control-label col-sm-4" >รูป BUC พร้อม Part NO.</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการเก็บสายและพันหัวที่ LNB/BUC</label>
+                <label class="control-label col-sm-4" >รูปการเก็บสายและพันหัวที่ LNB/BUC</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปแนว Line Of Sight (ดูการถูกบังของหน้าจานดาวเทียม)</label>
+                <label class="control-label col-sm-4" >รูปแนว Line Of Sight (ดูการถูกบังของหน้าจานดาวเทียม)</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
@@ -1957,14 +1959,14 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปจุดติดตั้ง Solar Cell</label>
+                <label class="control-label col-sm-4" >รูปจุดติดตั้ง Solar Cell</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
@@ -1972,85 +1974,56 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปอุปกรณ์ภายในตู้ Solar Cell</label>
+                <label class="control-label col-sm-4" >รูปอุปกรณ์ภายในตู้ Solar Cell</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปหน้าจอ Charger แสดงค่าต่างๆ</label>
+                <label class="control-label col-sm-4" >รูปหน้าจอ Charger แสดงค่าต่างๆ</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปหน้าจอ Inverter แสดงค่าต่างๆ</label>
+                <label class="control-label col-sm-4" >รูปหน้าจอ Inverter แสดงค่าต่างๆ</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปความสะอาดแผง PV</label>
+                <label class="control-label col-sm-4" >รูปความสะอาดแผง PV</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                    </label>
-                </div>
-            </div>
-
-
-            <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์</label>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการวัดแรงดัน Battery ก้อนที่ 1</label>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
@@ -2058,42 +2031,71 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการวัดแรงดัน Battery ก้อนที่ 2</label>
+                <label class="control-label col-sm-4" >รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการวัดแรงดัน Battery ก้อนที่ 3</label>
+                <label class="control-label col-sm-4" >รูปการวัดแรงดัน Battery ก้อนที่ 1</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4" >รูปการวัดแรงดัน Battery ก้อนที่ 2</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการวัดแรงดัน Battery ก้อนที่ 4</label>
+                <label class="control-label col-sm-4" >รูปการวัดแรงดัน Battery ก้อนที่ 3</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4" >รูปการวัดแรงดัน Battery ก้อนที่ 4</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" id="" name="" value="">PASS
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" id="" name="" value="">NOT PASS
                     </label>
                 </div>
@@ -2104,22 +2106,24 @@
                     <h3>รูปภาพประกอบรายงาน</h3>
                 </div>
                 <div class="col-md-12 text-center mt-3 table-bordered">
-                    <label for="">1.รูป PICTURE CHECKLIST</label>
+                    <label >1.รูป PICTURE CHECKLIST</label>
                     <input type="file" class="form-control-file" id="">
                 </div>
 
                 <div class="col-md-12 text-center mt-3 table-bordered">
-                    <label for="">2.รูป VSAT PICTURE CHECKLIST</label>
+                    <label >2.รูป VSAT PICTURE CHECKLIST</label>
                     <input type="file" class="form-control-file" id="">
                 </div>
 
                 <div class="col-md-12 text-center mt-3 table-bordered">
-                    <label for="">3.รูป SOLAR CELL PICTURE CHECKLISTT</label>
+                    <label >3.รูป SOLAR CELL PICTURE CHECKLISTT</label>
                     <input type="file" class="form-control-file" id="">
                 </div>
             </div>
 
-
+             <div class="row">
+                    <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-primary btn-block" OnClick="SubmitButton_Click" />
+                </div>
 
 
 
