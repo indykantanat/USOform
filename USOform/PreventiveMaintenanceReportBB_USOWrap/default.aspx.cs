@@ -73,7 +73,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             //ปีพุทธศักราช
             Answer answer5 = new Answer()
             {
-                AnsDes = this.maintenanceCountTextbox.Value,
+                AnsDes = this.yearTextbox.Value,
                 QuestionId = 5,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,

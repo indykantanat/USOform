@@ -213,9 +213,7 @@
             <div class="row mt-3">
                 <div class="col-sm-12 bg-primary text-white">ใส่ป้ายหน้าโรงเรียน</div>
 
-                <asp:FileUpload ID="signboardschoolImage" runat="server" data-thumbnail="user_img_0" accept="image/*" onchange="previewImage(this)" required="required" />
-
-                <%--    OLD RESOUCE    <input type="file" name="image0" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_0" />--%>
+                <asp:FileUpload ID="signboardschoolImage" runat="server" data-thumbnail="user_img_0" accept="image/*" onchange="previewImage(this)" required="required" />             
             </div>
             <%-- onchange="previewImage(this)"--%>
             <div class="row ml-3 mt-3">
