@@ -75,7 +75,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\logo_uso.png" />
-    <Content Include="PreventiveMaintenanceReportBB2.1_3.1\default.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\default.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\WebForm1.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_1\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2.2_3.2\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2.3_3.3\default.aspx" />
@@ -85,17 +86,24 @@
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\previewImg.js" />
     <Content Include="style\Mystyle.css" />
     <Content Include="Web.config" />
-    <Content Include="PreventiveMaintenanceReportMB_2.4\default.aspx" />
+    <Content Include="PMReportMobileService_ประเภทบริการ_2.1_2.2_3\default.aspx" />
     <Content Include="Success.aspx" />
     <Content Include="testtable.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PreventiveMaintenanceReportBB2.1_3.1\default.aspx.cs">
+    <Compile Include="PreventiveMaintenanceReportBB2_1_3_1\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB2.1_3.1\default.aspx.designer.cs">
+    <Compile Include="PreventiveMaintenanceReportBB2_1_3_1\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB2_1_3_1\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB2_1_3_1\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreventiveMaintenanceReportBB_1\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -140,11 +148,11 @@
     <Compile Include="Mymasterpage.Master.designer.cs">
       <DependentUpon>Mymasterpage.Master</DependentUpon>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportMB_2.4\default.aspx.cs">
+    <Compile Include="PMReportMobileService_ประเภทบริการ_2.1_2.2_3\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportMB_2.4\default.aspx.designer.cs">
+    <Compile Include="PMReportMobileService_ประเภทบริการ_2.1_2.2_3\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Success.aspx.cs">
@@ -179,6 +187,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="PMReportMobileService_ประเภทบริการ_2.1_2.2_3\images\" />
     <Folder Include="PreventiveMaintenanceReportBB_USOWrap\images\" />
   </ItemGroup>
   <PropertyGroup>
