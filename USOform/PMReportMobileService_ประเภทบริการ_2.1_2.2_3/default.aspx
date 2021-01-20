@@ -1439,6 +1439,12 @@
 
 
                <%-- //////////////////////////////////   Sectionid  = 137     /////////////////////////////////--%>
+             <div class="row mt-3">
+                    <div class="col-md-12 bg-primary text-white text-center">
+                        <h3>14.ข้อมูลรายการทรัพย์สิน</h3>
+                    </div>
+                </div>
+
             <div class="table-responsive-sm text-center Myfont">
                     <table class="table table-sm table-hover" style="width: 100%;" border="0">
                         <thead>

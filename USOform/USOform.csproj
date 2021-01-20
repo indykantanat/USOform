@@ -188,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PMReportMobileService_ประเภทบริการ_2.1_2.2_3\images\" />
+    <Folder Include="PreventiveMaintenanceReportBB_2.4\images\" />
     <Folder Include="PreventiveMaintenanceReportBB_USOWrap\images\" />
   </ItemGroup>
   <PropertyGroup>

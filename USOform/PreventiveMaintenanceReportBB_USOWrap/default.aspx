@@ -60,7 +60,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">ภาค :</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="AreaTex           tbox" runat="server" required="required" />
+                    <input type="text" class="form-control" id="AreaTextbox" runat="server" required="required" />
                 </div>
             </div>
 
