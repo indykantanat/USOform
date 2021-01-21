@@ -75,35 +75,36 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\logo_uso.png" />
+    <Content Include="login\login.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2_1_3_1\default.aspx" />
-    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\WebForm1.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_1\default.aspx" />
-    <Content Include="PreventiveMaintenanceReportBB2.2_3.2\default.aspx" />
-    <Content Include="PreventiveMaintenanceReportBB2.3_3.3\default.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\default.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB2_3_3_3\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_2.4\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\spinner.js" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\previewImg.js" />
     <Content Include="style\Mystyle.css" />
     <Content Include="Web.config" />
-    <Content Include="PMReportMobileService_ประเภทบริการ_2.1_2.2_3\default.aspx" />
+    <Content Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\default.aspx" />
     <Content Include="Success.aspx" />
     <Content Include="testtable.aspx" />
+    <Content Include="home.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="login\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PreventiveMaintenanceReportBB2_1_3_1\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PreventiveMaintenanceReportBB2_1_3_1\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB2_1_3_1\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB2_1_3_1\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreventiveMaintenanceReportBB_1\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -112,18 +113,18 @@
     <Compile Include="PreventiveMaintenanceReportBB_1\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB2.2_3.2\default.aspx.cs">
+    <Compile Include="PreventiveMaintenanceReportBB2_2_3_2\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB2.2_3.2\default.aspx.designer.cs">
+    <Compile Include="PreventiveMaintenanceReportBB2_2_3_2\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB2.3_3.3\default.aspx.cs">
+    <Compile Include="PreventiveMaintenanceReportBB2_3_3_3\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB2.3_3.3\default.aspx.designer.cs">
+    <Compile Include="PreventiveMaintenanceReportBB2_3_3_3\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreventiveMaintenanceReportBB_2.4\default.aspx.cs">
@@ -148,11 +149,11 @@
     <Compile Include="Mymasterpage.Master.designer.cs">
       <DependentUpon>Mymasterpage.Master</DependentUpon>
     </Compile>
-    <Compile Include="PMReportMobileService_ประเภทบริการ_2.1_2.2_3\default.aspx.cs">
+    <Compile Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PMReportMobileService_ประเภทบริการ_2.1_2.2_3\default.aspx.designer.cs">
+    <Compile Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Success.aspx.cs">
@@ -168,6 +169,13 @@
     </Compile>
     <Compile Include="testtable.aspx.designer.cs">
       <DependentUpon>testtable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -187,9 +195,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PMReportMobileService_ประเภทบริการ_2.1_2.2_3\images\" />
+    <Folder Include="PreventiveMaintenanceReportBB2_3_3_3\images\" />
     <Folder Include="PreventiveMaintenanceReportBB_2.4\images\" />
     <Folder Include="PreventiveMaintenanceReportBB_USOWrap\images\" />
+    <Folder Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

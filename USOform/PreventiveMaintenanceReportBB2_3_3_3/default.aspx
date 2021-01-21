@@ -1,42 +1,42 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.Preventive_Maintenance__PM__Report_BB2._4.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.PreventiveMaintenanceReportBB2._3_3._3.WebForm1" %>
 
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Preventive Maintenance (PM) Report BB 2.4</title>
+    <title>รายงาน PM From BB Zone C+ บริการที่ 2.3,3.3</title>
     <link href="~/style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
     <%--font style--%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
-
+<body style="background-color: lightgray">
 
     <form id="form1" runat="server">
         <div class="container bg-white Myfont mt-3">
-
-
+            <%--////////////////////////////////    HEADER CONTENT    ///////////////////////////////////////////////--%>
             <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
-                This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                SUCCESS !!<a href="#" class="alert-link">an example link</a>. Give it a click if you like.
             </div>
             <div class="row pt-5">
                 <div class="col-4">
-                    <asp:FileUpload ID="logoPicture2" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" />
+                    <asp:FileUpload ID="logoPictureOga" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" />
                 </div>
                 <div class="col-4  d-flex justify-content-center ">
-                    <h5 class="headerText">Preventive Maintenance Site Report USO (PHO’s WIFI)</h5>
+                    <h5 class="headerText">Preventive Maintenance Site Report USO (School’s WIFI)</h5>
                 </div>
                 <div class="col-4 ">
                     <img src="/assets/logo_uso.png" class="logoImg" />
                 </div>
             </div>
 
-            <%--////////////////////////////////    HEADER CONTENT    ///////////////////////////////////////////////--%>
+
             <div class="row">
                 <div class="col-12 text-left ">
                     <div>
-                        <h5>รายงานผลการตรวจสอบ และบำรุงรักษาชุดอุปกรณ์ Broadband Internet Service (Preventive Maintenance (PM) Report)</h5>
+                        <h5>รายงานผลการตรวจสอบ และบำรุงรักษาชุดอุปกรณ์ Broadband Internet Service(Preventive Maintenance (PM) Report)</h5>
                     </div>
                     <div>
                         <h5>โครงการจัดให้มีสัญญาณโทรศัพท์เคลื่อนที่และบริการอินเทอร์เน็ตความเร็วสูงในพื้นที่ชายขอบ (Zone C+) </h5>
@@ -46,21 +46,21 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1">กลุ่ม :</label>
+                <label class="control-label col-sm-1" for="">กลุ่ม :</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="groupTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1">ภาค :</label>
+                <label class="control-label col-sm-1" for="">ภาค :</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="AreaTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1">บริษัท :</label>
+                <label class="control-label col-sm-1" for="">บริษัท :</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="CompanyTextbox" runat="server" />
                 </div>
@@ -69,12 +69,22 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-12">ส่วนที่ 2 การจัดให้มีบริการสัญญาณโทรศัพท์เคลื่อนที่ (Mobile Service) ประเภทบริการที่ 2.4 </label>
+                <label class="control-label col-sm-7" for="">ส่วนที่ 1 การจัดให้มีบริการอินเทอร์เน็ตความเร็วสูง (Broadband Internet Service) บริการประเภทที่</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label" for="">
+                        <input type="radio" class="form-check-input" name="seLectOptionRadio" value="2.3" />2.3
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label" for="">
+                        <input type="radio" class="form-check-input" name="seLectOptionRadio" value="3.3" />3.3
+                    </label>
+                </div>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">รอบการบำรุงรักษา ครั้งที่ </label>
+                <label class="control-label col-sm-2" for="">รอบการบำรุงรักษา ครั้งที่ </label>
                 <div class="col-sm-1">
                     <input type="text" class="form-control" id="maintenanceCountTextbox" runat="server" />
                 </div>
@@ -83,8 +93,6 @@
                   <input type="text" class="form-control" id="yearTextbox" runat="server" />
               </div>
             </div>
-
-
 
             <div class="row text-left mt-3">
                 <div class="col-md-12">
@@ -103,7 +111,7 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">สถานที่ (Site code)</label>
+                <label class="control-label col-sm-2" for="">สถานที่ (Site code)</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="siteCodeTextbox" runat="server" />
                 </div>
@@ -116,7 +124,12 @@
 
 
 
-            <%------------------------------SECTION 27 --------------------------------------------------%>
+
+
+
+
+            <%--/////////////////////////////////////////   FORM START     /////////////////////////////////////////--%>
+
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
                     <h4>PREVENTIVE MAINTENANCE SITE REPORT (PM)</h4>
@@ -145,16 +158,16 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">PHO’s Name :</label>
+                <label class="control-label col-sm-1" for="">Village :</label>
                 <div class="col-sm-11">
-                    <input type="text" class="form-control" id="phoNameTextbox" runat="server" />
+                    <input type="text" class="form-control" id="villageTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Village :</label>
+                <label class="control-label col-sm-1" for="">School’s name</label>
                 <div class="col-sm-11">
-                    <input type="text" class="form-control" id="villageTextbox" runat="server" />
+                    <input type="text" class="form-control" id="schoolNameTextbox" runat="server" />
                 </div>
             </div>
 
@@ -168,7 +181,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">District :</label>
                 <div class="col-sm-11">
-                    <input type="text" class="form-control" id="DistrictTextbox" runat="server" />
+                    <input type="text" class="form-control" id="DistrictTextboxEIEI" runat="server" />
                 </div>
             </div>
 
@@ -194,16 +207,29 @@
             </div>
 
 
+
             <div class="form-row mt-3 table-bordered">
-                <div class="col-sm-12 bg-primary text-white">ใส่รูปหน้าตู้</div>
+                <div class="col-sm-12 bg-primary text-white">ใส่ป้ายหน้าโรงเรียน</div>
                 <asp:FileUpload ID="picinfrontImages" runat="server" data-thumbnail="" accept="image/" onchange="previewImage(this)" required="required" />
             </div>
 
 
+            <div class="form-row mt-3 table-bordered">
+                <div class="col-sm-12 bg-primary text-white">รูปบริเวณห้องบริการ WiFi - Computer</div>
+                <asp:FileUpload ID="wifiHallImages" runat="server" data-thumbnail="" accept="image/" onchange="previewImage(this)" required="required" />
+            </div>
 
-            <%-- //////////////////////////////////     Sectionid  = 28    /////////////////////////////////--%>
 
-            <div class="row mt-3">
+
+
+
+
+
+
+
+
+
+            <div class="row ">
                 <div class="col-md-12 bg-warning text-white text-center Myfont">
                     <h4>Contractor</h4>
                 </div>
@@ -261,18 +287,22 @@
             </div>
 
 
-            <%-- //////////////////////////////////   END  Sectionid  = 28    /////////////////////////////////--%>
 
 
 
 
-            <%-- //////////////////////////////////     Sectionid  = 29    /////////////////////////////////--%>
+
+
+
+
+
+
+
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
                     <h4>1. รายละเอียดสถานี</h4>
                 </div>
             </div>
-
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">Cabinet ID :</label>
@@ -336,7 +366,19 @@
 
 
 
-            <%-- //////////////////////////////////     Sectionid  = 29    /////////////////////////////////--%>
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
                     <h4>2. ระบบไฟฟ้า (หลัก)</h4>
@@ -425,17 +467,9 @@
             </div>
 
 
-
-
-
-
-
-
-            <%-- //////////////////////////////////     Sectionid  = 30    /////////////////////////////////--%>
-
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
-                    <h3>3.ระบบไฟฟ้า (สำรอง)</h3>
+                    <h4>3. ระบบไฟฟ้า (สำรอง)</h4>
                 </div>
             </div>
 
@@ -556,9 +590,6 @@
                 </div>
             </div>
 
-
-
-
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">การทำงานของระบบไฟสำรอง</label>
                 <div class="form-check-inline">
@@ -593,7 +624,20 @@
 
 
 
-            <%-- Sectionid  = 31    --%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
                     <h4>4.รายละเอียดอุปกรณ์ Network ภายในตู้</h4>
@@ -723,15 +767,11 @@
             </div>
 
 
-
-
-            <%-- Sectionid  = 32    --%>
             <div class="row mt-3">
-                <div class="col-md-12 bg-success text-white text-center Myfont">
-                    <h3>5. ระบบ Ground</h3>
+                <div class="col-md-12 bg-primary text-white text-center Myfont">
+                    <h4>5.ระบบ Ground</h4>
                 </div>
             </div>
-
             <div class="form-row mt-3">
                 <label class="control-label col-sm-4">ความแข็งแรงจุดต่อ Ground Bar</label>
                 <div class="form-check-inline">
@@ -793,14 +833,251 @@
 
 
 
-            <%-- Sectionid  = 33    --%>
             <div class="row mt-3">
-                <div class="col-md-12 bg-success text-white text-center Myfont">
-                    <h3>6. สภาพแวดล้อมและความสะอาดโดยรอบ</h3>
+                <div class="col-md-12 bg-primary text-white text-center Myfont">
+                    <h4>6.ระบบสารสนเทศ</h4>
                 </div>
             </div>
 
             <div class="form-row mt-3">
+                <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 1</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="ComRadio1" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="ComRadio1" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 2</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="ComRadio2" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="ComRadio2" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 3</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="ComRadio3" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="ComRadio3" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 4</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="ComRadio4" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="ComRadio4" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 5</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="ComRadio5" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="ComRadio5" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">UPS สำหรับคอมพิวเตอร์ตัวที่ 1</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="upsRadio1" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="upsRadio1" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">UPS สำหรับคอมพิวเตอร์ตัวที่ 2</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="upsRadio2" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="upsRadio2" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">UPS สำหรับคอมพิวเตอร์ตัวที่ 3</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="upsRadio3" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="upsRadio3" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">UPS สำหรับคอมพิวเตอร์ตัวที่ 4</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="upsRadio4" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="upsRadio4" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">UPS สำหรับคอมพิวเตอร์ตัวที่ 5</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="upsRadio5" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="upsRadio5" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 1</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="speedTestRaio1" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="speedTestRaio1" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 2</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="speedTestRaio2" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="speedTestRaio2" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 3</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="speedTestRaio3" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="speedTestRaio3" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 4</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="speedTestRaio4" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="speedTestRaio4" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 5</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="speedTestRaio5" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="speedTestRaio5" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="row mt-3">
+                <div class="col-md-12 bg-primary text-white text-center Myfont">
+                    <h4>7.สภาพแวดล้อมและความสะอาดโดยรอบ</h4>
+                </div>
+            </div>
+
+              <div class="form-row mt-3">
                 <label class="control-label col-sm-4">ป้ายและตัวเลขแสดงชื่อสถานี</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
@@ -903,14 +1180,24 @@
 
 
 
-            <%-- Sectionid  = 34    --%>
+
+
+
+
+
+
+
+
+
+
+
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
-                    <h3>7.อุปกรณ์ระบบ VSAT (เฉพาะ Site ที่เป็น VSAT)</h3>
+                    <h5>8.อุปกรณ์ระบบ VSAT (เฉพาะ Site ที่เป็น VSAT)</h5>
                 </div>
             </div>
 
-            <div class="form-row mt-3">
+                  <div class="form-row mt-3">
                 <label class="control-label col-sm-4">อุปกรณ์ LNB/BUC</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
@@ -999,14 +1286,25 @@
 
 
 
-            <%-- Sectionid  = 35    --%>
+
+
+
+
+
+
+
+
+
+
+
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
-                    <h3>8.อุปกรณ์ระบบ Solar Cell (เฉพาะ Site ที่ใช้ Solar Cell)</h3>
+                    <h5>9.อุปกรณ์ระบบ Solar Cell (เฉพาะ Site ที่ใช้ Solar Cell)</h5>
                 </div>
             </div>
 
-            <div class="form-row mt-3">
+
+             <div class="form-row mt-3">
                 <label class="control-label col-sm-4">ระบบ Solar Cell</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
@@ -1127,14 +1425,27 @@
 
 
 
-            <%-- Sectionid  = 36    --%>
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
-                    <h4>9.คุณภาพของสัญญาณ</h4>
+                    <h5>10. คุณภาพของสัญญาณ</h5>
                 </div>
             </div>
 
 
+           
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">Download (for ONU/VSAT)</label>
                 <div class="col-sm-8">
@@ -1161,7 +1472,7 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Download (for Mobile)</label>
+                <label class="control-label col-sm-2">Download (for WIFI)</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" id="dowloadforMobileTextbox" runat="server" />
                 </div>
@@ -1170,7 +1481,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Upload (for Mobile)</label>
+                <label class="control-label col-sm-2">Upload (for WIFI)</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" id="uploadforMobileTextbox" runat="server" />
                 </div>
@@ -1178,7 +1489,7 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Ping Test (for Mobile)</label>
+                <label class="control-label col-sm-2">Ping Test (for WIFI)</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" id="pingtestFormobileTextbox" runat="server" />
                 </div>
@@ -1187,10 +1498,19 @@
 
 
 
-            <%-- Sectionid  = 37     --%>
+
+
+
+
+
+
+
+
+
+
             <div class="row mt-3">
-                <div class="col-md-12 bg-warning text-white text-center">
-                    <h3>10. ปัญหาที่พบและการแก้ไข</h3>
+                <div class="col-md-12 bg-warning text-white text-center Myfont">
+                    <h5>11.ปัญหาที่พบและการแก้ไข</h5>
                 </div>
             </div>
 
@@ -1378,15 +1698,14 @@
 
 
 
-            <%-- Sectionid  = 38     --%>
+
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
                     <h3>11.ข้อมูลรายการทรัพย์สิน</h3>
                 </div>
             </div>
 
-
-            <div class="table-responsive-sm text-center Myfont">
+  <div class="table-responsive-sm text-center Myfont">
                 <table class="table table-sm table-hover" style="width: 100%;" border="0">
                     <thead>
                         <tr>
@@ -1630,13 +1949,6 @@
 
 
 
-
-
-
-
-
-
-            <%--SECTION 39 --%>
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
                     <h3>12. รายละเอียดผู้ทำ PM</h3>
@@ -1660,7 +1972,9 @@
             </div>
 
 
-            <%--SECTION 40 --%>
+
+
+
             <div class="row mt-3">
                 <div class="col-md-12 bg-success text-white text-center Myfont">
                     <h3>PICTURE CHECKLIST</h3>
@@ -1938,7 +2252,8 @@
             </div>
 
 
-            <%--SECTION 41--%>
+
+
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
                     <h3>VSAT PICTURE CHECKLIST</h3>
@@ -2039,21 +2354,13 @@
 
 
 
-
-
-
-
-
-
-
-            <%--section 42--%>
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
                     <h3>SOLAR CELL PICTURE CHECKLIST</h3>
                 </div>
             </div>
 
-            <div class="form-row mt-3">
+           <div class="form-row mt-3">
                 <label class="control-label col-sm-4" for="">รูปจุดติดตั้ง Solar Cell</label>
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
@@ -2223,7 +2530,262 @@
             </div>
 
 
-            <div class="row mt-3 table-bordered">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row mt-3">
+                <div class="col-md-12 bg-warning text-white text-center Myfont">
+                    <h4>COMPUTER PICTURE CHECKLIST</h4>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO.</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicComRadio1" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicComRadio1" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO.</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicComRadio2" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicComRadio2" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO.</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicComRadio3" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicComRadio3" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO.</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicComRadio4" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicComRadio4" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicComRadio5" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicComRadio5" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO.</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicupsRadio1" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicupsRadio1" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO.</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicupsRadio2" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicupsRadio2" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO.</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicupsRadio3" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicupsRadio3" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO.</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicupsRadio4" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicupsRadio4" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicupsRadio5" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicupsRadio5" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 1 </label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicspeedTestRaio1" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicspeedTestRaio1" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 2</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicspeedTestRaio2" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicspeedTestRaio2" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 3</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicspeedTestRaio3" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicspeedTestRaio3" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 4</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicspeedTestRaio4" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicspeedTestRaio4" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 5</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicspeedTestRaio5" value="ปกติ" />ปกติ
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="PicspeedTestRaio5" value="ชำรุด/ใช้งานไม่ได้" />ชำรุด/ใช้งานไม่ได้
+                    </label>
+                </div>
+            </div>
+
+
+
+
+            <br />
+
+           <div class="row mt-3 table-bordered">
                 <div class="col-md-12  text-black text-center Myfont">
                     <h3>รูปภาพประกอบรายงาน</h3>
                 </div>
@@ -2261,8 +2823,19 @@
             </div>
 
 
+              <div class="row mt-3">
+                <div class="col-sm-12">4. COMPUTER PICTURE CHECKLIST</div>
+                <asp:FileUpload ID="computerChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)" required="required" />
+
+            </div>
+            <div class="row ml-3 mt-3">
+                <img id="user_img_5" src="https://placehold.it/250x250" class="placeholder2" />
+            </div>
 
 
+
+
+            <br />
             <br />
             <br />
             <br />
@@ -2277,71 +2850,10 @@
             <br />
             <br />
             <br />
-
+            <br />
+            <br />
+            <br />
         </div>
     </form>
-
-
-
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
-    <script type="text/javascript">
-        var input = $("#exampleFormControlFile1").change(function () {
-            alert(this.value.split("\\").pop())
-        })
-    </script>
-
-
-    <style type="text/css">
-        .datepicker {
-            font-size: 0.875em;
-        }
-            /* solution 2: the original datepicker use 20px so replace with the following:*/
-
-            .datepicker td, .datepicker th {
-                width: 1.5em;
-                height: 1.5em;
-            }
-
-        // solution 2:
-        .datepicker2 {
-            font-size: 0.875em;
-        }
-        /* solution 2: the original datepicker use 20px so replace with the following:*/
-
-        .datepicker2 td, .datepicker2 th {
-            width: 1.5em;
-            height: 1.5em;
-        }
-    </style>
-
-
-    <script type="text/javascript">
-        $(function () {
-            $('#startDate').datepicker({
-                // ...relevant options...
-                weekStart: 1,
-                daysOfWeekHighlighted: "6,0",
-                autoclose: true,
-                todayHighlight: true,
-
-            });
-            $('#startDate2').datepicker({
-                // ...relevant options...
-                weekStart: 1,
-                daysOfWeekHighlighted: "6,0",
-                autoclose: true,
-                todayHighlight: true,
-            });
-        });
-    </script>
 </body>
-
 </html>

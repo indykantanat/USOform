@@ -8,7 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CommonClassLibrary;
 
-namespace USOform.PreventiveMaintenanceReportBBUSOWrap
+namespace USOform.PreventiveMaintenanceReportBB2._3_3._3
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
@@ -21,49 +21,82 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //this.GetData();
-        }
 
+        }
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            // กลุ่ม
-            Answer answer1 = new Answer()
+
+            ///-----------------START   HEADING----------------////
+            //1: logoPicture
+            if (this.logoPictureOga.HasFile)
             {
-                AnsDes = this.GroupNameTextBox.Text,
+                string extension = this.logoPictureOga.PostedFile.FileName.Split('.')[1];
+                string newFileName = "images/logoImages_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                this.logoPictureOga.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                Answer answe264 = new Answer()
+                {
+                    AnsDes = newFileName,
+                    QuestionId = 483,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = 1
+                };
+                uSOEntities.Answers.Add(answe264);
+            }
+
+            // กลุ่ม
+            Answer answer1409 = new Answer()
+            {
+                AnsDes = this.groupTextbox.Value,
+                QuestionId = 484,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                QuestionId = 1,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer1);
+            uSOEntities.Answers.Add(answer1409);
 
             // ภูมิภาค
-            Answer answer2 = new Answer()
+            Answer answer1410 = new Answer()
             {
                 AnsDes = this.AreaTextbox.Value,
+                QuestionId = 485,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                QuestionId = 2,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer2);
+            uSOEntities.Answers.Add(answer1410);
 
             // บริษัท
             Answer answer3 = new Answer()
             {
                 AnsDes = this.CompanyTextbox.Value,
+                QuestionId = 486,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                QuestionId = 3,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer3);
+
+            //ส่วนที่ 1 การจัดให้มีบริการอินเทอร์เน็ตความเร็วสูง (Broadband Internet Service :
+            string seLectOptionRadio = Request.Form["seLectOptionRadio"];
+            Answer answer31 = new Answer()
+            {
+                AnsDes = seLectOptionRadio,
+                QuestionId = 487,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer31);
+
+
 
             //รอบการบำรุงรักษาครั้งที่
             Answer answer4 = new Answer()
             {
                 AnsDes = this.maintenanceCountTextbox.Value,
-                QuestionId = 4,
+                QuestionId = 488,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -74,7 +107,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer5 = new Answer()
             {
                 AnsDes = this.yearTextbox.Value,
-                QuestionId = 5,
+                QuestionId = 489,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -85,11 +118,11 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer8 = new Answer()
             {
                 AnsDes = this.startDatepicker.Value,
-                QuestionId = 8,
+                QuestionId = 490,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1,
-                //StartDate = DateTime.ParseExact(this.startDateTextbox2.Value, "dd/MM/yyyy", CultureInfo.GetCultureInfo("en-US")),
+
             };
             uSOEntities.Answers.Add(answer8);
 
@@ -97,11 +130,11 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer9 = new Answer()
             {
                 AnsDes = this.endDatepicker.Value,
-                QuestionId = 9,
+                QuestionId = 491,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1,
-                //StartDate = DateTime.ParseExact(this.startDateTextbox2.Value, "dd/MM/yyyy", CultureInfo.GetCultureInfo("en-US")),
+
             };
             uSOEntities.Answers.Add(answer9);
 
@@ -109,18 +142,23 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer10 = new Answer()
             {
                 AnsDes = this.siteCodeTextbox.Value,
-                QuestionId = 10,
+                QuestionId = 1640,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer10);
 
+            ///-------END  HEADING--------------------
+
+
+
+            // secion 45
             //Cabinet ID:
             Answer answer11 = new Answer()
             {
                 AnsDes = this.cabinetIdTextbox.Value,
-                QuestionId = 11,
+                QuestionId = 492,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -131,7 +169,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer12 = new Answer()
             {
                 AnsDes = this.sitecodeTextboxSection2.Value,
-                QuestionId = 12,
+                QuestionId = 493,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -142,52 +180,64 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer13 = new Answer()
             {
                 AnsDes = this.VillageIdTextbox.Value,
-                QuestionId = 13,
+                QuestionId = 494,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer13);
 
-
             //Village  :
             Answer answer14 = new Answer()
             {
                 AnsDes = this.villageTextbox.Value,
-                QuestionId = 14,
+                QuestionId = 495,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer14);
-
-            //School 's name  :
-            Answer answer15 = new Answer()
+         
+            //SChool’s Name : :
+            Answer answer275 = new Answer()
             {
-                AnsDes = this.schoolnameTextbox.Value,
-                QuestionId = 15,
+                AnsDes = this.schoolNameTextbox.Value,
+                QuestionId = 496,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer15);
+            uSOEntities.Answers.Add(answer275);
+
 
             //Sub-District :
             Answer answer16 = new Answer()
             {
                 AnsDes = this.subdistrictTextbox.Value,
-                QuestionId = 16,
+                QuestionId = 497,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer16);
 
+
+            //District :
+            Answer answer1423 = new Answer()
+            {
+                AnsDes = this.DistrictTextboxEIEI.Value,
+                QuestionId = 498,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer1423);
+
             //Province :
             Answer answer17 = new Answer()
             {
                 AnsDes = this.provinceTextbox.Value,
-                QuestionId = 17,
+                QuestionId = 499,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -198,7 +248,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer18 = new Answer()
             {
                 AnsDes = this.typeTextbox.Value,
-                QuestionId = 18,
+                QuestionId = 500,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -209,7 +259,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer19 = new Answer()
             {
                 AnsDes = this.pmdateTextbox.Value,
-                QuestionId = 19,
+                QuestionId = 501,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -219,17 +269,17 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            //ใส่รูปหน้าอาคารศูนย์ USO Net :
-            if (this.usonetsignboardImage.HasFile)
+            //ใส่ป้ายหน้าโรงเรียน :
+            if (this.picinfrontImages.HasFile)
             {
-                string extension = this.usonetsignboardImage.PostedFile.FileName.Split('.')[1];
-                string newFileName = "images/UsonetPicture_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                this.usonetsignboardImage.PostedFile.SaveAs(Server.MapPath(newFileName));
+                string extension = this.picinfrontImages.PostedFile.FileName.Split('.')[1];
+                string newFileName = "images/picinfrontImages_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                this.picinfrontImages.PostedFile.SaveAs(Server.MapPath(newFileName));
 
                 Answer answer20 = new Answer()
                 {
                     AnsDes = newFileName,
-                    QuestionId = 20,
+                    QuestionId = 502,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = 1
@@ -238,11 +288,33 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
+
+            //รูปบริเวณห้องบริการ WiFi - Computer :
+            if (this.wifiHallImages.HasFile)
+            {
+                string extension = this.wifiHallImages.PostedFile.FileName.Split('.')[1];
+                string newFileName = "images/picinfrontImages_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                this.wifiHallImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                Answer answer20 = new Answer()
+                {
+                    AnsDes = newFileName,
+                    QuestionId = 503,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = 1
+                };
+                uSOEntities.Answers.Add(answer20);
+            }
+
+
+
+
             //signature Executor :
             Answer answer21 = new Answer()
             {
                 AnsDes = this.signatureExecutorTextbox.Value,
-                QuestionId = 21,
+                QuestionId = 504,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -253,7 +325,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer22 = new Answer()
             {
                 AnsDes = this.signatureSupervisorTextbox.Value,
-                QuestionId = 22,
+                QuestionId = 505,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -264,7 +336,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer23 = new Answer()
             {
                 AnsDes = this.nameExecutorTextbox.Value,
-                QuestionId = 23,
+                QuestionId = 506,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -275,7 +347,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer24 = new Answer()
             {
                 AnsDes = this.nameSupervisorTextbox.Value,
-                QuestionId = 24,
+                QuestionId = 507,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -286,7 +358,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer25 = new Answer()
             {
                 AnsDes = this.DateExecutorTextbox.Value,
-                QuestionId = 25,
+                QuestionId = 508,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -297,18 +369,19 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer26 = new Answer()
             {
                 AnsDes = this.DateSupervisorTextbox.Value,
-                QuestionId = 26,
+                QuestionId = 509,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer26);
 
-            //Location name :
+
+            //cabibnet  :
             Answer answer27 = new Answer()
             {
-                AnsDes = this.LocationnameTextbox.Value,
-                QuestionId = 27,
+                AnsDes = this.cabinetId2Textbox.Value,
+                QuestionId = 510,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -319,7 +392,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer28 = new Answer()
             {
                 AnsDes = this.sitecodeTextboxSection4.Value,
-                QuestionId = 28,
+                QuestionId = 511,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -331,7 +404,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer29 = new Answer()
             {
                 AnsDes = this.villageIDTextboxSection4.Value,
-                QuestionId = 29,
+                QuestionId = 512,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -342,79 +415,74 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer30 = new Answer()
             {
                 AnsDes = this.latandlongTextbox.Value,
-                QuestionId = 30,
+                QuestionId = 513,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer30);
 
-            //type of signal Radio  :
-            //string typeOf = Request.Form["typeofsignalRadio"];
 
-            Answer answer31 = new Answer()
+
+            //TypeofSignal :
+            string typeOf = Request.Form["TypeofSignaleieiRadio"];
+            Answer answer514 = new Answer()
             {
-                AnsDes = this.typeofsignalRadio.Value,
-                QuestionId = 31,
-                AnserTypeId = 3,
+                AnsDes = typeOf,
+                QuestionId = 514,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer31);
+            uSOEntities.Answers.Add(answer514);
 
-            //ISP (Existing Network)  :
-            Answer answer32 = new Answer()
+            //OLT ID : :
+            Answer answer1440 = new Answer()
             {
-                AnsDes = this.ispTextbox.Value,
-                QuestionId = 32,
+                AnsDes = this.oltIdTextbox.Value,
+                QuestionId = 515,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer32);
+            uSOEntities.Answers.Add(answer1440);
 
-            //elecSystem Radio  :
-            string elecradioSection5 = Request.Form["elecRadio"];
-            Answer answer33 = new Answer()
+
+
+
+
+            //ระบบไฟฟ้า :
+            string typeOffire = Request.Form["voltSystemRadio"];
+            Answer answer294 = new Answer()
             {
-                AnsDes = elecradioSection5,
-                QuestionId = 33,
-                AnserTypeId = 3,
+                AnsDes = typeOffire,
+                QuestionId = 516,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer33);
+            uSOEntities.Answers.Add(answer294);
 
-            //tranformer Radio  :
-            string tranRadio = Request.Form["transformerRadio"];
-            Answer answer34 = new Answer()
+
+            //หมายเลขผู้ใช้ไฟ:
+            Answer answer1442 = new Answer()
             {
-                AnsDes = tranRadio,
-                QuestionId = 34,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer34);
-
-
-            //หมายเลขผู้ใช้ไฟ  :
-            Answer answer35 = new Answer()
-            {
-                AnsDes = this.numberuserTextbox.Value,
-                QuestionId = 35,
+                AnsDes = this.numberIdTextbox.Value,
+                QuestionId = 517,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer35);
+            uSOEntities.Answers.Add(answer1442);
+
+
 
 
             //หน่วยใช้ไฟไฟ  :
             Answer answer36 = new Answer()
             {
                 AnsDes = this.kwhMeterTextbox.Value,
-                QuestionId = 36,
+                QuestionId = 518,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -425,8 +493,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             //แรงดัน AC (kWh Meter) :
             Answer answer37 = new Answer()
             {
-                AnsDes = this.acTextbox.Value,
-                QuestionId = 37,
+                AnsDes = this.acvoltTextbox.Value,
+                QuestionId = 519,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -438,7 +506,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer38 = new Answer()
             {
                 AnsDes = this.lineAcTextbox.Value,
-                QuestionId = 38,
+                QuestionId = 520,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -449,8 +517,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             // กระแส Neutron AC(kWh Meter) :          
             Answer answer39 = new Answer()
             {
-                AnsDes = this.neutronacTextbox.Value,
-                QuestionId = 39,
+                AnsDes = this.neutronAcEIEITextbox.Value,
+                QuestionId = 521,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -462,8 +530,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer40 = new Answer()
             {
                 AnsDes = conRadio,
-                QuestionId = 40,
-                AnserTypeId = 3,
+                QuestionId = 522,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
@@ -474,8 +542,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer41 = new Answer()
             {
                 AnsDes = CircuitBreakerRadio,
-                QuestionId = 41,
-                AnserTypeId = 3,
+                QuestionId = 523,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
@@ -487,8 +555,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer42 = new Answer()
             {
                 AnsDes = innerUPS,
-                QuestionId = 42,
-                AnserTypeId = 3,
+                QuestionId = 524,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
@@ -499,174 +567,186 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer43 = new Answer()
             {
                 AnsDes = this.acfromupsTextbox.Value,
-                QuestionId = 43,
+                QuestionId = 525,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer43);
 
-            // กระเเส โหลด :          
-            Answer answer44 = new Answer()
-            {
-                AnsDes = this.electricloadTextbox.Value,
-                QuestionId = 44,
-                AnserTypeId = 1,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer44);
-
-
-            //EMER GENNNARATOR   :
-            string emergen = Request.Form["emergeneratorRadio"];
+            // กระเเส โหลด :  
+            string emergen = Request.Form["voltageLoadRadio"];
             Answer answer45 = new Answer()
             {
                 AnsDes = emergen,
-                QuestionId = 45,
-                AnserTypeId = 3,
+                QuestionId = 526,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer45);
 
-            //สภาพ batterry bank  :
-            string statebat = Request.Form["stateBatteryBankRadio"];
-            Answer answer46 = new Answer()
+            // ระดับความจุ Battery :  
+            string emerbat = Request.Form["batteryCapacityRadio"];
+            Answer answer1452 = new Answer()
             {
-                AnsDes = statebat,
-                QuestionId = 46,
-                AnserTypeId = 3,
+                AnsDes = emerbat,
+                QuestionId = 527,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer46);
+            uSOEntities.Answers.Add(answer1452);
 
-
-            //ONU/Modem Network  :
-            string modemnet = Request.Form["onuModemRadio"];
-            Answer answer47 = new Answer()
+            // UPS MODE :  
+            string UPSMODE = Request.Form["upsModeRadio"];
+            Answer answer1453 = new Answer()
             {
-                AnsDes = modemnet,
-                QuestionId = 47,
-                AnserTypeId = 3,
+                AnsDes = UPSMODE,
+                QuestionId = 528,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer47);
+            uSOEntities.Answers.Add(answer1453);
 
 
-            //Swicth 8 part :
-            string swiftpart = Request.Form["switchportRadio"];
-            Answer answer48 = new Answer()
+
+            // การทำงานของระบบไฟสำรอง :  
+            string secondFireRadio1 = Request.Form["secondFireRadio"];
+            Answer answer1454 = new Answer()
             {
-                AnsDes = swiftpart,
-                QuestionId = 48,
-                AnserTypeId = 3,
+                AnsDes = secondFireRadio1,
+                QuestionId = 529,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer48);
+            uSOEntities.Answers.Add(answer1454);
 
 
-            //Swicth 48 part :
-            string ee = Request.Form["switch48portRadio"];
-            Answer answer49 = new Answer()
+            // สภาพ Battery Bank :  
+            string Batterybank = Request.Form["batterybankRadio"];
+            Answer answer1455 = new Answer()
             {
-                AnsDes = ee,
-                QuestionId = 49,
-                AnserTypeId = 3,
+                AnsDes = Batterybank,
+                QuestionId = 530,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer49);
+            uSOEntities.Answers.Add(answer1455);
 
 
-            //Outdoor AP ตัวที่ 1 :
-            string otap = Request.Form["outdoorapRadio"];
-            Answer answer50 = new Answer()
+            // ONU/Modem Network :  
+            string ONUModemNetwork = Request.Form["ONUModemNetworkRadio"];
+            Answer answer1456 = new Answer()
             {
-                AnsDes = otap,
-                QuestionId = 50,
-                AnserTypeId = 3,
+                AnsDes = ONUModemNetwork,
+                QuestionId = 531,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer50);
+            uSOEntities.Answers.Add(answer1456);
 
 
-
-            //Outdoor AP ตัวที่ 2 :
-            string otap2 = Request.Form["outdoorap2Radio"];
-            Answer answer51 = new Answer()
+            // Power Supply (for Switch) :  
+            string femto = Request.Form["psuForswitchRadio"];
+            Answer answer1457 = new Answer()
             {
-                AnsDes = otap2,
-                QuestionId = 51,
-                AnserTypeId = 3,
+                AnsDes = femto,
+                QuestionId = 532,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer51);
+            uSOEntities.Answers.Add(answer1457);
 
-
-            //indoor AP ตัวที่ 1 :
-            string inap2 = Request.Form["indoorapRadio"];
-            Answer answer52 = new Answer()
+            // Switch 8 Port :  
+            string femtoanswer = Request.Form["switchPortRadio"];
+            Answer answer1458 = new Answer()
             {
-                AnsDes = inap2,
-                QuestionId = 52,
-                AnserTypeId = 3,
+                AnsDes = femtoanswer,
+                QuestionId = 533,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer52);
+            uSOEntities.Answers.Add(answer1458);
 
 
-            //indoor AP ตัวที่ 2 :
-            string inapp = Request.Form["indoorap2Radio"];
-            Answer answer53 = new Answer()
+            // Outdoor AP 2.4 GH :  
+            string tpower = Request.Form["OutdoorAP24Radio"];
+            Answer answer1459 = new Answer()
             {
-                AnsDes = inapp,
-                QuestionId = 53,
-                AnserTypeId = 3,
+                AnsDes = tpower,
+                QuestionId = 534,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer53);
+            uSOEntities.Answers.Add(answer1459);
 
-
-            //การ Wiring สายไฟ :
-            string wiring = Request.Form["wiringelecRadio"];
-            Answer answer54 = new Answer()
+            // Outdoor AP 5 GHz:  
+            string wireingGround = Request.Form["OutdoorAP5GHzRadio"];
+            Answer answer1460 = new Answer()
             {
-                AnsDes = wiring,
-                QuestionId = 54,
-                AnserTypeId = 3,
+                AnsDes = wireingGround,
+                QuestionId = 535,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer54);
+            uSOEntities.Answers.Add(answer1460);
 
-
-            //การ Wiring Patch cord และ สาย LAN :
-            string wiringPatch = Request.Form["wiringpatchRadio"];
-            Answer answer55 = new Answer()
+            //t-power :  
+            string Wirinlan = Request.Form["tPowerRadio"];
+            Answer answer1633 = new Answer()
             {
-                AnsDes = wiringPatch,
-                QuestionId = 55,
-                AnserTypeId = 3,
+                AnsDes = Wirinlan,
+                QuestionId = 536,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer55);
+            uSOEntities.Answers.Add(answer1633);
+
+
+            //การ Wiring สายไฟและสาย Ground :  
+            string WiringGroundRadio = Request.Form["WiringGroundRadio"];
+            Answer answer314 = new Answer()
+            {
+                AnsDes = WiringGroundRadio,
+                QuestionId = 537,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer314);
+
+
+
+            //การ Wiring สายไฟและสาย Ground :  
+            string wirePatchRadio = Request.Form["wirePatchRadio"];
+            Answer answer315 = new Answer()
+            {
+                AnsDes = wirePatchRadio,
+                QuestionId = 538,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer315);
+
 
             //ความแข็งแรงจุดต่อ Ground Bar :
             string gb = Request.Form["groundbarRadio"];
             Answer answer57 = new Answer()
             {
                 AnsDes = gb,
-                QuestionId = 57,
-                AnserTypeId = 3,
+                QuestionId = 539,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
@@ -679,7 +759,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer58 = new Answer()
             {
                 AnsDes = fishnot,
-                QuestionId = 58,
+                QuestionId = 540,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -691,7 +771,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer59 = new Answer()
             {
                 AnsDes = ffss,
-                QuestionId = 59,
+                QuestionId = 541,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -704,275 +784,60 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer60 = new Answer()
             {
                 AnsDes = elecground,
-                QuestionId = 60,
-                AnserTypeId = 3,
+                QuestionId = 542,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer60);
 
 
-
-
-            //Fire Alarm และ Smoke Detector :
-            string firesmokeDetec = Request.Form["firesmokedDectorRadio"];
-            Answer answer61 = new Answer()
-            {
-                AnsDes = firesmokeDetec,
-                QuestionId = 61,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer61);
-
-
-
-            //Fire Alarm Manual Switch :
-            string FireAlarmManualSwitch = Request.Form["firealarmManualswitchRadio"];
-            Answer answer62 = new Answer()
-            {
-                AnsDes = FireAlarmManualSwitch,
-                QuestionId = 62,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer62);
-
-
-
-            // Battery Fire Alarm ก้อนที่ 1 :          
-            Answer answer63 = new Answer()
-            {
-                AnsDes = this.battFirealarm1Textbox.Value,
-                QuestionId = 63,
-                AnserTypeId = 1,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer63);
-
-            // Battery Fire Alarm ก้อนที่ 2 :          
-            Answer answer64 = new Answer()
-            {
-                AnsDes = this.battFirealarm3Textbox.Value,
-                QuestionId = 64,
-                AnserTypeId = 1,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer64);
-
-
-            //ไฟแสงสว่างฉุกเฉิน :
-            string emerr = Request.Form["emerLightRadio"];
-            Answer answer65 = new Answer()
-            {
-                AnsDes = emerr,
-                QuestionId = 65,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer65);
-
-
-            //ระบบ Monitor กล้องวงจรปิด :
-            string monitorr = Request.Form["monitorCameraRadio"];
-            Answer answer66 = new Answer()
-            {
-                AnsDes = monitorr,
-                QuestionId = 66,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer66);
-
-
-            //  กล้องวงจรปิด Computer :
-            string cameraCom = Request.Form["cameraComputerRadio"];
-            Answer answer67 = new Answer()
-            {
-                AnsDes = cameraCom,
-                QuestionId = 67,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer67);
-
-
-
-            //  กล้องวงจรปิดภายนอกอาคาร  :
-            string cameraout = Request.Form["cameraOutRadio"];
-            Answer answer68 = new Answer()
-            {
-                AnsDes = cameraout,
-                QuestionId = 68,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer68);
-
-
-            //  กล้องวงจรปิดภายนอกอาคาร 2  :
-            string cameraout2 = Request.Form["cameraOut2Radio"];
-            Answer answer69 = new Answer()
-            {
-                AnsDes = cameraout2,
-                QuestionId = 69,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer69);
-
-
-            //  จอทีวีห้องประชุม   :
-            string tv = Request.Form["televisRadio"];
-            Answer answer70 = new Answer()
-            {
-                AnsDes = tv,
-                QuestionId = 70,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer70);
-
-
-            //  คอมพิวเตอร์เจ้าหน้าที่ศูนย์  :
-            string comagent = Request.Form["computerAgentRadio"];
-            Answer answer71 = new Answer()
-            {
-                AnsDes = comagent,
-                QuestionId = 71,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer71);
-
-
-            //  Printer  :
-            string print = Request.Form["printerRadio"];
-            Answer answer72 = new Answer()
-            {
-                AnsDes = print,
-                QuestionId = 72,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer72);
-
-
             // คอมพิวเตอร์ตัวที่ 1  :
-            string com1 = Request.Form["Com1Radio"];
-            Answer answer73 = new Answer()
-            {
-                AnsDes = com1,
-                QuestionId = 73,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer73);
-
-
-            // คอมพิวเตอร์ตัวที่ 2  :
-            string com2 = Request.Form["com2Radio"];
-            Answer answer74 = new Answer()
-            {
-                AnsDes = com2,
-                QuestionId = 74,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer74);
-
-
-            // คอมพิวเตอร์ตัวที่ 3  :
-            string com3 = Request.Form["com3Radio"];
-            Answer answer75 = new Answer()
-            {
-                AnsDes = com3,
-                QuestionId = 75,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer75);
-
-
-            // คอมพิวเตอร์ตัวที่ 4  :
-            string com4 = Request.Form["com4Radio"];
+            string com1 = Request.Form["ComRadio1"];
             Answer answer76 = new Answer()
             {
-                AnsDes = com4,
-                QuestionId = 76,
-                AnserTypeId = 3,
+                AnsDes = com1,
+                QuestionId = 543,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer76);
 
 
-
-            // คอมพิวเตอร์ตัวที่ 5  :
-            string com5 = Request.Form["com5Radio"];
-            Answer answer77 = new Answer()
-            {
-                AnsDes = com5,
-                QuestionId = 77,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer77);
-
-
-
-
-            // คอมพิวเตอร์ตัวที่ 6  :
-            string com6 = Request.Form["com6Radio"];
+            // คอมพิวเตอร์ตัวที่ 2  :
+            string com2 = Request.Form["ComRadio2"];
             Answer answer78 = new Answer()
             {
-                AnsDes = com6,
-                QuestionId = 78,
-                AnserTypeId = 3,
+                AnsDes = com2,
+                QuestionId = 544,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer78);
 
 
-
-            // คอมพิวเตอร์ตัวที่ 7  :
-            string com7 = Request.Form["com7Radio"];
+            // คอมพิวเตอร์ตัวที่ 3  :
+            string com3 = Request.Form["ComRadio3"];
             Answer answer79 = new Answer()
             {
-                AnsDes = com7,
-                QuestionId = 79,
-                AnserTypeId = 3,
+                AnsDes = com3,
+                QuestionId = 545,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer79);
 
 
-
-            // คอมพิวเตอร์ตัวที่ 8  :
-            string com8 = Request.Form["com8Radio"];
+            // คอมพิวเตอร์ตัวที่ 4  :
+            string com4 = Request.Form["ComRadio4"];
             Answer answer80 = new Answer()
             {
-                AnsDes = com8,
-                QuestionId = 80,
-                AnserTypeId = 3,
+                AnsDes = com4,
+                QuestionId = 546,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
@@ -980,103 +845,254 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            // คอมพิวเตอร์ตัวที่ 9  :
-            string com9 = Request.Form["com9Radio"];
+            // คอมพิวเตอร์ตัวที่ 5  :
+            string com5 = Request.Form["ComRadio5"];
             Answer answer81 = new Answer()
             {
-                AnsDes = com9,
-                QuestionId = 81,
-                AnserTypeId = 3,
+                AnsDes = com5,
+                QuestionId = 547,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer81);
 
 
-
-            // คอมพิวเตอร์ตัวที่ 10  :
-            string com10 = Request.Form["com10Radio"];
-            Answer answer82 = new Answer()
+            // UPS สำหรับคอมพิวเตอร์ตัวที่ 1 :
+            string ups1 = Request.Form["upsRadio1"];
+            Answer answer548 = new Answer()
             {
-                AnsDes = com10,
-                QuestionId = 82,
+                AnsDes = ups1,
+                QuestionId = 548,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer548);
+
+
+            // UPS สำหรับคอมพิวเตอร์ตัวที่ 2 :
+            string ups2 = Request.Form["upsRadio2"];
+            Answer answer549 = new Answer()
+            {
+                AnsDes = ups2,
+                QuestionId = 549,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer549);
+
+
+            // UPS สำหรับคอมพิวเตอร์ตัวที่ 3 :
+            string ups3 = Request.Form["upsRadio3"];
+            Answer answer550 = new Answer()
+            {
+                AnsDes = ups3,
+                QuestionId = 550,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer550);
+
+
+
+            // UPS สำหรับคอมพิวเตอร์ตัวที่ 4 :
+            string ups4 = Request.Form["upsRadio4"];
+            Answer answer551 = new Answer()
+            {
+                AnsDes = ups4,
+                QuestionId = 551,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer551);
+
+
+            // UPS สำหรับคอมพิวเตอร์ตัวที่ 5 :
+            string ups5 = Request.Form["upsRadio5"];
+            Answer answer552 = new Answer()
+            {
+                AnsDes = ups5,
+                QuestionId = 552,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer552);
+
+
+
+
+            // Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 1 :
+            string speedTestRaio1 = Request.Form["speedTestRaio1"];
+            Answer answer553 = new Answer()
+            {
+                AnsDes = speedTestRaio1,
+                QuestionId = 553,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer553);
+
+
+
+            // Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 2 :
+            string speedTestRaio2 = Request.Form["speedTestRaio2"];
+            Answer answer554 = new Answer()
+            {
+                AnsDes = speedTestRaio2,
+                QuestionId = 554,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer554);
+
+
+
+            // Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 3 :
+            string speedTestRaio3 = Request.Form["speedTestRaio3"];
+            Answer answer555 = new Answer()
+            {
+                AnsDes = speedTestRaio3,
+                QuestionId = 555,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer555);
+
+
+
+
+            // Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 4 :
+            string speedTestRaio4 = Request.Form["speedTestRaio4"];
+            Answer answer556 = new Answer()
+            {
+                AnsDes = speedTestRaio4,
+                QuestionId = 556,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer556);
+
+
+
+
+            // Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 5 :
+            string speedTestRaio5 = Request.Form["speedTestRaio5"];
+            Answer answer557 = new Answer()
+            {
+                AnsDes = speedTestRaio5,
+                QuestionId = 557,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer557);
+
+
+
+
+
+
+
+
+
+
+            //ป้ายและตัวเลขแสดงชื่อสถานี :
+            string signandnumber = Request.Form["signandnumberRadio"];
+            Answer answer1465 = new Answer()
+            {
+                AnsDes = signandnumber,
+                QuestionId = 558,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer1465);
+
+            //การติดตั้งและการยึดตู้อุปกรณ์ :
+            string inStall = Request.Form["inStallRadio"];
+            Answer answer1466 = new Answer()
+            {
+                AnsDes = inStall,
+                QuestionId = 559,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer1466);
+
+
+            //เสาไฟฟ้าที่ติดตั้งอุปกรณ์:
+            string inStallSat = Request.Form["inStallSatRadio"];
+            Answer answer1467 = new Answer()
+            {
+                AnsDes = inStallSat,
+                QuestionId = 560,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer82);
+            uSOEntities.Answers.Add(answer1467);
 
 
-            // แอ 1  :
-            string air1 = Request.Form["airRadio"];
-            Answer answer83 = new Answer()
+            //แนวสายไฟฟ้าและสายเคเบิ้ลเข้าสถานี :
+            string cabletoStationRadio = Request.Form["cabletoStationRadio"];
+            Answer answer1471 = new Answer()
             {
-                AnsDes = air1,
-                QuestionId = 83,
+                AnsDes = cabletoStationRadio,
+                QuestionId = 561,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer83);
+            uSOEntities.Answers.Add(answer1471);
 
-
-
-            // แอ 2  :
-            string air2 = Request.Form["air2Radio"];
-            Answer answer84 = new Answer()
+            //ช่อง Cable Inlet  และความสะอาด :
+            string CableInlet = Request.Form["CableInletRadio"];
+            Answer answer1468 = new Answer()
             {
-                AnsDes = air2,
-                QuestionId = 84,
+                AnsDes = CableInlet,
+                QuestionId = 562,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer84);
+            uSOEntities.Answers.Add(answer1468);
 
 
-
-
-            // ความสะอาดภายในห้อง   :
-            string clean1 = Request.Form["cleaninroomRadio"];
-            Answer answer85 = new Answer()
+            //ช่อง Filter ความสะอาด (T-Power:
+            string filterRadio = Request.Form["filterRadio"];
+            Answer answer1469 = new Answer()
             {
-                AnsDes = clean1,
-                QuestionId = 85,
+                AnsDes = filterRadio,
+                QuestionId = 563,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer85);
+            uSOEntities.Answers.Add(answer1469);
 
 
-
-            // ความสะอาดภายในห้อง   :
-            string cleanout = Request.Form["cleanoutroomRadio"];
-            Answer answer86 = new Answer()
+            //ประตูและยางขอบประตูของตู้อุปกรณ์ :
+            string doorToolsRadio = Request.Form["doorToolsRadio"];
+            Answer answer1470 = new Answer()
             {
-                AnsDes = cleanout,
-                QuestionId = 86,
-                AnserTypeId = 3,
+                AnsDes = doorToolsRadio,
+                QuestionId = 564,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer86);
+            uSOEntities.Answers.Add(answer1470);
 
-
-
-
-
-            // ประตู   :
-            string dOOr = Request.Form["doorRadio"];
-            Answer answer87 = new Answer()
-            {
-                AnsDes = dOOr,
-                QuestionId = 87,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer87);
 
 
 
@@ -1085,8 +1101,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer88 = new Answer()
             {
                 AnsDes = tools,
-                QuestionId = 88,
-                AnserTypeId = 3,
+                QuestionId = 565,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
@@ -1098,48 +1114,46 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer89 = new Answer()
             {
                 AnsDes = toolsRG,
-                QuestionId = 89,
-                AnserTypeId = 3,
+                QuestionId = 566,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer89);
-
-
 
             // ฐานและระดับของเสาจาน  :
             string baseOneiei = Request.Form["baseOnRadio"];
             Answer answer90 = new Answer()
             {
                 AnsDes = baseOneiei,
-                QuestionId = 90,
-                AnserTypeId = 3,
+                QuestionId = 567,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer90);
 
 
-            // ฐานและระดับของเสาจาน  :
-            string lineOf = Request.Form["lineOfsightRadio"];
+            // >แนว Line Of Sight  :
+            string lineOf = Request.Form["xxlineOfsightRadio"];
             Answer answer91 = new Answer()
             {
                 AnsDes = lineOf,
-                QuestionId = 91,
-                AnserTypeId = 3,
+                QuestionId = 568,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer91);
 
 
-            // ความสะอาดของหน้าจาน  :
+            // แนว Line Of Sight  :
             string clendDish = Request.Form["cleaningDishRadio"];
             Answer answer92 = new Answer()
             {
                 AnsDes = clendDish,
-                QuestionId = 92,
-                AnserTypeId = 3,
+                QuestionId = 569,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
@@ -1151,12 +1165,13 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer93 = new Answer()
             {
                 AnsDes = lnbswitch,
-                QuestionId = 93,
-                AnserTypeId = 3,
+                QuestionId = 570,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer93);
+
 
 
             // ระบบ Solar Cell :
@@ -1164,7 +1179,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer94 = new Answer()
             {
                 AnsDes = solarCells,
-                QuestionId = 94,
+                QuestionId = 571,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1177,21 +1192,19 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer95 = new Answer()
             {
                 AnsDes = pv,
-                QuestionId = 95,
+                QuestionId = 572,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
             uSOEntities.Answers.Add(answer95);
 
-
-
             // อุปกรณ์ Charger :
             string charGer = Request.Form["toolsCharger"];
             Answer answer96 = new Answer()
             {
                 AnsDes = charGer,
-                QuestionId = 96,
+                QuestionId = 573,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1199,14 +1212,12 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             uSOEntities.Answers.Add(answer96);
 
 
-
-
             // ความสะอาดแผง PV :
             string cleanPv = Request.Form["cleanIngpvRadio"];
             Answer answer97 = new Answer()
             {
                 AnsDes = cleanPv,
-                QuestionId = 97,
+                QuestionId = 574,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1214,13 +1225,12 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             uSOEntities.Answers.Add(answer97);
 
 
-
             // การติดตั้งแผง PV :
             string intPv = Request.Form["installPvRadio"];
             Answer answer98 = new Answer()
             {
                 AnsDes = intPv,
-                QuestionId = 98,
+                QuestionId = 575,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1228,143 +1238,152 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             uSOEntities.Answers.Add(answer98);
 
 
-
-
             // แรงดันไฟจาก Inverter :          
-            Answer answer99 = new Answer()
+            Answer voltInverterTextbox = new Answer()
             {
-                AnsDes = this.voltageInverterTextbox.Value,
-                QuestionId = 99,
+                AnsDes = this.voltInverterTextbox.Value,
+                QuestionId = 576,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer99);
+            uSOEntities.Answers.Add(voltInverterTextbox);
 
 
             // กระแส Load :          
-            Answer answer100 = new Answer()
+            Answer loadVoltTageTextbox = new Answer()
             {
-                AnsDes = this.voltageLoadTextbox.Value,
-                QuestionId = 100,
+                AnsDes = this.loadVoltTageTextbox.Value,
+                QuestionId = 577,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer100);
+            uSOEntities.Answers.Add(loadVoltTageTextbox);
 
 
-            // Download (for ONU/VSAT) :          
-            Answer answer101 = new Answer()
+            // batterry 1 :          
+            Answer answer1485 = new Answer()
             {
-                AnsDes = this.dowloadforOnuTextbox.Value,
-                QuestionId = 101,
+                AnsDes = this.batterTextbox1.Value,
+                QuestionId = 578,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer101);
+            uSOEntities.Answers.Add(answer1485);
 
+
+
+            //  batterry 2 :          
+            Answer answer1486 = new Answer()
+            {
+                AnsDes = this.batterTextbox2.Value,
+                QuestionId = 579,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer1486);
+
+
+            // batterry 3 :         
+            Answer answer1487 = new Answer()
+            {
+                AnsDes = this.batterTextbox3.Value,
+                QuestionId = 580,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer1487);
+
+
+            //  batterry 4 :          
+            Answer answer1488 = new Answer()
+            {
+                AnsDes = this.batterTextbox4.Value,
+                QuestionId = 581,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer1488);
+
+
+
+            // Download (for ONU/VSAT :          
+            Answer answer1495 = new Answer()
+            {
+                AnsDes = this.dowloadOnuTextbox.Value,
+                QuestionId = 582,
+                AnserTypeId = 1,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer1495);
 
             // Upload (for ONU/VSAT) :          
-            Answer answer102 = new Answer()
+            Answer answer1496 = new Answer()
             {
                 AnsDes = this.uploadforOnuTextbox.Value,
-                QuestionId = 102,
+                QuestionId = 583,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer102);
+            uSOEntities.Answers.Add(answer1496);
 
-
-            // Ping Test (for ONU/VSAT):          
-            Answer answer103 = new Answer()
+            // Ping Test (for ONU/VSAT) :          
+            Answer answer1497 = new Answer()
             {
-                AnsDes = this.pingTestTextbox.Value,
-                QuestionId = 103,
+                AnsDes = this.pinngtestforOnuTextbox.Value,
+                QuestionId = 584,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer103);
+            uSOEntities.Answers.Add(answer1497);
 
-
-            // Download (for WIFI):          
-            Answer answer104 = new Answer()
+            // Download (for Mobile:          
+            Answer answer1498 = new Answer()
             {
-                AnsDes = this.dowloadForwifiTextbox.Value,
-                QuestionId = 104,
+                AnsDes = this.dowloadforMobileTextbox.Value,
+                QuestionId = 585,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer104);
+            uSOEntities.Answers.Add(answer1498);
 
-
-            // Upload (for WIFI):          
-            Answer answer105 = new Answer()
+            //  Upload (for Mobile :          
+            Answer answer1499 = new Answer()
             {
-                AnsDes = this.uploadForwifiTextbox.Value,
-                QuestionId = 105,
+                AnsDes = this.uploadforMobileTextbox.Value,
+                QuestionId = 586,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer105);
+            uSOEntities.Answers.Add(answer1499);
 
-            // Ping Test (for WIFI) :          
-            Answer answer106 = new Answer()
+
+            // Ping Test(for Mobile)
+            Answer answe1500 = new Answer()
             {
-                AnsDes = this.pingtestForwifiTextbox.Value,
-                QuestionId = 106,
+                AnsDes = this.pingtestFormobileTextbox.Value,
+                QuestionId = 587,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer106);
-
-            // Download (for LAN) :          
-            Answer answer107 = new Answer()
-            {
-                AnsDes = this.dowlaodForlanTextbox.Value,
-                QuestionId = 107,
-                AnserTypeId = 1,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer107);
-
-
-            //Upload (for LAN) :          
-            Answer answer108 = new Answer()
-            {
-                AnsDes = this.uploadForlandTextbox.Value,
-                QuestionId = 108,
-                AnserTypeId = 1,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer108);
-
-
-            //Ping Test  (for LAN) :          
-            Answer answer109 = new Answer()
-            {
-                AnsDes = this.pingtestForlanTextbox.Value,
-                QuestionId = 109,
-                AnserTypeId = 1,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer109);
-
+            uSOEntities.Answers.Add(answe1500);
 
             //  ปัญหาที่พบ 1 :           
             Answer answer110 = new Answer()
             {
                 AnsDes = this.problemTextbox1.Value,
-                QuestionId = 110,
+                QuestionId = 588,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1375,7 +1394,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer111 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox1.Value,
-                QuestionId = 111,
+                QuestionId = 589,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1388,7 +1407,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer112 = new Answer()
             {
                 AnsDes = this.problemTextbox2.Value,
-                QuestionId = 112,
+                QuestionId = 590,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1399,7 +1418,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer113 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox2.Value,
-                QuestionId = 113,
+                QuestionId = 591,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1412,7 +1431,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer114 = new Answer()
             {
                 AnsDes = this.problemTextbox3.Value,
-                QuestionId = 114,
+                QuestionId = 592,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1423,7 +1442,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer115 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox3.Value,
-                QuestionId = 115,
+                QuestionId = 593,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1436,7 +1455,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer116 = new Answer()
             {
                 AnsDes = this.problemTextbox4.Value,
-                QuestionId = 116,
+                QuestionId = 594,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1447,7 +1466,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer117 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox4.Value,
-                QuestionId = 117,
+                QuestionId = 595,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1462,7 +1481,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer118 = new Answer()
             {
                 AnsDes = this.problemTextbox5.Value,
-                QuestionId = 118,
+                QuestionId = 596,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1473,7 +1492,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer119 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox5.Value,
-                QuestionId = 119,
+                QuestionId = 597,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1485,7 +1504,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer120 = new Answer()
             {
                 AnsDes = this.problemTextbox6.Value,
-                QuestionId = 120,
+                QuestionId = 598,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1496,7 +1515,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer121 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox6.Value,
-                QuestionId = 121,
+                QuestionId = 599,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1507,7 +1526,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer122 = new Answer()
             {
                 AnsDes = this.problemTextbox7.Value,
-                QuestionId = 122,
+                QuestionId = 600,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1518,7 +1537,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer123 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox7.Value,
-                QuestionId = 123,
+                QuestionId = 601,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1532,7 +1551,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer124 = new Answer()
             {
                 AnsDes = this.problemTextbox8.Value,
-                QuestionId = 124,
+                QuestionId = 602,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1543,7 +1562,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer125 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox8.Value,
-                QuestionId = 125,
+                QuestionId = 603,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1558,7 +1577,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer126 = new Answer()
             {
                 AnsDes = this.problemTextbox9.Value,
-                QuestionId = 126,
+                QuestionId = 604,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1569,7 +1588,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer127 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox9.Value,
-                QuestionId = 127,
+                QuestionId = 605,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1584,7 +1603,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer128 = new Answer()
             {
                 AnsDes = this.problemTextbox10.Value,
-                QuestionId = 128,
+                QuestionId = 606,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1595,7 +1614,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer129 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox10.Value,
-                QuestionId = 129,
+                QuestionId = 607,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1612,7 +1631,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer130 = new Answer()
             {
                 AnsDes = this.problemTextbox11.Value,
-                QuestionId = 130,
+                QuestionId = 608,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1623,7 +1642,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer131 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox11.Value,
-                QuestionId = 131,
+                QuestionId = 609,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1642,7 +1661,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer132 = new Answer()
             {
                 AnsDes = this.problemTextbox12.Value,
-                QuestionId = 132,
+                QuestionId = 610,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1653,7 +1672,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer133 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox12.Value,
-                QuestionId = 133,
+                QuestionId = 611,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1670,7 +1689,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer134 = new Answer()
             {
                 AnsDes = this.problemTextbox13.Value,
-                QuestionId = 134,
+                QuestionId = 612,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1681,7 +1700,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer135 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox13.Value,
-                QuestionId = 135,
+                QuestionId = 613,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1697,7 +1716,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer136 = new Answer()
             {
                 AnsDes = this.problemTextbox14.Value,
-                QuestionId = 136,
+                QuestionId = 614,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1708,7 +1727,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer137 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox14.Value,
-                QuestionId = 137,
+                QuestionId = 615,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1725,7 +1744,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer138 = new Answer()
             {
                 AnsDes = this.problemTextbox15.Value,
-                QuestionId = 138,
+                QuestionId = 616,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1736,7 +1755,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer139 = new Answer()
             {
                 AnsDes = this.howtoSolveTextbox15.Value,
-                QuestionId = 139,
+                QuestionId = 617,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1745,12 +1764,14 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             //////////////////////////////////////////////////////////////////////////////////
 
 
-            //////////////////////////////////////////////////////////////////////////////////
+
+
+
             // รายการอุปกรณ์ 1 :      
             Answer answer141 = new Answer()
             {
                 AnsDes = this.toolsListTextbox1.Value,
-                QuestionId = 141,
+                QuestionId = 618,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1761,7 +1782,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer142 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox1.Value,
-                QuestionId = 142,
+                QuestionId = 619,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1772,7 +1793,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer143 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox1.Value,
-                QuestionId = 143,
+                QuestionId = 620,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1783,7 +1804,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer144 = new Answer()
             {
                 AnsDes = this.noteTextbox1.Value,
-                QuestionId = 144,
+                QuestionId = 621,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1801,7 +1822,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer145 = new Answer()
             {
                 AnsDes = this.toolsListTextbox2.Value,
-                QuestionId = 145,
+                QuestionId = 622,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1812,7 +1833,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer146 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox2.Value,
-                QuestionId = 146,
+                QuestionId = 623,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1823,7 +1844,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer147 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox2.Value,
-                QuestionId = 147,
+                QuestionId = 624,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1834,7 +1855,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer148 = new Answer()
             {
                 AnsDes = this.noteTextbox2.Value,
-                QuestionId = 148,
+                QuestionId = 625,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1849,7 +1870,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer149 = new Answer()
             {
                 AnsDes = this.toolsListTextbox3.Value,
-                QuestionId = 149,
+                QuestionId = 626,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1860,7 +1881,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer150 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox3.Value,
-                QuestionId = 150,
+                QuestionId = 627,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1871,7 +1892,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer151 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox3.Value,
-                QuestionId = 151,
+                QuestionId = 628,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1882,7 +1903,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer152 = new Answer()
             {
                 AnsDes = this.noteTextbox3.Value,
-                QuestionId = 152,
+                QuestionId = 629,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1898,7 +1919,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer153 = new Answer()
             {
                 AnsDes = this.toolsListTextbox4.Value,
-                QuestionId = 153,
+                QuestionId = 630,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1909,7 +1930,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer154 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox4.Value,
-                QuestionId = 154,
+                QuestionId = 631,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1920,7 +1941,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer155 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox4.Value,
-                QuestionId = 155,
+                QuestionId = 632,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1931,7 +1952,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer156 = new Answer()
             {
                 AnsDes = this.noteTextbox4.Value,
-                QuestionId = 156,
+                QuestionId = 633,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1947,7 +1968,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer157 = new Answer()
             {
                 AnsDes = this.toolsListTextbox5.Value,
-                QuestionId = 157,
+                QuestionId = 634,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1958,7 +1979,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer158 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox5.Value,
-                QuestionId = 158,
+                QuestionId = 635,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1969,7 +1990,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer159 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox5.Value,
-                QuestionId = 159,
+                QuestionId = 636,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1980,7 +2001,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer160 = new Answer()
             {
                 AnsDes = this.noteTextbox5.Value,
-                QuestionId = 160,
+                QuestionId = 637,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -1998,7 +2019,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer161 = new Answer()
             {
                 AnsDes = this.toolsListTextbox6.Value,
-                QuestionId = 161,
+                QuestionId = 638,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2009,7 +2030,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer162 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox6.Value,
-                QuestionId = 162,
+                QuestionId = 639,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2020,7 +2041,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer163 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox6.Value,
-                QuestionId = 163,
+                QuestionId = 640,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2031,7 +2052,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer164 = new Answer()
             {
                 AnsDes = this.noteTextbox6.Value,
-                QuestionId = 164,
+                QuestionId = 641,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2047,7 +2068,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer165 = new Answer()
             {
                 AnsDes = this.toolsListTextbox7.Value,
-                QuestionId = 165,
+                QuestionId = 642,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2058,7 +2079,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer166 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox7.Value,
-                QuestionId = 166,
+                QuestionId = 643,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2069,7 +2090,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer167 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox7.Value,
-                QuestionId = 167,
+                QuestionId = 644,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2080,7 +2101,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer168 = new Answer()
             {
                 AnsDes = this.noteTextbox7.Value,
-                QuestionId = 168,
+                QuestionId = 645,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2095,7 +2116,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer169 = new Answer()
             {
                 AnsDes = this.toolsListTextbox8.Value,
-                QuestionId = 169,
+                QuestionId = 646,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2106,7 +2127,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer170 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox8.Value,
-                QuestionId = 170,
+                QuestionId = 647,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2117,7 +2138,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer171 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox8.Value,
-                QuestionId = 171,
+                QuestionId = 648,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2128,7 +2149,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer172 = new Answer()
             {
                 AnsDes = this.noteTextbox8.Value,
-                QuestionId = 172,
+                QuestionId = 649,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2143,7 +2164,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer173 = new Answer()
             {
                 AnsDes = this.toolsListTextbox9.Value,
-                QuestionId = 173,
+                QuestionId = 650,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2154,7 +2175,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer174 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox9.Value,
-                QuestionId = 174,
+                QuestionId = 651,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2165,7 +2186,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer175 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox9.Value,
-                QuestionId = 175,
+                QuestionId = 652,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2176,7 +2197,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer176 = new Answer()
             {
                 AnsDes = this.noteTextbox9.Value,
-                QuestionId = 176,
+                QuestionId = 653,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2198,7 +2219,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer177 = new Answer()
             {
                 AnsDes = this.toolsListTextbox10.Value,
-                QuestionId = 177,
+                QuestionId = 654,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2209,7 +2230,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer178 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox10.Value,
-                QuestionId = 178,
+                QuestionId = 655,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2220,7 +2241,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer179 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox10.Value,
-                QuestionId = 179,
+                QuestionId = 656,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2231,7 +2252,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer180 = new Answer()
             {
                 AnsDes = this.noteTextbox10.Value,
-                QuestionId = 180,
+                QuestionId = 657,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2249,7 +2270,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer181 = new Answer()
             {
                 AnsDes = this.toolsListTextbox11.Value,
-                QuestionId = 181,
+                QuestionId = 658,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2260,7 +2281,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer182 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox11.Value,
-                QuestionId = 182,
+                QuestionId = 659,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2271,7 +2292,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer183 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox11.Value,
-                QuestionId = 183,
+                QuestionId = 660,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2282,7 +2303,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer184 = new Answer()
             {
                 AnsDes = this.noteTextbox11.Value,
-                QuestionId = 184,
+                QuestionId = 661,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2303,7 +2324,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer185 = new Answer()
             {
                 AnsDes = this.toolsListTextbox12.Value,
-                QuestionId = 185,
+                QuestionId = 662,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2314,7 +2335,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer186 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox12.Value,
-                QuestionId = 186,
+                QuestionId = 663,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2325,7 +2346,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer187 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox12.Value,
-                QuestionId = 187,
+                QuestionId = 664,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2336,7 +2357,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer188 = new Answer()
             {
                 AnsDes = this.noteTextbox12.Value,
-                QuestionId = 188,
+                QuestionId = 665,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2355,7 +2376,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer189 = new Answer()
             {
                 AnsDes = this.toolsListTextbox13.Value,
-                QuestionId = 189,
+                QuestionId = 666,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2366,7 +2387,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer190 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox13.Value,
-                QuestionId = 190,
+                QuestionId = 667,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2377,7 +2398,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer191 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox13.Value,
-                QuestionId = 191,
+                QuestionId = 668,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2388,7 +2409,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer192 = new Answer()
             {
                 AnsDes = this.noteTextbox13.Value,
-                QuestionId = 192,
+                QuestionId = 669,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2403,7 +2424,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer193 = new Answer()
             {
                 AnsDes = this.toolsListTextbox14.Value,
-                QuestionId = 193,
+                QuestionId = 670,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2414,7 +2435,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer194 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox14.Value,
-                QuestionId = 194,
+                QuestionId = 671,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2425,7 +2446,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer195 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox14.Value,
-                QuestionId = 195,
+                QuestionId = 672,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2436,7 +2457,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer196 = new Answer()
             {
                 AnsDes = this.noteTextbox14.Value,
-                QuestionId = 196,
+                QuestionId = 673,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2454,7 +2475,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer197 = new Answer()
             {
                 AnsDes = this.toolsListTextbox15.Value,
-                QuestionId = 197,
+                QuestionId = 674,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2465,7 +2486,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer198 = new Answer()
             {
                 AnsDes = this.serialNumberTextbox15.Value,
-                QuestionId = 198,
+                QuestionId = 675,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2476,7 +2497,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer199 = new Answer()
             {
                 AnsDes = this.newSerialNumberTextbox15.Value,
-                QuestionId = 199,
+                QuestionId = 676,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2487,7 +2508,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             Answer answer200 = new Answer()
             {
                 AnsDes = this.noteTextbox15.Value,
-                QuestionId = 200,
+                QuestionId = 677,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
@@ -2497,778 +2518,734 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             ///
 
 
-
-
-
-
-
-
-
-
-
-            // team name :    
-            Answer answer201 = new Answer()
+            //   name pm :    
+            Answer answer1591 = new Answer()
             {
-                AnsDes = this.nameTeampmTextbox.Value,
-                QuestionId = 201,
+                AnsDes = this.nameDopmTextbox.Value,
+                QuestionId = 678,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer201);
+            uSOEntities.Answers.Add(answer1591);
 
 
-            // วันที่ทำ PM :    
-            Answer answer202 = new Answer()
+            //  วันที่ทำ PM :    
+            Answer answer1592 = new Answer()
             {
                 AnsDes = this.dayDopmTextbox.Value,
-                QuestionId = 202,
+                QuestionId = 679,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer202);
+            uSOEntities.Answers.Add(answer1592);
 
 
-            // ชื่อเจ้าหน้าที่ประจำศูนย์ :    
-            Answer answer203 = new Answer()
+            // รูปภาพรวมบริเวณ Site :
+            string steAreaRadio = Request.Form["steAreaRadio"];
+            Answer answer1593 = new Answer()
             {
-                AnsDes = this.nameAgentareaTextbox.Value,
-                QuestionId = 203,
-                AnserTypeId = 1,
+                AnsDes = steAreaRadio,
+                QuestionId = 680,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer203);
+            uSOEntities.Answers.Add(answer1593);
 
 
-            // เบอร์โทรติดต่อ :    
-            Answer answer204 = new Answer()
+            // รูปหน้าตู้ ก่อน-หลัง Site :
+            string beforeAfterRadio = Request.Form["beforeAfterRadio"];
+            Answer answer1594 = new Answer()
             {
-                AnsDes = this.telephoneAgentTextbox.Value,
-                QuestionId = 204,
-                AnserTypeId = 1,
+                AnsDes = beforeAfterRadio,
+                QuestionId = 681,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer204);
+            uSOEntities.Answers.Add(answer1594);
 
 
-
-
-            // รูปภาพป้ายชื่อโรงเรียน  :
-            string billBoardSchool = Request.Form["billBoardSchoolRadio"];
-            Answer answer205 = new Answer()
+            // รูปภายในตู้ ก่อน-หลัง :
+            string picIncontainRadio = Request.Form["picIncontainRadio"];
+            Answer answer1595 = new Answer()
             {
-                AnsDes = billBoardSchool,
-                QuestionId = 205,
-                AnserTypeId = 3,
+                AnsDes = picIncontainRadio,
+                QuestionId = 682,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer205);
+            uSOEntities.Answers.Add(answer1595);
 
 
-            // รูปภาพด้านหน้าศูนย์ (ถ่ายคู่กับ จนท.ประจำศูนย์)  :
-            string picTuragent = Request.Form["pictureWithagentRadio"];
-            Answer answer206 = new Answer()
+            // รูปขณะทำความสะอาดตู้ ก่อน-หลัง :
+            string beforeCleanRaio = Request.Form["beforeCleanRaio"];
+            Answer answer1596 = new Answer()
             {
-                AnsDes = picTuragent,
-                QuestionId = 206,
-                AnserTypeId = 3,
+                AnsDes = beforeCleanRaio,
+                QuestionId = 683,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer206);
+            uSOEntities.Answers.Add(answer1596);
 
 
-            // รูปภาพด้านหลังศูนย์ :
-            string behinddHall = Request.Form["pictureBehindHallRadio"];
-            Answer answer207 = new Answer()
+            // รูปสถานะ Circuit Breaker (ON):
+            string circuitBreakOnRaio = Request.Form["circuitBreakOnRaio"];
+            Answer answer1597 = new Answer()
             {
-                AnsDes = behinddHall,
-                QuestionId = 207,
-                AnserTypeId = 3,
+                AnsDes = beforeCleanRaio,
+                QuestionId = 684,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer207);
+            uSOEntities.Answers.Add(answer1597);
 
 
-            // รูปภาพบริเวณห้องโถง :
-            string picInhall = Request.Form["picInlobbyRadio"];
-            Answer answer208 = new Answer()
+            // รูปการตรวจสอบ Ground และ Bar Ground :
+            string GroundAndBarGroundRaio = Request.Form["GroundAndBarGroundRaio"];
+            Answer answer1600 = new Answer()
             {
-                AnsDes = picInhall,
-                QuestionId = 208,
-                AnserTypeId = 3,
+                AnsDes = GroundAndBarGroundRaio,
+                QuestionId = 685,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer208);
+            uSOEntities.Answers.Add(answer1600);
 
-            // รูปภาพบริเวณห้องประชุม :
-            string picMett = Request.Form["picinMeetingroomRadio"];
-            Answer answer209 = new Answer()
+
+            // รูปการตรวจสอบสถานะไฟฟ้ารั่วลง Ground (Lamp Test:
+            string groundLampRadio = Request.Form["groundLampRadio"];
+            Answer answer1601 = new Answer()
             {
-                AnsDes = picMett,
-                QuestionId = 209,
-                AnserTypeId = 3,
+                AnsDes = groundLampRadio,
+                QuestionId = 686,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer209);
+            uSOEntities.Answers.Add(answer1601);
 
-            // รูปภาพบริเวณห้อง Server :
-            string picinserVer = Request.Form["picInserverRadio"];
-            Answer answer210 = new Answer()
+            // รูป PEA Meter :
+            string peaMeterRaio = Request.Form["peaMeterRaio"];
+            Answer answer1602 = new Answer()
             {
-                AnsDes = picinserVer,
-                QuestionId = 210,
-                AnserTypeId = 3,
+                AnsDes = peaMeterRaio,
+                QuestionId = 687,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer210);
+            uSOEntities.Answers.Add(answer1602);
 
 
-
-            // รูปภาพบริเวณห้องน้ำ :
-            string picIntoileteiei = Request.Form["picIntoiletRadio"];
-            Answer answer211 = new Answer()
+            // >รูปการวัดแรงดัน AC และกระแส AC :
+            string acAndACRadio = Request.Form["acAndACRadio"];
+            Answer answer1603 = new Answer()
             {
-                AnsDes = picIntoileteiei,
-                QuestionId = 211,
-                AnserTypeId = 3,
+                AnsDes = acAndACRadio,
+                QuestionId = 688,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer211);
-
-
-
-
-            // รูปภาพบริเวณห้องปั๊มน้ำ  :
-            string picinWaterpump = Request.Form["pictureInwaterpumpRadio"];
-            Answer answer212 = new Answer()
-            {
-                AnsDes = picinWaterpump,
-                QuestionId = 212,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer212);
-
-
-
-            // รูป PEA Meter  :
-            string picMeter = Request.Form["picpeaMeterRadio"];
-            Answer answer213 = new Answer()
-            {
-                AnsDes = picMeter,
-                QuestionId = 213,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer213);
-
-            // รูป PEA Meter  :
-            string acPic = Request.Form["acPicRadio"];
-            Answer answer214 = new Answer()
-            {
-                AnsDes = acPic,
-                QuestionId = 214,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer214);
-
-
-            // รูป PEA Meter  :
-            string recGroundBar = Request.Form["recGroundBargroundRadio"];
-            Answer answer215 = new Answer()
-            {
-                AnsDes = recGroundBar,
-                QuestionId = 215,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer215);
-
-
-            // รูปการตรวจสอบสถานะไฟฟ้ารั่วลง Ground (Lamp Test)   :
-            string lightleak = Request.Form["lightleakRadio"];
-            Answer answer216 = new Answer()
-            {
-                AnsDes = lightleak,
-                QuestionId = 216,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer216);
-
-
-            // รูป MDB  :
-            string mdbPic = Request.Form["mdbPicRadio"];
-            Answer answer217 = new Answer()
-            {
-                AnsDes = mdbPic,
-                QuestionId = 217,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer217);
-
-            // รูป Fire Alarm Control  :
-            string picFilealarm = Request.Form["picFilealarmRadio"];
-            Answer answer218 = new Answer()
-            {
-                AnsDes = picFilealarm,
-                QuestionId = 218,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer218);
-
-            // รูปภาพรวมอุปกรณ์ทั้งหมดภายในตู้ Rack  :
-            string alltoolsInrack = Request.Form["alltoolsInrackRadio"];
-            Answer answer219 = new Answer()
-            {
-                AnsDes = alltoolsInrack,
-                QuestionId = 219,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer219);
+            uSOEntities.Answers.Add(answer1603);
 
 
             // รูปหน้าจอ UPS แสดงค่าต่างๆ และ Serial NO. :
-            string upsAndserial = Request.Form["upsAndserialRadio"];
-            Answer answer220 = new Answer()
+            string monitorSerRadio = Request.Form["monitorSerRadio"];
+            Answer answer1604 = new Answer()
             {
-                AnsDes = upsAndserial,
-                QuestionId = 220,
-                AnserTypeId = 3,
+                AnsDes = acAndACRadio,
+                QuestionId = 689,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer220);
+            uSOEntities.Answers.Add(answer1604);
 
 
-            // รูป ONU/Modem พร้อม Serial NO. และ MAC. :
-            string picOnu = Request.Form["picOnuRadio"];
-            Answer answer221 = new Answer()
+
+            // รูป ONU/Modem พร้อม Serial NO. และ MAC :
+            string ONUModemAndMacRadio = Request.Form["ONUModemAndMacRadio"];
+            Answer answer1605 = new Answer()
             {
-                AnsDes = upsAndserial,
-                QuestionId = 221,
-                AnserTypeId = 3,
+                AnsDes = ONUModemAndMacRadio,
+                QuestionId = 690,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer221);
+            uSOEntities.Answers.Add(answer1605);
 
-            // รูป Power Supply พร้อม Serial NO :
-            string picPsu = Request.Form["picPsuRadio"];
-            Answer answer222 = new Answer()
+
+            // รูป Power Supply พร้อม Serial NO.  :
+            string psuAndSerialRadio = Request.Form["psuAndSerialRadio"];
+            Answer answer454 = new Answer()
             {
-                AnsDes = picPsu,
-                QuestionId = 222,
-                AnserTypeId = 3,
+                AnsDes = psuAndSerialRadio,
+                QuestionId = 691,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer222);
+            uSOEntities.Answers.Add(answer454);
 
 
-            // รูป Power Supply พร้อม Serial NO :
-            string picSwitch = Request.Form["picSwitchRadio"];
-            Answer answer223 = new Answer()
+            // รูป Switch 8 Port พร้อม Serial NO. และ MAC  :
+            string switch8PortRadio = Request.Form["switch8PortRadio"];
+            Answer answer455 = new Answer()
             {
-                AnsDes = picSwitch,
-                QuestionId = 223,
-                AnserTypeId = 3,
+                AnsDes = switch8PortRadio,
+                QuestionId = 692,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer223);
+            uSOEntities.Answers.Add(answer455);
 
 
-
-            // รูป Switch 48 Port พร้อม Serial NO. และ MAC:
-            string picSwitch48 = Request.Form["picSwitch48Radio"];
-            Answer answer224 = new Answer()
+            // รูป Outdoor AP 2.4 GHz พร้อม Serial NO. และ MAC :
+            string outDoorApRadio = Request.Form["outDoorApRadio"];
+            Answer answer456 = new Answer()
             {
-                AnsDes = picSwitch48,
-                QuestionId = 224,
-                AnserTypeId = 3,
+                AnsDes = outDoorApRadio,
+                QuestionId = 693,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer224);
+            uSOEntities.Answers.Add(answer456);
 
-
-            // รูป Outdoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC :
-            string picOutdoor = Request.Form["picOutdoorRadio"];
-            Answer answer225 = new Answer()
+            // รูป Outdoor AP 5 GHz พร้อม Serial NO. และ MAC :
+            string outDoorAp5GhzRadio = Request.Form["outDoorAp5GhzRadio"];
+            Answer answer457 = new Answer()
             {
-                AnsDes = picOutdoor,
-                QuestionId = 225,
-                AnserTypeId = 3,
+                AnsDes = outDoorAp5GhzRadio,
+                QuestionId = 694,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer225);
+            uSOEntities.Answers.Add(answer457);
 
-
-            // รูป Indoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC:
-            string picIndoortwoway = Request.Form["picIndoortwowayRadio"];
-            Answer answer226 = new Answer()
+            // รูปการ Test Speed ONU (30/10 mbps) :
+            string testSpeedOnuRadio = Request.Form["testSpeedOnuRadio"];
+            Answer answer1606 = new Answer()
             {
-                AnsDes = picIndoortwoway,
-                QuestionId = 226,
-                AnserTypeId = 3,
+                AnsDes = testSpeedOnuRadio,
+                QuestionId = 695,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer226);
+            uSOEntities.Answers.Add(answer1606);
 
-
-
-            // รูปการ Test Speed จาก App Nperf โดยใช้ WIFI :
-            string picspeedTest = Request.Form["picspeedTestRadio"];
-            Answer answer227 = new Answer()
+            // รูปการ Test Speed VSAT (30/5 mbps) *เฉพาะ SAT :
+            string testSpeedVsatRadio = Request.Form["testSpeedVsatRadio"];
+            Answer answer459 = new Answer()
             {
-                AnsDes = picspeedTest,
-                QuestionId = 227,
-                AnserTypeId = 3,
+                AnsDes = testSpeedVsatRadio,
+                QuestionId = 696,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer227);
+            uSOEntities.Answers.Add(answer459);
 
 
-
-            // รูปการ Test Speed จาก App Nperf โดยใช้ LAN :
-            string picspeedTestwithLan = Request.Form["picspeedTestwithLanRadio"];
-            Answer answer228 = new Answer()
+            // รูป Cable Inlet ด้านในและด้านนอก :
+            string cableInlet = Request.Form["eieicableInletRadio"];
+            Answer answer460 = new Answer()
             {
-                AnsDes = picspeedTestwithLan,
-                QuestionId = 228,
-                AnserTypeId = 3,
+                AnsDes = cableInlet,
+                QuestionId = 697,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer228);
+            uSOEntities.Answers.Add(answer460);
 
-
-            // รูป ก่อน-หลัง การทำความสะอาดรางระบายน้ำ :
-            string picbeforeAftercanel = Request.Form["picbeforeAftercanelRadio"];
-            Answer answer229 = new Answer()
+            // รูป Filter ก่อน-หลัง ทำความสะอาด :
+            string filterBeforeCleanRadio = Request.Form["filterBeforeCleanRadio"];
+            Answer answer461 = new Answer()
             {
-                AnsDes = picbeforeAftercanel,
-                QuestionId = 229,
-                AnserTypeId = 3,
+                AnsDes = filterBeforeCleanRadio,
+                QuestionId = 698,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer229);
+            uSOEntities.Answers.Add(answer461);
 
 
-            // รูปหน้าจอ Monitor กล้องวงจรปิดผ่านจอทีวีในห้องประชุม :
-            string picMonitor = Request.Form["picMonitorRadio"];
-            Answer answer230 = new Answer()
+
+
+
+            // รูปจุดติดตั้งจานดาวเทียม :
+            string inStallSatRadio = Request.Form["inStallSatRadio"];
+            Answer answer1614 = new Answer()
             {
-                AnsDes = picMonitor,
-                QuestionId = 230,
-                AnserTypeId = 3,
+                AnsDes = inStallSatRadio,
+                QuestionId = 699,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer230);
+            uSOEntities.Answers.Add(answer1614);
 
 
-
-            // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องโถง  :
-            string beforeArterairClean = Request.Form["beforeArterairCleanRadio"];
-            Answer answer231 = new Answer()
+            // รูปความสะอาดบริเวณจานดาวเทียม :
+            string cleanSatRadio = Request.Form["cleanSatRadio"];
+            Answer answer1615 = new Answer()
             {
-                AnsDes = beforeArterairClean,
-                QuestionId = 231,
-                AnserTypeId = 3,
+                AnsDes = cleanSatRadio,
+                QuestionId = 700,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer231);
+            uSOEntities.Answers.Add(answer1615);
 
 
 
-            // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องประชุม :
-            string picairInmeeting = Request.Form["picairInmeetingRadio"];
-            Answer answer232 = new Answer()
+            //รูป LNB พร้อม Part NO :
+            string lnbWithpartRadio = Request.Form["lnbWithpartRadio"];
+            Answer answer1616 = new Answer()
             {
-                AnsDes = picairInmeeting,
-                QuestionId = 232,
-                AnserTypeId = 3,
+                AnsDes = lnbWithpartRadio,
+                QuestionId = 701,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer232);
+            uSOEntities.Answers.Add(answer1616);
 
 
-
-            // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server :
-            string picAirserver = Request.Form["picAirserverRadio"];
-            Answer answer233 = new Answer()
+            //รูป BUC พร้อม Part NO :
+            string bucWithpartRadio = Request.Form["bucWithpartRadio"];
+            Answer answer1617 = new Answer()
             {
-                AnsDes = picAirserver,
-                QuestionId = 233,
-                AnserTypeId = 3,
+                AnsDes = bucWithpartRadio,
+                QuestionId = 702,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer233);
+            uSOEntities.Answers.Add(answer1617);
 
 
-            // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server :
-            string inStallBase = Request.Form["inStallBaseRadio"];
-            Answer answer234 = new Answer()
+            //รูปการเก็บสายและพันหัวที่ LNB/BUC :
+            string wireingLnbRadio = Request.Form["wireingLnbRadio"];
+            Answer answer1618 = new Answer()
             {
-                AnsDes = inStallBase,
-                QuestionId = 234,
-                AnserTypeId = 3,
+                AnsDes = wireingLnbRadio,
+                QuestionId = 703,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer234);
+            uSOEntities.Answers.Add(answer1618);
 
 
-
-            // รูปความสะอาดบริเวณจานดาวเทียมr :
-            string picCleansatellite = Request.Form["picCleansatelliteRadio"];
-            Answer answer235 = new Answer()
+            //แนว Line Of Sight (ดูการถูกบังของหน้าจานดาวเทียม)  :
+            string lineOfsightRadio = Request.Form["lineOfsightRadio"];
+            Answer answer1619 = new Answer()
             {
-                AnsDes = picCleansatellite,
-                QuestionId = 235,
-                AnserTypeId = 3,
+                AnsDes = lineOfsightRadio,
+                QuestionId = 704,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer235);
+            uSOEntities.Answers.Add(answer1619);
 
 
 
 
-            // รูป LNB พร้อม Part NO. :
-            string picLnb = Request.Form["picLnbRadio"];
-            Answer answer236 = new Answer()
+            // SECTION 42
+            //รูปจุดติดตั้ง Solar Cell  :
+            string solarCellRadio = Request.Form["solarCellRadio"];
+            Answer answer1620 = new Answer()
             {
-                AnsDes = picLnb,
-                QuestionId = 236,
-                AnserTypeId = 3,
+                AnsDes = solarCellRadio,
+                QuestionId = 705,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer236);
+            uSOEntities.Answers.Add(answer1620);
 
 
-
-            // รูป BUC พร้อม Part NO :
-            string picBUC = Request.Form["picBUCRadio"];
-            Answer answer237 = new Answer()
+            //รูปจุดติดตั้ง Solar Cell :
+            string toolsinSolarcellRadio = Request.Form["toolsinSolarcellRadio"];
+            Answer answer1621 = new Answer()
             {
-                AnsDes = picBUC,
-                QuestionId = 237,
-                AnserTypeId = 3,
+                AnsDes = toolsinSolarcellRadio,
+                QuestionId = 706,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer237);
+            uSOEntities.Answers.Add(answer1621);
 
 
 
-
-            // รูปการเก็บสายและพันหัวที่ LNB/BUC :
-            string picWiringLnb = Request.Form["picWiringLnbRadio"];
-            Answer answer238 = new Answer()
+            //รูปหน้าจอ Charger แสดงค่าต่างๆ:
+            string chargerRadio = Request.Form["chargerRadio"];
+            Answer answer470 = new Answer()
             {
-                AnsDes = picWiringLnb,
-                QuestionId = 238,
-                AnserTypeId = 3,
+                AnsDes = chargerRadio,
+                QuestionId = 707,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer238);
+            uSOEntities.Answers.Add(answer470);
 
 
 
-            // รูปแนว Line Of Sight (ดูการถูกบังของหน้าจานดาวเทียม) :
-            string picLineofSight = Request.Form["picLineofSightRadio"];
-            Answer answer239 = new Answer()
+            //รูปหน้าจอ Inverter แสดงค่าต่างๆ:
+            string snowingInverter = Request.Form["snowingInverterRadio"];
+            Answer answer471 = new Answer()
             {
-                AnsDes = picLineofSight,
-                QuestionId = 239,
-                AnserTypeId = 3,
+                AnsDes = snowingInverter,
+                QuestionId = 708,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer239);
+            uSOEntities.Answers.Add(answer471);
 
 
-            // รูปจุดติดตั้ง Solar Cell :
-            string picBaseSolarcell = Request.Form["picBaseSolarcellRadio"];
-            Answer answer240 = new Answer()
+
+            //รูป Circuit Breaker ภายในตู้:
+            string cirBreakerRadio = Request.Form["cirBreakerRadio"];
+            Answer answer472 = new Answer()
             {
-                AnsDes = picBaseSolarcell,
-                QuestionId = 240,
-                AnserTypeId = 3,
+                AnsDes = cirBreakerRadio,
+                QuestionId = 709,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer240);
+            uSOEntities.Answers.Add(answer472);
 
 
-
-            // รูปอุปกรณ์ Solar Cell ภายในห้อง :
-            string solarcellToolsinroom = Request.Form["solarcellToolsinroomRadio"];
-            Answer answer241 = new Answer()
+            //>รูป Terminal ต่อสายภายในตู้ :
+            string termialInnerRadio = Request.Form["termialInnerRadio"];
+            Answer answer473 = new Answer()
             {
-                AnsDes = solarcellToolsinroom,
-                QuestionId = 241,
-                AnserTypeId = 3,
+                AnsDes = termialInnerRadio,
+                QuestionId = 710,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer241);
+            uSOEntities.Answers.Add(answer473);
 
 
-            // รูปหน้าจอ Charger แสดงค่าต่างๆ :
-            string screenCharger = Request.Form["screenChargerRadio"];
-            Answer answer242 = new Answer()
+
+
+            // รูปการวัดแรงดัน Battery ก้อนที่ 1 :
+            string batteryVoltRadio1 = Request.Form["batteryVoltRadio1"];
+            Answer answer1626 = new Answer()
             {
-                AnsDes = screenCharger,
-                QuestionId = 242,
-                AnserTypeId = 3,
+                AnsDes = batteryVoltRadio1,
+                QuestionId = 711,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer242);
+            uSOEntities.Answers.Add(answer1626);
 
-
-
-            // รูปหน้าจอ Inverter แสดงค่าต่างๆ :
-            string screenInverter = Request.Form["screenInverterRadio"];
-            Answer answer243 = new Answer()
+            // รูปการวัดแรงดัน Battery ก้อนที่ 2 :
+            string batteryVoltRadio2 = Request.Form["batteryVoltRadio2"];
+            Answer answer1627 = new Answer()
             {
-                AnsDes = screenInverter,
-                QuestionId = 243,
-                AnserTypeId = 3,
+                AnsDes = batteryVoltRadio2,
+                QuestionId = 712,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer243);
+            uSOEntities.Answers.Add(answer1627);
 
 
-            // รูป Circuit Breaker ภายในตู้ :
-            string piccircuitBreaker = Request.Form["piccircuitBreakerRadio"];
-            Answer answer244 = new Answer()
+
+            // รูปการวัดแรงดัน Battery ก้อนที่ 3 :
+            string batteryVoltRadio3 = Request.Form["batteryVoltRadio3"];
+            Answer answer1628 = new Answer()
             {
-                AnsDes = screenInverter,
-                QuestionId = 244,
-                AnserTypeId = 3,
+                AnsDes = batteryVoltRadio3,
+                QuestionId = 713,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer244);
+            uSOEntities.Answers.Add(answer1628);
 
 
 
-            // รูป Terminal ต่อสายภายในตู้ :
-            string picTerminal = Request.Form["picTerminalRadio"];
-            Answer answer245 = new Answer()
+            // รูปการวัดแรงดัน Battery ก้อนที่ 4 :
+            string batteryVoltRadio4 = Request.Form["batteryVoltRadio4"];
+            Answer answer1629 = new Answer()
             {
-                AnsDes = picTerminal,
-                QuestionId = 245,
-                AnserTypeId = 3,
+                AnsDes = batteryVoltRadio4,
+                QuestionId = 714,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer245);
+            uSOEntities.Answers.Add(answer1629);
+
+
 
 
             // รูปความสะอาดแผง PV :
-            string picCleaningPv = Request.Form["picCleaningPvRadio"];
-            Answer answer246 = new Answer()
+            string cleaninPVVRADIO = Request.Form["cleaninPVVRADIO"];
+            Answer answer478 = new Answer()
             {
-                AnsDes = picCleaningPv,
-                QuestionId = 246,
-                AnserTypeId = 3,
+                AnsDes = cleaninPVVRADIO,
+                QuestionId = 715,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer246);
+            uSOEntities.Answers.Add(answer478);
 
 
-            // รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์  :
-            string picSunrise = Request.Form["picSunriseRadio"];
-            Answer answer247 = new Answer()
+            // รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์ :
+            string sunnyRadio = Request.Form["sunnyRadio"];
+            Answer answer479 = new Answer()
             {
-                AnsDes = picSunrise,
-                QuestionId = 247,
-                AnserTypeId = 3,
+                AnsDes = sunnyRadio,
+                QuestionId = 716,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer247);
+            uSOEntities.Answers.Add(answer479);
 
 
-            // รูปคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO. :
-            string piccomAgent1 = Request.Form["piccomAgentRadio1"];
-            Answer answer248 = new Answer()
+
+
+
+
+
+
+            // คอมพิวเตอร์ตัวที่ 1  :
+            string PicComRadio1 = Request.Form["PicComRadio1"];
+            Answer answer717 = new Answer()
             {
-                AnsDes = piccomAgent1,
-                QuestionId = 248,
-                AnserTypeId = 3,
+                AnsDes = PicComRadio1,
+                QuestionId = 717,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer248);
+            uSOEntities.Answers.Add(answer717);
 
 
-            // รูปคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO. :
-            string piccomAgent2 = Request.Form["piccomAgentRadio2"];
-            Answer answer249 = new Answer()
+            // คอมพิวเตอร์ตัวที่ 2  :
+            string PicComRadio2 = Request.Form["PicComRadio2"];
+            Answer answer718 = new Answer()
             {
-                AnsDes = piccomAgent2,
-                QuestionId = 249,
-                AnserTypeId = 3,
+                AnsDes = PicComRadio2,
+                QuestionId = 718,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer249);
+            uSOEntities.Answers.Add(answer718);
 
 
-
-            // รูปคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO. :
-            string piccomAgent3 = Request.Form["piccomAgentRadio3"];
-            Answer answer250 = new Answer()
+            // คอมพิวเตอร์ตัวที่ 3  :
+            string PicComRadio3 = Request.Form["PicComRadio3"];
+            Answer answer719 = new Answer()
             {
-                AnsDes = piccomAgent3,
-                QuestionId = 250,
-                AnserTypeId = 3,
+                AnsDes = PicComRadio3,
+                QuestionId = 719,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer250);
+            uSOEntities.Answers.Add(answer719);
 
 
-
-            // รูปคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO. :
-            string piccomAgent4 = Request.Form["piccomAgentRadio4"];
-            Answer answer251 = new Answer()
+            // คอมพิวเตอร์ตัวที่ 4  :
+            string PicComRadio4 = Request.Form["PicComRadio4"];
+            Answer answer720 = new Answer()
             {
-                AnsDes = piccomAgent4,
-                QuestionId = 251,
-                AnserTypeId = 3,
+                AnsDes = PicComRadio4,
+                QuestionId = 720,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer251);
+            uSOEntities.Answers.Add(answer720);
 
 
-            // รูปคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.  :
-            string piccomAgent5 = Request.Form["piccomAgentRadio5"];
-            Answer answer252 = new Answer()
+
+            // คอมพิวเตอร์ตัวที่ 5  :
+            string PicComRadio5 = Request.Form["PicComRadio5"];
+            Answer answer721 = new Answer()
             {
-                AnsDes = piccomAgent5,
-                QuestionId = 252,
-                AnserTypeId = 3,
+                AnsDes = PicComRadio5,
+                QuestionId = 721,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer252);
+            uSOEntities.Answers.Add(answer721);
 
 
-            // รูปคอมพิวเตอร์ตัวที่ 6 พร้อม Serial NO.  :
-            string piccomAgent6 = Request.Form["piccomAgentRadio6"];
-            Answer answer253 = new Answer()
+            // UPS สำหรับคอมพิวเตอร์ตัวที่ 1 :
+            string PicupsRadio1 = Request.Form["PicupsRadio1"];
+            Answer answer722 = new Answer()
             {
-                AnsDes = piccomAgent6,
-                QuestionId = 253,
-                AnserTypeId = 3,
+                AnsDes = PicupsRadio1,
+                QuestionId = 722,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer253);
+            uSOEntities.Answers.Add(answer722);
 
 
-            // รูปคอมพิวเตอร์ตัวที่ 7 พร้อม Serial NO.  :
-            string piccomAgent7 = Request.Form["piccomAgentRadio7"];
-            Answer answer254 = new Answer()
+            // UPS สำหรับคอมพิวเตอร์ตัวที่ 2 :
+            string PicupsRadio2 = Request.Form["PicupsRadio2"];
+            Answer answer723 = new Answer()
             {
-                AnsDes = piccomAgent7,
-                QuestionId = 254,
-                AnserTypeId = 3,
+                AnsDes = PicupsRadio2,
+                QuestionId = 723,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer254);
+            uSOEntities.Answers.Add(answer723);
 
 
-            // รูปคอมพิวเตอร์ตัวที่ 8 พร้อม Serial NO.  :
-            string piccomAgent8 = Request.Form["piccomAgentRadio8"];
-            Answer answer255 = new Answer()
+            // UPS สำหรับคอมพิวเตอร์ตัวที่ 3 :
+            string PicupsRadio3 = Request.Form["PicupsRadio3"];
+            Answer answer724 = new Answer()
             {
-                AnsDes = piccomAgent8,
-                QuestionId = 255,
-                AnserTypeId = 3,
+                AnsDes = PicupsRadio3,
+                QuestionId = 724,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer255);
+            uSOEntities.Answers.Add(answer724);
 
-            // รูปคอมพิวเตอร์ตัวที่ 9 พร้อม Serial NO.  :
-            string piccomAgent9 = Request.Form["piccomAgentRadio9"];
-            Answer answer256 = new Answer()
+
+
+            // UPS สำหรับคอมพิวเตอร์ตัวที่ 4 :
+            string PicupsRadio4 = Request.Form["PicupsRadio4"];
+            Answer answer725 = new Answer()
             {
-                AnsDes = piccomAgent9,
-                QuestionId = 256,
-                AnserTypeId = 3,
+                AnsDes = PicupsRadio4,
+                QuestionId = 725,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer256);
+            uSOEntities.Answers.Add(answer725);
 
-            // รูปคอมพิวเตอร์ตัวที่ 10 พร้อม Serial NO.  :
-            string piccomAgent10 = Request.Form["piccomAgentRadio10"];
-            Answer answer257 = new Answer()
+
+            // UPS สำหรับคอมพิวเตอร์ตัวที่ 5 :
+            string PicupsRadio5 = Request.Form["PicupsRadio5"];
+            Answer answer726 = new Answer()
             {
-                AnsDes = piccomAgent10,
-                QuestionId = 257,
-                AnserTypeId = 3,
+                AnsDes = PicupsRadio5,
+                QuestionId = 726,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer257);
+            uSOEntities.Answers.Add(answer726);
 
-            // รูปคอมพิวเตอร์ตัวที่ 11 พร้อม Serial NO.  :
-            string piccomAgent11 = Request.Form["piccomAgentRadio11"];
-            Answer answer258 = new Answer()
+
+
+
+            // Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 1 :
+            string PicspeedTestRaio1 = Request.Form["PicspeedTestRaio1"];
+            Answer answer727 = new Answer()
             {
-                AnsDes = piccomAgent11,
-                QuestionId = 258,
-                AnserTypeId = 3,
+                AnsDes = PicspeedTestRaio1,
+                QuestionId = 727,
+                AnserTypeId = 4,
                 CreateDate = DateTime.Now,
                 UserId = 1
             };
-            uSOEntities.Answers.Add(answer258);
+            uSOEntities.Answers.Add(answer727);
+
+
+
+            // Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 2 :
+            string PicspeedTestRaio2 = Request.Form["PicspeedTestRaio2"];
+            Answer answer728 = new Answer()
+            {
+                AnsDes = PicspeedTestRaio2,
+                QuestionId = 728,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer728);
+
+
+
+            // Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 3 :
+            string PicspeedTestRaio3 = Request.Form["PicspeedTestRaio3"];
+            Answer answer729 = new Answer()
+            {
+                AnsDes = PicspeedTestRaio3,
+                QuestionId = 729,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer729);
+
+
+
+
+            // Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 4 :
+            string PicspeedTestRaio4 = Request.Form["PicspeedTestRaio4"];
+            Answer answer730 = new Answer()
+            {
+                AnsDes = PicspeedTestRaio4,
+                QuestionId = 730,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer730);
+
+
+
+
+            // Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 5 :
+            string PicspeedTestRaio5 = Request.Form["PicspeedTestRaio5"];
+            Answer answer731 = new Answer()
+            {
+                AnsDes = PicspeedTestRaio5,
+                QuestionId = 731,
+                AnserTypeId = 4,
+                CreateDate = DateTime.Now,
+                UserId = 1
+            };
+            uSOEntities.Answers.Add(answer731);
+
+
+
 
 
 
@@ -3282,7 +3259,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 Answer answer259 = new Answer()
                 {
                     AnsDes = newFileName,
-                    QuestionId = 259,
+                    QuestionId = 732,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = 1
@@ -3301,7 +3278,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 Answer answer260 = new Answer()
                 {
                     AnsDes = newFileName,
-                    QuestionId = 260,
+                    QuestionId = 733,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = 1
@@ -3321,7 +3298,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 Answer answer261 = new Answer()
                 {
                     AnsDes = newFileName,
-                    QuestionId = 261,
+                    QuestionId = 734,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = 1
@@ -3330,62 +3307,26 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            //4.COMPUTER PICTURE CHECKLIST :
-            if (this.compictureChecklistImages.HasFile)
-            {
-                string extension = this.compictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                string newFileName = "images/ComputerPictureChecklist_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                this.compictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
 
-                Answer answer262 = new Answer()
+
+
+
+            //4. COMPUTER PICTURE CHECKLIST :
+            if (this.computerChecklistImages.HasFile)
+            {
+                string extension = this.computerChecklistImages.PostedFile.FileName.Split('.')[1];
+                string newFileName = "images/SolarcellPictureChecklist_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                this.computerChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                Answer answer261 = new Answer()
                 {
                     AnsDes = newFileName,
-                    QuestionId = 262,
+                    QuestionId = 735,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = 1
                 };
-                uSOEntities.Answers.Add(answer262);
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //ใส่ป้ายหน้าโรงเรียน :
-            if (this.signboardschoolImage.HasFile)
-            {
-                string extension = this.signboardschoolImage.PostedFile.FileName.Split('.')[1];
-                string newFileName = "images/SignboardSchool_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                this.signboardschoolImage.PostedFile.SaveAs(Server.MapPath(newFileName));
-
-                Answer answer6 = new Answer()
-                {
-                    AnsDes = newFileName,
-                    QuestionId = 6,
-                    AnserTypeId = 3,
-                    CreateDate = DateTime.Now,
-                    UserId = 1
-                };
-                uSOEntities.Answers.Add(answer6);
+                uSOEntities.Answers.Add(answer261);
             }
 
 
@@ -3417,16 +3358,23 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            string xx = Request.Form["upsModeRadio"];
-            Answer answer7 = new Answer()
-            {
-                AnsDes = xx,
-                QuestionId = 7,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer7);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3435,13 +3383,9 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             {
                 this.SuccessPanel.Visible = true;
             }
+
+
         }
 
-        //void GetData()
-        //{
-        //    var collection = uSOEntities.Answers.Where(x => x.User.OrganizationId == 1 && x.Question.SectionId == 6).ToList();
-        //    this.ResultRepeater.DataSource = collection.OrderByDescending(x => x.CreateDate).ToList();
-        //    this.ResultRepeater.DataBind();
-        //}
     }
 }

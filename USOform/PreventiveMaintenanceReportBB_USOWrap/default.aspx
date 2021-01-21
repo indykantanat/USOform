@@ -347,12 +347,12 @@
                     <label class="control-label col-sm-2">Type of Signal</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="typeofsignalRadio" value="OFC" />OFC
+                            <input type="radio" class="form-check-input" name="typeofsignalRadio" value="OFC" runat="server" />OFC
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="typeofsignalRadio" value="Satellite" />Satellite
+                            <input type="radio" class="form-check-input"  name="typeofsignalRadio" value="Satellite" runat="server" />Satellite
                         </label>
                     </div>
                 </div>
@@ -368,10 +368,7 @@
 
 
 
-
-
-
-
+              
 
 
 
@@ -3276,7 +3273,12 @@
 
 
     <%--/////////////////    script START !!   /////////////////////////////--%>
-
+     <script type="text/javascript">
+         function GetRadioValue() {
+             var radioX = document.getElementById('Radio1');
+             alert(radioX.value);
+         }
+     </script>
     <script type="text/javascript">
         var input = $("#exampleFormControlFile1").change(function () {
             alert(this.value.split("\\").pop())
