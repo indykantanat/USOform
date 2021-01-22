@@ -12,7 +12,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace USOform.PreventiveMaintenanceReportBBUSOWrap
+
+namespace USOform.PreventiveMaintenanceReportBB_USOWrap
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
@@ -58,13 +59,22 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             this.GroupNameTextBox.Text = answers.Where(x => x.QuestionId == 1).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1).FirstOrDefault().AnsDes : "";
             this.AreaTextbox.Value = answers.Where(x => x.QuestionId == 2).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 2).FirstOrDefault().AnsDes : "";
             this.CompanyTextbox.Value = answers.Where(x => x.QuestionId == 3).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 3).FirstOrDefault().AnsDes : "";
+            this.maintenanceCountTextbox.Value = answers.Where(x => x.QuestionId == 4).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 4).FirstOrDefault().AnsDes : "";
+            this.yearTextbox.Value = answers.Where(x => x.QuestionId == 5).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 5).FirstOrDefault().AnsDes : "";
+            this.startDatepicker.Value = answers.Where(x => x.QuestionId == 8).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 8).FirstOrDefault().AnsDes : "";
+            this.endDatepicker.Value = answers.Where(x => x.QuestionId == 9).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 9).FirstOrDefault().AnsDes : "";
+            this.siteCodeTextbox.Value = answers.Where(x => x.QuestionId == 10).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 10).FirstOrDefault().AnsDes : "";
+            this.cabinetIdTextbox.Value = answers.Where(x => x.QuestionId == 11).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 11).FirstOrDefault().AnsDes : "";
+            this.sitecodeTextboxSection2.Value = answers.Where(x => x.QuestionId == 12).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 12).FirstOrDefault().AnsDes : "";
+            this.VillageIdTextbox.Value = answers.Where(x => x.QuestionId == 13).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 13).FirstOrDefault().AnsDes : "";
+            this.villageTextbox.Value = answers.Where(x => x.QuestionId == 14).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 14).FirstOrDefault().AnsDes : "";
+            this.schoolnameTextbox.Value = answers.Where(x => x.QuestionId == 15).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 15).FirstOrDefault().AnsDes : "";
+            this.subdistrictTextbox.Value = answers.Where(x => x.QuestionId == 16).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 16).FirstOrDefault().AnsDes : "";
+            this.provinceTextbox.Value = answers.Where(x => x.QuestionId == 17).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 17).FirstOrDefault().AnsDes : "";
+            this.typeTextbox.Value = answers.Where(x => x.QuestionId == 18).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 18).FirstOrDefault().AnsDes : "";
+            this.pmdateTextbox.Value = answers.Where(x => x.QuestionId == 19).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 19).FirstOrDefault().AnsDes : "";
 
         }
-
-
-
-
-
 
 
 
@@ -85,28 +95,60 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             string ansMonth = DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
 
 
-
-            // กลุ่ม
-            Answer answer1 = new Answer()
+            var ans1 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 1).FirstOrDefault();
+            if (ans1 == null)
             {
-                AnsDes = this.GroupNameTextBox.Text,
-                AnserTypeId = 1,
-                CreateDate = DateTime.Now,
-                QuestionId = 1,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer1);
 
-            // ภูมิภาค
-            Answer answer2 = new Answer()
+                // กลุ่ม
+                Answer answer1 = new Answer()
+                {
+                    AnsDes = this.GroupNameTextBox.Text,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    QuestionId = 1,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth
+                };
+                uSOEntities.Answers.Add(answer1);
+
+            }
+            else {
+                ans1.AnsDes = this.GroupNameTextBox.Text;
+                ans1.AnserTypeId = 1;
+                ans1.CreateDate = DateTime.Now;
+                ans1.QuestionId = 1;
+                ans1.UserId = user.Id;
+                ans1.AnsMonth = ansMonth;
+
+            }
+
+            var ans2 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 2).FirstOrDefault();
+            if (ans2 == null)
             {
-                AnsDes = this.AreaTextbox.Value,
-                AnserTypeId = 1,
-                CreateDate = DateTime.Now,
-                QuestionId = 2,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer2);
+                // ภูมิภาค
+                Answer answer2 = new Answer()
+                {
+                    AnsDes = this.AreaTextbox.Value,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    QuestionId = 2,
+                    UserId = user.Id
+                };
+                uSOEntities.Answers.Add(answer2);
+            }
+            else {
+                // ภูมิภาค              
+                {
+                    ans2.AnsDes = this.AreaTextbox.Value;
+                    ans2.AnserTypeId = 1;
+                    ans2.CreateDate = DateTime.Now;
+                    ans2.QuestionId = 2;
+                    ans2.UserId = user.Id;
+                }
+              
+            }
+
+               
 
             // บริษัท
             Answer answer3 = new Answer()
@@ -3447,8 +3489,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 uSOEntities.Answers.Add(answer6);
             }
 
-
-
+           
 
 
 

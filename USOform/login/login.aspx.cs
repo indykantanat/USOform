@@ -33,11 +33,11 @@ namespace USOform.login
             if (user != null)
             {
                 Session["strUsername"] = user;
-                Response.Redirect("/home.aspx");
+                Response.Redirect("/PreventiveMaintenanceReportBB_USOWrap/default.aspx");
             }
             else
             {
-
+                Response.Write("<script>alert('ชื่อผุ้ใช้งาน หรือ รหัสผ่านไม่ถูกต้อง');</script>");
             }
         }
     }

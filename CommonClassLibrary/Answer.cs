@@ -22,6 +22,7 @@ namespace CommonClassLibrary
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
         public Nullable<long> UserId { get; set; }
+        public string AnsMonth { get; set; }
     
         public virtual AnswerType AnswerType { get; set; }
         public virtual Question Question { get; set; }

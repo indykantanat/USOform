@@ -17,6 +17,7 @@
           <Property Name="StartDate" Type="datetime" />
           <Property Name="EndDate" Type="datetime" />
           <Property Name="UserId" Type="bigint" />
+          <Property Name="AnsMonth" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="AnswerType">
           <Key>
@@ -71,13 +72,6 @@ warning 6002: The table/view 'USO.dbo.TBAnswer_Type' does not have a primary key
           <Property Name="TName" Type="varchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'USO.dbo.TBOrganization' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TBOrganization">
-          <Property Name="OrgID" Type="int" />
-          <Property Name="OrgName" Type="varchar(max)" />
-          <Property Name="img" Type="varchar(max)" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'USO.dbo.TBSurvey_answer01' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TBSurvey_answer01">
           <Key>
@@ -119,16 +113,6 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
           <Property Name="SID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SName" Type="varchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TBUser">
-          <Property Name="UserID" Type="int" />
-          <Property Name="UserName" Type="varchar(max)" />
-          <Property Name="Password" Type="varchar(max)" />
-          <Property Name="FName" Type="varchar(max)" />
-          <Property Name="LName" Type="varchar(max)" />
-          <Property Name="OrgID" Type="int" />
-        </EntityType>-->
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -339,6 +323,7 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
           <NavigationProperty Name="AnswerType" Relationship="USOModel.FK_Answer_AnswerType" FromRole="Answer" ToRole="AnswerType" />
           <NavigationProperty Name="Question" Relationship="USOModel.FK_Answer_Question" FromRole="Answer" ToRole="Question" />
           <NavigationProperty Name="User" Relationship="USOModel.FK_Answer_User" FromRole="Answer" ToRole="User" />
+          <Property Name="AnsMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AnswerType">
           <Key>
@@ -526,6 +511,7 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
           <EntitySetMapping Name="Answers">
             <EntityTypeMapping TypeName="USOModel.Answer">
               <MappingFragment StoreEntitySet="Answer">
+                <ScalarProperty Name="AnsMonth" ColumnName="AnsMonth" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
