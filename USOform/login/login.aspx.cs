@@ -24,7 +24,7 @@ namespace USOform.login
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void btnLogins_Click(object sender, EventArgs e)
@@ -34,6 +34,7 @@ namespace USOform.login
             {
                 Session["strUsername"] = user;
                 Response.Redirect("/PreventiveMaintenanceReportBB_USOWrap/default.aspx");
+                //Response.Redirect("/PreventiveMaintenanceReportBB_USOWrap/prereport_usowrap.aspx");
             }
             else
             {

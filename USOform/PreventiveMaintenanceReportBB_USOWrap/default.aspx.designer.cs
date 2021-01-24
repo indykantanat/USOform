@@ -159,6 +159,15 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlInputText subdistrictTextbox;
 
         /// <summary>
+        /// districtTextbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText districtTextbox;
+
+        /// <summary>
         /// provinceTextbox control.
         /// </summary>
         /// <remarks>
@@ -1372,5 +1381,14 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SubmitButton;
+
+        /// <summary>
+        /// success control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button success;
     }
 }

@@ -91,6 +91,7 @@
     <Content Include="Success.aspx" />
     <Content Include="testtable.aspx" />
     <Content Include="home.aspx" />
+    <Content Include="WebForm5.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="login\login.aspx.cs">
@@ -184,6 +185,13 @@
     </Compile>
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm5.aspx.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm5.aspx.designer.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

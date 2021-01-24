@@ -70,9 +70,138 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
             this.villageTextbox.Value = answers.Where(x => x.QuestionId == 14).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 14).FirstOrDefault().AnsDes : "";
             this.schoolnameTextbox.Value = answers.Where(x => x.QuestionId == 15).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 15).FirstOrDefault().AnsDes : "";
             this.subdistrictTextbox.Value = answers.Where(x => x.QuestionId == 16).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 16).FirstOrDefault().AnsDes : "";
+            this.districtTextbox.Value = answers.Where(x => x.QuestionId == 1641).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1641).FirstOrDefault().AnsDes : "";
             this.provinceTextbox.Value = answers.Where(x => x.QuestionId == 17).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 17).FirstOrDefault().AnsDes : "";
             this.typeTextbox.Value = answers.Where(x => x.QuestionId == 18).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 18).FirstOrDefault().AnsDes : "";
             this.pmdateTextbox.Value = answers.Where(x => x.QuestionId == 19).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 19).FirstOrDefault().AnsDes : "";
+            this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 21).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 21).FirstOrDefault().AnsDes : "";
+            this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 22).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 22).FirstOrDefault().AnsDes : "";
+            this.nameExecutorTextbox.Value = answers.Where(x => x.QuestionId == 23).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 23).FirstOrDefault().AnsDes : "";
+            this.nameSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 24).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 24).FirstOrDefault().AnsDes : "";
+            this.DateExecutorTextbox.Value = answers.Where(x => x.QuestionId == 25).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 25).FirstOrDefault().AnsDes : "";
+            this.DateSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 26).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 26).FirstOrDefault().AnsDes : "";
+            this.LocationnameTextbox.Value = answers.Where(x => x.QuestionId == 27).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 27).FirstOrDefault().AnsDes : "";
+            this.sitecodeTextboxSection4.Value = answers.Where(x => x.QuestionId == 28).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 28).FirstOrDefault().AnsDes : "";
+            this.villageIDTextboxSection4.Value = answers.Where(x => x.QuestionId == 29).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 29).FirstOrDefault().AnsDes : "";
+            this.latandlongTextbox.Value = answers.Where(x => x.QuestionId == 30).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 30).FirstOrDefault().AnsDes : "";
+            this.ispTextbox.Value = answers.Where(x => x.QuestionId == 32).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 32).FirstOrDefault().AnsDes : "";
+            this.numberuserTextbox.Value = answers.Where(x => x.QuestionId == 35).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 35).FirstOrDefault().AnsDes : "";
+            this.kwhMeterTextbox.Value = answers.Where(x => x.QuestionId == 36).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 36).FirstOrDefault().AnsDes : "";
+            this.acTextbox.Value = answers.Where(x => x.QuestionId == 37).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 37).FirstOrDefault().AnsDes : "";
+            this.lineAcTextbox.Value = answers.Where(x => x.QuestionId == 38).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 38).FirstOrDefault().AnsDes : "";
+            this.neutronacTextbox.Value = answers.Where(x => x.QuestionId == 39).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 39).FirstOrDefault().AnsDes : "";
+            this.acfromupsTextbox.Value = answers.Where(x => x.QuestionId == 43).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 43).FirstOrDefault().AnsDes : "";
+            this.electricloadTextbox.Value = answers.Where(x => x.QuestionId == 44).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 44).FirstOrDefault().AnsDes : "";
+            this.battFirealarm1Textbox.Value = answers.Where(x => x.QuestionId == 63).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 63).FirstOrDefault().AnsDes : "";
+            this.battFirealarm3Textbox.Value = answers.Where(x => x.QuestionId == 64).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 64).FirstOrDefault().AnsDes : "";
+            this.voltageInverterTextbox.Value = answers.Where(x => x.QuestionId == 99).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 99).FirstOrDefault().AnsDes : "";
+            this.voltageLoadTextbox.Value = answers.Where(x => x.QuestionId == 100).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 100).FirstOrDefault().AnsDes : "";
+            this.dowloadforOnuTextbox.Value = answers.Where(x => x.QuestionId == 101).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 101).FirstOrDefault().AnsDes : "";
+            this.uploadforOnuTextbox.Value = answers.Where(x => x.QuestionId == 102).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 102).FirstOrDefault().AnsDes : "";
+            this.pingTestTextbox.Value = answers.Where(x => x.QuestionId == 103).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 103).FirstOrDefault().AnsDes : "";
+            this.dowloadForwifiTextbox.Value = answers.Where(x => x.QuestionId == 104).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 104).FirstOrDefault().AnsDes : "";
+            this.uploadForwifiTextbox.Value = answers.Where(x => x.QuestionId == 105).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 105).FirstOrDefault().AnsDes : "";
+            this.pingtestForwifiTextbox.Value = answers.Where(x => x.QuestionId == 106).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 106).FirstOrDefault().AnsDes : "";
+            this.dowlaodForlanTextbox.Value = answers.Where(x => x.QuestionId == 107).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 107).FirstOrDefault().AnsDes : "";
+            this.uploadForlandTextbox.Value = answers.Where(x => x.QuestionId == 108).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 108).FirstOrDefault().AnsDes : "";
+            this.pingtestForlanTextbox.Value = answers.Where(x => x.QuestionId == 109).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 109).FirstOrDefault().AnsDes : "";
+
+            this.problemTextbox1.Value = answers.Where(x => x.QuestionId == 110).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 110).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox1.Value = answers.Where(x => x.QuestionId == 111).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 111).FirstOrDefault().AnsDes : "";
+            this.problemTextbox2.Value = answers.Where(x => x.QuestionId == 112).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 112).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox2.Value = answers.Where(x => x.QuestionId == 113).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 113).FirstOrDefault().AnsDes : "";
+            this.problemTextbox3.Value = answers.Where(x => x.QuestionId == 114).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 114).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox3.Value = answers.Where(x => x.QuestionId == 115).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 115).FirstOrDefault().AnsDes : "";
+            this.problemTextbox4.Value = answers.Where(x => x.QuestionId == 116).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 116).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox4.Value = answers.Where(x => x.QuestionId == 117).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 117).FirstOrDefault().AnsDes : "";
+            this.problemTextbox5.Value = answers.Where(x => x.QuestionId == 118).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 118).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox5.Value = answers.Where(x => x.QuestionId == 119).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 119).FirstOrDefault().AnsDes : "";
+            this.problemTextbox6.Value = answers.Where(x => x.QuestionId == 120).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 120).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox6.Value = answers.Where(x => x.QuestionId == 121).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 121).FirstOrDefault().AnsDes : "";
+            this.problemTextbox7.Value = answers.Where(x => x.QuestionId == 122).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 122).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox7.Value = answers.Where(x => x.QuestionId == 123).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 123).FirstOrDefault().AnsDes : "";
+            this.problemTextbox8.Value = answers.Where(x => x.QuestionId == 124).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 124).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox8.Value = answers.Where(x => x.QuestionId == 125).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 125).FirstOrDefault().AnsDes : "";
+            this.problemTextbox9.Value = answers.Where(x => x.QuestionId == 126).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 126).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox9.Value = answers.Where(x => x.QuestionId == 127).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 127).FirstOrDefault().AnsDes : "";
+            this.problemTextbox10.Value = answers.Where(x => x.QuestionId == 128).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 128).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox10.Value = answers.Where(x => x.QuestionId == 129).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 129).FirstOrDefault().AnsDes : "";
+            this.problemTextbox11.Value = answers.Where(x => x.QuestionId == 130).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 130).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox11.Value = answers.Where(x => x.QuestionId == 131).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 131).FirstOrDefault().AnsDes : "";
+            this.problemTextbox12.Value = answers.Where(x => x.QuestionId == 132).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 132).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox12.Value = answers.Where(x => x.QuestionId == 133).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 133).FirstOrDefault().AnsDes : "";
+            this.problemTextbox13.Value = answers.Where(x => x.QuestionId == 134).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 134).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox13.Value = answers.Where(x => x.QuestionId == 135).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 135).FirstOrDefault().AnsDes : "";
+            this.problemTextbox14.Value = answers.Where(x => x.QuestionId == 136).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 136).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox14.Value = answers.Where(x => x.QuestionId == 137).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 137).FirstOrDefault().AnsDes : "";
+            this.problemTextbox15.Value = answers.Where(x => x.QuestionId == 138).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 138).FirstOrDefault().AnsDes : "";
+            this.howtoSolveTextbox15.Value = answers.Where(x => x.QuestionId == 139).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 139).FirstOrDefault().AnsDes : "";
+
+            this.toolsListTextbox1.Value = answers.Where(x => x.QuestionId == 141).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 141).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox1.Value = answers.Where(x => x.QuestionId == 142).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 142).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox1.Value = answers.Where(x => x.QuestionId == 143).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 143).FirstOrDefault().AnsDes : "";
+            this.noteTextbox1.Value = answers.Where(x => x.QuestionId == 144).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 144).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox2.Value = answers.Where(x => x.QuestionId == 145).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 145).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox2.Value = answers.Where(x => x.QuestionId == 146).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 146).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox2.Value = answers.Where(x => x.QuestionId == 147).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 147).FirstOrDefault().AnsDes : "";
+            this.noteTextbox2.Value = answers.Where(x => x.QuestionId == 148).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 148).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox3.Value = answers.Where(x => x.QuestionId == 149).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 149).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox3.Value = answers.Where(x => x.QuestionId == 150).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 150).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox3.Value = answers.Where(x => x.QuestionId == 151).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 151).FirstOrDefault().AnsDes : "";
+            this.noteTextbox3.Value = answers.Where(x => x.QuestionId == 152).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 152).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox4.Value = answers.Where(x => x.QuestionId == 153).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 153).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox4.Value = answers.Where(x => x.QuestionId == 154).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 154).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox4.Value = answers.Where(x => x.QuestionId == 155).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 155).FirstOrDefault().AnsDes : "";
+            this.noteTextbox4.Value = answers.Where(x => x.QuestionId == 156).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 156).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox5.Value = answers.Where(x => x.QuestionId == 157).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 157).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox5.Value = answers.Where(x => x.QuestionId == 158).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 158).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox5.Value = answers.Where(x => x.QuestionId == 159).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 159).FirstOrDefault().AnsDes : "";
+            this.noteTextbox5.Value = answers.Where(x => x.QuestionId == 160).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 160).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox6.Value = answers.Where(x => x.QuestionId == 161).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 161).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox6.Value = answers.Where(x => x.QuestionId == 162).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 162).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox6.Value = answers.Where(x => x.QuestionId == 163).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 163).FirstOrDefault().AnsDes : "";
+            this.noteTextbox6.Value = answers.Where(x => x.QuestionId == 164).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 164).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox7.Value = answers.Where(x => x.QuestionId == 165).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 165).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox7.Value = answers.Where(x => x.QuestionId == 166).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 166).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox7.Value = answers.Where(x => x.QuestionId == 167).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 167).FirstOrDefault().AnsDes : "";
+            this.noteTextbox7.Value = answers.Where(x => x.QuestionId == 168).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 168).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox8.Value = answers.Where(x => x.QuestionId == 169).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 169).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox8.Value = answers.Where(x => x.QuestionId == 170).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 170).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox8.Value = answers.Where(x => x.QuestionId == 171).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 171).FirstOrDefault().AnsDes : "";
+            this.noteTextbox8.Value = answers.Where(x => x.QuestionId == 172).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 172).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox9.Value = answers.Where(x => x.QuestionId == 173).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 173).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox9.Value = answers.Where(x => x.QuestionId == 174).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 174).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox9.Value = answers.Where(x => x.QuestionId == 175).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 175).FirstOrDefault().AnsDes : "";
+            this.noteTextbox9.Value = answers.Where(x => x.QuestionId == 176).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 176).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox10.Value = answers.Where(x => x.QuestionId == 177).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 177).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox10.Value = answers.Where(x => x.QuestionId == 178).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 178).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox10.Value = answers.Where(x => x.QuestionId == 179).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 179).FirstOrDefault().AnsDes : "";
+            this.noteTextbox10.Value = answers.Where(x => x.QuestionId == 180).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 180).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox11.Value = answers.Where(x => x.QuestionId == 181).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 181).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox11.Value = answers.Where(x => x.QuestionId == 182).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 182).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox11.Value = answers.Where(x => x.QuestionId == 183).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 183).FirstOrDefault().AnsDes : "";
+            this.noteTextbox11.Value = answers.Where(x => x.QuestionId == 184).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 184).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox12.Value = answers.Where(x => x.QuestionId == 185).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 185).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox12.Value = answers.Where(x => x.QuestionId == 186).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 186).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox12.Value = answers.Where(x => x.QuestionId == 187).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 187).FirstOrDefault().AnsDes : "";
+            this.noteTextbox12.Value = answers.Where(x => x.QuestionId == 188).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 188).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox13.Value = answers.Where(x => x.QuestionId == 189).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 189).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox13.Value = answers.Where(x => x.QuestionId == 190).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 190).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox13.Value = answers.Where(x => x.QuestionId == 191).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 191).FirstOrDefault().AnsDes : "";
+            this.noteTextbox13.Value = answers.Where(x => x.QuestionId == 192).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 192).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox14.Value = answers.Where(x => x.QuestionId == 193).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 193).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox14.Value = answers.Where(x => x.QuestionId == 194).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 194).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox14.Value = answers.Where(x => x.QuestionId == 195).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 195).FirstOrDefault().AnsDes : "";
+            this.noteTextbox14.Value = answers.Where(x => x.QuestionId == 196).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 196).FirstOrDefault().AnsDes : "";
+            this.toolsListTextbox15.Value = answers.Where(x => x.QuestionId == 197).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 197).FirstOrDefault().AnsDes : "";
+            this.serialNumberTextbox15.Value = answers.Where(x => x.QuestionId == 198).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 198).FirstOrDefault().AnsDes : "";
+            this.newSerialNumberTextbox15.Value = answers.Where(x => x.QuestionId == 199).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 199).FirstOrDefault().AnsDes : "";
+            this.noteTextbox15.Value = answers.Where(x => x.QuestionId == 200).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 200).FirstOrDefault().AnsDes : "";
+            this.nameTeampmTextbox.Value = answers.Where(x => x.QuestionId == 201).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 201).FirstOrDefault().AnsDes : "";
+            this.dayDopmTextbox.Value = answers.Where(x => x.QuestionId == 202).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 202).FirstOrDefault().AnsDes : "";
+            this.nameAgentareaTextbox.Value = answers.Where(x => x.QuestionId == 203).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 203).FirstOrDefault().AnsDes : "";
+            this.telephoneAgentTextbox.Value = answers.Where(x => x.QuestionId == 204).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 204).FirstOrDefault().AnsDes : "";
+
 
         }
 
@@ -106,7 +235,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     QuestionId = 1,
-                    UserId = user.Id,
+                   UserId = user.Id,
                     AnsMonth = ansMonth
                 };
                 uSOEntities.Answers.Add(answer1);
@@ -132,7 +261,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     QuestionId = 2,
-                    UserId = user.Id
+                   UserId = user.Id
                 };
                 uSOEntities.Answers.Add(answer2);
             }
@@ -157,7 +286,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
                 QuestionId = 3,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer3);
 
@@ -168,7 +297,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 4,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer4);
 
@@ -179,7 +308,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 5,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer5);
 
@@ -190,7 +319,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 8,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1,
+               UserId = user.Id,
                 //StartDate = DateTime.ParseExact(this.startDateTextbox2.Value, "dd/MM/yyyy", CultureInfo.GetCultureInfo("en-US")),
             };
             uSOEntities.Answers.Add(answer8);
@@ -202,7 +331,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 9,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1,
+               UserId = user.Id,
                 //StartDate = DateTime.ParseExact(this.startDateTextbox2.Value, "dd/MM/yyyy", CultureInfo.GetCultureInfo("en-US")),
             };
             uSOEntities.Answers.Add(answer9);
@@ -214,7 +343,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 10,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer10);
 
@@ -225,7 +354,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 11,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer11);
 
@@ -236,7 +365,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 12,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer12);
 
@@ -247,7 +376,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 13,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer13);
 
@@ -259,7 +388,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 14,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer14);
 
@@ -270,7 +399,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 15,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer15);
 
@@ -281,7 +410,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 16,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer16);
 
@@ -292,7 +421,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 17,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer17);
 
@@ -303,7 +432,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 18,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer18);
 
@@ -314,7 +443,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 19,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer19);
 
@@ -334,7 +463,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                     QuestionId = 20,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
-                    UserId = 1
+                   UserId = user.Id
                 };
                 uSOEntities.Answers.Add(answer20);
             }
@@ -347,7 +476,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 21,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer21);
 
@@ -358,7 +487,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 22,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer22);
 
@@ -369,7 +498,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 23,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer23);
 
@@ -380,7 +509,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 24,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer24);
 
@@ -391,7 +520,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 25,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer25);
 
@@ -402,7 +531,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 26,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer26);
 
@@ -413,7 +542,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 27,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer27);
 
@@ -424,7 +553,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 28,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer28);
 
@@ -436,7 +565,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 29,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer29);
 
@@ -447,7 +576,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 30,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer30);
 
@@ -459,7 +588,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 31,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer31);
 
@@ -470,21 +599,40 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 32,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer32);
 
-            //elecSystem Radio  :
-            string elecradioSection5 = Request.Form["elecRadio"];
-            Answer answer33 = new Answer()
+
+
+
+
+            var ans33 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 33).FirstOrDefault();
+            if (ans33 == null)
             {
-                AnsDes = elecradioSection5,
-                QuestionId = 33,
-                AnserTypeId = 3,
-                CreateDate = DateTime.Now,
-                UserId = 1
-            };
-            uSOEntities.Answers.Add(answer33);
+                //elecSystem Radio  :
+                string elecradioSection5 = Request.Form["elecRadio"];
+                Answer answer33 = new Answer()
+                {
+                    AnsDes = elecradioSection5,
+                    QuestionId = 33,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                   UserId = user.Id
+                };
+                uSOEntities.Answers.Add(answer33);
+            }
+            else
+            {
+                ans33.AnsDes = this.GroupNameTextBox.Text;
+                ans33.AnserTypeId = 4;
+                ans33.CreateDate = DateTime.Now;
+                ans33.QuestionId = 33;
+                ans33.UserId = user.Id;
+                ans33.AnsMonth = ansMonth;
+
+            }
+
 
             //tranformer Radio  :
             string tranRadio = Request.Form["transformerRadio"];
@@ -494,7 +642,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 34,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer34);
 
@@ -506,7 +654,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 35,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer35);
 
@@ -518,7 +666,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 36,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer36);
 
@@ -530,7 +678,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 37,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer37);
 
@@ -542,7 +690,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 38,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer38);
 
@@ -554,7 +702,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 39,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer39);
 
@@ -566,7 +714,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 40,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer40);
 
@@ -578,7 +726,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 41,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer41);
 
@@ -591,7 +739,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 42,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer42);
 
@@ -603,7 +751,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 43,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer43);
 
@@ -614,7 +762,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 44,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer44);
 
@@ -627,7 +775,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 45,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer45);
 
@@ -639,7 +787,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 46,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer46);
 
@@ -652,7 +800,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 47,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer47);
 
@@ -665,7 +813,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 48,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer48);
 
@@ -678,7 +826,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 49,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer49);
 
@@ -691,7 +839,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 50,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer50);
 
@@ -705,7 +853,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 51,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer51);
 
@@ -718,7 +866,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 52,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer52);
 
@@ -731,7 +879,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 53,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer53);
 
@@ -744,7 +892,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 54,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer54);
 
@@ -757,7 +905,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 55,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer55);
 
@@ -769,7 +917,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 57,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer57);
 
@@ -783,7 +931,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 58,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer58);
 
@@ -795,7 +943,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 59,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer59);
 
@@ -808,7 +956,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 60,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer60);
 
@@ -823,7 +971,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 61,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer61);
 
@@ -837,7 +985,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 62,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer62);
 
@@ -850,7 +998,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 63,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer63);
 
@@ -861,7 +1009,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 64,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer64);
 
@@ -874,7 +1022,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 65,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer65);
 
@@ -887,7 +1035,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 66,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer66);
 
@@ -900,7 +1048,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 67,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer67);
 
@@ -914,7 +1062,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 68,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer68);
 
@@ -927,7 +1075,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 69,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer69);
 
@@ -940,7 +1088,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 70,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer70);
 
@@ -953,7 +1101,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 71,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer71);
 
@@ -966,7 +1114,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 72,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer72);
 
@@ -979,7 +1127,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 73,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer73);
 
@@ -992,7 +1140,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 74,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer74);
 
@@ -1005,7 +1153,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 75,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer75);
 
@@ -1018,7 +1166,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 76,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer76);
 
@@ -1032,7 +1180,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 77,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer77);
 
@@ -1047,7 +1195,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 78,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer78);
 
@@ -1061,7 +1209,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 79,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer79);
 
@@ -1075,7 +1223,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 80,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer80);
 
@@ -1089,7 +1237,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 81,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer81);
 
@@ -1103,7 +1251,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 82,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer82);
 
@@ -1116,7 +1264,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 83,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer83);
 
@@ -1130,7 +1278,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 84,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer84);
 
@@ -1145,7 +1293,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 85,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer85);
 
@@ -1159,7 +1307,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 86,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer86);
 
@@ -1175,7 +1323,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 87,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer87);
 
@@ -1189,7 +1337,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 88,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer88);
 
@@ -1202,7 +1350,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 89,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer89);
 
@@ -1216,7 +1364,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 90,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer90);
 
@@ -1229,7 +1377,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 91,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer91);
 
@@ -1242,7 +1390,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 92,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer92);
 
@@ -1255,7 +1403,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 93,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer93);
 
@@ -1268,7 +1416,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 94,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer94);
 
@@ -1281,7 +1429,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 95,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer95);
 
@@ -1295,7 +1443,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 96,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer96);
 
@@ -1310,7 +1458,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 97,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer97);
 
@@ -1324,7 +1472,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 98,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer98);
 
@@ -1338,7 +1486,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 99,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer99);
 
@@ -1350,7 +1498,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 100,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer100);
 
@@ -1362,7 +1510,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 101,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer101);
 
@@ -1374,7 +1522,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 102,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer102);
 
@@ -1386,7 +1534,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 103,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer103);
 
@@ -1398,7 +1546,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 104,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer104);
 
@@ -1410,7 +1558,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 105,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer105);
 
@@ -1421,7 +1569,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 106,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer106);
 
@@ -1432,7 +1580,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 107,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer107);
 
@@ -1444,7 +1592,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 108,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer108);
 
@@ -1456,7 +1604,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 109,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer109);
 
@@ -1468,7 +1616,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 110,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer110);
 
@@ -1479,7 +1627,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 111,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer111);
 
@@ -1492,7 +1640,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 112,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer112);
 
@@ -1503,7 +1651,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 113,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer113);
 
@@ -1516,7 +1664,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 114,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer114);
 
@@ -1527,7 +1675,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 115,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer115);
 
@@ -1540,7 +1688,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 116,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer116);
 
@@ -1551,7 +1699,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 117,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer117);
 
@@ -1566,7 +1714,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 118,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer118);
 
@@ -1577,7 +1725,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 119,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer119);
 
@@ -1589,7 +1737,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 120,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer120);
 
@@ -1600,7 +1748,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 121,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer121);
 
@@ -1611,7 +1759,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 122,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer122);
 
@@ -1622,7 +1770,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 123,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer123);
 
@@ -1636,7 +1784,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 124,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer124);
 
@@ -1647,7 +1795,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 125,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer125);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1662,7 +1810,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 126,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer126);
 
@@ -1673,7 +1821,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 127,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer127);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1688,7 +1836,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 128,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer128);
 
@@ -1699,7 +1847,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 129,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer129);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1716,7 +1864,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 130,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer130);
 
@@ -1727,7 +1875,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 131,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer131);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1746,7 +1894,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 132,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer132);
 
@@ -1757,7 +1905,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 133,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer133);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1774,7 +1922,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 134,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer134);
 
@@ -1785,7 +1933,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 135,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer135);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1801,7 +1949,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 136,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer136);
 
@@ -1812,7 +1960,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 137,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer137);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1829,7 +1977,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 138,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer138);
 
@@ -1840,7 +1988,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 139,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer139);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1854,7 +2002,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 141,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer141);
 
@@ -1865,7 +2013,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 142,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer142);
 
@@ -1876,7 +2024,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 143,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer143);
 
@@ -1887,7 +2035,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 144,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer144);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1905,7 +2053,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 145,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer145);
 
@@ -1916,7 +2064,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 146,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer146);
 
@@ -1927,7 +2075,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 147,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer147);
 
@@ -1938,7 +2086,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 148,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer148);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1953,7 +2101,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 149,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer149);
 
@@ -1964,7 +2112,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 150,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer150);
 
@@ -1975,7 +2123,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 151,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer151);
 
@@ -1986,7 +2134,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 152,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer152);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2002,7 +2150,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 153,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer153);
 
@@ -2013,7 +2161,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 154,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer154);
 
@@ -2024,7 +2172,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 155,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer155);
 
@@ -2035,7 +2183,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 156,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer156);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2051,7 +2199,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 157,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer157);
 
@@ -2062,7 +2210,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 158,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer158);
 
@@ -2073,7 +2221,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 159,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer159);
 
@@ -2084,7 +2232,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 160,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer160);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2102,7 +2250,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 161,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer161);
 
@@ -2113,7 +2261,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 162,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer162);
 
@@ -2124,7 +2272,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 163,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer163);
 
@@ -2135,7 +2283,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 164,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer164);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2151,7 +2299,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 165,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer165);
 
@@ -2162,7 +2310,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 166,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer166);
 
@@ -2173,7 +2321,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 167,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer167);
 
@@ -2184,7 +2332,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 168,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer168);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2199,7 +2347,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 169,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer169);
 
@@ -2210,7 +2358,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 170,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer170);
 
@@ -2221,7 +2369,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 171,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer171);
 
@@ -2232,7 +2380,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 172,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer172);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2247,7 +2395,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 173,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer173);
 
@@ -2258,7 +2406,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 174,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer174);
 
@@ -2269,7 +2417,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 175,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer175);
 
@@ -2280,7 +2428,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 176,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer176);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2302,7 +2450,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 177,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer177);
 
@@ -2313,7 +2461,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 178,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer178);
 
@@ -2324,7 +2472,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 179,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer179);
 
@@ -2335,7 +2483,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 180,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer180);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2353,7 +2501,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 181,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer181);
 
@@ -2364,7 +2512,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 182,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer182);
 
@@ -2375,7 +2523,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 183,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer183);
 
@@ -2386,7 +2534,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 184,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer184);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2407,7 +2555,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 185,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer185);
 
@@ -2418,7 +2566,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 186,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer186);
 
@@ -2429,7 +2577,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 187,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer187);
 
@@ -2440,7 +2588,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 188,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer188);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2459,7 +2607,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 189,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer189);
 
@@ -2470,7 +2618,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 190,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer190);
 
@@ -2481,7 +2629,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 191,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer191);
 
@@ -2492,7 +2640,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 192,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer192);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2507,7 +2655,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 193,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer193);
 
@@ -2518,7 +2666,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 194,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer194);
 
@@ -2529,7 +2677,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 195,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer195);
 
@@ -2540,7 +2688,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 196,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer196);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2558,7 +2706,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 197,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer197);
 
@@ -2569,7 +2717,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 198,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer198);
 
@@ -2580,7 +2728,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 199,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer199);
 
@@ -2591,7 +2739,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 200,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer200);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2614,7 +2762,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 201,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer201);
 
@@ -2626,7 +2774,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 202,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer202);
 
@@ -2638,7 +2786,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 203,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer203);
 
@@ -2650,7 +2798,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 204,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer204);
 
@@ -2665,7 +2813,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 205,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer205);
 
@@ -2678,7 +2826,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 206,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer206);
 
@@ -2691,7 +2839,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 207,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer207);
 
@@ -2704,7 +2852,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 208,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer208);
 
@@ -2716,7 +2864,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 209,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer209);
 
@@ -2728,7 +2876,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 210,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer210);
 
@@ -2742,7 +2890,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 211,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer211);
 
@@ -2757,7 +2905,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 212,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer212);
 
@@ -2771,7 +2919,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 213,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer213);
 
@@ -2783,7 +2931,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 214,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer214);
 
@@ -2796,7 +2944,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 215,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer215);
 
@@ -2809,7 +2957,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 216,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer216);
 
@@ -2822,7 +2970,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 217,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer217);
 
@@ -2834,7 +2982,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 218,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer218);
 
@@ -2846,7 +2994,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 219,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer219);
 
@@ -2859,7 +3007,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 220,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer220);
 
@@ -2872,7 +3020,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 221,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer221);
 
@@ -2884,7 +3032,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 222,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer222);
 
@@ -2897,7 +3045,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 223,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer223);
 
@@ -2911,7 +3059,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 224,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer224);
 
@@ -2924,7 +3072,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 225,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer225);
 
@@ -2937,7 +3085,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 226,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer226);
 
@@ -2951,7 +3099,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 227,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer227);
 
@@ -2965,7 +3113,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 228,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer228);
 
@@ -2978,7 +3126,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 229,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer229);
 
@@ -2991,7 +3139,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 230,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer230);
 
@@ -3005,7 +3153,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 231,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer231);
 
@@ -3019,7 +3167,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 232,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer232);
 
@@ -3033,7 +3181,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 233,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer233);
 
@@ -3046,7 +3194,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 234,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer234);
 
@@ -3060,7 +3208,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 235,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer235);
 
@@ -3075,7 +3223,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 236,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer236);
 
@@ -3089,7 +3237,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 237,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer237);
 
@@ -3104,7 +3252,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 238,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer238);
 
@@ -3118,7 +3266,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 239,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer239);
 
@@ -3131,7 +3279,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 240,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer240);
 
@@ -3145,7 +3293,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 241,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer241);
 
@@ -3158,7 +3306,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 242,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer242);
 
@@ -3172,7 +3320,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 243,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer243);
 
@@ -3185,7 +3333,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 244,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer244);
 
@@ -3199,7 +3347,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 245,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer245);
 
@@ -3212,7 +3360,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 246,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer246);
 
@@ -3225,7 +3373,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 247,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer247);
 
@@ -3238,7 +3386,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 248,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer248);
 
@@ -3251,7 +3399,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 249,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer249);
 
@@ -3265,7 +3413,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 250,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer250);
 
@@ -3279,7 +3427,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 251,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer251);
 
@@ -3292,7 +3440,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 252,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer252);
 
@@ -3305,7 +3453,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 253,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer253);
 
@@ -3318,7 +3466,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 254,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer254);
 
@@ -3331,7 +3479,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 255,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer255);
 
@@ -3343,7 +3491,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 256,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer256);
 
@@ -3355,7 +3503,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 257,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer257);
 
@@ -3367,7 +3515,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 258,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer258);
 
@@ -3386,7 +3534,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                     QuestionId = 259,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
-                    UserId = 1
+                   UserId = user.Id
                 };
                 uSOEntities.Answers.Add(answer259);
             }
@@ -3405,7 +3553,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                     QuestionId = 260,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
-                    UserId = 1
+                   UserId = user.Id
                 };
                 uSOEntities.Answers.Add(answer260);
             }
@@ -3425,7 +3573,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                     QuestionId = 261,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
-                    UserId = 1
+                   UserId = user.Id
                 };
                 uSOEntities.Answers.Add(answer261);
             }
@@ -3444,7 +3592,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                     QuestionId = 262,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
-                    UserId = 1
+                   UserId = user.Id
                 };
                 uSOEntities.Answers.Add(answer262);
             }
@@ -3484,7 +3632,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                     QuestionId = 6,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
-                    UserId = 1
+                   UserId = user.Id
                 };
                 uSOEntities.Answers.Add(answer6);
             }
@@ -3524,7 +3672,7 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 QuestionId = 7,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+               UserId = user.Id
             };
             uSOEntities.Answers.Add(answer7);
 
@@ -3536,6 +3684,22 @@ namespace USOform.PreventiveMaintenanceReportBB_USOWrap
                 this.SuccessPanel.Visible = true;
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //void GetData()
         //{
