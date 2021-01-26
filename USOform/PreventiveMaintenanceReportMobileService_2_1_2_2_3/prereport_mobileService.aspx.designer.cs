@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USOform.PreventiveMaintenanceReportBBUSOWrap
+namespace USOform.PreventiveMaintenanceReportMobileService_2_1_2_2_3
 {
 
 
-    public partial class WebForm1
+    public partial class prereport_mobileService
     {
 
         /// <summary>
@@ -33,13 +33,22 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl SuccessPanel;
 
         /// <summary>
-        /// GroupNameTextBox control.
+        /// logoPicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox GroupNameTextBox;
+        protected global::System.Web.UI.WebControls.FileUpload logoPicture;
+
+        /// <summary>
+        /// groupTextbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText groupTextbox;
 
         /// <summary>
         /// AreaTextbox control.
@@ -141,15 +150,6 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlInputText villageTextbox;
 
         /// <summary>
-        /// schoolnameTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText schoolnameTextbox;
-
-        /// <summary>
         /// subdistrictTextbox control.
         /// </summary>
         /// <remarks>
@@ -159,13 +159,13 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlInputText subdistrictTextbox;
 
         /// <summary>
-        /// districtTextbox control.
+        /// DistrictTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText districtTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText DistrictTextbox;
 
         /// <summary>
         /// provinceTextbox control.
@@ -195,22 +195,13 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlInputText pmdateTextbox;
 
         /// <summary>
-        /// signboardschoolImage control.
+        /// picinfrontImages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload signboardschoolImage;
-
-        /// <summary>
-        /// usonetsignboardImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload usonetsignboardImage;
+        protected global::System.Web.UI.WebControls.FileUpload picinfrontImages;
 
         /// <summary>
         /// signatureExecutorTextbox control.
@@ -267,13 +258,13 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlInputText DateSupervisorTextbox;
 
         /// <summary>
-        /// LocationnameTextbox control.
+        /// cabinetId2Textbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText LocationnameTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cabinetId2Textbox;
 
         /// <summary>
         /// sitecodeTextboxSection4 control.
@@ -303,22 +294,22 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlInputText latandlongTextbox;
 
         /// <summary>
-        /// ispTextbox control.
+        /// oltorispTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ispTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText oltorispTextbox;
 
         /// <summary>
-        /// numberuserTextbox control.
+        /// numberIdTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText numberuserTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText numberIdTextbox;
 
         /// <summary>
         /// kwhMeterTextbox control.
@@ -330,13 +321,13 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlInputText kwhMeterTextbox;
 
         /// <summary>
-        /// acTextbox control.
+        /// acvoltTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText acTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText acvoltTextbox;
 
         /// <summary>
         /// lineAcTextbox control.
@@ -348,13 +339,13 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlInputText lineAcTextbox;
 
         /// <summary>
-        /// neutronacTextbox control.
+        /// neutronAcTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText neutronacTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText neutronAcTextbox;
 
         /// <summary>
         /// acfromupsTextbox control.
@@ -366,58 +357,103 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlInputText acfromupsTextbox;
 
         /// <summary>
-        /// electricloadTextbox control.
+        /// voltInverterTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText electricloadTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText voltInverterTextbox;
 
         /// <summary>
-        /// battFirealarm1Textbox control.
+        /// loadVoltTageTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText battFirealarm1Textbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText loadVoltTageTextbox;
 
         /// <summary>
-        /// battFirealarm3Textbox control.
+        /// batterTextbox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText battFirealarm3Textbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText batterTextbox1;
 
         /// <summary>
-        /// voltageInverterTextbox control.
+        /// batterTextbox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText voltageInverterTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText batterTextbox2;
 
         /// <summary>
-        /// voltageLoadTextbox control.
+        /// batterTextbox3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText voltageLoadTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText batterTextbox3;
 
         /// <summary>
-        /// dowloadforOnuTextbox control.
+        /// batterTextbox4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText dowloadforOnuTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText batterTextbox4;
+
+        /// <summary>
+        /// cellIdTextbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cellIdTextbox;
+
+        /// <summary>
+        /// netWorkstrTextboxS1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText netWorkstrTextboxS1;
+
+        /// <summary>
+        /// netWorkstrTextboxS2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText netWorkstrTextboxS2;
+
+        /// <summary>
+        /// netWorkstrTextboxS3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText netWorkstrTextboxS3;
+
+        /// <summary>
+        /// dowloadOnuTextbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText dowloadOnuTextbox;
 
         /// <summary>
         /// uploadforOnuTextbox control.
@@ -429,67 +465,40 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlInputText uploadforOnuTextbox;
 
         /// <summary>
-        /// pingTestTextbox control.
+        /// pinngtestforOnuTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText pingTestTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText pinngtestforOnuTextbox;
 
         /// <summary>
-        /// dowloadForwifiTextbox control.
+        /// dowloadforMobileTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText dowloadForwifiTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText dowloadforMobileTextbox;
 
         /// <summary>
-        /// uploadForwifiTextbox control.
+        /// uploadforMobileTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText uploadForwifiTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText uploadforMobileTextbox;
 
         /// <summary>
-        /// pingtestForwifiTextbox control.
+        /// pingtestFormobileTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText pingtestForwifiTextbox;
-
-        /// <summary>
-        /// dowlaodForlanTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText dowlaodForlanTextbox;
-
-        /// <summary>
-        /// uploadForlandTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText uploadForlandTextbox;
-
-        /// <summary>
-        /// pingtestForlanTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText pingtestForlanTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText pingtestFormobileTextbox;
 
         /// <summary>
         /// problemTextbox1 control.
@@ -1302,13 +1311,13 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox15;
 
         /// <summary>
-        /// nameTeampmTextbox control.
+        /// nameDopmTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nameTeampmTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nameDopmTextbox;
 
         /// <summary>
         /// dayDopmTextbox control.
@@ -1318,24 +1327,6 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText dayDopmTextbox;
-
-        /// <summary>
-        /// nameAgentareaTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nameAgentareaTextbox;
-
-        /// <summary>
-        /// telephoneAgentTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText telephoneAgentTextbox;
 
         /// <summary>
         /// pictureChecklistImages control.
@@ -1363,23 +1354,5 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload solarcellpictureChecklistImages;
-
-        /// <summary>
-        /// compictureChecklistImages control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload compictureChecklistImages;
-
-        /// <summary>
-        /// SubmitButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SubmitButton;
     }
 }

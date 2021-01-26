@@ -29,9 +29,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //string typeOf = Request.Form["typeofsignalRadio"];
-            //if (typeOf == null)
-            //    Console.Write("typeOf is NULL");
+            
 
             //this.GetData();
 
@@ -8105,9 +8103,6 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             //}
         }
 
-        protected void testclick(object sender, EventArgs e)
-        {
-            //Response.Write("<script>alert('testclick');</script>");
-        }
+       
     }
 }

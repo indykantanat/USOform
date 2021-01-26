@@ -6,7 +6,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 using CommonClassLibrary;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;
+
 
 
 namespace USOform
@@ -14,21 +19,71 @@ namespace USOform
     public partial class WebForm1 : System.Web.UI.Page
     {
         USOEntities uSOEntities;
+        public List<Answer> answers;
 
         public WebForm1()
         {
             uSOEntities = new USOEntities();
+            answers = new List<Answer>();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                User user = (User)Session["strUsername"];
+                if (user != null)
+                {
+                    string ansMonth = Request["AnsMonth"] != null ? Request["AnsMonth"] : DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
+                    answers = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth).ToList();
+                    if (answers.Count() > 0)
+                    {
+                        SetForm();
+                    }
+                }
+                else
+                {
+                    Response.Redirect("/login/login.aspx");
+                    Response.End();
 
+                }
+            }
+            void SetForm()
+            {
+
+
+            }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
+            User user = (User)Session["strUsername"];
+            if (user != null)
+            {
 
+            }
+            else
+            {
+                Response.Redirect("/login/login.aspx");
+                Response.End();
 
+            }
+
+            string ansMonth = DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
 
             ///------------------------------------------START   HEADING----------------------------------------------------------------////
             //1: logoPicture
@@ -44,7 +99,8 @@ namespace USOform
                     QuestionId = 1408,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
-                    UserId = 1
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
                 };
                 uSOEntities.Answers.Add(answe1408);
             }
@@ -55,8 +111,9 @@ namespace USOform
                 AnsDes = this.groupTextbox.Value,
                 QuestionId = 1409,
                 AnserTypeId = 1,
-                CreateDate = DateTime.Now,              
-                UserId = 1
+                CreateDate = DateTime.Now,
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1409);
 
@@ -66,8 +123,9 @@ namespace USOform
                 AnsDes = this.AreaTextbox.Value,
                 QuestionId = 1410,
                 AnserTypeId = 1,
-                CreateDate = DateTime.Now,            
-                UserId = 1
+                CreateDate = DateTime.Now,
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1410);
 
@@ -77,8 +135,9 @@ namespace USOform
                 AnsDes = this.CompanyTextbox.Value,
                 QuestionId = 1411,
                 AnserTypeId = 1,
-                CreateDate = DateTime.Now,              
-                UserId = 1
+                CreateDate = DateTime.Now,
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer3);
 
@@ -91,7 +150,8 @@ namespace USOform
                 QuestionId = 1412,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer257);
 
@@ -102,7 +162,8 @@ namespace USOform
                 QuestionId = 1413,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer4);
 
@@ -113,7 +174,8 @@ namespace USOform
                 QuestionId = 1414,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer5);
 
@@ -124,8 +186,9 @@ namespace USOform
                 QuestionId = 1415,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1,
-                
+                UserId = user.Id,
+                AnsMonth = ansMonth,
+
             };
             uSOEntities.Answers.Add(answer8);
 
@@ -136,8 +199,9 @@ namespace USOform
                 QuestionId = 1416,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1,
-             
+                UserId = user.Id,
+                AnsMonth = ansMonth,
+
             };
             uSOEntities.Answers.Add(answer9);
 
@@ -148,7 +212,8 @@ namespace USOform
                 QuestionId = 1417,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer10);
 
@@ -158,7 +223,7 @@ namespace USOform
 
 
 
-             //////////////////////////////////    Sectionid  = 125    /////////////////////////////////
+            //////////////////////////////////    Sectionid  = 125    /////////////////////////////////
             //Cabinet ID:
             Answer answer11 = new Answer()
             {
@@ -166,7 +231,8 @@ namespace USOform
                 QuestionId = 1418,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer11);
 
@@ -177,7 +243,8 @@ namespace USOform
                 QuestionId = 1419,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer12);
 
@@ -188,7 +255,8 @@ namespace USOform
                 QuestionId = 1420,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer13);
 
@@ -200,20 +268,22 @@ namespace USOform
                 QuestionId = 1421,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer14);
 
-           
+
 
             //Sub-District :
             Answer answer16 = new Answer()
             {
                 AnsDes = this.subdistrictTextbox.Value,
-                QuestionId = 1422 ,
+                QuestionId = 1422,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer16);
 
@@ -225,7 +295,8 @@ namespace USOform
                 QuestionId = 1423,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1423);
 
@@ -233,10 +304,11 @@ namespace USOform
             Answer answer17 = new Answer()
             {
                 AnsDes = this.provinceTextbox.Value,
-                QuestionId = 1424 ,
+                QuestionId = 1424,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer17);
 
@@ -247,7 +319,8 @@ namespace USOform
                 QuestionId = 1425,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer18);
 
@@ -258,7 +331,8 @@ namespace USOform
                 QuestionId = 1426,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer19);
 
@@ -278,7 +352,8 @@ namespace USOform
                     QuestionId = 1427,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
-                    UserId = 1
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
                 };
                 uSOEntities.Answers.Add(answer20);
             }
@@ -299,7 +374,8 @@ namespace USOform
                 QuestionId = 1428,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer21);
 
@@ -310,7 +386,8 @@ namespace USOform
                 QuestionId = 1431,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer22);
 
@@ -321,7 +398,8 @@ namespace USOform
                 QuestionId = 1432,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer23);
 
@@ -332,7 +410,8 @@ namespace USOform
                 QuestionId = 1433,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer24);
 
@@ -343,7 +422,8 @@ namespace USOform
                 QuestionId = 1434,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer25);
 
@@ -354,7 +434,8 @@ namespace USOform
                 QuestionId = 1435,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer26);
 
@@ -372,7 +453,8 @@ namespace USOform
                 QuestionId = 1436,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer27);
 
@@ -383,7 +465,8 @@ namespace USOform
                 QuestionId = 1437,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer28);
 
@@ -395,7 +478,8 @@ namespace USOform
                 QuestionId = 1438,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer29);
 
@@ -406,7 +490,8 @@ namespace USOform
                 QuestionId = 1439,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer30);
 
@@ -417,7 +502,8 @@ namespace USOform
                 QuestionId = 1440,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1440);
             //////////////////////////////////  END  Sectionid  = 127    /////////////////////////////////
@@ -437,7 +523,8 @@ namespace USOform
                 QuestionId = 1441,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer31);
 
@@ -449,7 +536,8 @@ namespace USOform
                 QuestionId = 1442,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1442);
 
@@ -463,7 +551,8 @@ namespace USOform
                 QuestionId = 1443,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer36);
 
@@ -475,7 +564,8 @@ namespace USOform
                 QuestionId = 1444,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer37);
 
@@ -487,7 +577,8 @@ namespace USOform
                 QuestionId = 1445,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer38);
 
@@ -499,7 +590,8 @@ namespace USOform
                 QuestionId = 1446,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer39);
 
@@ -511,7 +603,8 @@ namespace USOform
                 QuestionId = 1447,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer40);
 
@@ -523,7 +616,8 @@ namespace USOform
                 QuestionId = 1448,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer41);
 
@@ -544,7 +638,8 @@ namespace USOform
                 QuestionId = 1449,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer42);
 
@@ -556,7 +651,8 @@ namespace USOform
                 QuestionId = 1450,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer43);
 
@@ -568,7 +664,8 @@ namespace USOform
                 QuestionId = 1451,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer45);
 
@@ -580,7 +677,8 @@ namespace USOform
                 QuestionId = 1452,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1452);
 
@@ -592,7 +690,8 @@ namespace USOform
                 QuestionId = 1453,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1453);
 
@@ -606,7 +705,8 @@ namespace USOform
                 QuestionId = 1454,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1454);
 
@@ -619,7 +719,8 @@ namespace USOform
                 QuestionId = 1455,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1455);
 
@@ -638,7 +739,8 @@ namespace USOform
                 QuestionId = 1456,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1456);
 
@@ -651,7 +753,8 @@ namespace USOform
                 QuestionId = 1457,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1457);
 
@@ -663,7 +766,8 @@ namespace USOform
                 QuestionId = 1458,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1458);
 
@@ -676,7 +780,8 @@ namespace USOform
                 QuestionId = 1459,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1459);
 
@@ -688,7 +793,8 @@ namespace USOform
                 QuestionId = 1460,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1460);
 
@@ -700,7 +806,8 @@ namespace USOform
                 QuestionId = 1633,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1633);
 
@@ -722,7 +829,8 @@ namespace USOform
                 QuestionId = 1461,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer57);
 
@@ -736,7 +844,8 @@ namespace USOform
                 QuestionId = 1462,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer58);
 
@@ -748,7 +857,8 @@ namespace USOform
                 QuestionId = 1463,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer59);
 
@@ -761,7 +871,8 @@ namespace USOform
                 QuestionId = 1464,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer60);
 
@@ -780,7 +891,8 @@ namespace USOform
                 QuestionId = 1465,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1465);
 
@@ -792,7 +904,8 @@ namespace USOform
                 QuestionId = 1466,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1466);
 
@@ -805,7 +918,8 @@ namespace USOform
                 QuestionId = 1467,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1467);
 
@@ -818,7 +932,8 @@ namespace USOform
                 QuestionId = 1468,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1468);
 
@@ -831,7 +946,8 @@ namespace USOform
                 QuestionId = 1469,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1469);
 
@@ -844,7 +960,8 @@ namespace USOform
                 QuestionId = 1470,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1470);
 
@@ -857,7 +974,8 @@ namespace USOform
                 QuestionId = 1471,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1471);
 
@@ -877,7 +995,8 @@ namespace USOform
                 QuestionId = 1472,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer88);
 
@@ -890,7 +1009,8 @@ namespace USOform
                 QuestionId = 1473,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer89);
 
@@ -904,7 +1024,8 @@ namespace USOform
                 QuestionId = 1474,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer90);
 
@@ -917,7 +1038,8 @@ namespace USOform
                 QuestionId = 1475,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer91);
 
@@ -930,7 +1052,8 @@ namespace USOform
                 QuestionId = 1476,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer92);
 
@@ -943,7 +1066,8 @@ namespace USOform
                 QuestionId = 1477,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer93);
             //////////////////////////////////  END Sectionid  = 133     /////////////////////////////////
@@ -963,7 +1087,8 @@ namespace USOform
                 QuestionId = 1478,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer94);
 
@@ -976,7 +1101,8 @@ namespace USOform
                 QuestionId = 1479,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer95);
 
@@ -990,7 +1116,8 @@ namespace USOform
                 QuestionId = 1480,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer96);
 
@@ -1005,7 +1132,8 @@ namespace USOform
                 QuestionId = 1481,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer97);
 
@@ -1019,7 +1147,8 @@ namespace USOform
                 QuestionId = 1482,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer98);
 
@@ -1031,7 +1160,8 @@ namespace USOform
                 QuestionId = 1483,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(voltInverterTextbox);
 
@@ -1043,7 +1173,8 @@ namespace USOform
                 QuestionId = 1484,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(loadVoltTageTextbox);
 
@@ -1055,7 +1186,8 @@ namespace USOform
                 QuestionId = 1485,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1485);
 
@@ -1068,7 +1200,8 @@ namespace USOform
                 QuestionId = 1486,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1486);
 
@@ -1080,7 +1213,8 @@ namespace USOform
                 QuestionId = 1487,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1487);
 
@@ -1092,7 +1226,8 @@ namespace USOform
                 QuestionId = 1488,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1488);
 
@@ -1106,7 +1241,8 @@ namespace USOform
                 QuestionId = 1489,
                 AnserTypeId = 3,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1489);
 
@@ -1127,7 +1263,8 @@ namespace USOform
                 QuestionId = 1490,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1490);
 
@@ -1135,15 +1272,16 @@ namespace USOform
             //  Cell ID/Bsrid (for Femto) :          
             Answer answer1491 = new Answer()
             {
-                AnsDes = this.batterTextbox4.Value,
+                AnsDes = this.cellIdTextbox.Value,
                 QuestionId = 1491,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1491);
 
-           
+
 
             //  Network strength (>= -77.5 dBm) Section 1 :          
             Answer answer1492 = new Answer()
@@ -1152,7 +1290,8 @@ namespace USOform
                 QuestionId = 1492,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1492);
 
@@ -1163,7 +1302,8 @@ namespace USOform
                 QuestionId = 1493,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1493);
 
@@ -1174,7 +1314,8 @@ namespace USOform
                 QuestionId = 1494,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1494);
 
@@ -1185,7 +1326,8 @@ namespace USOform
                 QuestionId = 1495,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1495);
 
@@ -1196,7 +1338,8 @@ namespace USOform
                 QuestionId = 1496,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1496);
 
@@ -1207,7 +1350,8 @@ namespace USOform
                 QuestionId = 1497,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1497);
 
@@ -1218,7 +1362,8 @@ namespace USOform
                 QuestionId = 1498,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1498);
 
@@ -1229,7 +1374,8 @@ namespace USOform
                 QuestionId = 1499,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1499);
 
@@ -1241,7 +1387,8 @@ namespace USOform
                 QuestionId = 1500,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answe1500);
             //////////////////////////////////   END Sectionid  = 135     /////////////////////////////////
@@ -1260,7 +1407,8 @@ namespace USOform
                 QuestionId = 1501,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer110);
 
@@ -1271,7 +1419,8 @@ namespace USOform
                 QuestionId = 1502,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer111);
 
@@ -1284,7 +1433,8 @@ namespace USOform
                 QuestionId = 1503,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer112);
 
@@ -1295,7 +1445,8 @@ namespace USOform
                 QuestionId = 1504,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer113);
 
@@ -1308,7 +1459,8 @@ namespace USOform
                 QuestionId = 1505,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer114);
 
@@ -1319,7 +1471,8 @@ namespace USOform
                 QuestionId = 1506,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer115);
 
@@ -1332,7 +1485,8 @@ namespace USOform
                 QuestionId = 1507,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer116);
 
@@ -1343,7 +1497,8 @@ namespace USOform
                 QuestionId = 1508,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer117);
 
@@ -1358,7 +1513,8 @@ namespace USOform
                 QuestionId = 1509,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer118);
 
@@ -1369,7 +1525,8 @@ namespace USOform
                 QuestionId = 1510,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer119);
 
@@ -1381,7 +1538,8 @@ namespace USOform
                 QuestionId = 1511,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer120);
 
@@ -1392,7 +1550,8 @@ namespace USOform
                 QuestionId = 1512,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer121);
 
@@ -1403,7 +1562,8 @@ namespace USOform
                 QuestionId = 1513,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer122);
 
@@ -1414,7 +1574,8 @@ namespace USOform
                 QuestionId = 1514,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer123);
 
@@ -1428,7 +1589,8 @@ namespace USOform
                 QuestionId = 1515,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer124);
 
@@ -1439,7 +1601,8 @@ namespace USOform
                 QuestionId = 1516,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer125);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1454,7 +1617,8 @@ namespace USOform
                 QuestionId = 1517,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer126);
 
@@ -1465,7 +1629,8 @@ namespace USOform
                 QuestionId = 1518,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer127);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1480,7 +1645,8 @@ namespace USOform
                 QuestionId = 1519,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer128);
 
@@ -1491,7 +1657,8 @@ namespace USOform
                 QuestionId = 1520,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer129);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1508,7 +1675,8 @@ namespace USOform
                 QuestionId = 1521,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer130);
 
@@ -1519,7 +1687,8 @@ namespace USOform
                 QuestionId = 1522,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer131);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1538,7 +1707,8 @@ namespace USOform
                 QuestionId = 1523,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer132);
 
@@ -1549,7 +1719,8 @@ namespace USOform
                 QuestionId = 1524,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer133);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1566,7 +1737,8 @@ namespace USOform
                 QuestionId = 1525,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer134);
 
@@ -1577,7 +1749,8 @@ namespace USOform
                 QuestionId = 1526,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer135);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1593,7 +1766,8 @@ namespace USOform
                 QuestionId = 1527,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer136);
 
@@ -1604,7 +1778,8 @@ namespace USOform
                 QuestionId = 1528,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer137);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1621,7 +1796,8 @@ namespace USOform
                 QuestionId = 1529,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer138);
 
@@ -1632,7 +1808,8 @@ namespace USOform
                 QuestionId = 1530,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer139);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1652,9 +1829,9 @@ namespace USOform
 
 
             //////////////////////////////////     Sectionid  = 137     /////////////////////////////////          
-        
-           
-          
+
+
+
             //////////////////////////////////////////////////////////////////////////////////
             // รายการอุปกรณ์ 1 :      
             Answer answer141 = new Answer()
@@ -1663,7 +1840,8 @@ namespace USOform
                 QuestionId = 1531,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer141);
 
@@ -1674,7 +1852,8 @@ namespace USOform
                 QuestionId = 1532,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer142);
 
@@ -1685,7 +1864,8 @@ namespace USOform
                 QuestionId = 1533,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer143);
 
@@ -1696,7 +1876,8 @@ namespace USOform
                 QuestionId = 1534,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer144);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1714,7 +1895,8 @@ namespace USOform
                 QuestionId = 1535,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer145);
 
@@ -1725,7 +1907,8 @@ namespace USOform
                 QuestionId = 1536,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer146);
 
@@ -1736,7 +1919,8 @@ namespace USOform
                 QuestionId = 1537,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer147);
 
@@ -1747,7 +1931,8 @@ namespace USOform
                 QuestionId = 1538,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer148);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1762,7 +1947,8 @@ namespace USOform
                 QuestionId = 1539,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer149);
 
@@ -1773,7 +1959,8 @@ namespace USOform
                 QuestionId = 1540,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer150);
 
@@ -1784,7 +1971,8 @@ namespace USOform
                 QuestionId = 1541,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer151);
 
@@ -1795,7 +1983,8 @@ namespace USOform
                 QuestionId = 1542,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer152);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1811,7 +2000,8 @@ namespace USOform
                 QuestionId = 1543,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer153);
 
@@ -1822,7 +2012,8 @@ namespace USOform
                 QuestionId = 1544,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer154);
 
@@ -1833,7 +2024,8 @@ namespace USOform
                 QuestionId = 1545,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer155);
 
@@ -1844,7 +2036,8 @@ namespace USOform
                 QuestionId = 1546,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer156);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1860,7 +2053,8 @@ namespace USOform
                 QuestionId = 1547,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer157);
 
@@ -1871,7 +2065,8 @@ namespace USOform
                 QuestionId = 1548,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer158);
 
@@ -1882,7 +2077,8 @@ namespace USOform
                 QuestionId = 1549,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer159);
 
@@ -1893,7 +2089,8 @@ namespace USOform
                 QuestionId = 1550,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer160);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1911,7 +2108,8 @@ namespace USOform
                 QuestionId = 1551,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer161);
 
@@ -1922,7 +2120,8 @@ namespace USOform
                 QuestionId = 1552,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer162);
 
@@ -1933,7 +2132,8 @@ namespace USOform
                 QuestionId = 1553,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer163);
 
@@ -1944,7 +2144,8 @@ namespace USOform
                 QuestionId = 1554,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer164);
             //////////////////////////////////////////////////////////////////////////////////
@@ -1960,7 +2161,8 @@ namespace USOform
                 QuestionId = 1555,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer165);
 
@@ -1971,7 +2173,8 @@ namespace USOform
                 QuestionId = 1556,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer166);
 
@@ -1982,7 +2185,8 @@ namespace USOform
                 QuestionId = 1557,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer167);
 
@@ -1993,7 +2197,8 @@ namespace USOform
                 QuestionId = 1558,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer168);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2008,7 +2213,8 @@ namespace USOform
                 QuestionId = 1559,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer169);
 
@@ -2019,7 +2225,8 @@ namespace USOform
                 QuestionId = 1560,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer170);
 
@@ -2030,7 +2237,8 @@ namespace USOform
                 QuestionId = 1561,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer171);
 
@@ -2041,7 +2249,8 @@ namespace USOform
                 QuestionId = 1562,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer172);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2056,7 +2265,8 @@ namespace USOform
                 QuestionId = 1563,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer173);
 
@@ -2067,7 +2277,8 @@ namespace USOform
                 QuestionId = 1564,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer174);
 
@@ -2078,7 +2289,8 @@ namespace USOform
                 QuestionId = 1565,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer175);
 
@@ -2089,7 +2301,8 @@ namespace USOform
                 QuestionId = 1566,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer176);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2111,7 +2324,8 @@ namespace USOform
                 QuestionId = 1567,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer177);
 
@@ -2122,7 +2336,8 @@ namespace USOform
                 QuestionId = 1568,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer178);
 
@@ -2133,7 +2348,8 @@ namespace USOform
                 QuestionId = 1569,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer179);
 
@@ -2144,7 +2360,8 @@ namespace USOform
                 QuestionId = 1570,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer180);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2162,7 +2379,8 @@ namespace USOform
                 QuestionId = 1571,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer181);
 
@@ -2173,7 +2391,8 @@ namespace USOform
                 QuestionId = 1572,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer182);
 
@@ -2184,7 +2403,8 @@ namespace USOform
                 QuestionId = 1573,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer183);
 
@@ -2195,7 +2415,8 @@ namespace USOform
                 QuestionId = 1574,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer184);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2216,7 +2437,8 @@ namespace USOform
                 QuestionId = 1575,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer185);
 
@@ -2227,7 +2449,8 @@ namespace USOform
                 QuestionId = 1576,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer186);
 
@@ -2238,7 +2461,8 @@ namespace USOform
                 QuestionId = 1577,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer187);
 
@@ -2249,7 +2473,8 @@ namespace USOform
                 QuestionId = 1578,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer188);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2268,7 +2493,8 @@ namespace USOform
                 QuestionId = 1579,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer189);
 
@@ -2279,7 +2505,8 @@ namespace USOform
                 QuestionId = 1580,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer190);
 
@@ -2290,7 +2517,8 @@ namespace USOform
                 QuestionId = 1581,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer191);
 
@@ -2301,7 +2529,8 @@ namespace USOform
                 QuestionId = 1582,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer192);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2316,7 +2545,8 @@ namespace USOform
                 QuestionId = 1583,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer193);
 
@@ -2327,7 +2557,8 @@ namespace USOform
                 QuestionId = 1584,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer194);
 
@@ -2338,7 +2569,8 @@ namespace USOform
                 QuestionId = 1585,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer195);
 
@@ -2349,7 +2581,8 @@ namespace USOform
                 QuestionId = 1586,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer196);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2367,7 +2600,8 @@ namespace USOform
                 QuestionId = 1587,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer197);
 
@@ -2378,7 +2612,8 @@ namespace USOform
                 QuestionId = 1588,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer198);
 
@@ -2389,7 +2624,8 @@ namespace USOform
                 QuestionId = 1589,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer199);
 
@@ -2400,7 +2636,8 @@ namespace USOform
                 QuestionId = 1590,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer200);
             //////////////////////////////////////////////////////////////////////////////////
@@ -2418,7 +2655,8 @@ namespace USOform
                 QuestionId = 1591,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1591);
 
@@ -2430,7 +2668,8 @@ namespace USOform
                 QuestionId = 1592,
                 AnserTypeId = 1,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1592);
             //////////////////////////////////   END Sectionid  = 138     /////////////////////////////////
@@ -2455,7 +2694,8 @@ namespace USOform
                 QuestionId = 1593,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1593);
 
@@ -2468,7 +2708,8 @@ namespace USOform
                 QuestionId = 1594,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1594);
 
@@ -2481,7 +2722,8 @@ namespace USOform
                 QuestionId = 1595,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1595);
 
@@ -2494,7 +2736,8 @@ namespace USOform
                 QuestionId = 1596,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1596);
 
@@ -2507,7 +2750,8 @@ namespace USOform
                 QuestionId = 1597,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1597);
 
@@ -2520,7 +2764,8 @@ namespace USOform
                 QuestionId = 1598,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1598);
 
@@ -2534,7 +2779,8 @@ namespace USOform
                 QuestionId = 1599,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1599);
 
@@ -2548,7 +2794,8 @@ namespace USOform
                 QuestionId = 1600,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1600);
 
@@ -2561,7 +2808,8 @@ namespace USOform
                 QuestionId = 1601,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1601);
 
@@ -2573,7 +2821,8 @@ namespace USOform
                 QuestionId = 1602,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1602);
 
@@ -2586,7 +2835,8 @@ namespace USOform
                 QuestionId = 1603,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1603);
 
@@ -2599,7 +2849,8 @@ namespace USOform
                 QuestionId = 1604,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1604);
 
@@ -2613,7 +2864,8 @@ namespace USOform
                 QuestionId = 1605,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1605);
 
@@ -2627,7 +2879,8 @@ namespace USOform
                 QuestionId = 1606,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1606);
 
@@ -2640,7 +2893,8 @@ namespace USOform
                 QuestionId = 1607,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1607);
 
@@ -2653,7 +2907,8 @@ namespace USOform
                 QuestionId = 1608,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1608);
 
@@ -2666,7 +2921,8 @@ namespace USOform
                 QuestionId = 1609,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1609);
 
@@ -2679,7 +2935,8 @@ namespace USOform
                 QuestionId = 1610,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1610);
 
@@ -2691,7 +2948,8 @@ namespace USOform
                 QuestionId = 1611,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1611);
 
@@ -2704,7 +2962,8 @@ namespace USOform
                 QuestionId = 1612,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1612);
 
@@ -2719,7 +2978,8 @@ namespace USOform
                 QuestionId = 1613,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1613);
 
@@ -2738,7 +2998,8 @@ namespace USOform
                 QuestionId = 1614,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1614);
 
@@ -2751,7 +3012,8 @@ namespace USOform
                 QuestionId = 1615,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1615);
 
@@ -2765,7 +3027,8 @@ namespace USOform
                 QuestionId = 1616,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1616);
 
@@ -2778,7 +3041,8 @@ namespace USOform
                 QuestionId = 1617,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1617);
 
@@ -2791,7 +3055,8 @@ namespace USOform
                 QuestionId = 1618,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1618);
 
@@ -2804,7 +3069,8 @@ namespace USOform
                 QuestionId = 1619,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1619);
 
@@ -2824,7 +3090,8 @@ namespace USOform
                 QuestionId = 1620,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1620);
 
@@ -2837,7 +3104,8 @@ namespace USOform
                 QuestionId = 1621,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1621);
 
@@ -2850,7 +3118,8 @@ namespace USOform
                 QuestionId = 1622,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1622);
 
@@ -2864,7 +3133,8 @@ namespace USOform
                 QuestionId = 1623,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1623);
 
@@ -2877,7 +3147,8 @@ namespace USOform
                 QuestionId = 1624,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1624);
 
@@ -2890,7 +3161,8 @@ namespace USOform
                 QuestionId = 1625,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1625);
 
@@ -2904,7 +3176,8 @@ namespace USOform
                 QuestionId = 1626,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1626);
 
@@ -2916,7 +3189,8 @@ namespace USOform
                 QuestionId = 1627,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1627);
 
@@ -2930,7 +3204,8 @@ namespace USOform
                 QuestionId = 1628,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1628);
 
@@ -2944,7 +3219,8 @@ namespace USOform
                 QuestionId = 1629,
                 AnserTypeId = 4,
                 CreateDate = DateTime.Now,
-                UserId = 1
+                UserId = user.Id,
+                AnsMonth = ansMonth,
             };
             uSOEntities.Answers.Add(answer1629);
 
@@ -2964,7 +3240,8 @@ namespace USOform
                     QuestionId = 1630,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
-                    UserId = 1
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
                 };
                 uSOEntities.Answers.Add(answer259);
             }
@@ -2983,7 +3260,8 @@ namespace USOform
                     QuestionId = 1631,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
-                    UserId = 1
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
                 };
                 uSOEntities.Answers.Add(answer260);
             }
@@ -3003,7 +3281,8 @@ namespace USOform
                     QuestionId = 1632,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
-                    UserId = 1
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
                 };
                 uSOEntities.Answers.Add(answer261);
             }
