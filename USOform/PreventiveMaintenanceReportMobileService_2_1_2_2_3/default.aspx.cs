@@ -34,30 +34,35 @@ namespace USOform
                 User user = (User)Session["strUsername"];
                 if (user != null)
                 {
-                    string ansMonth = Request["AnsMonth"] != null ? Request["AnsMonth"] : DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
-                    answers = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth).ToList();
-                    if (answers.Count() > 0)
+                    //string ansMonth = Request["AnsMonth"] != null ? Request["AnsMonth"] : DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
+                    long siteId = long.Parse(Request["SiteId"]);
+                    int currentQuarter = this.GetQuarter(DateTime.Now);
+                    SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.Status == 1).FirstOrDefault();
+                    if (sR != null)
                     {
-                        SetForm();
+                        answers = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id).ToList();
+                        if (answers.Count() > 0)
+                        {
+                            SetForm();
+                        }
                     }
                 }
                 else
                 {
-                    Response.Redirect("/login/login.aspx");
+                    Response.Redirect("/Usologin.aspx");
                     Response.End();
 
                 }
             }
-            void SetForm()
-            {
-
-
-            }
         }
 
+        int GetQuarter(DateTime dt)
+        {
+            return (dt.Month - 1) / 3 + 1;
+        }
 
-
-
+        void SetForm() {
+        };
 
 
 
@@ -84,6 +89,29 @@ namespace USOform
             }
 
             string ansMonth = DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
+            long siteId = long.Parse(Request["SiteId"]);
+            int currentQuarter = this.GetQuarter(DateTime.Now);
+            SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.Status == 1).FirstOrDefault();
+            if (sR == null)
+            {
+                string srCode = "Q" + currentQuarter.ToString() + "/" + DateTime.Now.ToString("yyyy", CultureInfo.GetCultureInfo("th-US"));
+                uSOEntities.SRs.Add(new SR
+                {
+                    Code = srCode,
+                    CreatedDate = DateTime.Now,
+                    Detail = "",
+                    LastUpdated = DateTime.Now,
+                    LastUser = user.Id,
+                    SiteId = siteId,
+                    Quarter = currentQuarter,
+                    Status = 1
+                });
+            }
+            else
+            {
+                sR.LastUser = user.Id;
+                sR.LastUpdated = DateTime.Now;
+            }
 
             ///------------------------------------------START   HEADING----------------------------------------------------------------////
             //1: logoPicture
@@ -3294,9 +3322,7 @@ namespace USOform
 
 
 
-
-
-
+        
 
 
 
