@@ -18,6 +18,7 @@
           <Property Name="EndDate" Type="datetime" />
           <Property Name="UserId" Type="bigint" />
           <Property Name="AnsMonth" Type="nvarchar" MaxLength="50" />
+          <Property Name="SRId" Type="bigint" />
         </EntityType>
         <EntityType Name="AnswerType">
           <Key>
@@ -62,6 +63,30 @@
           <Property Name="Status" Type="int" />
           <Property Name="HeadId" Type="int" />
         </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Detail" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="int" />
+          <Property Name="HeadId" Type="int" />
+        </EntityType>
+        <EntityType Name="SR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quarter" Type="int" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Detail" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="LastUpdated" Type="datetime" />
+          <Property Name="LastUser" Type="bigint" />
+          <Property Name="Status" Type="int" />
+          <Property Name="SiteId" Type="bigint" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'USO.dbo.TBAnswer_Type' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TBAnswer_Type">
@@ -71,6 +96,13 @@ warning 6002: The table/view 'USO.dbo.TBAnswer_Type' does not have a primary key
           <Property Name="TID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TName" Type="varchar(max)" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'USO.dbo.TBOrganization' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TBOrganization">
+          <Property Name="OrgID" Type="int" />
+          <Property Name="OrgName" Type="varchar(max)" />
+          <Property Name="img" Type="varchar(max)" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'USO.dbo.TBSurvey_answer01' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TBSurvey_answer01">
@@ -113,6 +145,16 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
           <Property Name="SID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SName" Type="varchar(max)" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TBUser">
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserName" Type="varchar(max)" />
+          <Property Name="Password" Type="varchar(max)" />
+          <Property Name="FName" Type="varchar(max)" />
+          <Property Name="LName" Type="varchar(max)" />
+          <Property Name="OrgID" Type="int" />
+        </EntityType>-->
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -146,6 +188,18 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
             </Principal>
             <Dependent Role="Answer">
               <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Answer_SR">
+          <End Role="SR" Type="Self.SR" Multiplicity="0..1" />
+          <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SR">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="SRId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -185,6 +239,30 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Site_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="0..1" />
+          <End Role="Site" Type="Self.Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="HeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SR_Site">
+          <End Role="Site" Type="Self.Site" Multiplicity="0..1" />
+          <End Role="SR" Type="Self.SR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SR">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Organization">
           <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -204,6 +282,8 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
           <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Section" EntityType="Self.Section" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Site" EntityType="Self.Site" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SR" EntityType="Self.SR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBAnswer_Type" EntityType="Self.TBAnswer_Type" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -249,6 +329,10 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
             <End Role="Question" EntitySet="Question" />
             <End Role="Answer" EntitySet="Answer" />
           </AssociationSet>
+          <AssociationSet Name="FK_Answer_SR" Association="Self.FK_Answer_SR">
+            <End Role="SR" EntitySet="SR" />
+            <End Role="Answer" EntitySet="Answer" />
+          </AssociationSet>
           <AssociationSet Name="FK_Answer_User" Association="Self.FK_Answer_User">
             <End Role="User" EntitySet="User" />
             <End Role="Answer" EntitySet="Answer" />
@@ -260,6 +344,14 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
           <AssociationSet Name="FK_Section_Head" Association="Self.FK_Section_Head">
             <End Role="Head" EntitySet="Head" />
             <End Role="Section" EntitySet="Section" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_Head" Association="Self.FK_Site_Head">
+            <End Role="Head" EntitySet="Head" />
+            <End Role="Site" EntitySet="Site" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SR_Site" Association="Self.FK_SR_Site">
+            <End Role="Site" EntitySet="Site" />
+            <End Role="SR" EntitySet="SR" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Organization" Association="Self.FK_User_Organization">
             <End Role="Organization" EntitySet="Organization" />
@@ -307,6 +399,20 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
             <End Role="Section" EntitySet="Sections" />
             <End Role="Question" EntitySet="Questions" />
           </AssociationSet>
+          <EntitySet Name="Sites" EntityType="USOModel.Site" />
+          <EntitySet Name="SRs" EntityType="USOModel.SR" />
+          <AssociationSet Name="FK_Answer_SR" Association="USOModel.FK_Answer_SR">
+            <End Role="SR" EntitySet="SRs" />
+            <End Role="Answer" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_Head" Association="USOModel.FK_Site_Head">
+            <End Role="Head" EntitySet="Heads" />
+            <End Role="Site" EntitySet="Sites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SR_Site" Association="USOModel.FK_SR_Site">
+            <End Role="Site" EntitySet="Sites" />
+            <End Role="SR" EntitySet="SRs" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Answer">
           <Key>
@@ -324,6 +430,8 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
           <NavigationProperty Name="Question" Relationship="USOModel.FK_Answer_Question" FromRole="Answer" ToRole="Question" />
           <NavigationProperty Name="User" Relationship="USOModel.FK_Answer_User" FromRole="Answer" ToRole="User" />
           <Property Name="AnsMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SRId" Type="Int64" />
+          <NavigationProperty Name="SR" Relationship="USOModel.FK_Answer_SR" FromRole="Answer" ToRole="SR" />
         </EntityType>
         <EntityType Name="AnswerType">
           <Key>
@@ -342,6 +450,7 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
           <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Int32" />
           <NavigationProperty Name="Sections" Relationship="USOModel.FK_Section_Head" FromRole="Head" ToRole="Section" />
+          <NavigationProperty Name="Sites" Relationship="USOModel.FK_Site_Head" FromRole="Head" ToRole="Site" />
         </EntityType>
         <EntityType Name="Organization">
           <Key>
@@ -502,6 +611,70 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="HeadId" Type="Int32" />
+          <NavigationProperty Name="Head" Relationship="USOModel.FK_Site_Head" FromRole="Site" ToRole="Head" />
+          <NavigationProperty Name="SRs" Relationship="USOModel.FK_SR_Site" FromRole="Site" ToRole="SR" />
+        </EntityType>
+        <EntityType Name="SR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quarter" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="LastUser" Type="Int64" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="SiteId" Type="Int64" />
+          <NavigationProperty Name="Answers" Relationship="USOModel.FK_Answer_SR" FromRole="SR" ToRole="Answer" />
+          <NavigationProperty Name="Site" Relationship="USOModel.FK_SR_Site" FromRole="SR" ToRole="Site" />
+        </EntityType>
+        <Association Name="FK_Answer_SR">
+          <End Type="USOModel.SR" Role="SR" Multiplicity="0..1" />
+          <End Type="USOModel.Answer" Role="Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SR">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="SRId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_Head">
+          <End Type="USOModel.Head" Role="Head" Multiplicity="0..1" />
+          <End Type="USOModel.Site" Role="Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="HeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SR_Site">
+          <End Type="USOModel.Site" Role="Site" Multiplicity="0..1" />
+          <End Type="USOModel.SR" Role="SR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SR">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -511,6 +684,7 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
           <EntitySetMapping Name="Answers">
             <EntityTypeMapping TypeName="USOModel.Answer">
               <MappingFragment StoreEntitySet="Answer">
+                <ScalarProperty Name="SRId" ColumnName="SRId" />
                 <ScalarProperty Name="AnsMonth" ColumnName="AnsMonth" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
@@ -627,6 +801,32 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
               <MappingFragment StoreEntitySet="TBSurvey_Section">
                 <ScalarProperty Name="SName" ColumnName="SName" />
                 <ScalarProperty Name="SID" ColumnName="SID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sites">
+            <EntityTypeMapping TypeName="USOModel.Site">
+              <MappingFragment StoreEntitySet="Site">
+                <ScalarProperty Name="HeadId" ColumnName="HeadId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRs">
+            <EntityTypeMapping TypeName="USOModel.SR">
+              <MappingFragment StoreEntitySet="SR">
+                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

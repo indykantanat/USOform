@@ -23,6 +23,11 @@
         <AssociationConnector Association="USOModel.FK_Section_Head" />
         <AssociationConnector Association="USOModel.FK_User_Organization" />
         <AssociationConnector Association="USOModel.FK_Question_Section" />
+        <EntityTypeShape EntityType="USOModel.Site" Width="1.5" PointX="2.75" PointY="12.125" />
+        <EntityTypeShape EntityType="USOModel.SR" Width="1.5" PointX="5" PointY="11.75" />
+        <AssociationConnector Association="USOModel.FK_Answer_SR" />
+        <AssociationConnector Association="USOModel.FK_Site_Head" />
+        <AssociationConnector Association="USOModel.FK_SR_Site" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

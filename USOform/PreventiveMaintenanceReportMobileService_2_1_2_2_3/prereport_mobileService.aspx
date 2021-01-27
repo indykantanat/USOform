@@ -82,12 +82,12 @@
                 <label class="control-label col-sm-7">ส่วนที่ 2 การจัดให้มีบริการสัญญาณโทรศัพท์เคลื่อนที่ (Mobile Service) ประเภทบริการ </label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input"  name="mobileServiceAtRadio" value="2.1"     <% if (answers.Where(x => x.QuestionId == 1412).FirstOrDefault().AnsDes == "2.1") { Response.Write("checked"); } else { Response.Write(""); } %> />2.1
+                        <input type="radio" class="form-check-input"  name="mobileServiceAtRadio" value="2.1"   <% if (answers.Where(x => x.QuestionId == 1412 ).FirstOrDefault().AnsDes == "2.1") { Response.Write("checked"); } else { Response.Write(""); } %> />2.1
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input"  name="mobileServiceAtRadio" value="2.2"   <% if (answers.Where(x => x.QuestionId == 1412).FirstOrDefault().AnsDes == "2.2") { Response.Write("checked"); } else { Response.Write(""); } %> />2.2
+                        <input type="radio" class="form-check-input"  name="mobileServiceAtRadio" value="2.2"   <% if (answers.Where(x => x.QuestionId == 1412 ).FirstOrDefault().AnsDes == "2.2") { Response.Write("checked"); } else { Response.Write(""); } %> />2.2
                     </label>
                 </div>
                 <div class="form-check-inline">

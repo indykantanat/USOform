@@ -1,4 +1,4 @@
-﻿<%@ Page Title="รายงาน PM Form MB" Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.WebForm1" %>
+﻿<%@ Page Title="รายงาน PM Form Mobile Service" Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.WebForm1" %>
 
 <!DOCTYPE html>
 
@@ -218,7 +218,7 @@
 
             <div class="form-row mt-3 table-bordered">
                 <div class="col-sm-12 bg-primary text-white">ใส่รูปหน้าตู้</div>              
-                <asp:FileUpload ID="picinfrontImages" runat="server" data-thumbnail="" accept="image/" onchange="previewImage(this)" required="required" />
+                <asp:FileUpload ID="picinfrontCabinetImages" runat="server" data-thumbnail="" accept="image/" onchange="previewImage(this)" required="required" />
             </div>
 
                <%-- //////////////////////////////////   END  Sectionid  = 125    /////////////////////////////////--%>
@@ -2470,4 +2470,6 @@
     </script>
 
 </body>
+
+
 </html>

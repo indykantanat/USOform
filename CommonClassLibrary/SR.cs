@@ -12,22 +12,26 @@ namespace CommonClassLibrary
     using System;
     using System.Collections.Generic;
     
-    public partial class Head
+    public partial class SR
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Head()
+        public SR()
         {
-            this.Sections = new HashSet<Section>();
-            this.Sites = new HashSet<Site>();
+            this.Answers = new HashSet<Answer>();
         }
     
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public long Id { get; set; }
+        public Nullable<int> Quarter { get; set; }
+        public string Code { get; set; }
+        public string Detail { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> LastUpdated { get; set; }
+        public Nullable<long> LastUser { get; set; }
         public Nullable<int> Status { get; set; }
+        public Nullable<long> SiteId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Section> Sections { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Site> Sites { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; }
+        public virtual Site Site { get; set; }
     }
 }
