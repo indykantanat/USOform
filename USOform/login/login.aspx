@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>USO'net LOGIN</title>
+    <title>USO LOGIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <%--    <link href="~/style/Mystyle.css" rel="stylesheet" />--%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
@@ -43,20 +43,18 @@
         <div class="container login-container">
             <div class="row justify-content-center">
                 <div class="col-md-6 login-form-2">
-                    <h3>เข้าสู่ระบบ</h3>
-                    <div class="mt-4">
+                    <h3>USO LOGIN</h3>
+                    <div class="mt-3">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="ชื่อผู้ใช้ *" id="txtUsername" required="required" runat="server" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="รหัสผ่าน" id="txtPassword" required="required" runat="server" />
+                            <input type="password" class="form-control" placeholder="รหัสผ่าน *" id="txtPassword" required="required" runat="server" />
                         </div>
-                        <div class="form-group">
-                            <asp:Button Text="เข้าสู่ระบบ" runat="server" CssClass="btn btn-light" OnClick="btnLogins_Click" ID="btnLogin1" />
+                        <div class="form-group justify-content-center text-center  pt-4">
+                            <asp:Button Text="เข้าสู่ระบบ" runat="server" CssClass="btn btn-success btn-block" OnClick="btnLogins_Click" ID="btnLogin1" />
                         </div>
-                        <div class="form-group">
-                            <a href="#" class="ForgetPwd">สมัคร ?</a>
-                        </div>
+                      
                     </div>
                 </div>
             </div>

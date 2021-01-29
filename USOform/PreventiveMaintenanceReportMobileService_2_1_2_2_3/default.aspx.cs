@@ -6551,7 +6551,7 @@ namespace USOform
                 string circuitBreakOnRaio = Request.Form["circuitBreakOnRaio"];
                 Answer answer1597 = new Answer()
                 {
-                    AnsDes = beforeCleanRaio,
+                    AnsDes = circuitBreakOnRaio,
                     QuestionId = 1597,
                     AnserTypeId = 4,
                     CreateDate = DateTime.Now,
@@ -6769,7 +6769,7 @@ namespace USOform
                 string monitorSerRadio = Request.Form["monitorSerRadio"];
                 Answer answer1604 = new Answer()
                 {
-                    AnsDes = acAndACRadio,
+                    AnsDes = monitorSerRadio,
                     QuestionId = 1604,
                     AnserTypeId = 4,
                     CreateDate = DateTime.Now,
@@ -7362,7 +7362,7 @@ namespace USOform
                 string monitoringChargerRadio = Request.Form["monitoringChargerRadio"];
                 Answer answer1622 = new Answer()
                 {
-                    AnsDes = toolsinSolarcellRadio,
+                    AnsDes = monitoringChargerRadio,
                     QuestionId = 1622,
                     AnserTypeId = 4,
                     CreateDate = DateTime.Now,

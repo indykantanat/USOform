@@ -355,10 +355,6 @@ namespace USOform.PreventiveMaintenanceReportMobileService_2_1_2_2_3
 
 
 
-
-
-
-
             // ภูมิภาค
             Answer answer1410 = new Answer()
                 {
@@ -384,19 +380,7 @@ namespace USOform.PreventiveMaintenanceReportMobileService_2_1_2_2_3
                 uSOEntities.Answers.Add(answer3);
 
 
-            //  ส่วนที่ 2 การจัดให้มีบริการสัญญาณโทรศัพท์เคลื่อนที่  (Mobile Service) ประเภทบริการ
-            //        string mbService = Request.Form["mobileServiceAtRadio"];
-            //        Answer answer257 = new Answer()
-            //        {
-            //            AnsDes = mbService,
-            //            QuestionId = 1412,
-            //            AnserTypeId = 4,
-            //            CreateDate = DateTime.Now,
-            //            UserId = user.Id,
-            //            AnsMonth = ansMonth,
-            //            SRId = sR.Id,
-            //};
-            //        uSOEntities.Answers.Add(answer257);
+           
             var ans1412 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 7 && x.SRId == sR.Id && x.QuestionId == 1412).FirstOrDefault();
             if (ans1412 == null)
             {

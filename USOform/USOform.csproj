@@ -81,6 +81,7 @@
     <Content Include="PreventiveMaintenanceReportBB2_2_3_2\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2_3_3_3\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_2.4\default.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB_2.4\Prereport_BB_2_4.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\spinner.js" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\previewImg.js" />
@@ -136,6 +137,13 @@
     </Compile>
     <Compile Include="PreventiveMaintenanceReportBB_2.4\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB_2.4\Prereport_BB_2_4.aspx.cs">
+      <DependentUpon>Prereport_BB_2_4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB_2.4\Prereport_BB_2_4.aspx.designer.cs">
+      <DependentUpon>Prereport_BB_2_4.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreventiveMaintenanceReportBB_USOWrap\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

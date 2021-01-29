@@ -1,32 +1,33 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.Preventive_Maintenance__PM__Report_BB2._4.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Prereport_BB_2_4.aspx.cs" Inherits="USOform.PreventiveMaintenanceReportBB_2._4.WebForm1" %>
 
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Preventive Maintenance (PM) Report BB 2.4</title>
     <link href="~/style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <%--font style--%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Prereport bb 2.4</title>
 </head>
-<body style="background-color:lightgray;">
-
-
- <form id="form1" runat="server">
+<body>
+    <form id="form1" runat="server">
         <div class="container bg-white Myfont mt-3">
+
+
             <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
                 This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
             </div>
 
-           
 
 
-            <%--------------------------------------------    Section id = 25  -------------------------------------------------------%>
 
-             <div class="row pt-5">
+
+
+            <div class="row pt-5">
                 <div class="col-4">
-                    <asp:FileUpload ID="logoPicture2" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required"  />
+                    <asp:FileUpload ID="logoPicture2" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" Visible="false" />
                      <img id="user_img_6" src='<% Response.Write(answers.Where(x => x.QuestionId == 264).FirstOrDefault().AnsDes);%>' class="placeholder2 float-left" />
                 </div>
                    
@@ -39,6 +40,7 @@
             </div>
 
 
+            <%--------------------------------------------    HEADER CONTENT    -------------------------------------------------------%>
             <div class="row mt-5">
                 <div class="col-12 text-left ">
                     <div>
@@ -108,15 +110,13 @@
                 </div>
             </div>
 
-
-            <%--1635--%> 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">สถานที่ (Site code)</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="siteCodeTextbox" runat="server" />
                 </div>
             </div>
-            <%--////////////////////////////////    END Section id = 25    ///////////////////////////////////////////////--%>
+            <%--////////////////////////////////    END HEADER CONTENT    ///////////////////////////////////////////////--%>
 
 
 
@@ -2255,9 +2255,7 @@
             </div>
 
 
-             <div class="row">
-                <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-primary btn-block" OnClick="SubmitButton_Click" />
-            </div>
+
 
 
 
@@ -2269,68 +2267,5 @@
 
         </div>
     </form>
-
-
-
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
-    <script type="text/javascript">
-        var input = $("#exampleFormControlFile1").change(function () {
-            alert(this.value.split("\\").pop())
-        })
-    </script>
-
-
-    <style type="text/css">
-        .datepicker {
-            font-size: 0.875em;
-        }
-            /* solution 2: the original datepicker use 20px so replace with the following:*/
-
-            .datepicker td, .datepicker th {
-                width: 1.5em;
-                height: 1.5em;
-            }
-
-        // solution 2:
-        .datepicker2 {
-            font-size: 0.875em;
-        }
-        /* solution 2: the original datepicker use 20px so replace with the following:*/
-
-        .datepicker2 td, .datepicker2 th {
-            width: 1.5em;
-            height: 1.5em;
-        }
-    </style>
-
-
-    <script type="text/javascript">
-        $(function () {
-            $('#startDate').datepicker({
-                // ...relevant options...
-                weekStart: 1,
-                daysOfWeekHighlighted: "6,0",
-                autoclose: true,
-                todayHighlight: true,
-
-            });
-            $('#startDate2').datepicker({
-                // ...relevant options...
-                weekStart: 1,
-                daysOfWeekHighlighted: "6,0",
-                autoclose: true,
-                todayHighlight: true,
-            });
-        });
-    </script>
 </body>
-
 </html>
