@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.PreventiveMaintenanceReportBB2._3_3._3.WebForm1" %>
+﻿<%@ Page Title="Broadband Internet Service บริการที่ 2.3,3.3" Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.PreventiveMaintenanceReportBB2._3_3._3.WebForm1" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>รายงาน PM From BB Zone C+ บริการที่ 2.3,3.3</title>
+   <%-- <title>   Broadband Internet Service(Preventive Maintenance (PM) Report) บริการที่ 2.3,3.3</title>--%>
     <link href="~/style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
@@ -1110,12 +1110,12 @@
                 <label class="control-label col-sm-4">เสาไฟฟ้าที่ติดตั้งอุปกรณ์</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="inStallSatRadio" value="ปกติ" />ปกติ
+                        <input type="radio" class="form-check-input" name="UPPERinStallSatRadio" value="ปกติ" />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="inStallSatRadio" value="ชำรุด/เอียง" />ชำรุด/เอียง
+                        <input type="radio" class="form-check-input" name="UPPERinStallSatRadio" value="ชำรุด/เอียง" />ชำรุด/เอียง
                     </label>
                 </div>
             </div>
@@ -2184,12 +2184,12 @@
                 <label class="control-label col-sm-4">รูป Outdoor AP 5 GHz พร้อม Serial NO. และ MAC</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="outDoorAp5GhzRadio" value="PASS" />PASS
+                        <input type="radio" class="form-check-input" name="PASSoutDoorAp5GhzRadio" value="PASS" />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="outDoorAp5GhzRadio" value="NOTPASS" />NOT PASS
+                        <input type="radio" class="form-check-input" name="PASSoutDoorAp5GhzRadio" value="NOTPASS" />NOT PASS
                     </label>
                 </div>
             </div>
