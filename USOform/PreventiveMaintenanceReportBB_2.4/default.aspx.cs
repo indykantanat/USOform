@@ -7049,9 +7049,7 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
 
         void SetForm()
         {
-
-            //logoPicture2
-            // this.groupTextbox.Value = answers.Where(x => x.QuestionId == 1409).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1409).FirstOrDefault().AnsDes : "";
+        
             this.groupTextbox.Value = answers.Where(x => x.QuestionId == 265).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 265).FirstOrDefault().AnsDes : "";
             this.AreaTextbox.Value = answers.Where(x => x.QuestionId == 266).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 266).FirstOrDefault().AnsDes : "";
             this.CompanyTextbox.Value = answers.Where(x => x.QuestionId == 267).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 267).FirstOrDefault().AnsDes : "";
