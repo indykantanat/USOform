@@ -224,6 +224,50 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
             string ansMonth = DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
+
+            //1: logoPicture
+            var ans1408 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 1642).FirstOrDefault();
+            if (ans1408 == null)
+
+            {
+                if (this.logoPicture.HasFile)
+                {
+                    string extension = this.logoPicture.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/logoImagesUsowrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.logoPicture.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                    Answer answe1408 = new Answer()
+                    {
+                        AnsDes = newFileName,
+                        QuestionId = 1642,
+                        AnserTypeId = 3,
+                        CreateDate = DateTime.Now,
+                        UserId = user.Id,
+                        AnsMonth = ansMonth,
+                        //SRId = sR.Id
+                    };
+                    uSOEntities.Answers.Add(answe1408);
+                }
+            }
+            else
+            {
+                if (this.logoPicture.HasFile)
+                {
+                    string extension = this.logoPicture.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/logoImagesUsowrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.logoPicture.PostedFile.SaveAs(Server.MapPath(newFileName));
+                    ans1408.QuestionId = 1642;
+                    ans1408.AnsDes = newFileName;
+                    ans1408.AnserTypeId = 3;
+                    ans1408.CreateDate = DateTime.Now;
+                    ans1408.UserId = user.Id;
+                    ans1408.AnsMonth = ansMonth;
+                   // ans1408.SRId = sR.Id;
+
+                }
+            }
+
+
             var ans1 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 1).FirstOrDefault();
             if (ans1 == null)
             {

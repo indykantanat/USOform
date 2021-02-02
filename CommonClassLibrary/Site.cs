@@ -25,6 +25,17 @@ namespace CommonClassLibrary
         public string Detail { get; set; }
         public Nullable<int> Status { get; set; }
         public Nullable<int> HeadId { get; set; }
+        public string CabinetId { get; set; }
+        public Nullable<long> SiteCode { get; set; }
+        public string VillageId { get; set; }
+        public string Village { get; set; }
+        public string SubDistrict { get; set; }
+        public string District { get; set; }
+        public string Province { get; set; }
+        public string Type { get; set; }
+        public string Lat { get; set; }
+        public string Long { get; set; }
+        public string TypeofSignal { get; set; }
     
         public virtual Head Head { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

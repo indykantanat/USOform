@@ -1,27 +1,24 @@
-﻿<%@ Page Title="Broadband Internet Service บริการที่ 2.3,3.3" Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.PreventiveMaintenanceReportBB2._3_3._3.WebForm1" %>
+﻿<%@ Page  Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.PreventiveMaintenanceReportBB2._3_3._3.WebForm1" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <%-- <title>   Broadband Internet Service(Preventive Maintenance (PM) Report) บริการที่ 2.3,3.3</title>--%>
+     <title>Broadband Internet Service(Preventive Maintenance (PM) Report) บริการที่ 2.3,3.3 </title>
     <link href="~/style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-
-    <%--font style--%>
+    <%-----------------//     font style    //--------------------%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
-
-    <%--Signature--%>
+    <%----------------------------//  Signature  //-------------------------------%>
     <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
     <script src="../sig/js/jquery.signature.min.js"></script>
     <script src="../sig/js/results.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"/>
 </head>
-<body style="background-color: lightgray">
 
+<body style="background-color: lightgray">
     <form id="form1" runat="server">
         <div class="container bg-white Myfont mt-3">
             <%--////////////////////////////////    HEADER CONTENT    ///////////////////////////////////////////////--%>

@@ -39,5 +39,6 @@ namespace CommonClassLibrary
         public virtual DbSet<TBSurvey_Section> TBSurvey_Section { get; set; }
         public virtual DbSet<Site> Sites { get; set; }
         public virtual DbSet<SR> SRs { get; set; }
+        public virtual DbSet<SR_Log> SR_Log { get; set; }
     }
 }

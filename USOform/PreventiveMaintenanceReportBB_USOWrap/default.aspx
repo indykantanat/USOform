@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.PreventiveMaintenanceReportBBUSOWrap.WebForm1" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>รายงาน PM From BB Zone C+ บริการ USO Wrap</title>
@@ -9,33 +8,119 @@
     <link href="~/style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="previewImg.js"></script>
-    <%--test brach preview UOSwrap --%>
     <script src="spinner.js"></script>
-    <%--font style--%>
+    <%--------------- //    font style     //-----------------------%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
-    <%--    date time picker JQURRY--%>
+    <%--------------- //    date time picker JQURRY    //-----------------------%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <%--sweert alert--%>
+    <%--------------- //   Sweet Alert     //-----------------------%>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css" />
+    <%--------------- //   Signature     //-----------------------%>
+    <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
+    <script src="../sig/js/jquery.signature.min.js"></script>
+    <script src="../sig/js/results.js"></script>
+    <script src="../sig/js/results.js"></script>
+    <%--//  Important must have for signature !  //--%>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet">
+    <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
+    <%----------------------------------------%>
+    <style>
+        .kbw-signature {
+            width: 400px;
+            height: 200px;
+        }
+    </style>
+    <!--[if IE]>
+    <script src="excanvas.js"></script>
+    <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../sig/js/jquery.signature.js"></script>
+    <script>
+        $(function () {
+            $('#signatureExecutorTextbox').signature({ syncField: '#signatureJSON' });
+
+            $('#clearButton1').click(function () {
+                $('#signatureExecutorTextbox').signature('clear');
+            });
+
+            $('input[name="syncFormat"]').change(function () {
+                var syncFormat = $('input[name="syncFormat"]:checked').val();
+                $('#signatureExecutorTextbox').signature('option', 'syncFormat', syncFormat);
+            });
+
+            $('#svgStyles').change(function () {
+                $('#signatureExecutorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
+            });
+
+
+
+            $('#redrawButton').click(function () {
+                $('#redrawSignature').signature('enable').
+                    signature('draw', $('#signatureJSON').val()).
+                    signature('disable');
+            });
+
+            $('#redrawSignature').signature({ disabled: true });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#signatureSupervisorTextbox').signature({ syncField: '#signatureJSON' });
+
+            $('#clear2Button').click(function () {
+                $('#signatureSupervisorTextbox').signature('clear');
+            });
+
+            $('input[name="syncFormat"]').change(function () {
+                var syncFormat = $('input[name="syncFormat"]:checked').val();
+                $('#signatureSupervisorTextbox').signature('option', 'syncFormat', syncFormat);
+            });
+
+            $('#svgStyles').change(function () {
+                $('#signatureSupervisorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
+            });
+
+            $('#redrawButton').click(function () {
+                $('#redrawSignature').signature('enable').
+                    signature('draw', $('#signatureJSON').val()).
+                    signature('disable');
+            });
+
+            $('#redrawSignature').signature({ disabled: true });
+        });
+    </script>
 </head>
 
 <body style="background-color: lightgrey;">
-
     <form id="form1" runat="server">
         <div class="container bg-white Myfont">
             <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
                 This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
             </div>
+            <%---------------------------//    HEADER CONTENT    //-------------------------%>
+            
+            <div class="row pt-3">
+                <div class="col-4">
+            <asp:FileUpload ID="logoPicture" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" />
+                </div>
+                <div class="col-4  d-flex justify-content-center ">
+                    <h5 class="headerText">Preventive Maintenance Site Report USO (USO Wrap)</h5>
+                </div>
+                <div class="col-4 ">
+                    <img src="/assets/logo_uso.png" class="logoImg" />
+                </div>
+            </div>
 
-            <%--////////////////////////////////    HEADER CONTENT    ///////////////////////////////////////////////--%>
-            <div class="row">
+            <div class="row pt-3">
                 <div class="col-12 text-left ">
                     <div>
                         <h5>รายงานผลการตรวจสอบและบำรุงรักษาชุดอุปกรณ์ Broadband Internet Service (Preventive Maintenance (PM) Report)</h5>
@@ -112,13 +197,6 @@
                 </div>
             </div>
             <%--////////////////////////////////    END HEADER CONTENT    ///////////////////////////////////////////////--%>
-
-
-
-
-
-
-
 
 
 
@@ -242,7 +320,7 @@
 
 
 
-            <%--////////////// -------------START  SECTION ID 3 -----------------  //////////////////--%>
+            <%--// -------------START  SECTION ID 3 ------------------//--%>
             <div class="row mt-3">
                 <div class="col-md-12 bg-warning text-white text-center Myfont">
                     <h4>Contractor</h4>
@@ -265,11 +343,22 @@
                 </div>
                 <div class="col-md-5 text-center">
                     <%-- QuestionId = 21, --%>
-                    <input type="text" class="form-control" id="signatureExecutorTextbox" runat="server" required="required" />
+
+                    <%--    <div id="captureSignature"></div>--%>
+                    <div id="signatureExecutorTextbox"></div>
+                    <p style="clear: both;">
+                        <span class="demoLabel">&nbsp;</span>
+                        <button type="button" id="clearButton1">Clear</button>
+                        <%--  <input type="text" class="form-control" id="signatureExecutorTextbox" runat="server" required="required" />    --%>
                 </div>
                 <div class="col-md-6 text-center">
                     <%-- QuestionId = 22, --%>
-                    <input type="text" class="form-control" id="signatureSupervisorTextbox" runat="server" required="required" />
+                    <div id="signatureSupervisorTextbox"></div>
+                    <p style="clear: both;">
+                        <span class="demoLabel">&nbsp;</span>
+                        <button type="button" id="clear2Button">Clear</button>
+
+                        <%-- <input type="text" class="form-control" id="signatureSupervisorTextbox" runat="server" required="required" />--%>
                 </div>
             </div>
 
@@ -312,7 +401,7 @@
                     <h3>1. รายละเอียดศูนย์</h3>
                 </div>
             </div>
-            <form class="mt-3">
+            <div class="mt-3">
                 <div class="form-row mt-3">
                     <%-- QuestionId = 27, --%>
                     <label class="control-label col-sm-1">Location Name</label>
@@ -3188,8 +3277,69 @@
                 </div>
                 <%--////////////// --------------------- END  SECTION ID 24 ---------------------------  //////////////////--%>
 
-                <%--  Repeater exsample data--%>
-                <%--                <table>
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <div class="row text-center justify-content-center">
+                    <div class="col-md-6">
+                        <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-primary btn-block btn-lg" OnClick="SubmitButton_Click" />
+
+                    </div>
+
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+            </div>
+        </div>
+    </form>
+
+    <%-----------------//    script START !!   //--------------------%>
+
+    <%-------//  วัน เดือน ปี ที่เริ่มต้น สิ้นสุด   //---------- --%>
+    <script>
+        $(function () {
+            $("#startDatepicker").datepicker();
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#endDatepicker").datepicker();
+        });
+    </script>
+
+    <%---------//  วันที่ทำ   //---------- --%>
+    <script>
+        $(function () {
+            $("#DateExecutorTextbox").datepicker();
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#DateSupervisorTextbox").datepicker();
+        });
+    </script>
+
+    <%-------//  วันที่รายละเอียดผู้ทำ   //---------- --%>
+    <script>
+        $(function () {
+            $("#dayDopmTextbox").datepicker();
+        });
+    </script>
+</body>
+</html>
+
+
+<%--  Repeater example --%>
+<%--                <table>
                     <asp:Repeater runat="server" ID="ResultRepeater">
                         <ItemTemplate>
                             <tr>
@@ -3204,86 +3354,3 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </table>--%>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-primary btn-block" OnClick="SubmitButton_Click" />
-
-                    </div>
-
-                </div>
-
-            </form>
-        </div>
-    </form>
-
-
-
-    <%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--%>
-    <%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>--%>
-    <%--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>--%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <%--/////////////////    script START !!   /////////////////////////////--%>
-    <%--  <script type="text/javascript">
-        Swal.fire(
-            'Good job!',
-            'You clicked the button!',
-            'success'
-        )
-    </script>--%>
-
-
-
-
-
-
-    <script type="text/javascript">
-        function GetRadioValue() {
-            var radioX = document.getElementById('Radio1');
-            alert(radioX.value);
-        }
-    </script>
-    <script type="text/javascript">
-        var input = $("#exampleFormControlFile1").change(function () {
-            alert(this.value.split("\\").pop())
-        })
-    </script>
-
-
-    <script>
-        $(function () {
-            $("#startDatepicker").datepicker();
-        });
-    </script>
-
-    <script>
-        $(function () {
-            $("#endDatepicker").datepicker();
-        });
-    </script>
-
-    <script>
-        $(function () {
-            $("#DateExecutorTextbox").datepicker();
-        });
-    </script>
-
-    <script>
-        $(function () {
-            $("#DateSupervisorTextbox").datepicker();
-        });
-    </script>
-</body>
-</html>

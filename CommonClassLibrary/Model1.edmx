@@ -72,6 +72,17 @@
           <Property Name="Detail" Type="nvarchar" MaxLength="500" />
           <Property Name="Status" Type="int" />
           <Property Name="HeadId" Type="int" />
+          <Property Name="CabinetId" Type="nvarchar" MaxLength="100" />
+          <Property Name="SiteCode" Type="bigint" />
+          <Property Name="VillageId" Type="nvarchar" MaxLength="100" />
+          <Property Name="Village" Type="nvarchar" MaxLength="100" />
+          <Property Name="SubDistrict" Type="nvarchar" MaxLength="100" />
+          <Property Name="District" Type="nvarchar" MaxLength="100" />
+          <Property Name="Province" Type="nvarchar" MaxLength="100" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" />
+          <Property Name="Lat" Type="nvarchar" MaxLength="100" />
+          <Property Name="Long" Type="nvarchar" MaxLength="100" />
+          <Property Name="TypeofSignal" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="SR">
           <Key>
@@ -86,6 +97,14 @@
           <Property Name="LastUser" Type="bigint" />
           <Property Name="Status" Type="int" />
           <Property Name="SiteId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="SR_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SrId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Signature" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'USO.dbo.TBAnswer_Type' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -284,6 +303,7 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
           <EntitySet Name="Section" EntityType="Self.Section" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Site" EntityType="Self.Site" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SR" EntityType="Self.SR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SR_Log" EntityType="Self.SR_Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBAnswer_Type" EntityType="Self.TBAnswer_Type" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -413,6 +433,7 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
             <End Role="Site" EntitySet="Sites" />
             <End Role="SR" EntitySet="SRs" />
           </AssociationSet>
+          <EntitySet Name="SR_Log" EntityType="USOModel.SR_Log" />
         </EntityContainer>
         <EntityType Name="Answer">
           <Key>
@@ -622,6 +643,17 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
           <Property Name="HeadId" Type="Int32" />
           <NavigationProperty Name="Head" Relationship="USOModel.FK_Site_Head" FromRole="Site" ToRole="Head" />
           <NavigationProperty Name="SRs" Relationship="USOModel.FK_SR_Site" FromRole="Site" ToRole="SR" />
+          <Property Name="CabinetId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SiteCode" Type="Int64" />
+          <Property Name="VillageId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Village" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SubDistrict" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Lat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Long" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TypeofSignal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SR">
           <Key>
@@ -675,6 +707,14 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SR_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SrId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Signature" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -807,6 +847,17 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
           <EntitySetMapping Name="Sites">
             <EntityTypeMapping TypeName="USOModel.Site">
               <MappingFragment StoreEntitySet="Site">
+                <ScalarProperty Name="TypeofSignal" ColumnName="TypeofSignal" />
+                <ScalarProperty Name="Long" ColumnName="Long" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="SubDistrict" ColumnName="SubDistrict" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="VillageId" ColumnName="VillageId" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="CabinetId" ColumnName="CabinetId" />
                 <ScalarProperty Name="HeadId" ColumnName="HeadId" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Detail" ColumnName="Detail" />
@@ -826,6 +877,15 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
                 <ScalarProperty Name="Detail" ColumnName="Detail" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SR_Log">
+            <EntityTypeMapping TypeName="USOModel.SR_Log">
+              <MappingFragment StoreEntitySet="SR_Log">
+                <ScalarProperty Name="Signature" ColumnName="Signature" />
+                <ScalarProperty Name="SrId" ColumnName="SrId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

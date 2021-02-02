@@ -33,6 +33,15 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl SuccessPanel;
 
         /// <summary>
+        /// logoPicture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload logoPicture;
+
+        /// <summary>
         /// GroupNameTextBox control.
         /// </summary>
         /// <remarks>
@@ -211,24 +220,6 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload usonetsignboardImage;
-
-        /// <summary>
-        /// signatureExecutorTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText signatureExecutorTextbox;
-
-        /// <summary>
-        /// signatureSupervisorTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText signatureSupervisorTextbox;
 
         /// <summary>
         /// nameExecutorTextbox control.
