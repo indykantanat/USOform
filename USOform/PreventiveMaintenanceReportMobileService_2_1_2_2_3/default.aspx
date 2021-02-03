@@ -45,7 +45,7 @@
     <script src="../sig/js/jquery.signature.js"></script>
     <script>
         $(function () {
-            $('#signatureExecutorTextbox').signature({ syncField: '#signatureJSON' });
+            $('#signatureExecutorTextbox').signature({ syncField: '#' });
 
             $('#clearButton1').click(function () {
                 $('#signatureExecutorTextbox').signature('clear');
@@ -61,7 +61,7 @@
             });
             $('#redrawButton').click(function () {
                 $('#redrawSignature').signature('enable').
-                    signature('draw', $('#signatureJSON').val()).
+                    signature('draw', $('#').val()).
                     signature('disable');
             });
 
@@ -70,7 +70,7 @@
     </script>
     <script>
         $(function () {
-            $('#signatureSupervisorTextbox').signature({ syncField: '#signatureJSON' });
+            $('#signatureSupervisorTextbox').signature({ syncField: '#<%= this.signatureSupervisorJSON.ClientID %>' });
 
             $('#clear2Button').click(function () {
                 $('#signatureSupervisorTextbox').signature('clear');
@@ -87,7 +87,7 @@
 
             $('#redrawButton').click(function () {
                 $('#redrawSignature').signature('enable').
-                    signature('draw', $('#signatureJSON').val()).
+                    signature('draw', $('#<%= this.signatureSupervisorJSON.ClientID %>').val()).
                     signature('disable');
             });
 
@@ -254,7 +254,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">District:</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="DistrictTextbox" runat="server" />
+                    <input class="form-control" id="DistrictTextbox1" runat="server" />
                 </div>
             </div>
 
@@ -324,6 +324,7 @@
                 <div class="col-md-6 text-center">
                     <%-- QuestionId = 22, --%>
                     <div id="signatureSupervisorTextbox"></div>
+        <textarea id="signatureSupervisorJSON" rows="5" cols="50" readonly class="ui-state-active" runat="server"></textarea>
                     <p style="clear: both;">
                         <span class="demoLabel">&nbsp;</span>
                         <button type="button" id="clear2Button">Clear</button>

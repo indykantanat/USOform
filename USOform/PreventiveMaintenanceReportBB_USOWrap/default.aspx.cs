@@ -29,32 +29,32 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            User user = (User)Session["strUsername"];
+            if (user != null)
+            {
+                string ansMonth = Request["AnsMonth"] != null ? Request["AnsMonth"] : DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
+                answers = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth).ToList();
+            }
+            else
+            {
+                Response.Redirect("/login/login.aspx");
+                Response.End();
 
-            //this.GetData();
-
-
+            }
 
             if (!IsPostBack)
             {
-                User user = (User)Session["strUsername"];
-                if (user != null)
+                if (answers.Count() > 0)
                 {
-                    string ansMonth = Request["AnsMonth"] != null ? Request["AnsMonth"] : DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
-                    answers = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth).ToList();
-                    if (answers.Count() > 0)
-                    {
-                        SetForm();
-                    }
-                }
-                else
-                {
-                    Response.Redirect("/login/login.aspx");
-                    Response.End();
-
+                    SetForm();
                 }
             }
 
+        }
+
+        int GetQuarter(DateTime dt)
+        {
+            return (dt.Month - 1) / 3 + 1;
         }
 
         void SetForm()
@@ -77,8 +77,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             this.provinceTextbox.Value = answers.Where(x => x.QuestionId == 17).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 17).FirstOrDefault().AnsDes : "";
             this.typeTextbox.Value = answers.Where(x => x.QuestionId == 18).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 18).FirstOrDefault().AnsDes : "";
             this.pmdateTextbox.Value = answers.Where(x => x.QuestionId == 19).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 19).FirstOrDefault().AnsDes : "";
-            this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 21).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 21).FirstOrDefault().AnsDes : "";
-            this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 22).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 22).FirstOrDefault().AnsDes : "";
+          //  this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 21).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 21).FirstOrDefault().AnsDes : "";
+          //  this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 22).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 22).FirstOrDefault().AnsDes : "";
             this.nameExecutorTextbox.Value = answers.Where(x => x.QuestionId == 23).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 23).FirstOrDefault().AnsDes : "";
             this.nameSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 24).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 24).FirstOrDefault().AnsDes : "";
             this.DateExecutorTextbox.Value = answers.Where(x => x.QuestionId == 25).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 25).FirstOrDefault().AnsDes : "";
@@ -218,12 +218,35 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
             else
             {
-                Response.Redirect("/login.aspx");
+                Response.Redirect("/login/login.aspx");
                 Response.End();
 
             }
 
             string ansMonth = DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
+            long siteId = long.Parse(Request["SiteId"]);
+            int currentQuarter = this.GetQuarter(DateTime.Now);
+            SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.Status == 1).FirstOrDefault();
+            if (sR == null)
+            {
+                string srCode = "Q" + currentQuarter.ToString() + "/" + DateTime.Now.ToString("yyyy", CultureInfo.GetCultureInfo("th-US"));
+                uSOEntities.SRs.Add(new SR
+                {
+                    Code = srCode,
+                    CreatedDate = DateTime.Now,
+                    Detail = "",
+                    LastUpdated = DateTime.Now,
+                    LastUser = user.Id,
+                    SiteId = siteId,
+                    Quarter = currentQuarter,
+                    Status = 1
+                });
+            }
+            else
+            {
+                sR.LastUser = user.Id;
+                sR.LastUpdated = DateTime.Now;
+            }
 
             //1: logoPicture
             var ans1408 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 1642).FirstOrDefault();
@@ -244,7 +267,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
                         AnsMonth = ansMonth,
-                        //SRId = sR.Id
+                        SRId = sR.Id,
+
                     };
                     uSOEntities.Answers.Add(answe1408);
                 }
@@ -262,7 +286,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans1408.CreateDate = DateTime.Now;
                     ans1408.UserId = user.Id;
                     ans1408.AnsMonth = ansMonth;
-                   // ans1408.SRId = sR.Id;
+                    ans1408.SRId = sR.Id;
 
                 }
             }
@@ -281,6 +305,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     QuestionId = 1,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
+                    SRId = sR.Id,
+
 
 
                 };
@@ -294,7 +320,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans1.CreateDate = DateTime.Now;
                 ans1.QuestionId = 1;
                 ans1.UserId = user.Id;
-                ans1.AnsMonth = ansMonth;
+                ans1.AnsMonth = ansMonth; ans1.SRId = sR.Id;
 
             }
 
@@ -310,6 +336,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     QuestionId = 2,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
+                    SRId = sR.Id,
+
 
 
                 };
@@ -318,14 +346,15 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             else
             {
                 // ภูมิภาค              
-                {
+                
                     ans2.AnsDes = this.AreaTextbox.Value;
                     ans2.AnserTypeId = 1;
                     ans2.CreateDate = DateTime.Now;
                     ans2.QuestionId = 2;
                     ans2.UserId = user.Id;
                     ans2.AnsMonth = ansMonth;
-                }
+                    ans2.SRId = sR.Id;
+                
 
             }
 
@@ -342,22 +371,21 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     QuestionId = 3,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
+                    SRId = sR.Id,
+
 
                 };
                 uSOEntities.Answers.Add(answer3);
             }
             else
-            {
-
-                {
+            {              
                     ans3.AnsDes = this.CompanyTextbox.Value;
                     ans3.AnserTypeId = 1;
                     ans3.CreateDate = DateTime.Now;
                     ans3.QuestionId = 3;
                     ans3.UserId = user.Id;
-                    ans3.AnsMonth = ansMonth;
-                }
-
+                    ans3.AnsMonth = ansMonth; ans3.SRId = sR.Id;
+               
             }
 
 
@@ -373,6 +401,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     QuestionId = 4,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
+                    SRId = sR.Id,
+
 
                 };
                 uSOEntities.Answers.Add(answer3);
@@ -380,14 +410,14 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             else
             {
 
-                {
+                
                     ans4.AnsDes = this.maintenanceCountTextbox.Value;
                     ans4.AnserTypeId = 1;
                     ans4.CreateDate = DateTime.Now;
                     ans4.QuestionId = 4;
                     ans4.UserId = user.Id;
-                    ans4.AnsMonth = ansMonth;
-                }
+                    ans4.AnsMonth = ansMonth; ans4.SRId = sR.Id;
+                
 
             }
 
@@ -404,6 +434,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
+                    SRId = sR.Id,
 
                 };
                 uSOEntities.Answers.Add(answer3);
@@ -411,19 +442,96 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             else
             {
 
-                {
+                
                     ans5.QuestionId = 5;
                     ans5.AnsDes = this.yearTextbox.Value;
                     ans5.AnserTypeId = 1;
                     ans5.CreateDate = DateTime.Now;
                     ans5.UserId = user.Id;
-                    ans5.AnsMonth = ansMonth;
-                }
+                    ans5.AnsMonth = ansMonth; ans5.SRId = sR.Id;
+                
 
             }
 
-            var ans6 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 8).FirstOrDefault();
+
+            //ใส่ป้ายหน้าโรงเรียน :
+            var ans6 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 6).FirstOrDefault();
             if (ans6 == null)
+
+            {
+
+                if (this.signboardschoolImage.HasFile)
+                {
+                    string extension = this.signboardschoolImage.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/SignboardSchool_usowrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.signboardschoolImage.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                    Answer answer6 = new Answer()
+                    {
+                        AnsDes = newFileName,
+                        QuestionId = 6,
+                        AnserTypeId = 3,
+                        CreateDate = DateTime.Now,
+                        UserId = user.Id,
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
+                    };
+                    uSOEntities.Answers.Add(answer6);
+                }
+            }
+            else
+            {
+                if (this.signboardschoolImage.HasFile)
+                {
+                    string extension = this.signboardschoolImage.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/SignboardSchool_usowrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.signboardschoolImage.PostedFile.SaveAs(Server.MapPath(newFileName));
+                    ans6.QuestionId = 6;
+                    ans6.AnsDes = newFileName;
+                    ans6.AnserTypeId = 3;
+                    ans6.CreateDate = DateTime.Now;
+                    ans6.UserId = user.Id;
+                    ans6.AnsMonth = ansMonth;
+                    ans6.SRId = sR.Id;
+                }
+            }
+
+
+            var ans7 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 7).FirstOrDefault();
+            if (ans7 == null)
+            {
+                string varibles = Request.Form["upsModeRadio"];
+                Answer answer7 = new Answer()
+                {
+                    AnsDes = varibles,
+                    QuestionId = 7,
+                    AnserTypeId = 4,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer7);
+
+            }
+            else
+            {
+                string varibles = Request.Form["upsModeRadio"];
+                ans7.AnsDes = varibles;
+                ans7.QuestionId = 7;
+                ans7.AnserTypeId = 4;
+                ans7.CreateDate = DateTime.Now;
+                ans7.UserId = user.Id;
+                ans7.AnsMonth = ansMonth;
+                ans7.SRId = sR.Id;
+
+            }
+
+
+
+
+            var ans8 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 8).FirstOrDefault();
+            if (ans8 == null)
             {
 
                 //วัน เดือน ปี ที่เริ่มต้น
@@ -435,6 +543,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
+                    SRId = sR.Id,
+
 
 
                 };
@@ -442,15 +552,13 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
             else
             {
-
-                {
-                    ans6.QuestionId = 8;
-                    ans6.AnsDes = this.startDatepicker.Value;
-                    ans6.AnserTypeId = 1;
-                    ans6.CreateDate = DateTime.Now;
-                    ans6.UserId = user.Id;
-                    ans6.AnsMonth = ansMonth;
-                }
+                ans8.QuestionId = 8;
+                ans8.AnsDes = this.startDatepicker.Value;
+                ans8.AnserTypeId = 1;
+                ans8.CreateDate = DateTime.Now;
+                ans8.UserId = user.Id;
+                ans8.AnsMonth = ansMonth;
+                ans8.SRId = sR.Id;
 
             }
 
@@ -468,6 +576,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
+                    SRId = sR.Id,
+
 
 
                 };
@@ -476,14 +586,14 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             else
             {
 
-                {
+                
                     ans9.QuestionId = 9;
                     ans9.AnsDes = this.endDatepicker.Value;
                     ans9.AnserTypeId = 1;
                     ans9.CreateDate = DateTime.Now;
                     ans9.UserId = user.Id;
-                    ans9.AnsMonth = ansMonth;
-                }
+                    ans9.AnsMonth = ansMonth; ans9.SRId = sR.Id;
+                
 
             }
 
@@ -503,6 +613,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
+                    SRId = sR.Id,
+
 
                 };
                 uSOEntities.Answers.Add(answer10);
@@ -516,7 +628,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans10.AnserTypeId = 1;
                     ans10.CreateDate = DateTime.Now;
                     ans10.UserId = user.Id;
-                    ans10.AnsMonth = ansMonth;
+                    ans10.AnsMonth = ansMonth; ans10.SRId = sR.Id;
                 }
 
             }
@@ -537,6 +649,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
+                    SRId = sR.Id,
+
 
                 };
                 uSOEntities.Answers.Add(answer11);
@@ -551,7 +665,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans11.AnserTypeId = 1;
                     ans11.CreateDate = DateTime.Now;
                     ans11.UserId = user.Id;
-                    ans11.AnsMonth = ansMonth;
+                    ans11.AnsMonth = ansMonth; ans11.SRId = sR.Id;
                 }
 
             }
@@ -571,6 +685,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
+                    SRId = sR.Id,
+
                 };
                 uSOEntities.Answers.Add(answer12);
 
@@ -584,7 +700,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans12.AnserTypeId = 1;
                     ans12.CreateDate = DateTime.Now;
                     ans12.UserId = user.Id;
-                    ans12.AnsMonth = ansMonth;
+                    ans12.AnsMonth = ansMonth; ans12.SRId = sR.Id;
                 }
 
             }
@@ -602,7 +718,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer13);
 
@@ -616,7 +733,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans13.AnserTypeId = 1;
                     ans13.CreateDate = DateTime.Now;
                     ans13.UserId = user.Id;
-                    ans13.AnsMonth = ansMonth;
+                    ans13.AnsMonth = ansMonth; ans13.SRId = sR.Id;
                 }
 
             }
@@ -634,7 +751,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer14);
 
@@ -648,7 +766,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans14.AnserTypeId = 1;
                     ans14.CreateDate = DateTime.Now;
                     ans14.UserId = user.Id;
-                    ans14.AnsMonth = ansMonth;
+                    ans14.AnsMonth = ansMonth; ans14.SRId = sR.Id;
                 }
 
             }
@@ -665,7 +783,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer15);
 
@@ -679,7 +798,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans15.AnserTypeId = 1;
                     ans15.CreateDate = DateTime.Now;
                     ans15.UserId = user.Id;
-                    ans15.AnsMonth = ansMonth;
+                    ans15.AnsMonth = ansMonth; ans15.SRId = sR.Id;
                 }
 
             }
@@ -696,7 +815,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer16);
 
@@ -710,7 +830,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans16.AnserTypeId = 1;
                     ans16.CreateDate = DateTime.Now;
                     ans16.UserId = user.Id;
-                    ans16.AnsMonth = ansMonth;
+                    ans16.AnsMonth = ansMonth; ans16.SRId = sR.Id;
                 }
 
             }
@@ -727,7 +847,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer1641);
 
@@ -741,7 +862,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans1641.AnserTypeId = 1;
                     ans1641.CreateDate = DateTime.Now;
                     ans1641.UserId = user.Id;
-                    ans1641.AnsMonth = ansMonth;
+                    ans1641.AnsMonth = ansMonth; ans1641.SRId = sR.Id;
                 }
 
             }
@@ -752,7 +873,6 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             var ans17 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 17).FirstOrDefault();
             if (ans17 == null)
             {
-
                 //Province :
                 Answer answer17 = new Answer()
                 {
@@ -761,7 +881,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer17);
 
@@ -775,7 +896,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans17.AnserTypeId = 1;
                     ans17.CreateDate = DateTime.Now;
                     ans17.UserId = user.Id;
-                    ans17.AnsMonth = ansMonth;
+                    ans17.AnsMonth = ansMonth; ans17.SRId = sR.Id;
                 }
 
             }
@@ -784,7 +905,6 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             var ans18 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 18).FirstOrDefault();
             if (ans18 == null)
             {
-
                 //Province :
                 Answer answer17 = new Answer()
                 {
@@ -793,7 +913,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer17);
 
@@ -807,7 +928,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans18.AnserTypeId = 1;
                     ans18.CreateDate = DateTime.Now;
                     ans18.UserId = user.Id;
-                    ans18.AnsMonth = ansMonth;
+                    ans18.AnsMonth = ansMonth; ans18.SRId = sR.Id;
                 }
 
             }
@@ -816,8 +937,6 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             var ans19 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 19).FirstOrDefault();
             if (ans19 == null)
             {
-
-
                 //PM Date :
                 Answer answer19 = new Answer()
                 {
@@ -826,7 +945,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer19);
 
@@ -840,7 +960,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans19.AnserTypeId = 1;
                     ans19.CreateDate = DateTime.Now;
                     ans19.UserId = user.Id;
-                    ans19.AnsMonth = ansMonth;
+                    ans19.AnsMonth = ansMonth; ans19.SRId = sR.Id;
                 }
 
             }
@@ -848,25 +968,47 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
             //ใส่รูปหน้าอาคารศูนย์ USO Net :
-            if (this.usonetsignboardImage.HasFile)
+            var ans20 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 20).FirstOrDefault();
+            if (ans20 == null)
+
             {
-                string extension = this.usonetsignboardImage.PostedFile.FileName.Split('.')[1];
-                string newFileName = "images/UsonetPicture_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                this.usonetsignboardImage.PostedFile.SaveAs(Server.MapPath(newFileName));
-
-                Answer answer20 = new Answer()
+               
+                if (this.usonetsignboardImage.HasFile)
                 {
-                    AnsDes = newFileName,
-                    QuestionId = 20,
-                    AnserTypeId = 3,
-                    CreateDate = DateTime.Now,
-                    UserId = user.Id,
-                    AnsMonth = ansMonth
-                };
-                uSOEntities.Answers.Add(answer20);
+                    string extension = this.usonetsignboardImage.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/UsonetPicture_usowrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.usonetsignboardImage.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                    Answer answer20 = new Answer()
+                    {
+                        AnsDes = newFileName,
+                        QuestionId = 20,
+                        AnserTypeId = 3,
+                        CreateDate = DateTime.Now,
+                        UserId = user.Id,
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
+                    };
+                    uSOEntities.Answers.Add(answer20);
+                }
             }
+            else
+            {
+                if (this.usonetsignboardImage.HasFile)
+                {
+                    string extension = this.usonetsignboardImage.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/UsonetPicture_usowrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.usonetsignboardImage.PostedFile.SaveAs(Server.MapPath(newFileName));
+                    ans20.QuestionId = 20;
+                    ans20.AnsDes = newFileName;
+                    ans20.AnserTypeId = 3;
+                    ans20.CreateDate = DateTime.Now;
+                    ans20.UserId = user.Id;
+                    ans20.AnsMonth = ansMonth;
+                    ans20.SRId = sR.Id;
 
-
+                }
+            }
 
             var ans21 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 21).FirstOrDefault();
             if (ans21 == null)
@@ -877,12 +1019,13 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 //signature Executor :
                 Answer answer21 = new Answer()
                 {
-                    AnsDes = this.signatureExecutorTextbox.Value,
+                   // AnsDes = this.signatureExecutorTextbox.Value,
                     QuestionId = 21,
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer21);
 
@@ -892,11 +1035,12 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
                 {
                     ans21.QuestionId = 21;
-                    ans21.AnsDes = this.signatureExecutorTextbox.Value;
+                   // ans21.AnsDes = this.signatureExecutorTextbox.Value;
                     ans21.AnserTypeId = 1;
                     ans21.CreateDate = DateTime.Now;
                     ans21.UserId = user.Id;
                     ans21.AnsMonth = ansMonth;
+                    ans21.SRId = sR.Id;
                 }
 
             }
@@ -913,12 +1057,13 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 //signature Executor :
                 Answer answer22 = new Answer()
                 {
-                    AnsDes = this.signatureSupervisorTextbox.Value,
+                   // AnsDes = this.signatureSupervisorTextbox.Value,
                     QuestionId = 22,
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer22);
 
@@ -928,11 +1073,11 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
                 {
                     ans22.QuestionId = 21;
-                    ans22.AnsDes = this.signatureSupervisorTextbox.Value;
+                   // ans22.AnsDes = this.signatureSupervisorTextbox.Value;
                     ans22.AnserTypeId = 1;
                     ans22.CreateDate = DateTime.Now;
                     ans22.UserId = user.Id;
-                    ans22.AnsMonth = ansMonth;
+                    ans22.AnsMonth = ansMonth; ans22.SRId = sR.Id;
                 }
 
             }
@@ -950,7 +1095,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer23);
 
@@ -964,7 +1110,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans23.AnserTypeId = 1;
                     ans23.CreateDate = DateTime.Now;
                     ans23.UserId = user.Id;
-                    ans23.AnsMonth = ansMonth;
+                    ans23.AnsMonth = ansMonth; ans23.SRId = sR.Id;
                 }
 
             }
@@ -986,7 +1132,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer24);
 
@@ -1000,7 +1147,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans24.AnserTypeId = 1;
                     ans24.CreateDate = DateTime.Now;
                     ans24.UserId = user.Id;
-                    ans24.AnsMonth = ansMonth;
+                    ans24.AnsMonth = ansMonth; ans24.SRId = sR.Id;
                 }
 
             }
@@ -1020,7 +1167,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer25);
 
@@ -1034,7 +1182,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans25.AnserTypeId = 1;
                     ans25.CreateDate = DateTime.Now;
                     ans25.UserId = user.Id;
-                    ans25.AnsMonth = ansMonth;
+                    ans25.AnsMonth = ansMonth; ans25.SRId = sR.Id;
                 }
 
             }
@@ -1051,7 +1199,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer26);
 
@@ -1065,7 +1214,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans26.AnserTypeId = 1;
                     ans26.CreateDate = DateTime.Now;
                     ans26.UserId = user.Id;
-                    ans26.AnsMonth = ansMonth;
+                    ans26.AnsMonth = ansMonth; ans26.SRId = sR.Id;
                 }
 
             }
@@ -1081,7 +1230,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer27);
 
@@ -1095,7 +1245,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans27.AnserTypeId = 1;
                     ans27.CreateDate = DateTime.Now;
                     ans27.UserId = user.Id;
-                    ans27.AnsMonth = ansMonth;
+                    ans27.AnsMonth = ansMonth; ans27.SRId = sR.Id;
                 }
 
             }
@@ -1112,7 +1262,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer28);
 
@@ -1127,7 +1278,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans28.AnserTypeId = 1;
                     ans28.CreateDate = DateTime.Now;
                     ans28.UserId = user.Id;
-                    ans28.AnsMonth = ansMonth;
+                    ans28.AnsMonth = ansMonth; ans28.SRId = sR.Id;
                 }
 
             }
@@ -1143,7 +1294,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer29);
 
@@ -1158,7 +1310,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans29.AnserTypeId = 1;
                     ans29.CreateDate = DateTime.Now;
                     ans29.UserId = user.Id;
-                    ans29.AnsMonth = ansMonth;
+                    ans29.AnsMonth = ansMonth; ans29.SRId = sR.Id;
                 }
 
             }
@@ -1175,7 +1327,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer30);
 
@@ -1190,7 +1343,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans30.AnserTypeId = 1;
                     ans30.CreateDate = DateTime.Now;
                     ans30.UserId = user.Id;
-                    ans30.AnsMonth = ansMonth;
+                    ans30.AnsMonth = ansMonth; ans30.SRId = sR.Id;
                 }
 
             }
@@ -1210,6 +1363,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
+                    SRId = sR.Id,
+
                 };
 
                 uSOEntities.Answers.Add(answer31);
@@ -1222,7 +1377,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans31.CreateDate = DateTime.Now;
                 ans31.QuestionId = 31;
                 ans31.UserId = user.Id;
-                ans31.AnsMonth = ansMonth;
+                ans31.AnsMonth = ansMonth; ans31.SRId = sR.Id;
 
             }
 
@@ -1241,7 +1396,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer32);
 
@@ -1254,7 +1410,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans32.CreateDate = DateTime.Now;
                 ans32.QuestionId = 32;
                 ans32.UserId = user.Id;
-                ans32.AnsMonth = ansMonth;
+                ans32.AnsMonth = ansMonth; ans32.SRId = sR.Id;
 
             }
 
@@ -1270,7 +1426,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer33);
             }
@@ -1282,7 +1439,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans33.CreateDate = DateTime.Now;
                 ans33.QuestionId = 33;
                 ans33.UserId = user.Id;
-                ans33.AnsMonth = ansMonth;
+                ans33.AnsMonth = ansMonth; ans33.SRId = sR.Id;
 
             }
 
@@ -1301,7 +1458,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer34);
 
@@ -1315,7 +1473,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans34.CreateDate = DateTime.Now;
                 ans34.QuestionId = 34;
                 ans34.UserId = user.Id;
-                ans34.AnsMonth = ansMonth;
+                ans34.AnsMonth = ansMonth; ans34.SRId = sR.Id;
 
             }
 
@@ -1333,7 +1491,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer35);
 
@@ -1346,7 +1505,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans35.CreateDate = DateTime.Now;
                 ans35.QuestionId = 35;
                 ans35.UserId = user.Id;
-                ans35.AnsMonth = ansMonth;
+                ans35.AnsMonth = ansMonth; ans35.SRId = sR.Id;
 
             }
 
@@ -1364,7 +1523,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer36);
 
@@ -1376,7 +1536,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans36.AnserTypeId = 1;
                 ans36.CreateDate = DateTime.Now;
                 ans36.UserId = user.Id;
-                ans36.AnsMonth = ansMonth;
+                ans36.AnsMonth = ansMonth; ans36.SRId = sR.Id;
 
             }
 
@@ -1394,7 +1554,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer37);
 
@@ -1406,7 +1567,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans37.AnserTypeId = 1;
                 ans37.CreateDate = DateTime.Now;
                 ans37.UserId = user.Id;
-                ans37.AnsMonth = ansMonth;
+                ans37.AnsMonth = ansMonth; ans37.SRId = sR.Id;
 
             }
 
@@ -1425,7 +1586,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer38);
 
@@ -1438,6 +1600,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans38.CreateDate = DateTime.Now;
                 ans38.UserId = user.Id;
                 ans38.AnsMonth = ansMonth;
+                ans38.SRId = sR.Id;
 
             }
 
@@ -1456,7 +1619,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer39);
 
@@ -1469,6 +1633,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans39.CreateDate = DateTime.Now;
                 ans39.UserId = user.Id;
                 ans39.AnsMonth = ansMonth;
+                ans39.SRId = sR.Id;
 
             }
 
@@ -1490,7 +1655,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer40);
 
@@ -1504,6 +1670,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans40.CreateDate = DateTime.Now;
                 ans40.UserId = user.Id;
                 ans40.AnsMonth = ansMonth;
+                ans40.SRId = sR.Id;
 
             }
 
@@ -1522,7 +1689,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer41);
 
@@ -1536,6 +1704,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans41.CreateDate = DateTime.Now;
                 ans41.UserId = user.Id;
                 ans41.AnsMonth = ansMonth;
+                ans41.SRId = sR.Id;
 
             }
 
@@ -1555,7 +1724,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer42);
 
@@ -1569,6 +1739,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans42.CreateDate = DateTime.Now;
                 ans42.UserId = user.Id;
                 ans42.AnsMonth = ansMonth;
+                ans42.SRId = sR.Id;
 
             }
 
@@ -1588,7 +1759,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer43);
 
@@ -1602,6 +1774,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans43.CreateDate = DateTime.Now;
                 ans43.UserId = user.Id;
                 ans43.AnsMonth = ansMonth;
+                ans43.SRId = sR.Id;
 
             }
 
@@ -1618,7 +1791,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer44);
 
@@ -1632,6 +1806,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans44.CreateDate = DateTime.Now;
                 ans44.UserId = user.Id;
                 ans44.AnsMonth = ansMonth;
+                ans44.SRId = sR.Id;
 
             }
 
@@ -1649,7 +1824,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer45);
 
@@ -1663,6 +1839,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans45.CreateDate = DateTime.Now;
                 ans45.UserId = user.Id;
                 ans45.AnsMonth = ansMonth;
+                ans45.SRId = sR.Id;
 
             }
 
@@ -1683,7 +1860,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer46);
 
@@ -1697,6 +1875,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans46.CreateDate = DateTime.Now;
                 ans46.UserId = user.Id;
                 ans46.AnsMonth = ansMonth;
+                ans46.SRId = sR.Id;
 
             }
 
@@ -1717,7 +1896,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer47);
 
@@ -1731,6 +1911,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans47.CreateDate = DateTime.Now;
                 ans47.UserId = user.Id;
                 ans47.AnsMonth = ansMonth;
+                ans47.SRId = sR.Id;
 
             }
 
@@ -1749,7 +1930,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer48);
 
@@ -1763,6 +1945,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans48.CreateDate = DateTime.Now;
                 ans48.UserId = user.Id;
                 ans48.AnsMonth = ansMonth;
+                ans48.SRId = sR.Id;
 
             }
 
@@ -1780,7 +1963,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer49);
 
@@ -1794,6 +1978,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans49.CreateDate = DateTime.Now;
                 ans49.UserId = user.Id;
                 ans49.AnsMonth = ansMonth;
+                ans49.SRId = sR.Id;
 
             }
 
@@ -1811,7 +1996,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer50);
 
@@ -1826,6 +2012,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans50.CreateDate = DateTime.Now;
                 ans50.UserId = user.Id;
                 ans50.AnsMonth = ansMonth;
+                ans50.SRId = sR.Id;
 
             }
 
@@ -1845,7 +2032,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer51);
 
@@ -1860,6 +2048,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans51.CreateDate = DateTime.Now;
                 ans51.UserId = user.Id;
                 ans51.AnsMonth = ansMonth;
+                ans51.SRId = sR.Id;
 
             }
 
@@ -1879,7 +2068,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer52);
 
@@ -1894,6 +2084,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans52.CreateDate = DateTime.Now;
                 ans52.UserId = user.Id;
                 ans52.AnsMonth = ansMonth;
+                ans52.SRId = sR.Id;
 
             }
 
@@ -1914,7 +2105,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer53);
 
@@ -1929,6 +2121,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans53.CreateDate = DateTime.Now;
                 ans53.UserId = user.Id;
                 ans53.AnsMonth = ansMonth;
+                ans53.SRId = sR.Id;
 
             }
 
@@ -1946,7 +2139,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer54);
             }
@@ -1959,6 +2153,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans54.CreateDate = DateTime.Now;
                 ans54.UserId = user.Id;
                 ans54.AnsMonth = ansMonth;
+                ans54.SRId = sR.Id;
 
             }
 
@@ -1976,7 +2171,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer55);
             }
@@ -1989,6 +2185,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans55.CreateDate = DateTime.Now;
                 ans55.UserId = user.Id;
                 ans55.AnsMonth = ansMonth;
+                ans55.SRId = sR.Id;
 
             }
 
@@ -2005,7 +2202,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer57);
             }
@@ -2018,6 +2216,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans57.CreateDate = DateTime.Now;
                 ans57.UserId = user.Id;
                 ans57.AnsMonth = ansMonth;
+                ans57.SRId = sR.Id;
 
             }
 
@@ -2036,7 +2235,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer58);
             }
@@ -2049,6 +2249,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans58.CreateDate = DateTime.Now;
                 ans58.UserId = user.Id;
                 ans58.AnsMonth = ansMonth;
+                ans58.SRId = sR.Id;
 
             }
 
@@ -2069,7 +2270,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer59);
             }
@@ -2082,6 +2284,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans59.CreateDate = DateTime.Now;
                 ans59.UserId = user.Id;
                 ans59.AnsMonth = ansMonth;
+                ans59.SRId = sR.Id;
 
             }
 
@@ -2099,7 +2302,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer60);
             }
@@ -2112,6 +2316,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans60.CreateDate = DateTime.Now;
                 ans60.UserId = user.Id;
                 ans60.AnsMonth = ansMonth;
+                ans60.SRId = sR.Id;
 
             }
 
@@ -2129,7 +2334,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer61);
             }
@@ -2142,6 +2348,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans61.CreateDate = DateTime.Now;
                 ans61.UserId = user.Id;
                 ans61.AnsMonth = ansMonth;
+                ans61.SRId = sR.Id;
 
             }
 
@@ -2163,7 +2370,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer62);
             }
@@ -2176,6 +2384,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans62.CreateDate = DateTime.Now;
                 ans62.UserId = user.Id;
                 ans62.AnsMonth = ansMonth;
+                ans62.SRId = sR.Id;
 
             }
 
@@ -2197,7 +2406,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer63);
             }
@@ -2210,6 +2420,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans63.CreateDate = DateTime.Now;
                 ans63.UserId = user.Id;
                 ans63.AnsMonth = ansMonth;
+                ans63.SRId = sR.Id;
 
             }
 
@@ -2226,7 +2437,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer64);
             }
@@ -2239,6 +2451,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans64.CreateDate = DateTime.Now;
                 ans64.UserId = user.Id;
                 ans64.AnsMonth = ansMonth;
+                ans64.SRId = sR.Id;
 
             }
 
@@ -2254,7 +2467,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer65);
             }
@@ -2267,6 +2481,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans65.CreateDate = DateTime.Now;
                 ans65.UserId = user.Id;
                 ans65.AnsMonth = ansMonth;
+                ans65.SRId = sR.Id;
             }
 
 
@@ -2283,7 +2498,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer66);
             }
@@ -2296,6 +2512,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans66.CreateDate = DateTime.Now;
                 ans66.UserId = user.Id;
                 ans66.AnsMonth = ansMonth;
+                ans66.SRId = sR.Id;
             }
 
 
@@ -2312,7 +2529,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer67);
             }
@@ -2325,6 +2543,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans67.CreateDate = DateTime.Now;
                 ans67.UserId = user.Id;
                 ans67.AnsMonth = ansMonth;
+                ans67.SRId = sR.Id;
             }
 
 
@@ -2345,7 +2564,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer68);
             }
@@ -2358,6 +2578,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans68.CreateDate = DateTime.Now;
                 ans68.UserId = user.Id;
                 ans68.AnsMonth = ansMonth;
+                ans68.SRId = sR.Id;
             }
 
 
@@ -2377,7 +2598,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer69);
 
@@ -2391,6 +2613,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans69.CreateDate = DateTime.Now;
                 ans69.UserId = user.Id;
                 ans69.AnsMonth = ansMonth;
+                ans69.SRId = sR.Id;
             }
 
 
@@ -2406,7 +2629,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer70);
 
@@ -2420,6 +2644,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans70.CreateDate = DateTime.Now;
                 ans70.UserId = user.Id;
                 ans70.AnsMonth = ansMonth;
+                ans70.SRId = sR.Id;
             }
 
 
@@ -2436,7 +2661,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer71);
 
@@ -2450,6 +2676,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans71.CreateDate = DateTime.Now;
                 ans71.UserId = user.Id;
                 ans71.AnsMonth = ansMonth;
+                ans71.SRId = sR.Id;
             }
 
 
@@ -2467,7 +2694,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer72);
 
@@ -2481,6 +2709,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans72.CreateDate = DateTime.Now;
                 ans72.UserId = user.Id;
                 ans72.AnsMonth = ansMonth;
+                ans72.SRId = sR.Id;
             }
 
 
@@ -2501,7 +2730,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer73);
 
@@ -2515,6 +2745,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans73.CreateDate = DateTime.Now;
                 ans73.UserId = user.Id;
                 ans73.AnsMonth = ansMonth;
+                ans73.SRId = sR.Id;
             }
 
 
@@ -2532,7 +2763,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer74);
 
@@ -2546,6 +2778,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans74.CreateDate = DateTime.Now;
                 ans74.UserId = user.Id;
                 ans74.AnsMonth = ansMonth;
+                ans74.SRId = sR.Id;
             }
 
 
@@ -2563,7 +2796,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer74);
 
@@ -2577,6 +2811,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans75.CreateDate = DateTime.Now;
                 ans75.UserId = user.Id;
                 ans75.AnsMonth = ansMonth;
+                ans75.SRId = sR.Id;
             }
 
 
@@ -2596,7 +2831,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer76);
 
@@ -2611,6 +2847,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans76.CreateDate = DateTime.Now;
                 ans76.UserId = user.Id;
                 ans76.AnsMonth = ansMonth;
+                ans76.SRId = sR.Id;
             }
 
 
@@ -2630,7 +2867,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer77);
 
@@ -2645,6 +2883,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans77.CreateDate = DateTime.Now;
                 ans77.UserId = user.Id;
                 ans77.AnsMonth = ansMonth;
+                ans77.SRId = sR.Id;
             }
 
 
@@ -2662,7 +2901,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer78);
 
@@ -2677,6 +2917,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans78.CreateDate = DateTime.Now;
                 ans78.UserId = user.Id;
                 ans78.AnsMonth = ansMonth;
+                ans78.SRId = sR.Id;
             }
 
 
@@ -2694,7 +2935,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer79);
 
@@ -2710,6 +2952,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans79.CreateDate = DateTime.Now;
                 ans79.UserId = user.Id;
                 ans79.AnsMonth = ansMonth;
+                ans79.SRId = sR.Id;
             }
 
 
@@ -2728,7 +2971,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer80);
 
@@ -2744,6 +2988,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans80.CreateDate = DateTime.Now;
                 ans80.UserId = user.Id;
                 ans80.AnsMonth = ansMonth;
+                ans80.SRId = sR.Id;
             }
 
 
@@ -2765,7 +3010,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer81);
 
@@ -2781,6 +3027,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans81.CreateDate = DateTime.Now;
                 ans81.UserId = user.Id;
                 ans81.AnsMonth = ansMonth;
+                ans81.SRId = sR.Id;
             }
 
 
@@ -2800,7 +3047,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer82);
 
@@ -2816,6 +3064,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans82.CreateDate = DateTime.Now;
                 ans82.UserId = user.Id;
                 ans82.AnsMonth = ansMonth;
+                ans82.SRId = sR.Id;
             }
 
 
@@ -2834,7 +3083,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer83);
 
@@ -2850,6 +3100,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans83.CreateDate = DateTime.Now;
                 ans83.UserId = user.Id;
                 ans83.AnsMonth = ansMonth;
+                ans83.SRId = sR.Id;
             }
 
 
@@ -2869,7 +3120,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer84);
 
@@ -2885,6 +3137,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans83.CreateDate = DateTime.Now;
                 ans83.UserId = user.Id;
                 ans83.AnsMonth = ansMonth;
+                ans83.SRId = sR.Id;
             }
 
 
@@ -2907,7 +3160,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer85);
 
@@ -2923,6 +3177,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans85.CreateDate = DateTime.Now;
                 ans85.UserId = user.Id;
                 ans85.AnsMonth = ansMonth;
+                ans85.SRId = sR.Id;
             }
 
 
@@ -2942,7 +3197,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer86);
 
@@ -2958,6 +3214,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans86.CreateDate = DateTime.Now;
                 ans86.UserId = user.Id;
                 ans86.AnsMonth = ansMonth;
+                ans86.SRId = sR.Id;
             }
 
 
@@ -2977,7 +3234,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer87);
 
@@ -2994,6 +3252,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans87.CreateDate = DateTime.Now;
                 ans87.UserId = user.Id;
                 ans87.AnsMonth = ansMonth;
+                ans87.SRId = sR.Id;
             }
 
 
@@ -3013,7 +3272,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer88);
 
@@ -3027,6 +3287,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans88.CreateDate = DateTime.Now;
                 ans88.UserId = user.Id;
                 ans88.AnsMonth = ansMonth;
+                ans88.SRId = sR.Id;
             }
 
 
@@ -3045,7 +3306,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer89);
 
@@ -3059,6 +3321,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans89.CreateDate = DateTime.Now;
                 ans89.UserId = user.Id;
                 ans89.AnsMonth = ansMonth;
+                ans89.SRId = sR.Id;
             }
 
 
@@ -3080,7 +3343,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer90);
 
@@ -3094,6 +3358,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans90.CreateDate = DateTime.Now;
                 ans90.UserId = user.Id;
                 ans90.AnsMonth = ansMonth;
+                ans90.SRId = sR.Id;
             }
 
 
@@ -3113,7 +3378,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer91);
 
@@ -3127,6 +3393,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans91.CreateDate = DateTime.Now;
                 ans91.UserId = user.Id;
                 ans91.AnsMonth = ansMonth;
+                ans91.SRId = sR.Id;
             }
 
 
@@ -3147,7 +3414,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer92);
 
@@ -3161,6 +3429,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans92.CreateDate = DateTime.Now;
                 ans92.UserId = user.Id;
                 ans92.AnsMonth = ansMonth;
+                ans92.SRId = sR.Id;
             }
 
 
@@ -3179,7 +3448,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer93);
 
@@ -3193,6 +3463,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans93.CreateDate = DateTime.Now;
                 ans93.UserId = user.Id;
                 ans93.AnsMonth = ansMonth;
+                ans93.SRId = sR.Id;
             }
 
 
@@ -3211,7 +3482,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer94);
 
@@ -3225,6 +3497,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans94.CreateDate = DateTime.Now;
                 ans94.UserId = user.Id;
                 ans94.AnsMonth = ansMonth;
+                ans94.SRId = sR.Id;
             }
 
 
@@ -3244,7 +3517,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer95);
 
@@ -3258,6 +3532,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans95.CreateDate = DateTime.Now;
                 ans95.UserId = user.Id;
                 ans95.AnsMonth = ansMonth;
+                ans95.SRId = sR.Id;
             }
 
 
@@ -3278,7 +3553,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer96);
 
@@ -3293,6 +3569,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans96.CreateDate = DateTime.Now;
                 ans96.UserId = user.Id;
                 ans96.AnsMonth = ansMonth;
+                ans96.SRId = sR.Id;
             }
 
 
@@ -3313,7 +3590,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer97);
 
@@ -3328,6 +3606,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans97.CreateDate = DateTime.Now;
                 ans97.UserId = user.Id;
                 ans97.AnsMonth = ansMonth;
+                ans97.SRId = sR.Id;
             }
 
 
@@ -3349,7 +3628,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer98);
 
@@ -3365,6 +3645,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans98.CreateDate = DateTime.Now;
                 ans98.UserId = user.Id;
                 ans98.AnsMonth = ansMonth;
+                ans98.SRId = sR.Id;
             }
 
 
@@ -3382,7 +3663,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer99);
 
@@ -3397,6 +3679,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans99.CreateDate = DateTime.Now;
                 ans99.UserId = user.Id;
                 ans99.AnsMonth = ansMonth;
+                ans99.SRId = sR.Id;
             }
 
 
@@ -3415,7 +3698,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer100);
 
@@ -3431,6 +3715,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans100.CreateDate = DateTime.Now;
                 ans100.UserId = user.Id;
                 ans100.AnsMonth = ansMonth;
+                ans100.SRId = sR.Id;
             }
 
 
@@ -3447,7 +3732,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer101);
             }
@@ -3459,6 +3745,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans101.CreateDate = DateTime.Now;
                 ans101.UserId = user.Id;
                 ans101.AnsMonth = ansMonth;
+                ans101.SRId = sR.Id;
             }
 
 
@@ -3475,7 +3762,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer102);
             }
@@ -3487,6 +3775,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans102.CreateDate = DateTime.Now;
                 ans102.UserId = user.Id;
                 ans102.AnsMonth = ansMonth;
+                ans102.SRId = sR.Id;
             }
 
 
@@ -3502,7 +3791,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer103);
 
@@ -3515,6 +3805,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans103.CreateDate = DateTime.Now;
                 ans103.UserId = user.Id;
                 ans103.AnsMonth = ansMonth;
+                ans103.SRId = sR.Id;
             }
 
 
@@ -3531,7 +3822,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer104);
 
@@ -3544,6 +3836,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans104.CreateDate = DateTime.Now;
                 ans104.UserId = user.Id;
                 ans104.AnsMonth = ansMonth;
+                ans104.SRId = sR.Id;
             }
 
 
@@ -3561,7 +3854,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer105);
 
@@ -3574,6 +3868,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans105.CreateDate = DateTime.Now;
                 ans105.UserId = user.Id;
                 ans105.AnsMonth = ansMonth;
+                ans105.SRId = sR.Id;
             }
 
 
@@ -3590,7 +3885,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer106);
 
@@ -3603,6 +3899,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans106.CreateDate = DateTime.Now;
                 ans106.UserId = user.Id;
                 ans106.AnsMonth = ansMonth;
+                ans106.SRId = sR.Id;
             }
 
 
@@ -3618,7 +3915,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer107);
 
@@ -3631,6 +3929,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans107.CreateDate = DateTime.Now;
                 ans107.UserId = user.Id;
                 ans107.AnsMonth = ansMonth;
+                ans107.SRId = sR.Id;
             }
 
 
@@ -3647,7 +3946,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer108);
 
@@ -3659,7 +3959,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans108.AnserTypeId = 1;
                 ans108.CreateDate = DateTime.Now;
                 ans108.UserId = user.Id;
-                ans108.AnsMonth = ansMonth;
+                ans108.AnsMonth = ansMonth; ans108.SRId = sR.Id;
             }
 
 
@@ -3677,7 +3977,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer109);
 
@@ -3690,6 +3991,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans109.CreateDate = DateTime.Now;
                 ans109.UserId = user.Id;
                 ans109.AnsMonth = ansMonth;
+                ans109.SRId = sR.Id;
             }
 
 
@@ -3707,7 +4009,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer110);
 
@@ -3720,6 +4023,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans110.CreateDate = DateTime.Now;
                 ans110.UserId = user.Id;
                 ans110.AnsMonth = ansMonth;
+                ans110.SRId = sR.Id;
             }
 
 
@@ -3735,7 +4039,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer111);
 
@@ -3747,7 +4052,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans111.AnserTypeId = 1;
                 ans111.CreateDate = DateTime.Now;
                 ans111.UserId = user.Id;
-                ans111.AnsMonth = ansMonth;
+                ans111.AnsMonth = ansMonth; ans111.SRId = sR.Id;
             }
 
 
@@ -3765,7 +4070,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer112);
 
@@ -3777,7 +4083,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans112.AnserTypeId = 1;
                 ans112.CreateDate = DateTime.Now;
                 ans112.UserId = user.Id;
-                ans112.AnsMonth = ansMonth;
+                ans112.AnsMonth = ansMonth; ans112.SRId = sR.Id;
             }
 
 
@@ -3792,7 +4098,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer113);
 
@@ -3804,7 +4111,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans113.AnserTypeId = 1;
                 ans113.CreateDate = DateTime.Now;
                 ans113.UserId = user.Id;
-                ans113.AnsMonth = ansMonth;
+                ans113.AnsMonth = ansMonth; ans113.SRId = sR.Id;
             }
 
 
@@ -3821,7 +4128,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer114);
 
@@ -3833,7 +4141,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans114.AnserTypeId = 1;
                 ans114.CreateDate = DateTime.Now;
                 ans114.UserId = user.Id;
-                ans114.AnsMonth = ansMonth;
+                ans114.AnsMonth = ansMonth; ans114.SRId = sR.Id;
             }
 
 
@@ -3851,7 +4159,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer115);
             }
@@ -3863,6 +4172,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans115.CreateDate = DateTime.Now;
                 ans115.UserId = user.Id;
                 ans115.AnsMonth = ansMonth;
+                ans115.SRId = sR.Id;
             }
 
 
@@ -3881,7 +4191,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer116);
             }
@@ -3893,6 +4204,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans116.CreateDate = DateTime.Now;
                 ans116.UserId = user.Id;
                 ans116.AnsMonth = ansMonth;
+                ans116.SRId = sR.Id;
             }
 
 
@@ -3910,7 +4222,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer117);
             }
@@ -3922,6 +4235,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans117.CreateDate = DateTime.Now;
                 ans117.UserId = user.Id;
                 ans117.AnsMonth = ansMonth;
+                ans117.SRId = sR.Id;
             }
 
 
@@ -3940,7 +4254,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer118);
             }
@@ -3951,7 +4266,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans118.AnserTypeId = 1;
                 ans118.CreateDate = DateTime.Now;
                 ans118.UserId = user.Id;
-                ans118.AnsMonth = ansMonth;
+                ans118.AnsMonth = ansMonth; ans118.SRId = sR.Id;
             }
 
 
@@ -3969,7 +4284,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer119);
 
@@ -3981,7 +4297,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans119.AnserTypeId = 1;
                 ans119.CreateDate = DateTime.Now;
                 ans119.UserId = user.Id;
-                ans119.AnsMonth = ansMonth;
+                ans119.AnsMonth = ansMonth; ans119.SRId = sR.Id;
             }
 
 
@@ -4005,7 +4321,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer120);
 
@@ -4017,7 +4334,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans120.AnserTypeId = 1;
                 ans120.CreateDate = DateTime.Now;
                 ans120.UserId = user.Id;
-                ans120.AnsMonth = ansMonth;
+                ans120.AnsMonth = ansMonth; ans120.SRId = sR.Id;
             }
 
 
@@ -4038,7 +4355,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer121);
 
@@ -4050,7 +4368,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans121.AnserTypeId = 1;
                 ans121.CreateDate = DateTime.Now;
                 ans121.UserId = user.Id;
-                ans121.AnsMonth = ansMonth;
+                ans121.AnsMonth = ansMonth; ans121.SRId = sR.Id;
             }
 
 
@@ -4071,7 +4389,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer122);
 
@@ -4083,7 +4402,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans122.AnserTypeId = 1;
                 ans122.CreateDate = DateTime.Now;
                 ans122.UserId = user.Id;
-                ans122.AnsMonth = ansMonth;
+                ans122.AnsMonth = ansMonth; ans122.SRId = sR.Id;
             }
 
 
@@ -4105,7 +4424,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer123);
 
@@ -4117,7 +4437,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans123.AnserTypeId = 1;
                 ans123.CreateDate = DateTime.Now;
                 ans123.UserId = user.Id;
-                ans123.AnsMonth = ansMonth;
+                ans123.AnsMonth = ansMonth; ans123.SRId = sR.Id;
             }
 
 
@@ -4139,7 +4459,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer124);
 
@@ -4151,7 +4472,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans124.AnserTypeId = 1;
                 ans124.CreateDate = DateTime.Now;
                 ans124.UserId = user.Id;
-                ans124.AnsMonth = ansMonth;
+                ans124.AnsMonth = ansMonth; ans124.SRId = sR.Id;
             }
 
 
@@ -4168,7 +4489,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer125);
 
@@ -4180,7 +4502,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans125.AnserTypeId = 1;
                 ans125.CreateDate = DateTime.Now;
                 ans125.UserId = user.Id;
-                ans125.AnsMonth = ansMonth;
+                ans125.AnsMonth = ansMonth; ans125.SRId = sR.Id;
             }
 
 
@@ -4197,7 +4519,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer126);
 
@@ -4209,7 +4532,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans126.AnserTypeId = 1;
                 ans126.CreateDate = DateTime.Now;
                 ans126.UserId = user.Id;
-                ans126.AnsMonth = ansMonth;
+                ans126.AnsMonth = ansMonth; ans126.SRId = sR.Id;
             }
 
 
@@ -4225,7 +4548,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer127);
 
@@ -4237,7 +4561,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans127.AnserTypeId = 1;
                 ans127.CreateDate = DateTime.Now;
                 ans127.UserId = user.Id;
-                ans127.AnsMonth = ansMonth;
+                ans127.AnsMonth = ansMonth; ans127.SRId = sR.Id;
             }
 
 
@@ -4255,7 +4579,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer128);
             }
@@ -4266,7 +4591,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans128.AnserTypeId = 1;
                 ans128.CreateDate = DateTime.Now;
                 ans128.UserId = user.Id;
-                ans128.AnsMonth = ansMonth;
+                ans128.AnsMonth = ansMonth; ans128.SRId = sR.Id;
             }
 
 
@@ -4285,7 +4610,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer129);
             }
@@ -4296,7 +4622,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans129.AnserTypeId = 1;
                 ans129.CreateDate = DateTime.Now;
                 ans129.UserId = user.Id;
-                ans129.AnsMonth = ansMonth;
+                ans129.AnsMonth = ansMonth; ans129.SRId = sR.Id;
             }
 
 
@@ -4315,7 +4641,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer130);
             }
@@ -4326,7 +4653,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans130.AnserTypeId = 1;
                 ans130.CreateDate = DateTime.Now;
                 ans130.UserId = user.Id;
-                ans130.AnsMonth = ansMonth;
+                ans130.AnsMonth = ansMonth; ans130.SRId = sR.Id;
             }
 
 
@@ -4346,7 +4673,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer131);
             }
@@ -4357,7 +4685,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans131.AnserTypeId = 1;
                 ans131.CreateDate = DateTime.Now;
                 ans131.UserId = user.Id;
-                ans131.AnsMonth = ansMonth;
+                ans131.AnsMonth = ansMonth; ans131.SRId = sR.Id;
             }
 
 
@@ -4374,7 +4702,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer132);
             }
@@ -4385,7 +4714,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans132.AnserTypeId = 1;
                 ans132.CreateDate = DateTime.Now;
                 ans132.UserId = user.Id;
-                ans132.AnsMonth = ansMonth;
+                ans132.AnsMonth = ansMonth; ans132.SRId = sR.Id;
             }
 
 
@@ -4405,7 +4734,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer133);
             }
@@ -4416,7 +4746,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans133.AnserTypeId = 1;
                 ans133.CreateDate = DateTime.Now;
                 ans133.UserId = user.Id;
-                ans133.AnsMonth = ansMonth;
+                ans133.AnsMonth = ansMonth; ans133.SRId = sR.Id;
 
 
 
@@ -4431,7 +4761,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer134);
                 }
@@ -4442,7 +4773,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans134.AnserTypeId = 1;
                     ans134.CreateDate = DateTime.Now;
                     ans134.UserId = user.Id;
-                    ans134.AnsMonth = ansMonth;
+                    ans134.AnsMonth = ansMonth; ans134.SRId = sR.Id;
                 }
 
 
@@ -4458,7 +4789,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer135);
                 }
@@ -4469,7 +4801,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans135.AnserTypeId = 1;
                     ans135.CreateDate = DateTime.Now;
                     ans135.UserId = user.Id;
-                    ans135.AnsMonth = ansMonth;
+                    ans135.AnsMonth = ansMonth; ans135.SRId = sR.Id;
                 }
 
 
@@ -4485,7 +4817,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer136);
                 }
@@ -4496,7 +4829,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans136.AnserTypeId = 1;
                     ans136.CreateDate = DateTime.Now;
                     ans136.UserId = user.Id;
-                    ans135.AnsMonth = ansMonth;
+                    ans135.AnsMonth = ansMonth; ans135.SRId = sR.Id;
                 }
 
 
@@ -4513,7 +4846,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer137);
                 }
@@ -4524,7 +4858,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans137.AnserTypeId = 1;
                     ans137.CreateDate = DateTime.Now;
                     ans137.UserId = user.Id;
-                    ans137.AnsMonth = ansMonth;
+                    ans137.AnsMonth = ansMonth; ans137.SRId = sR.Id;
                 }
 
 
@@ -4539,7 +4873,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer138);
                 }
@@ -4550,7 +4885,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans138.AnserTypeId = 1;
                     ans138.CreateDate = DateTime.Now;
                     ans138.UserId = user.Id;
-                    ans138.AnsMonth = ansMonth;
+                    ans138.AnsMonth = ansMonth; ans138.SRId = sR.Id;
                 }
 
 
@@ -4565,7 +4900,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer139);
                 }
@@ -4576,7 +4912,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans139.AnserTypeId = 1;
                     ans139.CreateDate = DateTime.Now;
                     ans139.UserId = user.Id;
-                    ans139.AnsMonth = ansMonth;
+                    ans139.AnsMonth = ansMonth; ans139.SRId = sR.Id;
                 }
 
 
@@ -4592,7 +4928,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer141);
                 }
@@ -4603,7 +4940,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans141.AnserTypeId = 1;
                     ans141.CreateDate = DateTime.Now;
                     ans141.UserId = user.Id;
-                    ans141.AnsMonth = ansMonth;
+                    ans141.AnsMonth = ansMonth; ans141.SRId = sR.Id;
                 }
 
 
@@ -4619,7 +4956,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer142);
                 }
@@ -4630,7 +4968,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans142.AnserTypeId = 1;
                     ans142.CreateDate = DateTime.Now;
                     ans142.UserId = user.Id;
-                    ans142.AnsMonth = ansMonth;
+                    ans142.AnsMonth = ansMonth; ans142.SRId = sR.Id;
                 }
 
 
@@ -4645,7 +4983,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer143);
                 }
@@ -4656,7 +4995,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans143.AnserTypeId = 1;
                     ans143.CreateDate = DateTime.Now;
                     ans143.UserId = user.Id;
-                    ans143.AnsMonth = ansMonth;
+                    ans143.AnsMonth = ansMonth; ans143.SRId = sR.Id;
                 }
 
 
@@ -4672,7 +5011,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer144);
                 }
@@ -4683,7 +5023,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans144.AnserTypeId = 1;
                     ans144.CreateDate = DateTime.Now;
                     ans144.UserId = user.Id;
-                    ans144.AnsMonth = ansMonth;
+                    ans144.AnsMonth = ansMonth; ans144.SRId = sR.Id;
                 }
 
 
@@ -4700,7 +5040,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer145);
                 }
@@ -4711,7 +5052,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans145.AnserTypeId = 1;
                     ans145.CreateDate = DateTime.Now;
                     ans145.UserId = user.Id;
-                    ans145.AnsMonth = ansMonth;
+                    ans145.AnsMonth = ansMonth; ans145.SRId = sR.Id;
                 }
 
 
@@ -4728,7 +5069,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer146);
                 }
@@ -4739,7 +5081,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans146.AnserTypeId = 1;
                     ans146.CreateDate = DateTime.Now;
                     ans146.UserId = user.Id;
-                    ans146.AnsMonth = ansMonth;
+                    ans146.AnsMonth = ansMonth; ans146.SRId = sR.Id;
                 }
 
 
@@ -4756,7 +5098,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer147);
                 }
@@ -4767,7 +5110,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans147.AnserTypeId = 1;
                     ans147.CreateDate = DateTime.Now;
                     ans147.UserId = user.Id;
-                    ans147.AnsMonth = ansMonth;
+                    ans147.AnsMonth = ansMonth; ans147.SRId = sR.Id;
                 }
 
                 var ans148 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 148).FirstOrDefault();
@@ -4782,7 +5125,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer148);
                 }
@@ -4793,7 +5137,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans148.AnserTypeId = 1;
                     ans148.CreateDate = DateTime.Now;
                     ans148.UserId = user.Id;
-                    ans148.AnsMonth = ansMonth;
+                    ans148.AnsMonth = ansMonth; ans148.SRId = sR.Id;
                 }
 
 
@@ -4809,7 +5153,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer149);
                 }
@@ -4821,6 +5166,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans149.CreateDate = DateTime.Now;
                     ans149.UserId = user.Id;
                     ans149.AnsMonth = ansMonth;
+                    ans149.SRId = sR.Id;
                 }
 
 
@@ -4837,7 +5183,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer150);
                 }
@@ -4848,7 +5195,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans150.AnserTypeId = 1;
                     ans150.CreateDate = DateTime.Now;
                     ans150.UserId = user.Id;
-                    ans150.AnsMonth = ansMonth;
+                    ans150.AnsMonth = ansMonth; ans150.SRId = sR.Id;
                 }
 
 
@@ -4864,7 +5211,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer151);
                 }
@@ -4875,7 +5223,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans151.AnserTypeId = 1;
                     ans151.CreateDate = DateTime.Now;
                     ans151.UserId = user.Id;
-                    ans151.AnsMonth = ansMonth;
+                    ans151.AnsMonth = ansMonth; ans151.SRId = sR.Id;
                 }
 
 
@@ -4891,7 +5239,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer152);
                 }
@@ -4902,7 +5251,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans152.AnserTypeId = 1;
                     ans152.CreateDate = DateTime.Now;
                     ans152.UserId = user.Id;
-                    ans152.AnsMonth = ansMonth;
+                    ans152.AnsMonth = ansMonth; ans152.SRId = sR.Id;
                 }
 
 
@@ -4918,7 +5267,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer153);
                 }
@@ -4929,7 +5279,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans153.AnserTypeId = 1;
                     ans153.CreateDate = DateTime.Now;
                     ans153.UserId = user.Id;
-                    ans153.AnsMonth = ansMonth;
+                    ans153.AnsMonth = ansMonth; ans153.SRId = sR.Id;
                 }
 
 
@@ -4945,7 +5295,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer154);
                 }
@@ -4956,7 +5307,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans154.AnserTypeId = 1;
                     ans154.CreateDate = DateTime.Now;
                     ans154.UserId = user.Id;
-                    ans154.AnsMonth = ansMonth;
+                    ans154.AnsMonth = ansMonth; ans154.SRId = sR.Id;
                 }
 
 
@@ -4973,7 +5324,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer155);
                 }
@@ -4984,7 +5336,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans155.AnserTypeId = 1;
                     ans155.CreateDate = DateTime.Now;
                     ans155.UserId = user.Id;
-                    ans155.AnsMonth = ansMonth;
+                    ans155.AnsMonth = ansMonth; ans155.SRId = sR.Id;
                 }
 
 
@@ -5001,7 +5353,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer156);
                 }
@@ -5012,7 +5365,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans156.AnserTypeId = 1;
                     ans156.CreateDate = DateTime.Now;
                     ans156.UserId = user.Id;
-                    ans156.AnsMonth = ansMonth;
+                    ans156.AnsMonth = ansMonth; ans156.SRId = sR.Id;
                 }
 
 
@@ -5028,7 +5381,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer157);
                 }
@@ -5039,7 +5393,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans157.AnserTypeId = 1;
                     ans157.CreateDate = DateTime.Now;
                     ans157.UserId = user.Id;
-                    ans157.AnsMonth = ansMonth;
+                    ans157.AnsMonth = ansMonth; ans157.SRId = sR.Id;
                 }
 
 
@@ -5055,7 +5409,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer158);
                 }
@@ -5066,7 +5421,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans158.AnserTypeId = 1;
                     ans158.CreateDate = DateTime.Now;
                     ans158.UserId = user.Id;
-                    ans158.AnsMonth = ansMonth;
+                    ans158.AnsMonth = ansMonth; ans158.SRId = sR.Id;
                 }
 
 
@@ -5081,7 +5436,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer159);
                 }
@@ -5092,7 +5448,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans159.AnserTypeId = 1;
                     ans159.CreateDate = DateTime.Now;
                     ans159.UserId = user.Id;
-                    ans159.AnsMonth = ansMonth;
+                    ans159.AnsMonth = ansMonth; ans159.SRId = sR.Id;
                 }
 
 
@@ -5109,7 +5465,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer160);
                 }
@@ -5120,7 +5477,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans160.AnserTypeId = 1;
                     ans160.CreateDate = DateTime.Now;
                     ans160.UserId = user.Id;
-                    ans160.AnsMonth = ansMonth;
+                    ans160.AnsMonth = ansMonth; ans160.SRId = sR.Id;
                 }
 
 
@@ -5136,7 +5493,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer161);
                 }
@@ -5147,7 +5505,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans161.AnserTypeId = 1;
                     ans161.CreateDate = DateTime.Now;
                     ans161.UserId = user.Id;
-                    ans161.AnsMonth = ansMonth;
+                    ans161.AnsMonth = ansMonth; ans161.SRId = sR.Id;
                 }
 
 
@@ -5163,7 +5521,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer162);
                 }
@@ -5174,7 +5533,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans162.AnserTypeId = 1;
                     ans162.CreateDate = DateTime.Now;
                     ans162.UserId = user.Id;
-                    ans162.AnsMonth = ansMonth;
+                    ans162.AnsMonth = ansMonth; ans162.SRId = sR.Id;
                 }
 
 
@@ -5191,7 +5550,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer163);
                 }
@@ -5202,7 +5562,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans163.AnserTypeId = 1;
                     ans163.CreateDate = DateTime.Now;
                     ans163.UserId = user.Id;
-                    ans163.AnsMonth = ansMonth;
+                    ans163.AnsMonth = ansMonth; ans163.SRId = sR.Id;
                 }
 
 
@@ -5217,7 +5577,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer164);
                 }
@@ -5228,7 +5589,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans164.AnserTypeId = 1;
                     ans164.CreateDate = DateTime.Now;
                     ans164.UserId = user.Id;
-                    ans164.AnsMonth = ansMonth;
+                    ans164.AnsMonth = ansMonth; ans164.SRId = sR.Id;
                 }
 
 
@@ -5245,7 +5606,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer165);
                 }
@@ -5256,7 +5618,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans165.AnserTypeId = 1;
                     ans165.CreateDate = DateTime.Now;
                     ans165.UserId = user.Id;
-                    ans165.AnsMonth = ansMonth;
+                    ans165.AnsMonth = ansMonth; ans165.SRId = sR.Id;
                 }
 
 
@@ -5272,7 +5634,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer166);
                 }
@@ -5283,7 +5646,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans166.AnserTypeId = 1;
                     ans166.CreateDate = DateTime.Now;
                     ans166.UserId = user.Id;
-                    ans166.AnsMonth = ansMonth;
+                    ans166.AnsMonth = ansMonth; ans166.SRId = sR.Id;
                 }
 
 
@@ -5298,7 +5661,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer167);
                 }
@@ -5309,7 +5673,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans167.AnserTypeId = 1;
                     ans167.CreateDate = DateTime.Now;
                     ans167.UserId = user.Id;
-                    ans167.AnsMonth = ansMonth;
+                    ans167.AnsMonth = ansMonth; ans167.SRId = sR.Id;
                 }
 
 
@@ -5324,7 +5688,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer168);
                 }
@@ -5335,7 +5700,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans168.AnserTypeId = 1;
                     ans168.CreateDate = DateTime.Now;
                     ans168.UserId = user.Id;
-                    ans168.AnsMonth = ansMonth;
+                    ans168.AnsMonth = ansMonth; ans168.SRId = sR.Id;
                 }
 
 
@@ -5350,7 +5715,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer169);
                 }
@@ -5361,7 +5727,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans169.AnserTypeId = 1;
                     ans169.CreateDate = DateTime.Now;
                     ans169.UserId = user.Id;
-                    ans169.AnsMonth = ansMonth;
+                    ans169.AnsMonth = ansMonth; ans169.SRId = sR.Id;
                 }
 
 
@@ -5381,7 +5747,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer170);
                 }
@@ -5392,7 +5759,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans170.AnserTypeId = 1;
                     ans170.CreateDate = DateTime.Now;
                     ans170.UserId = user.Id;
-                    ans170.AnsMonth = ansMonth;
+                    ans170.AnsMonth = ansMonth; ans170.SRId = sR.Id;
                 }
 
 
@@ -5409,7 +5776,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer171);
                 }
@@ -5420,7 +5788,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans171.AnserTypeId = 1;
                     ans171.CreateDate = DateTime.Now;
                     ans171.UserId = user.Id;
-                    ans171.AnsMonth = ansMonth;
+                    ans171.AnsMonth = ansMonth; ans171.SRId = sR.Id;
                 }
 
 
@@ -5437,7 +5805,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer172);
                 }
@@ -5448,7 +5817,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans172.AnserTypeId = 1;
                     ans172.CreateDate = DateTime.Now;
                     ans172.UserId = user.Id;
-                    ans172.AnsMonth = ansMonth;
+                    ans172.AnsMonth = ansMonth; ans172.SRId = sR.Id;
                 }
 
 
@@ -5466,7 +5835,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer173);
                 }
@@ -5477,7 +5847,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans173.AnserTypeId = 1;
                     ans173.CreateDate = DateTime.Now;
                     ans173.UserId = user.Id;
-                    ans173.AnsMonth = ansMonth;
+                    ans173.AnsMonth = ansMonth; ans173.SRId = sR.Id;
                 }
 
 
@@ -5495,7 +5865,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer174);
                 }
@@ -5506,7 +5877,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans174.AnserTypeId = 1;
                     ans174.CreateDate = DateTime.Now;
                     ans174.UserId = user.Id;
-                    ans174.AnsMonth = ansMonth;
+                    ans174.AnsMonth = ansMonth; ans174.SRId = sR.Id;
                 }
 
 
@@ -5521,7 +5892,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer175);
                 }
@@ -5532,7 +5904,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans175.AnserTypeId = 1;
                     ans175.CreateDate = DateTime.Now;
                     ans175.UserId = user.Id;
-                    ans175.AnsMonth = ansMonth;
+                    ans175.AnsMonth = ansMonth; ans175.SRId = sR.Id;
                 }
 
                 var ans176 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 176).FirstOrDefault();
@@ -5546,7 +5918,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer176);
                 }
@@ -5557,7 +5930,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans176.AnserTypeId = 1;
                     ans176.CreateDate = DateTime.Now;
                     ans176.UserId = user.Id;
-                    ans176.AnsMonth = ansMonth;
+                    ans176.AnsMonth = ansMonth; ans176.SRId = sR.Id;
                 }
 
 
@@ -5576,7 +5949,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer177);
 
@@ -5588,7 +5962,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans177.AnserTypeId = 1;
                     ans177.CreateDate = DateTime.Now;
                     ans177.UserId = user.Id;
-                    ans177.AnsMonth = ansMonth;
+                    ans177.AnsMonth = ansMonth; ans177.SRId = sR.Id;
                 }
 
 
@@ -5604,7 +5978,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer178);
 
@@ -5616,7 +5991,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans178.AnserTypeId = 1;
                     ans178.CreateDate = DateTime.Now;
                     ans178.UserId = user.Id;
-                    ans178.AnsMonth = ansMonth;
+                    ans178.AnsMonth = ansMonth; ans178.SRId = sR.Id;
                 }
 
 
@@ -5631,7 +6006,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer179);
 
@@ -5643,7 +6019,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans179.AnserTypeId = 1;
                     ans179.CreateDate = DateTime.Now;
                     ans179.UserId = user.Id;
-                    ans179.AnsMonth = ansMonth;
+                    ans179.AnsMonth = ansMonth; ans179.SRId = sR.Id;
                 }
 
 
@@ -5658,7 +6034,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer180);
 
@@ -5670,7 +6047,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans180.AnserTypeId = 1;
                     ans180.CreateDate = DateTime.Now;
                     ans180.UserId = user.Id;
-                    ans180.AnsMonth = ansMonth;
+                    ans180.AnsMonth = ansMonth; ans180.SRId = sR.Id;
                 }
 
 
@@ -5687,7 +6064,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer181);
 
@@ -5699,7 +6077,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans181.AnserTypeId = 1;
                     ans181.CreateDate = DateTime.Now;
                     ans181.UserId = user.Id;
-                    ans181.AnsMonth = ansMonth;
+                    ans181.AnsMonth = ansMonth; ans181.SRId = sR.Id;
                 }
 
 
@@ -5716,7 +6094,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer182);
 
@@ -5728,7 +6107,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans182.AnserTypeId = 1;
                     ans182.CreateDate = DateTime.Now;
                     ans182.UserId = user.Id;
-                    ans182.AnsMonth = ansMonth;
+                    ans182.AnsMonth = ansMonth; ans182.SRId = sR.Id;
                 }
 
 
@@ -5746,7 +6125,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer183);
 
@@ -5758,7 +6138,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans183.AnserTypeId = 1;
                     ans183.CreateDate = DateTime.Now;
                     ans183.UserId = user.Id;
-                    ans183.AnsMonth = ansMonth;
+                    ans183.AnsMonth = ansMonth; ans183.SRId = sR.Id;
                 }
 
 
@@ -5777,7 +6157,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer184);
 
@@ -5789,7 +6170,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans184.AnserTypeId = 1;
                     ans184.CreateDate = DateTime.Now;
                     ans184.UserId = user.Id;
-                    ans184.AnsMonth = ansMonth;
+                    ans184.AnsMonth = ansMonth; ans184.SRId = sR.Id;
                 }
 
 
@@ -5810,7 +6191,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer185);
 
@@ -5822,7 +6204,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans185.AnserTypeId = 1;
                     ans185.CreateDate = DateTime.Now;
                     ans185.UserId = user.Id;
-                    ans185.AnsMonth = ansMonth;
+                    ans185.AnsMonth = ansMonth; ans185.SRId = sR.Id;
                 }
 
 
@@ -5840,7 +6222,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer186);
 
@@ -5852,7 +6235,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans186.AnserTypeId = 1;
                     ans186.CreateDate = DateTime.Now;
                     ans186.UserId = user.Id;
-                    ans186.AnsMonth = ansMonth;
+                    ans186.AnsMonth = ansMonth; ans186.SRId = sR.Id;
                 }
 
                 var ans187 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 187).FirstOrDefault();
@@ -5867,7 +6250,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer187);
 
@@ -5879,7 +6263,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans187.AnserTypeId = 1;
                     ans187.CreateDate = DateTime.Now;
                     ans187.UserId = user.Id;
-                    ans187.AnsMonth = ansMonth;
+                    ans187.AnsMonth = ansMonth; ans187.SRId = sR.Id;
                 }
 
 
@@ -5898,7 +6282,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer188);
 
@@ -5910,7 +6295,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans188.AnserTypeId = 1;
                     ans188.CreateDate = DateTime.Now;
                     ans188.UserId = user.Id;
-                    ans188.AnsMonth = ansMonth;
+                    ans188.AnsMonth = ansMonth; ans188.SRId = sR.Id;
                 }
 
 
@@ -5930,7 +6315,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer189);
 
@@ -5942,7 +6328,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans189.AnserTypeId = 1;
                     ans189.CreateDate = DateTime.Now;
                     ans189.UserId = user.Id;
-                    ans189.AnsMonth = ansMonth;
+                    ans189.AnsMonth = ansMonth; ans189.SRId = sR.Id;
                 }
 
 
@@ -5959,7 +6345,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer190);
 
@@ -5971,7 +6358,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans190.AnserTypeId = 1;
                     ans190.CreateDate = DateTime.Now;
                     ans190.UserId = user.Id;
-                    ans190.AnsMonth = ansMonth;
+                    ans190.AnsMonth = ansMonth; ans190.SRId = sR.Id;
                 }
 
 
@@ -5988,7 +6375,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer191);
 
@@ -6000,7 +6388,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans191.AnserTypeId = 1;
                     ans191.CreateDate = DateTime.Now;
                     ans191.UserId = user.Id;
-                    ans191.AnsMonth = ansMonth;
+                    ans191.AnsMonth = ansMonth; ans191.SRId = sR.Id;
                 }
 
                 var ans192 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 192).FirstOrDefault();
@@ -6015,7 +6403,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer192);
 
@@ -6027,7 +6416,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans192.AnserTypeId = 1;
                     ans192.CreateDate = DateTime.Now;
                     ans192.UserId = user.Id;
-                    ans192.AnsMonth = ansMonth;
+                    ans192.AnsMonth = ansMonth; ans192.SRId = sR.Id;
                 }
 
 
@@ -6043,7 +6432,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer193);
 
@@ -6055,7 +6445,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans193.AnserTypeId = 1;
                     ans193.CreateDate = DateTime.Now;
                     ans193.UserId = user.Id;
-                    ans193.AnsMonth = ansMonth;
+                    ans193.AnsMonth = ansMonth; ans193.SRId = sR.Id;
                 }
 
 
@@ -6064,7 +6454,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 var ans194 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 194).FirstOrDefault();
                 if (ans194 == null)
                 {
-                   //  SerialNumber 14 :           
+                    //  SerialNumber 14 :           
                     Answer answer194 = new Answer()
                     {
                         AnsDes = this.serialNumberTextbox14.Value,
@@ -6072,7 +6462,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer194);
 
@@ -6085,7 +6476,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans194.AnserTypeId = 1;
                     ans194.CreateDate = DateTime.Now;
                     ans194.UserId = user.Id;
-                    ans194.AnsMonth = ansMonth;
+                    ans194.AnsMonth = ansMonth; ans194.SRId = sR.Id;
                 }
 
 
@@ -6102,7 +6493,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer195);
                 }
@@ -6113,7 +6505,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans195.AnserTypeId = 1;
                     ans195.CreateDate = DateTime.Now;
                     ans195.UserId = user.Id;
-                    ans195.AnsMonth = ansMonth;
+                    ans195.AnsMonth = ansMonth; ans195.SRId = sR.Id;
                 }
 
 
@@ -6129,7 +6521,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer196);
                 }
@@ -6140,7 +6533,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans196.AnserTypeId = 1;
                     ans196.CreateDate = DateTime.Now;
                     ans196.UserId = user.Id;
-                    ans196.AnsMonth = ansMonth;
+                    ans196.AnsMonth = ansMonth; ans196.SRId = sR.Id;
                 }
 
                 var ans197 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 197).FirstOrDefault();
@@ -6154,7 +6547,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer197);
                 }
@@ -6165,7 +6559,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans197.AnserTypeId = 1;
                     ans197.CreateDate = DateTime.Now;
                     ans197.UserId = user.Id;
-                    ans197.AnsMonth = ansMonth;
+                    ans197.AnsMonth = ansMonth; ans197.SRId = sR.Id;
                 }
 
 
@@ -6181,7 +6575,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer198);
                 }
@@ -6192,7 +6587,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans198.AnserTypeId = 1;
                     ans198.CreateDate = DateTime.Now;
                     ans198.UserId = user.Id;
-                    ans198.AnsMonth = ansMonth;
+                    ans198.AnsMonth = ansMonth; ans198.SRId = sR.Id;
                 }
 
 
@@ -6207,7 +6602,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer199);
                 }
@@ -6218,7 +6614,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans199.AnserTypeId = 1;
                     ans199.CreateDate = DateTime.Now;
                     ans199.UserId = user.Id;
-                    ans199.AnsMonth = ansMonth;
+                    ans199.AnsMonth = ansMonth; ans199.SRId = sR.Id;
                 }
 
 
@@ -6235,7 +6631,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer200);
                 }
@@ -6246,7 +6643,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans200.AnserTypeId = 1;
                     ans200.CreateDate = DateTime.Now;
                     ans200.UserId = user.Id;
-                    ans200.AnsMonth = ansMonth;
+                    ans200.AnsMonth = ansMonth; ans200.SRId = sR.Id;
                 }
 
 
@@ -6263,7 +6660,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer201);
                 }
@@ -6274,7 +6672,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans201.AnserTypeId = 1;
                     ans201.CreateDate = DateTime.Now;
                     ans201.UserId = user.Id;
-                    ans201.AnsMonth = ansMonth;
+                    ans201.AnsMonth = ansMonth; ans201.SRId = sR.Id;
                 }
 
                 var ans202 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 202).FirstOrDefault();
@@ -6288,7 +6686,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer202);
                 }
@@ -6299,7 +6698,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans202.AnserTypeId = 1;
                     ans202.CreateDate = DateTime.Now;
                     ans202.UserId = user.Id;
-                    ans202.AnsMonth = ansMonth;
+                    ans202.AnsMonth = ansMonth; ans202.SRId = sR.Id;
                 }
 
 
@@ -6314,7 +6713,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer203);
                 }
@@ -6325,7 +6725,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans203.AnserTypeId = 1;
                     ans203.CreateDate = DateTime.Now;
                     ans203.UserId = user.Id;
-                    ans203.AnsMonth = ansMonth;
+                    ans203.AnsMonth = ansMonth; ans203.SRId = sR.Id;
                 }
 
 
@@ -6342,7 +6742,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 1,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer204);
                 }
@@ -6353,7 +6754,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans204.AnserTypeId = 1;
                     ans204.CreateDate = DateTime.Now;
                     ans204.UserId = user.Id;
-                    ans204.AnsMonth = ansMonth;
+                    ans204.AnsMonth = ansMonth; ans204.SRId = sR.Id;
                 }
 
 
@@ -6371,7 +6772,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer205);
                 }
@@ -6383,7 +6785,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans205.AnserTypeId = 1;
                     ans205.CreateDate = DateTime.Now;
                     ans205.UserId = user.Id;
-                    ans205.AnsMonth = ansMonth;
+                    ans205.AnsMonth = ansMonth; ans205.SRId = sR.Id;
                 }
 
 
@@ -6401,7 +6803,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer206);
                 }
@@ -6413,7 +6816,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans206.AnserTypeId = 1;
                     ans206.CreateDate = DateTime.Now;
                     ans206.UserId = user.Id;
-                    ans206.AnsMonth = ansMonth;
+                    ans206.AnsMonth = ansMonth; ans206.SRId = sR.Id;
                 }
 
 
@@ -6430,7 +6833,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer207);
                 }
@@ -6442,7 +6846,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans207.AnserTypeId = 1;
                     ans207.CreateDate = DateTime.Now;
                     ans207.UserId = user.Id;
-                    ans207.AnsMonth = ansMonth;
+                    ans207.AnsMonth = ansMonth; ans207.SRId = sR.Id;
                 }
 
 
@@ -6459,7 +6863,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer208);
                 }
@@ -6471,7 +6876,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans208.AnserTypeId = 1;
                     ans208.CreateDate = DateTime.Now;
                     ans208.UserId = user.Id;
-                    ans208.AnsMonth = ansMonth;
+                    ans208.AnsMonth = ansMonth; ans208.SRId = sR.Id;
                 }
 
 
@@ -6488,7 +6893,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer209);
                 }
@@ -6500,7 +6906,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans209.AnserTypeId = 1;
                     ans209.CreateDate = DateTime.Now;
                     ans209.UserId = user.Id;
-                    ans209.AnsMonth = ansMonth;
+                    ans209.AnsMonth = ansMonth; ans209.SRId = sR.Id;
                 }
 
 
@@ -6516,7 +6922,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer210);
                 }
@@ -6528,7 +6935,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans210.AnserTypeId = 1;
                     ans210.CreateDate = DateTime.Now;
                     ans210.UserId = user.Id;
-                    ans210.AnsMonth = ansMonth;
+                    ans210.AnsMonth = ansMonth; ans210.SRId = sR.Id;
                 }
 
 
@@ -6547,7 +6954,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer211);
                 }
@@ -6559,7 +6967,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans211.AnserTypeId = 1;
                     ans211.CreateDate = DateTime.Now;
                     ans211.UserId = user.Id;
-                    ans211.AnsMonth = ansMonth;
+                    ans211.AnsMonth = ansMonth; ans211.SRId = sR.Id;
                 }
 
 
@@ -6579,7 +6987,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer212);
                 }
@@ -6591,7 +7000,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans212.AnserTypeId = 1;
                     ans212.CreateDate = DateTime.Now;
                     ans212.UserId = user.Id;
-                    ans212.AnsMonth = ansMonth;
+                    ans212.AnsMonth = ansMonth; ans212.SRId = sR.Id;
                 }
 
 
@@ -6609,7 +7018,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer213);
                 }
@@ -6621,7 +7031,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans213.AnserTypeId = 1;
                     ans213.CreateDate = DateTime.Now;
                     ans213.UserId = user.Id;
-                    ans213.AnsMonth = ansMonth;
+                    ans213.AnsMonth = ansMonth; ans213.SRId = sR.Id;
                 }
 
 
@@ -6646,7 +7056,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer214);
                 }
@@ -6658,7 +7069,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans214.AnserTypeId = 1;
                     ans214.CreateDate = DateTime.Now;
                     ans214.UserId = user.Id;
-                    ans214.AnsMonth = ansMonth;
+                    ans214.AnsMonth = ansMonth; ans214.SRId = sR.Id;
                 }
 
 
@@ -6680,7 +7091,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer215);
                 }
@@ -6692,7 +7104,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans215.AnserTypeId = 1;
                     ans215.CreateDate = DateTime.Now;
                     ans215.UserId = user.Id;
-                    ans215.AnsMonth = ansMonth;
+                    ans215.AnsMonth = ansMonth; ans215.SRId = sR.Id;
                 }
 
 
@@ -6712,7 +7124,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer216);
                 }
@@ -6724,7 +7137,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans216.AnserTypeId = 1;
                     ans216.CreateDate = DateTime.Now;
                     ans216.UserId = user.Id;
-                    ans216.AnsMonth = ansMonth;
+                    ans216.AnsMonth = ansMonth; ans216.SRId = sR.Id;
                 }
 
 
@@ -6742,7 +7155,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer217);
                 }
@@ -6754,7 +7168,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans217.AnserTypeId = 1;
                     ans217.CreateDate = DateTime.Now;
                     ans217.UserId = user.Id;
-                    ans217.AnsMonth = ansMonth;
+                    ans217.AnsMonth = ansMonth; ans217.SRId = sR.Id;
                 }
 
 
@@ -6772,7 +7186,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer218);
                 }
@@ -6784,7 +7199,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans218.AnserTypeId = 1;
                     ans218.CreateDate = DateTime.Now;
                     ans218.UserId = user.Id;
-                    ans218.AnsMonth = ansMonth;
+                    ans218.AnsMonth = ansMonth; ans218.SRId = sR.Id;
                 }
 
 
@@ -6801,7 +7216,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer219);
                 }
@@ -6813,7 +7229,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans219.AnserTypeId = 1;
                     ans219.CreateDate = DateTime.Now;
                     ans219.UserId = user.Id;
-                    ans219.AnsMonth = ansMonth;
+                    ans219.AnsMonth = ansMonth; ans219.SRId = sR.Id;
                 }
 
 
@@ -6829,7 +7245,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer220);
                 }
@@ -6841,7 +7258,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans220.AnserTypeId = 1;
                     ans220.CreateDate = DateTime.Now;
                     ans220.UserId = user.Id;
-                    ans220.AnsMonth = ansMonth;
+                    ans220.AnsMonth = ansMonth; ans220.SRId = sR.Id;
                 }
 
 
@@ -6859,7 +7276,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer221);
                 }
@@ -6871,7 +7289,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans221.AnserTypeId = 1;
                     ans221.CreateDate = DateTime.Now;
                     ans221.UserId = user.Id;
-                    ans221.AnsMonth = ansMonth;
+                    ans221.AnsMonth = ansMonth; ans221.SRId = sR.Id;
                 }
 
 
@@ -6889,7 +7307,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer222);
                 }
@@ -6901,7 +7320,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans222.AnserTypeId = 1;
                     ans222.CreateDate = DateTime.Now;
                     ans222.UserId = user.Id;
-                    ans222.AnsMonth = ansMonth;
+                    ans222.AnsMonth = ansMonth; ans222.SRId = sR.Id;
                 }
 
 
@@ -6919,7 +7338,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer223);
                 }
@@ -6931,7 +7351,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans223.AnserTypeId = 1;
                     ans223.CreateDate = DateTime.Now;
                     ans223.UserId = user.Id;
-                    ans223.AnsMonth = ansMonth;
+                    ans223.AnsMonth = ansMonth; ans223.SRId = sR.Id;
                 }
 
 
@@ -6950,7 +7370,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer224);
                 }
@@ -6962,7 +7383,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans224.AnserTypeId = 1;
                     ans224.CreateDate = DateTime.Now;
                     ans224.UserId = user.Id;
-                    ans224.AnsMonth = ansMonth;
+                    ans224.AnsMonth = ansMonth; ans224.SRId = sR.Id;
                 }
 
 
@@ -6981,7 +7402,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer225);
                 }
@@ -6993,7 +7415,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans225.AnserTypeId = 1;
                     ans225.CreateDate = DateTime.Now;
                     ans225.UserId = user.Id;
-                    ans225.AnsMonth = ansMonth;
+                    ans225.AnsMonth = ansMonth; ans225.SRId = sR.Id;
                 }
 
 
@@ -7011,7 +7433,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer226);
                 }
@@ -7023,7 +7446,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans226.AnserTypeId = 1;
                     ans226.CreateDate = DateTime.Now;
                     ans226.UserId = user.Id;
-                    ans226.AnsMonth = ansMonth;
+                    ans226.AnsMonth = ansMonth; ans226.SRId = sR.Id;
                 }
 
 
@@ -7044,7 +7467,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer227);
                 }
@@ -7056,7 +7480,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans227.AnserTypeId = 1;
                     ans227.CreateDate = DateTime.Now;
                     ans227.UserId = user.Id;
-                    ans227.AnsMonth = ansMonth;
+                    ans227.AnsMonth = ansMonth; ans227.SRId = sR.Id;
                 }
 
 
@@ -7078,7 +7502,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer228);
                 }
@@ -7090,7 +7515,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans228.AnserTypeId = 1;
                     ans228.CreateDate = DateTime.Now;
                     ans228.UserId = user.Id;
-                    ans228.AnsMonth = ansMonth;
+                    ans228.AnsMonth = ansMonth; ans228.SRId = sR.Id;
                 }
 
 
@@ -7109,7 +7534,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer229);
                 }
@@ -7121,7 +7547,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans229.AnserTypeId = 1;
                     ans229.CreateDate = DateTime.Now;
                     ans229.UserId = user.Id;
-                    ans229.AnsMonth = ansMonth;
+                    ans229.AnsMonth = ansMonth; ans229.SRId = sR.Id;
                 }
 
 
@@ -7138,7 +7564,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer230);
                 }
@@ -7150,7 +7577,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans230.AnserTypeId = 1;
                     ans230.CreateDate = DateTime.Now;
                     ans230.UserId = user.Id;
-                    ans230.AnsMonth = ansMonth;
+                    ans230.AnsMonth = ansMonth; ans230.SRId = sR.Id;
                 }
 
 
@@ -7167,7 +7594,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer231);
                 }
@@ -7179,7 +7607,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans231.AnserTypeId = 1;
                     ans231.CreateDate = DateTime.Now;
                     ans231.UserId = user.Id;
-                    ans231.AnsMonth = ansMonth;
+                    ans231.AnsMonth = ansMonth; ans231.SRId = sR.Id;
                 }
 
 
@@ -7202,7 +7630,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer232);
                 }
@@ -7214,7 +7643,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans232.AnserTypeId = 1;
                     ans232.CreateDate = DateTime.Now;
                     ans232.UserId = user.Id;
-                    ans232.AnsMonth = ansMonth;
+                    ans232.AnsMonth = ansMonth; ans232.SRId = sR.Id;
                 }
 
 
@@ -7233,7 +7662,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer233);
                 }
@@ -7245,7 +7675,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans233.AnserTypeId = 1;
                     ans233.CreateDate = DateTime.Now;
                     ans233.UserId = user.Id;
-                    ans233.AnsMonth = ansMonth;
+                    ans233.AnsMonth = ansMonth; ans233.SRId = sR.Id;
                 }
 
 
@@ -7263,7 +7693,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer234);
                 }
@@ -7275,7 +7706,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans234.AnserTypeId = 1;
                     ans234.CreateDate = DateTime.Now;
                     ans234.UserId = user.Id;
-                    ans234.AnsMonth = ansMonth;
+                    ans234.AnsMonth = ansMonth; ans234.SRId = sR.Id;
                 }
 
 
@@ -7294,7 +7725,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer235);
                 }
@@ -7306,7 +7738,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans235.AnserTypeId = 1;
                     ans235.CreateDate = DateTime.Now;
                     ans235.UserId = user.Id;
-                    ans235.AnsMonth = ansMonth;
+                    ans235.AnsMonth = ansMonth; ans235.SRId = sR.Id;
                 }
 
 
@@ -7325,7 +7757,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer236);
 
@@ -7338,7 +7771,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans236.AnserTypeId = 1;
                     ans236.CreateDate = DateTime.Now;
                     ans236.UserId = user.Id;
-                    ans236.AnsMonth = ansMonth;
+                    ans236.AnsMonth = ansMonth; ans236.SRId = sR.Id;
                 }
 
 
@@ -7354,7 +7787,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer237);
 
@@ -7368,7 +7802,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans237.AnserTypeId = 1;
                     ans237.CreateDate = DateTime.Now;
                     ans237.UserId = user.Id;
-                    ans237.AnsMonth = ansMonth;
+                    ans237.AnsMonth = ansMonth; ans237.SRId = sR.Id;
                 }
 
 
@@ -7385,7 +7819,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer238);
 
@@ -7399,7 +7834,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans238.AnserTypeId = 1;
                     ans238.CreateDate = DateTime.Now;
                     ans238.UserId = user.Id;
-                    ans238.AnsMonth = ansMonth;
+                    ans238.AnsMonth = ansMonth; ans238.SRId = sR.Id;
                 }
 
                 var ans239 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 239).FirstOrDefault();
@@ -7414,7 +7849,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer239);
                 }
@@ -7426,7 +7862,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans239.AnserTypeId = 1;
                     ans239.CreateDate = DateTime.Now;
                     ans239.UserId = user.Id;
-                    ans239.AnsMonth = ansMonth;
+                    ans239.AnsMonth = ansMonth; ans239.SRId = sR.Id;
                 }
 
 
@@ -7444,7 +7880,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer240);
                 }
@@ -7456,7 +7893,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans240.AnserTypeId = 1;
                     ans240.CreateDate = DateTime.Now;
                     ans240.UserId = user.Id;
-                    ans240.AnsMonth = ansMonth;
+                    ans240.AnsMonth = ansMonth; ans240.SRId = sR.Id;
                 }
 
                 var ans241 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 241).FirstOrDefault();
@@ -7471,7 +7908,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer241);
 
@@ -7484,7 +7922,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans241.AnserTypeId = 1;
                     ans241.CreateDate = DateTime.Now;
                     ans241.UserId = user.Id;
-                    ans241.AnsMonth = ansMonth;
+                    ans241.AnsMonth = ansMonth; ans241.SRId = sR.Id;
                 }
 
 
@@ -7501,7 +7939,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer242);
 
@@ -7514,7 +7953,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans242.AnserTypeId = 1;
                     ans242.CreateDate = DateTime.Now;
                     ans242.UserId = user.Id;
-                    ans242.AnsMonth = ansMonth;
+                    ans242.AnsMonth = ansMonth; ans242.SRId = sR.Id;
                 }
 
 
@@ -7533,7 +7972,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer243);
 
@@ -7546,7 +7986,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans243.AnserTypeId = 1;
                     ans243.CreateDate = DateTime.Now;
                     ans243.UserId = user.Id;
-                    ans243.AnsMonth = ansMonth;
+                    ans243.AnsMonth = ansMonth; ans243.SRId = sR.Id;
                 }
 
 
@@ -7564,7 +8004,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer244);
 
@@ -7577,7 +8018,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans244.AnserTypeId = 1;
                     ans244.CreateDate = DateTime.Now;
                     ans244.UserId = user.Id;
-                    ans244.AnsMonth = ansMonth;
+                    ans244.AnsMonth = ansMonth; ans244.SRId = sR.Id;
                 }
 
 
@@ -7593,7 +8034,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer245);
 
@@ -7606,7 +8048,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans245.AnserTypeId = 1;
                     ans245.CreateDate = DateTime.Now;
                     ans245.UserId = user.Id;
-                    ans245.AnsMonth = ansMonth;
+                    ans245.AnsMonth = ansMonth; ans245.SRId = sR.Id;
                 }
 
 
@@ -7625,7 +8067,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer246);
                 }
@@ -7637,7 +8080,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans246.AnserTypeId = 1;
                     ans246.CreateDate = DateTime.Now;
                     ans246.UserId = user.Id;
-                    ans246.AnsMonth = ansMonth;
+                    ans246.AnsMonth = ansMonth; ans246.SRId = sR.Id;
                 }
 
                 var ans247 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 247).FirstOrDefault();
@@ -7652,7 +8095,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer247);
                 }
@@ -7664,7 +8108,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans247.AnserTypeId = 1;
                     ans247.CreateDate = DateTime.Now;
                     ans247.UserId = user.Id;
-                    ans247.AnsMonth = ansMonth;
+                    ans247.AnsMonth = ansMonth; ans247.SRId = sR.Id;
                 }
 
 
@@ -7684,7 +8128,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer248);
                 }
@@ -7696,7 +8141,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans248.AnserTypeId = 1;
                     ans248.CreateDate = DateTime.Now;
                     ans248.UserId = user.Id;
-                    ans248.AnsMonth = ansMonth;
+                    ans248.AnsMonth = ansMonth; ans248.SRId = sR.Id;
                 }
 
 
@@ -7715,7 +8160,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer249);
                 }
@@ -7727,7 +8173,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans249.AnserTypeId = 1;
                     ans249.CreateDate = DateTime.Now;
                     ans249.UserId = user.Id;
-                    ans249.AnsMonth = ansMonth;
+                    ans249.AnsMonth = ansMonth; ans249.SRId = sR.Id;
                 }
 
 
@@ -7746,7 +8192,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer250);
                 }
@@ -7758,7 +8205,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans250.AnserTypeId = 1;
                     ans250.CreateDate = DateTime.Now;
                     ans250.UserId = user.Id;
-                    ans250.AnsMonth = ansMonth;
+                    ans250.AnsMonth = ansMonth; ans250.SRId = sR.Id;
                 }
 
 
@@ -7777,7 +8224,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer251);
                 }
@@ -7789,7 +8237,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans251.AnserTypeId = 1;
                     ans251.CreateDate = DateTime.Now;
                     ans251.UserId = user.Id;
-                    ans251.AnsMonth = ansMonth;
+                    ans251.AnsMonth = ansMonth; ans251.SRId = sR.Id;
                 }
 
 
@@ -7808,7 +8256,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer252);
                 }
@@ -7820,7 +8269,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans252.AnserTypeId = 1;
                     ans252.CreateDate = DateTime.Now;
                     ans252.UserId = user.Id;
-                    ans252.AnsMonth = ansMonth;
+                    ans252.AnsMonth = ansMonth; ans252.SRId = sR.Id;
                 }
 
 
@@ -7837,7 +8286,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer253);
                 }
@@ -7849,7 +8299,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans253.AnserTypeId = 1;
                     ans253.CreateDate = DateTime.Now;
                     ans253.UserId = user.Id;
-                    ans253.AnsMonth = ansMonth;
+                    ans253.AnsMonth = ansMonth; ans253.SRId = sR.Id;
                 }
 
 
@@ -7869,7 +8319,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer254);
                 }
@@ -7881,7 +8332,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans254.AnserTypeId = 1;
                     ans254.CreateDate = DateTime.Now;
                     ans254.UserId = user.Id;
-                    ans254.AnsMonth = ansMonth;
+                    ans254.AnsMonth = ansMonth; ans254.SRId = sR.Id;
                 }
 
 
@@ -7900,7 +8351,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer255);
                 }
@@ -7912,7 +8364,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans255.AnserTypeId = 1;
                     ans255.CreateDate = DateTime.Now;
                     ans255.UserId = user.Id;
-                    ans255.AnsMonth = ansMonth;
+                    ans255.AnsMonth = ansMonth; ans255.SRId = sR.Id;
                 }
 
 
@@ -7930,7 +8382,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer256);
                 }
@@ -7942,7 +8395,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans256.AnserTypeId = 1;
                     ans256.CreateDate = DateTime.Now;
                     ans256.UserId = user.Id;
-                    ans256.AnsMonth = ansMonth;
+                    ans256.AnsMonth = ansMonth; ans256.SRId = sR.Id;
                 }
 
 
@@ -7959,7 +8412,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer257);
                 }
@@ -7971,7 +8425,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans257.AnserTypeId = 1;
                     ans257.CreateDate = DateTime.Now;
                     ans257.UserId = user.Id;
-                    ans257.AnsMonth = ansMonth;
+                    ans257.AnsMonth = ansMonth; ans257.SRId = sR.Id;
                 }
 
 
@@ -7987,7 +8441,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer258);
                 }
@@ -7999,10 +8454,10 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans258.AnserTypeId = 1;
                     ans258.CreateDate = DateTime.Now;
                     ans258.UserId = user.Id;
-                    ans258.AnsMonth = ansMonth;
+                    ans258.AnsMonth = ansMonth; ans258.SRId = sR.Id;
                 }
 
-               
+
 
                 //1.รูป PICTURE CHECKLIST :
                 if (this.pictureChecklistImages.HasFile)
@@ -8018,7 +8473,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer259);
                 }
@@ -8037,7 +8493,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer260);
                 }
@@ -8056,7 +8513,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer261);
                 }
@@ -8075,41 +8533,13 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                         AnserTypeId = 3,
                         CreateDate = DateTime.Now,
                         UserId = user.Id,
-                        AnsMonth = ansMonth
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
                     };
                     uSOEntities.Answers.Add(answer262);
                 }
 
-                //ใส่ป้ายหน้าโรงเรียน :
-                if (this.signboardschoolImage.HasFile)
-                {
-                    string extension = this.signboardschoolImage.PostedFile.FileName.Split('.')[1];
-                    string newFileName = "images/SignboardSchool_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                    this.signboardschoolImage.PostedFile.SaveAs(Server.MapPath(newFileName));
 
-                    Answer answer6 = new Answer()
-                    {
-                        AnsDes = newFileName,
-                        QuestionId = 6,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth
-                    };
-                    uSOEntities.Answers.Add(answer6);
-                }
-
-                string xx = Request.Form["upsModeRadio"];
-                Answer answer7 = new Answer()
-                {
-                    AnsDes = xx,
-                    QuestionId = 7,
-                    AnserTypeId = 3,
-                    CreateDate = DateTime.Now,
-                    UserId = user.Id,
-                    AnsMonth = ansMonth
-                };
-                uSOEntities.Answers.Add(answer7);
 
 
 
@@ -8147,6 +8577,6 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             //}
         }
 
-       
+
     }
 }

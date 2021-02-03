@@ -60,17 +60,7 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            //User user = (User)Session["strUsername"];
-            //if (user != null)
-            //{
-
-            //}
-            //else
-            //{
-            //    Response.Redirect("/login/login.aspx");
-            //    Response.End();
-
-            //}
+           
             User user = (User)Session["strUsername"];
             if (user != null)
             {

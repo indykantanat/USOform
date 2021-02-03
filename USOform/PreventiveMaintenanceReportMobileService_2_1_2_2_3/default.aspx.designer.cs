@@ -159,13 +159,13 @@ namespace USOform
         protected global::System.Web.UI.HtmlControls.HtmlInputText subdistrictTextbox;
 
         /// <summary>
-        /// DistrictTextbox control.
+        /// DistrictTextbox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText DistrictTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText DistrictTextbox1;
 
         /// <summary>
         /// provinceTextbox control.
@@ -202,6 +202,15 @@ namespace USOform
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload picinfrontCabinetImages;
+
+        /// <summary>
+        /// signatureSupervisorJSON control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea signatureSupervisorJSON;
 
         /// <summary>
         /// nameExecutorTextbox control.

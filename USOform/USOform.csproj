@@ -94,7 +94,6 @@
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\spinner.js" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\previewImg.js" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\Prereport_usowrap.aspx" />
-    <Content Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\prereport_mobileService.aspx" />
     <Content Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\previewImg.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -273,13 +272,6 @@
     </Compile>
     <Compile Include="PreventiveMaintenanceReportBB_USOWrap\Prereport_usowrap.aspx.designer.cs">
       <DependentUpon>Prereport_usowrap.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\prereport_mobileService.aspx.cs">
-      <DependentUpon>prereport_mobileService.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\prereport_mobileService.aspx.designer.cs">
-      <DependentUpon>prereport_mobileService.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Mymasterpage.Master.cs">

@@ -36,7 +36,7 @@ namespace USOform.login
                 //Response.Redirect("/PreventiveMaintenanceReportBB_USOWrap/default.aspx");
                 //Response.Redirect("/PreventiveMaintenanceReportBB_USOWrap/prereport_usowrap.aspx");
                 //Response.Redirect("/PreventiveMaintenanceReportMobileService_2_1_2_2_3/prereport_mobileService.aspx");
-                Response.Redirect("/PreventiveMaintenanceReportMobileService_2_1_2_2_3/default.aspx");
+                Response.Redirect("/PreventiveMaintenanceReportMobileService_2_1_2_2_3/default.aspx?SiteId=7");
                 //Response.Redirect("/PreventiveMaintenanceReportBB2_3_3_3/default.aspx");
               
                     
