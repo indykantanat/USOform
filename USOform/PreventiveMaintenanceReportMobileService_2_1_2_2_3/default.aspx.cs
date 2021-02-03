@@ -29,7 +29,7 @@ namespace USOform
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             User user = (User)Session["strUsername"];
             if (user == null)
             {
@@ -64,55 +64,55 @@ namespace USOform
         {
 
             this.groupTextbox.Value = answers.Where(x => x.QuestionId == 1409).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1409).FirstOrDefault().AnsDes : "";
-            this.AreaTextbox.Value = answers.Where(x => x.QuestionId == 1410).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1409).FirstOrDefault().AnsDes : "";
-            this.CompanyTextbox.Value = answers.Where(x => x.QuestionId == 1411).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1409).FirstOrDefault().AnsDes : "";
-            this.maintenanceCountTextbox.Value = answers.Where(x => x.QuestionId == 1413).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1409).FirstOrDefault().AnsDes : "";
-            this.yearTextbox.Value = answers.Where(x => x.QuestionId == 1414).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1409).FirstOrDefault().AnsDes : "";
+            this.AreaTextbox.Value = answers.Where(x => x.QuestionId == 1410).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1410).FirstOrDefault().AnsDes : "";
+            this.CompanyTextbox.Value = answers.Where(x => x.QuestionId == 1411).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1411).FirstOrDefault().AnsDes : "";
+            this.maintenanceCountTextbox.Value = answers.Where(x => x.QuestionId == 1413).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1413).FirstOrDefault().AnsDes : "";
+            this.yearTextbox.Value = answers.Where(x => x.QuestionId == 1414).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1414).FirstOrDefault().AnsDes : "";
             this.startDatepicker.Value = answers.Where(x => x.QuestionId == 1415).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.endDatepicker.Value = answers.Where(x => x.QuestionId == 1416).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.siteCodeTextbox.Value = answers.Where(x => x.QuestionId == 1417).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.cabinetIdTextbox.Value = answers.Where(x => x.QuestionId == 1418).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.sitecodeTextboxSection2.Value = answers.Where(x => x.QuestionId == 1419).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.VillageIdTextbox.Value = answers.Where(x => x.QuestionId == 1420).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.villageTextbox.Value = answers.Where(x => x.QuestionId == 1421).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.subdistrictTextbox.Value = answers.Where(x => x.QuestionId == 1422).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
+            this.endDatepicker.Value = answers.Where(x => x.QuestionId == 1416).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1416).FirstOrDefault().AnsDes : "";
+            this.siteCodeTextbox.Value = answers.Where(x => x.QuestionId == 1417).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1417).FirstOrDefault().AnsDes : "";
+            this.cabinetIdTextbox.Value = answers.Where(x => x.QuestionId == 1418).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1418).FirstOrDefault().AnsDes : "";
+            this.sitecodeTextboxSection2.Value = answers.Where(x => x.QuestionId == 1419).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1419).FirstOrDefault().AnsDes : "";
+            this.VillageIdTextbox.Value = answers.Where(x => x.QuestionId == 1420).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1420).FirstOrDefault().AnsDes : "";
+            this.villageTextbox.Value = answers.Where(x => x.QuestionId == 1421).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1421).FirstOrDefault().AnsDes : "";
+            this.subdistrictTextbox.Value = answers.Where(x => x.QuestionId == 1422).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1422).FirstOrDefault().AnsDes : "";
             this.DistrictTextbox1.Value = answers.Where(x => x.QuestionId == 1423).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1423).FirstOrDefault().AnsDes : "";
-            this.provinceTextbox.Value = answers.Where(x => x.QuestionId == 1424).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.typeTextbox.Value = answers.Where(x => x.QuestionId == 1425).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.pmdateTextbox.Value = answers.Where(x => x.QuestionId == 1426).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-           // this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1428).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-//this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 1431).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.nameExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1432).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.nameSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 1433).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.DateExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1434).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.DateSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 1435).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.cabinetId2Textbox.Value = answers.Where(x => x.QuestionId == 1436).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.sitecodeTextboxSection4.Value = answers.Where(x => x.QuestionId == 1437).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.villageIDTextboxSection4.Value = answers.Where(x => x.QuestionId == 1438).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.latandlongTextbox.Value = answers.Where(x => x.QuestionId == 1439).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.oltorispTextbox.Value = answers.Where(x => x.QuestionId == 1440).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.numberIdTextbox.Value = answers.Where(x => x.QuestionId == 1442).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.kwhMeterTextbox.Value = answers.Where(x => x.QuestionId == 1443).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.acvoltTextbox.Value = answers.Where(x => x.QuestionId == 1444).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.lineAcTextbox.Value = answers.Where(x => x.QuestionId == 1445).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.neutronAcTextbox.Value = answers.Where(x => x.QuestionId == 1446).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.acfromupsTextbox.Value = answers.Where(x => x.QuestionId == 1450).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.voltInverterTextbox.Value = answers.Where(x => x.QuestionId == 1483).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.loadVoltTageTextbox.Value = answers.Where(x => x.QuestionId == 1484).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.batterTextbox1.Value = answers.Where(x => x.QuestionId == 1485).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.batterTextbox2.Value = answers.Where(x => x.QuestionId == 1486).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.batterTextbox3.Value = answers.Where(x => x.QuestionId == 1487).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.batterTextbox4.Value = answers.Where(x => x.QuestionId == 1488).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.cellIdTextbox.Value = answers.Where(x => x.QuestionId == 1491).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.netWorkstrTextboxS1.Value = answers.Where(x => x.QuestionId == 1492).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.netWorkstrTextboxS2.Value = answers.Where(x => x.QuestionId == 1493).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.netWorkstrTextboxS3.Value = answers.Where(x => x.QuestionId == 1494).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.dowloadOnuTextbox.Value = answers.Where(x => x.QuestionId == 1495).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.uploadforOnuTextbox.Value = answers.Where(x => x.QuestionId == 1496).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.pinngtestforOnuTextbox.Value = answers.Where(x => x.QuestionId == 1497).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.dowloadforMobileTextbox.Value = answers.Where(x => x.QuestionId == 1498).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.uploadforMobileTextbox.Value = answers.Where(x => x.QuestionId == 1499).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
-            this.pingtestFormobileTextbox.Value = answers.Where(x => x.QuestionId == 1500).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
+            this.provinceTextbox.Value = answers.Where(x => x.QuestionId == 1424).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1424).FirstOrDefault().AnsDes : "";
+            this.typeTextbox.Value = answers.Where(x => x.QuestionId == 1425).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1425).FirstOrDefault().AnsDes : "";
+            this.pmdateTextbox.Value = answers.Where(x => x.QuestionId == 1426).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1426).FirstOrDefault().AnsDes : "";
+            // this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1428).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
+            //this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 1431).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1415).FirstOrDefault().AnsDes : "";
+            this.nameExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1432).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1432).FirstOrDefault().AnsDes : "";
+            this.nameSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 1433).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1433).FirstOrDefault().AnsDes : "";
+            this.DateExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1434).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1434).FirstOrDefault().AnsDes : "";
+            this.DateSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 1435).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1435).FirstOrDefault().AnsDes : "";
+            this.cabinetId2Textbox.Value = answers.Where(x => x.QuestionId == 1436).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1436).FirstOrDefault().AnsDes : "";
+            this.sitecodeTextboxSection4.Value = answers.Where(x => x.QuestionId == 1437).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1437).FirstOrDefault().AnsDes : "";
+            this.villageIDTextboxSection4.Value = answers.Where(x => x.QuestionId == 1438).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1438).FirstOrDefault().AnsDes : "";
+            this.latandlongTextbox.Value = answers.Where(x => x.QuestionId == 1439).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1439).FirstOrDefault().AnsDes : "";
+            this.oltorispTextbox.Value = answers.Where(x => x.QuestionId == 1440).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1440).FirstOrDefault().AnsDes : "";
+            this.numberIdTextbox.Value = answers.Where(x => x.QuestionId == 1442).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1442).FirstOrDefault().AnsDes : "";
+            this.kwhMeterTextbox.Value = answers.Where(x => x.QuestionId == 1443).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1443).FirstOrDefault().AnsDes : "";
+            this.acvoltTextbox.Value = answers.Where(x => x.QuestionId == 1444).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1444).FirstOrDefault().AnsDes : "";
+            this.lineAcTextbox.Value = answers.Where(x => x.QuestionId == 1445).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1445).FirstOrDefault().AnsDes : "";
+            this.neutronAcTextbox.Value = answers.Where(x => x.QuestionId == 1446).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1446).FirstOrDefault().AnsDes : "";
+            this.acfromupsTextbox.Value = answers.Where(x => x.QuestionId == 1450).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1450).FirstOrDefault().AnsDes : "";
+            this.voltInverterTextbox.Value = answers.Where(x => x.QuestionId == 1483).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1483).FirstOrDefault().AnsDes : "";
+            this.loadVoltTageTextbox.Value = answers.Where(x => x.QuestionId == 1484).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1484).FirstOrDefault().AnsDes : "";
+            this.batterTextbox1.Value = answers.Where(x => x.QuestionId == 1485).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1485).FirstOrDefault().AnsDes : "";
+            this.batterTextbox2.Value = answers.Where(x => x.QuestionId == 1486).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1486).FirstOrDefault().AnsDes : "";
+            this.batterTextbox3.Value = answers.Where(x => x.QuestionId == 1487).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1487).FirstOrDefault().AnsDes : "";
+            this.batterTextbox4.Value = answers.Where(x => x.QuestionId == 1488).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1488).FirstOrDefault().AnsDes : "";
+            this.cellIdTextbox.Value = answers.Where(x => x.QuestionId == 1491).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1491).FirstOrDefault().AnsDes : "";
+            this.netWorkstrTextboxS1.Value = answers.Where(x => x.QuestionId == 1492).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1492).FirstOrDefault().AnsDes : "";
+            this.netWorkstrTextboxS2.Value = answers.Where(x => x.QuestionId == 1493).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1493).FirstOrDefault().AnsDes : "";
+            this.netWorkstrTextboxS3.Value = answers.Where(x => x.QuestionId == 1494).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1494).FirstOrDefault().AnsDes : "";
+            this.dowloadOnuTextbox.Value = answers.Where(x => x.QuestionId == 1495).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1495).FirstOrDefault().AnsDes : "";
+            this.uploadforOnuTextbox.Value = answers.Where(x => x.QuestionId == 1496).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1496).FirstOrDefault().AnsDes : "";
+            this.pinngtestforOnuTextbox.Value = answers.Where(x => x.QuestionId == 1497).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1497).FirstOrDefault().AnsDes : "";
+            this.dowloadforMobileTextbox.Value = answers.Where(x => x.QuestionId == 1498).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1498).FirstOrDefault().AnsDes : "";
+            this.uploadforMobileTextbox.Value = answers.Where(x => x.QuestionId == 1499).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1499).FirstOrDefault().AnsDes : "";
+            this.pingtestFormobileTextbox.Value = answers.Where(x => x.QuestionId == 1500).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1500).FirstOrDefault().AnsDes : "";
 
             //ปัญหาที่พบและการแก้ไข
             this.problemTextbox1.Value = answers.Where(x => x.QuestionId == 1501).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1501).FirstOrDefault().AnsDes : "";
@@ -222,7 +222,7 @@ namespace USOform
             return (dt.Month - 1) / 3 + 1;
         }
 
-   
+
 
         public string GetImage(byte[] byteImg)
         {
@@ -1007,14 +1007,14 @@ namespace USOform
 
 
             var ans1431 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 7 && x.SRId == sR.Id && x.QuestionId == 1431).FirstOrDefault();
-                string s = "";
-                s = this.signatureSupervisorJSON.Value.Replace(' ', '+');
-                s = s.Replace("data:image/png;base64,", String.Empty);
-                int mod4 = s.Length % 4;
-                if (mod4 > 0)
-                {
-                    s += new string('=', 4 - mod4);
-                }
+            string s = "";
+            s = this.signatureSupervisorJSON.Value.Replace(' ', '+');
+            s = s.Replace("data:image/png;base64,", String.Empty);
+            int mod4 = s.Length % 4;
+            if (mod4 > 0)
+            {
+                s += new string('=', 4 - mod4);
+            }
             if (ans1431 == null)
             {
                 //signature Supervisor :
@@ -1036,7 +1036,7 @@ namespace USOform
 
 
                 ans1431.QuestionId = 1431;
-                ans1431.AnsDes =s;
+                ans1431.AnsDes = s;
                 ans1431.AnserTypeId = 1;
                 ans1431.CreateDate = DateTime.Now;
                 ans1431.UserId = user.Id;
@@ -2423,7 +2423,7 @@ namespace USOform
             {
 
                 //เสาไฟฟ้าที่ติดตั้งอุปกรณ์:
-                string inStallSat = Request.Form["inStallSatRadio"];
+                string inStallSat = Request.Form["inStallSatRadioEIEI"];
                 Answer answer1467 = new Answer()
                 {
                     AnsDes = inStallSat,
@@ -2439,7 +2439,7 @@ namespace USOform
             }
             else
             {
-                string variable = Request.Form["inStallSatRadio"];
+                string variable = Request.Form["inStallSatRadioEIEI"];
 
 
                 ans1467.QuestionId = 1467;
@@ -2948,7 +2948,7 @@ namespace USOform
             if (ans1481 == null)
             {
                 // ความสะอาดแผง PV :
-                string cleanPv = Request.Form["cleanIngpvRadio"];
+                string cleanPv = Request.Form["cleanIngpvEIEIRadio"];
                 Answer answer97 = new Answer()
                 {
                     AnsDes = cleanPv,
@@ -2965,7 +2965,7 @@ namespace USOform
             }
             else
             {
-                string variable = Request.Form["cleanIngpvRadio"];
+                string variable = Request.Form["cleanIngpvEIEIRadio"];
 
 
                 ans1481.QuestionId = 1481;
@@ -3989,8 +3989,8 @@ namespace USOform
 
             var ans1510 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 7 && x.SRId == sR.Id && x.QuestionId == 1510).FirstOrDefault();
             if (ans1510 == null)
-            {                    
-               //  วิธีแก้ปัญหา 5 :           
+            {
+                //  วิธีแก้ปัญหา 5 :           
                 Answer answer119 = new Answer()
                 {
                     AnsDes = this.howtoSolveTextbox5.Value,
@@ -5037,64 +5037,64 @@ namespace USOform
 
 
 
-                var ans1543 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 7 && x.SRId == sR.Id && x.QuestionId == 1543).FirstOrDefault();
-                if (ans1543 == null)
+            var ans1543 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 7 && x.SRId == sR.Id && x.QuestionId == 1543).FirstOrDefault();
+            if (ans1543 == null)
+            {
+
+                // รายการอุปกรณ์ 4 :      
+                Answer answer153 = new Answer()
                 {
+                    AnsDes = this.toolsListTextbox4.Value,
+                    QuestionId = 1543,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer153);
+            }
+            else
+            {
+                ans1543.QuestionId = 1543;
+                ans1543.AnsDes = this.toolsListTextbox4.Value;
+                ans1543.AnserTypeId = 1;
+                ans1543.CreateDate = DateTime.Now;
+                ans1543.UserId = user.Id;
+                ans1543.AnsMonth = ansMonth;
+                ans1543.SRId = sR.Id;
 
-                    // รายการอุปกรณ์ 4 :      
-                    Answer answer153 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox4.Value,
-                        QuestionId = 1543,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer153);
-                }
-                else
+
+            }
+
+
+            var ans1544 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 7 && x.SRId == sR.Id && x.QuestionId == 1544).FirstOrDefault();
+            if (ans1544 == null)
+            {
+
+                //  SerialNumber 4 :           
+                Answer answer154 = new Answer()
                 {
-                    ans1543.QuestionId = 1543;
-                    ans1543.AnsDes = this.toolsListTextbox4.Value;
-                    ans1543.AnserTypeId = 1;
-                    ans1543.CreateDate = DateTime.Now;
-                    ans1543.UserId = user.Id;
-                    ans1543.AnsMonth = ansMonth;
-                    ans1543.SRId = sR.Id;
-
-
-                }
-
-
-                var ans1544 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 7 && x.SRId == sR.Id && x.QuestionId == 1544).FirstOrDefault();
-                if (ans1544 == null)
-                {
-
-                    //  SerialNumber 4 :           
-                    Answer answer154 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox4.Value,
-                        QuestionId = 1544,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer154);
-                }
-                else
-                {
-                    ans1544.QuestionId = 1544;
-                    ans1544.AnsDes = this.serialNumberTextbox4.Value;
-                    ans1544.AnserTypeId = 1;
-                    ans1544.CreateDate = DateTime.Now;
-                    ans1544.UserId = user.Id;
-                    ans1544.AnsMonth = ansMonth;
-                    ans1544.SRId = sR.Id;
-                }
+                    AnsDes = this.serialNumberTextbox4.Value,
+                    QuestionId = 1544,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer154);
+            }
+            else
+            {
+                ans1544.QuestionId = 1544;
+                ans1544.AnsDes = this.serialNumberTextbox4.Value;
+                ans1544.AnserTypeId = 1;
+                ans1544.CreateDate = DateTime.Now;
+                ans1544.UserId = user.Id;
+                ans1544.AnsMonth = ansMonth;
+                ans1544.SRId = sR.Id;
+            }
 
 
             var ans1545 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 7 && x.SRId == sR.Id && x.QuestionId == 1545).FirstOrDefault();
@@ -7851,7 +7851,7 @@ namespace USOform
 
 
 
-          
+
             var ans1631 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 7 && x.SRId == sR.Id && x.QuestionId == 1631).FirstOrDefault();
             if (ans1631 == null)
             {
@@ -7877,7 +7877,7 @@ namespace USOform
             }
             else
             {
-                if (this.pictureChecklistImages.HasFile)
+                if (this.vsatpictureChecklistImages.HasFile)
                 {
                     string extension = this.vsatpictureChecklistImages.PostedFile.FileName.Split('.')[1];
                     string newFileName = "images/pictureChecklist_MobileService_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
@@ -7921,7 +7921,7 @@ namespace USOform
             }
             else
             {
-                if (this.pictureChecklistImages.HasFile)
+                if (this.solarcellpictureChecklistImages.HasFile)
                 {
                     string extension = this.solarcellpictureChecklistImages.PostedFile.FileName.Split('.')[1];
                     string newFileName = "images/SolarcellPictureChecklist_MobileService_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
@@ -7938,125 +7938,12 @@ namespace USOform
             }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-
-
-
-
             int result = uSOEntities.SaveChanges();
             if (result > 0)
             {
                 this.SuccessPanel.Visible = true;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }
