@@ -107,10 +107,10 @@
                 This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
             </div>
             <%---------------------------//    HEADER CONTENT    //-------------------------%>
-            
+
             <div class="row pt-3">
                 <div class="col-4">
-            <asp:FileUpload ID="logoPicture" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" />
+                    <asp:FileUpload ID="logoPicture" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" />
                 </div>
                 <div class="col-4  d-flex justify-content-center ">
                     <h5 class="headerText">Preventive Maintenance Site Report USO (USO Wrap)</h5>
@@ -441,13 +441,13 @@
                     <div class="form-check-inline">
                         <label class="form-check-label">
 
-                            <input type="radio" class="form-check-input" name="typeofsignalRadio" value="OFC" <%-- <% if (answers.Where(x => x.QuestionId == 31).FirstOrDefault().AnsDes == "OFC") { Response.Write("checked"); } else { Response.Write(""); }  %>--%> />OFC
+                            <input type="radio" class="form-check-input" name="typeofsignalRadio" value="OFC"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 31).FirstOrDefault().AnsDes == "OFC") { Response.Write("checked"); } else { Response.Write(""); }  %> />OFC
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
 
-                            <input type="radio" class="form-check-input" name="typeofsignalRadio" value="Satellite" <%--  <% if (answers.Where(x => x.QuestionId == 31).FirstOrDefault().AnsDes == "Satellite") { Response.Write("checked"); } else { Response.Write(""); }  %> --%> />Satellite 
+                            <input type="radio" class="form-check-input" name="typeofsignalRadio" value="Satellite" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 31).FirstOrDefault().AnsDes == "Satellite") { Response.Write("checked"); } else { Response.Write(""); }  %> />Satellite 
                         </label>
                     </div>
                 </div>
@@ -483,12 +483,12 @@
                     <label class="control-label col-sm-2">ระบบไฟฟ้า</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="elecRadio" value="PEA" <%-- <% if (answers.Where(x => x.QuestionId == 33).FirstOrDefault().AnsDes == "PEA") { Response.Write("checked"); } else { Response.Write(""); }  %> --%> />PEA
+                            <input type="radio" class="form-check-input" name="elecRadio" value="PEA" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 33).FirstOrDefault().AnsDes == "PEA") { Response.Write("checked"); } else { Response.Write(""); }  %> />PEA
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="elecRadio" value="SolarCell" <%-- <% if (answers.Where(x => x.QuestionId == 33).FirstOrDefault().AnsDes == "SolarCell") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />Solar Cell
+                            <input type="radio" class="form-check-input" name="elecRadio" value="SolarCell" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 33).FirstOrDefault().AnsDes == "SolarCell") { Response.Write("checked"); } else { Response.Write(""); } %> />Solar Cell
                         </label>
                     </div>
                 </div>
@@ -499,12 +499,12 @@
                     <label class="control-label col-sm-2">หม้อแปลงไฟฟ้า</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="transformerRadio" value="1Phase" <%-- <% if (answers.Where(x => x.QuestionId == 34).FirstOrDefault().AnsDes == "1Phase") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />1 Phase
+                            <input type="radio" class="form-check-input" name="transformerRadio" value="1Phase" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 34).FirstOrDefault().AnsDes == "1Phase") { Response.Write("checked"); } else { Response.Write(""); } %> />1 Phase
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="transformerRadio" value="3Phase" <%-- <% if (answers.Where(x => x.QuestionId == 34).FirstOrDefault().AnsDes == "3Phase") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />3 Phase
+                            <input type="radio" class="form-check-input" name="transformerRadio" value="3Phase" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 34).FirstOrDefault().AnsDes == "3Phase") { Response.Write("checked"); } else { Response.Write(""); } %> />3 Phase
                         </label>
                     </div>
                 </div>
@@ -560,12 +560,12 @@
                     <label class="control-label col-sm-2">สภาพ kWh Meter</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="conditionRadio" value="ปกติ" <%--  <% if (answers.Where(x => x.QuestionId == 40).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %>--%> />ปกติ
+                            <input type="radio" class="form-check-input" name="conditionRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 40).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="conditionRadio" value="ชำรุด/ใช้งานไม่ได้" <%--<% if (answers.Where(x => x.QuestionId == 40).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %>--%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="conditionRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 40).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -575,12 +575,12 @@
                     <label class="control-label col-sm-2">สภาพ MDB/ Circuit Breaker</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="MDBCircuitBreakerRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 41).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="MDBCircuitBreakerRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 41).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="MDBCircuitBreakerRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 41).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="MDBCircuitBreakerRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 41).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -608,12 +608,12 @@
                     <label class="control-label col-sm-2">UPS ภายในตู้</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="inupsRadio" value="มี" <%-- <% if (answers.Where(x => x.QuestionId == 42).FirstOrDefault().AnsDes == "มี") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />มี
+                            <input type="radio" class="form-check-input" name="inupsRadio" value="มี" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 42).FirstOrDefault().AnsDes == "มี") { Response.Write("checked"); } else { Response.Write(""); } %> />มี
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="inupsRadio" value="ไม่มี" <%-- <% if (answers.Where(x => x.QuestionId == 42).FirstOrDefault().AnsDes == "ไม่มี") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ไม่มี
+                            <input type="radio" class="form-check-input" name="inupsRadio" value="ไม่มี" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 42).FirstOrDefault().AnsDes == "ไม่มี") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่มี
                         </label>
                     </div>
                 </div>
@@ -643,17 +643,17 @@
                     <label class="control-label col-sm-2">UPS MODE</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="upsModeRadio" value="LINE" required="required" <%-- <% if (answers.Where(x => x.QuestionId == 7).FirstOrDefault().AnsDes == "LINE") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />LINE
+                            <input type="radio" class="form-check-input" name="upsModeRadio" value="LINE" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 7).FirstOrDefault().AnsDes == "LINE") { Response.Write("checked"); } else { Response.Write(""); } %> />LINE
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="upsModeRadio" value="BATT." required="required" <%-- <% if (answers.Where(x => x.QuestionId == 7).FirstOrDefault().AnsDes == "BATT.") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />BATT.
+                            <input type="radio" class="form-check-input" name="upsModeRadio" value="BATT." required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 7).FirstOrDefault().AnsDes == "BATT.") { Response.Write("checked"); } else { Response.Write(""); } %> />BATT.
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="upsModeRadio" value="BYPASS" required="required" <%-- <% if (answers.Where(x => x.QuestionId == 7).FirstOrDefault().AnsDes == "BYPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />BYPASS
+                            <input type="radio" class="form-check-input" name="upsModeRadio" value="BYPASS" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 7).FirstOrDefault().AnsDes == "BYPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />BYPASS
                         </label>
                     </div>
                 </div>
@@ -665,13 +665,13 @@
                     <label class="control-label col-sm-2">การทำงานของระบบไฟสำรอง</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="emergeneratorRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 45).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="emergeneratorRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 45).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="emergeneratorRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 45).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="emergeneratorRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 45).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -681,13 +681,13 @@
                     <label class="control-label col-sm-2">สภาพ Battery Bank</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="stateBatteryBankRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 46).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="stateBatteryBankRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 46).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="stateBatteryBankRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 46).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="stateBatteryBankRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 46).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -713,25 +713,25 @@
                     <label class="control-label col-sm-2">ONU/Modem Network</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="onuModemRadio" value="USO" <%-- <% if (answers.Where(x => x.QuestionId == 47).FirstOrDefault().AnsDes == "USO") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />USO
+                            <input type="radio" class="form-check-input" name="onuModemRadio" value="USO" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 47).FirstOrDefault().AnsDes == "USO") { Response.Write("checked"); } else { Response.Write(""); } %> />USO
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="onuModemRadio" value="TRUE" <%-- <% if (answers.Where(x => x.QuestionId == 47).FirstOrDefault().AnsDes == "TRUE") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />TRUE
+                            <input type="radio" class="form-check-input" name="onuModemRadio" value="TRUE" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 47).FirstOrDefault().AnsDes == "TRUE") { Response.Write("checked"); } else { Response.Write(""); } %> />TRUE
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="onuModemRadio" value="3BB" <%-- <% if (answers.Where(x => x.QuestionId == 47).FirstOrDefault().AnsDes == "3BB") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />3BB
+                            <input type="radio" class="form-check-input" name="onuModemRadio" value="3BB" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 47).FirstOrDefault().AnsDes == "3BB") { Response.Write("checked"); } else { Response.Write(""); } %> />3BB
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="onuModemRadio" value="Satellite" <%-- <% if (answers.Where(x => x.QuestionId == 47).FirstOrDefault().AnsDes == "Satellite") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />Satellite
+                            <input type="radio" class="form-check-input" name="onuModemRadio" value="Satellite" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 47).FirstOrDefault().AnsDes == "Satellite") { Response.Write("checked"); } else { Response.Write(""); } %> />Satellite
                         </label>
                     </div>
                 </div>
@@ -742,12 +742,12 @@
                     <label class="control-label col-sm-2">Switch 8 Port</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="switchportRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 48).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="switchportRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 48).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="switchportRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 48).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="switchportRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 48).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -758,13 +758,13 @@
                     <label class="control-label col-sm-2">Switch 48 Port</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="switch48portRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 49).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="switch48portRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 49).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="switch48portRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 49).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="switch48portRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 49).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -775,13 +775,13 @@
                     <label class="control-label col-sm-2">Outdoor AP ตัวที่ 1</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="outdoorapRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 50).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="outdoorapRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 50).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="outdoorapRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 50).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="outdoorapRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 50).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -792,13 +792,13 @@
                     <label class="control-label col-sm-2">Outdoor AP ตัวที่ 2</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="outdoorap2Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 51).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="outdoorap2Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 51).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="outdoorap2Radio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 51).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="outdoorap2Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 51).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -809,12 +809,12 @@
                     <label class="control-label col-sm-2">Indoor AP ตัวที่ 1</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="indoorapRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 52).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="indoorapRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 52).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="indoorapRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 52).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="indoorapRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 52).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -825,12 +825,12 @@
                     <label class="control-label col-sm-2">Indoor AP ตัวที่ 2</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="indoorap2Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 53).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="indoorap2Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 53).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="indoorap2Radio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 53).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="indoorap2Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 53).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -840,12 +840,12 @@
                     <label class="control-label col-sm-2">การ Wiring สายไฟ</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="wiringelecRadio" value="เรียบร้อย" <%-- <% if (answers.Where(x => x.QuestionId == 54).FirstOrDefault().AnsDes == "เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />เรียบร้อย
+                            <input type="radio" class="form-check-input" name="wiringelecRadio" value="เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 54).FirstOrDefault().AnsDes == "เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> />เรียบร้อย
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="wiringelecRadio" value="ไม่เรียบร้อย" <%-- <% if (answers.Where(x => x.QuestionId == 54).FirstOrDefault().AnsDes == "ไม่เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ไม่เรียบร้อย
+                            <input type="radio" class="form-check-input" name="wiringelecRadio" value="ไม่เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 54).FirstOrDefault().AnsDes == "ไม่เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่เรียบร้อย
                         </label>
                     </div>
                 </div>
@@ -855,13 +855,13 @@
                     <label class="control-label col-sm-2">การ Wiring Patch cord และ สาย LAN</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="wiringpatchRadio" value="เรียบร้อย" <%-- <% if (answers.Where(x => x.QuestionId == 55).FirstOrDefault().AnsDes == "เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />เรียบร้อย
+                            <input type="radio" class="form-check-input" name="wiringpatchRadio" value="เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 55).FirstOrDefault().AnsDes == "เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> />เรียบร้อย
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="wiringpatchRadio" value="ไม่เรียบร้อย" <%-- <% if (answers.Where(x => x.QuestionId == 55).FirstOrDefault().AnsDes == "ไม่เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ไม่เรียบร้อย
+                            <input type="radio" class="form-check-input" name="wiringpatchRadio" value="ไม่เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 55).FirstOrDefault().AnsDes == "ไม่เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่เรียบร้อย
                         </label>
                     </div>
                 </div>
@@ -881,12 +881,12 @@
                     <label class="control-label col-sm-4">ความแข็งแรงจุดต่อ Ground Bar</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="groundbarRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 57).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="groundbarRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 57).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="groundbarRadio" value="ชำรุด" <%-- <% if (answers.Where(x => x.QuestionId == 57).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด
+                            <input type="radio" class="form-check-input" name="groundbarRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 57).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด
                         </label>
                     </div>
                 </div>
@@ -896,12 +896,12 @@
                     <label class="control-label col-sm-4">ความแข็งแรงของน็อตขันหางปลาอุปกรณ์</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="notfishRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 58).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="notfishRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 58).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="notfishRadio" value="ชำรุด" <%-- <% if (answers.Where(x => x.QuestionId == 58).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด
+                            <input type="radio" class="form-check-input" name="notfishRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 58).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด
                         </label>
                     </div>
                 </div>
@@ -911,12 +911,12 @@
                     <label class="control-label col-sm-4">สายกราวด์เรียบร้อย ปลอดภัย สมบูรณ์</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="safegroundRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 59).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="safegroundRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 59).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="safegroundRadio" value="ชำรุด" <%-- <% if (answers.Where(x => x.QuestionId == 59).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด
+                            <input type="radio" class="form-check-input" name="safegroundRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 59).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด
                         </label>
                     </div>
                 </div>
@@ -928,12 +928,12 @@
                     <label class="control-label col-sm-4">สถานะไฟฟ้ารั่วลง Ground</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="brokenElecRadio" value="ไม่พบไฟฟ้ารั่ว" <%-- <% if (answers.Where(x => x.QuestionId == 60).FirstOrDefault().AnsDes == "ไม่พบไฟฟ้ารั่ว") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ไม่พบไฟฟ้ารั่ว
+                            <input type="radio" class="form-check-input" name="brokenElecRadio" value="ไม่พบไฟฟ้ารั่ว" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 60).FirstOrDefault().AnsDes == "ไม่พบไฟฟ้ารั่ว") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่พบไฟฟ้ารั่ว
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="brokenElecRadio" value="พบไฟฟ้ารั่ว" <%-- <% if (answers.Where(x => x.QuestionId == 60).FirstOrDefault().AnsDes == "พบไฟฟ้ารั่ว") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />พบไฟฟ้ารั่ว
+                            <input type="radio" class="form-check-input" name="brokenElecRadio" value="พบไฟฟ้ารั่ว" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 60).FirstOrDefault().AnsDes == "พบไฟฟ้ารั่ว") { Response.Write("checked"); } else { Response.Write(""); } %> />พบไฟฟ้ารั่ว
                         </label>
                     </div>
                 </div>
@@ -954,12 +954,12 @@
                     <label class="control-label col-sm-4">Fire Alarm และ Smoke Detector</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="firesmokedDectorRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 61).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="firesmokedDectorRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 61).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="firesmokedDectorRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 61).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="firesmokedDectorRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 61).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -970,12 +970,12 @@
                     <label class="control-label col-sm-4">Fire Alarm Manual Switch</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="firealarmManualswitchRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 62).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="firealarmManualswitchRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 62).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="firealarmManualswitchRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 62).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="firealarmManualswitchRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 62).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1007,12 +1007,12 @@
                     <label class="control-label col-sm-4">ไฟแสงสว่างฉุกเฉิน</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="emerLightRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 65).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="emerLightRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 65).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="emerLightRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 65).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="emerLightRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 65).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1023,12 +1023,12 @@
                     <label class="control-label col-sm-4">ระบบ Monitor กล้องวงจรปิด</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="monitorCameraRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 66).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="monitorCameraRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 66).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="monitorCameraRadio" value="ไม่สามารถ Monitor ได้" <%-- <% if (answers.Where(x => x.QuestionId == 66).FirstOrDefault().AnsDes == "ไม่สามารถ Monitor ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ไม่สามารถ Monitor ได้
+                            <input type="radio" class="form-check-input" name="monitorCameraRadio" value="ไม่สามารถ Monitor ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 66).FirstOrDefault().AnsDes == "ไม่สามารถ Monitor ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่สามารถ Monitor ได้
                         </label>
                     </div>
                 </div>
@@ -1040,12 +1040,12 @@
                     <label class="control-label col-sm-4">กล้องวงจรปิดห้อง Computer</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cameraComputerRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 67).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="cameraComputerRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 67).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cameraComputerRadio" value="ชำรุด" <%-- <% if (answers.Where(x => x.QuestionId == 67).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด
+                            <input type="radio" class="form-check-input" name="cameraComputerRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 67).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด
                         </label>
                     </div>
                 </div>
@@ -1056,12 +1056,12 @@
                     <label class="control-label col-sm-4">กล้องวงจรปิดภายนอกอาคาร 1</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cameraOutRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 68).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="cameraOutRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 68).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cameraOutRadio" value="ชำรุด" <%-- <% if (answers.Where(x => x.QuestionId == 68).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด
+                            <input type="radio" class="form-check-input" name="cameraOutRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 68).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด
                         </label>
                     </div>
                 </div>
@@ -1075,12 +1075,12 @@
                     <label class="control-label col-sm-4">กล้องวงจรปิดภายนอกอาคาร 2</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cameraOut2Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 69).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="cameraOut2Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 69).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cameraOut2Radio" value="ชำรุด" <%-- <% if (answers.Where(x => x.QuestionId == 69).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด
+                            <input type="radio" class="form-check-input" name="cameraOut2Radio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 69).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด
                         </label>
                     </div>
                 </div>
@@ -1103,12 +1103,12 @@
                     <label class="control-label col-sm-4">จอทีวีห้องประชุม</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="televisRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 70).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="televisRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 70).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="televisRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 70).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="televisRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 70).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1119,12 +1119,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์เจ้าหน้าที่ศูนย์</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="computerAgentRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 71).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="computerAgentRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 71).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="computerAgentRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 71).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="computerAgentRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 71).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1139,12 +1139,12 @@
                     <label class="control-label col-sm-4">Printer</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="printerRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 72).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="printerRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 72).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="printerRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 72).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="printerRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 72).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1156,12 +1156,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 1</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Com1Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 73).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="Com1Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 73).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Com1Radio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 73).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="Com1Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 73).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1172,12 +1172,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 2</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com2Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 74).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="com2Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 74).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com2Radio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 74).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com2Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 74).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1189,12 +1189,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 3</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com3Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 75).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="com3Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 75).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com3Radio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 75).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com3Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 75).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1207,12 +1207,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 4</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com4Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 76).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="com4Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 76).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com4Radio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 76).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com4Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 76).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1224,12 +1224,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 5</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com5Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 77).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="com5Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 77).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com5Radio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 77).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com5Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 77).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1242,12 +1242,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 6</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com6Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 78).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="com6Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 78).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com6Radio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 78).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com6Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 78).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1260,12 +1260,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 7</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com7Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 79).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="com7Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 79).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com7Radio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 79).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com7Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 79).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1279,12 +1279,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 8</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com8Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 80).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="com8Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 80).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com8Radio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 80).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com8Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 80).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1296,12 +1296,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 9</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com9Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 81).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="com9Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 81).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com9Radio" value="รุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 81).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com9Radio" value="รุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 81).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1313,12 +1313,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 10</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com10Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 82).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="com10Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 82).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com10Radio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 82).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com10Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 82).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1347,12 +1347,12 @@
                     <label class="control-label col-sm-4">เครื่องปรับอากาศ 1</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="airRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 83).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="airRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 83).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="airRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 83).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="airRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 83).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1362,12 +1362,12 @@
                     <label class="control-label col-sm-4">เครื่องปรับอากาศ 2</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="air2Radio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 84).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="air2Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 84).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="air2Radio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 84).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="air2Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 84).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1391,12 +1391,12 @@
                     <label class="control-label col-sm-2">ความสะอาดภายในห้อง</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cleaninroomRadio" value="สะอาด" <%-- <% if (answers.Where(x => x.QuestionId == 85).FirstOrDefault().AnsDes == "สะอาด") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />สะอาด
+                            <input type="radio" class="form-check-input" name="cleaninroomRadio" value="สะอาด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 85).FirstOrDefault().AnsDes == "สะอาด") { Response.Write("checked"); } else { Response.Write(""); } %> />สะอาด
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cleaninroomRadio" value="ไม่สะอาด/ไม่เรียบร้อย" <%-- <% if (answers.Where(x => x.QuestionId == 85).FirstOrDefault().AnsDes == "ไม่สะอาด/ไม่เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ไม่สะอาด/ไม่เรียบร้อย
+                            <input type="radio" class="form-check-input" name="cleaninroomRadio" value="ไม่สะอาด/ไม่เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 85).FirstOrDefault().AnsDes == "ไม่สะอาด/ไม่เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่สะอาด/ไม่เรียบร้อย
                         </label>
                     </div>
                 </div>
@@ -1406,12 +1406,12 @@
                     <label class="control-label col-sm-2">ความสะอาดรอบห้องภายนอก</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cleanoutroomRadio" value="สะอาด" <%-- <% if (answers.Where(x => x.QuestionId == 86).FirstOrDefault().AnsDes == "สะอาด") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />สะอาด
+                            <input type="radio" class="form-check-input" name="cleanoutroomRadio" value="สะอาด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 86).FirstOrDefault().AnsDes == "สะอาด") { Response.Write("checked"); } else { Response.Write(""); } %> />สะอาด
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cleanoutroomRadio" value="ไม่สะอาด/ไม่เรียบร้อย" <%-- <% if (answers.Where(x => x.QuestionId == 86).FirstOrDefault().AnsDes == "ไม่สะอาด/ไม่เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ไม่สะอาด/ไม่เรียบร้อย
+                            <input type="radio" class="form-check-input" name="cleanoutroomRadio" value="ไม่สะอาด/ไม่เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 86).FirstOrDefault().AnsDes == "ไม่สะอาด/ไม่เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่สะอาด/ไม่เรียบร้อย
                         </label>
                     </div>
                 </div>
@@ -1422,12 +1422,12 @@
                     <label class="control-label col-sm-2">ประตูห้อง</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="doorRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 87).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="doorRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 87).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="doorRadio" value="ชำรุด" <%-- <% if (answers.Where(x => x.QuestionId == 07).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด
+                            <input type="radio" class="form-check-input" name="doorRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 07).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด
                         </label>
                     </div>
                 </div>
@@ -1460,12 +1460,12 @@
                     <label class="control-label col-sm-4">อุปกรณ์ LNB/BUC</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="toolslnbRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 88).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="toolslnbRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 88).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="toolslnbRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 88).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="toolslnbRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 88).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1476,12 +1476,12 @@
                     <label class="control-label col-sm-4">การเก็บสาย RG และการพันหัว</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="wiringrgRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 89).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="wiringrgRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 89).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="wiringrgRadio" value="ไม่เรียบร้อย/ไม่แน่น" <%-- <% if (answers.Where(x => x.QuestionId == 89).FirstOrDefault().AnsDes == "ไม่เรียบร้อย/ไม่แน่น") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ไม่เรียบร้อย/ไม่แน่น
+                            <input type="radio" class="form-check-input" name="wiringrgRadio" value="ไม่เรียบร้อย/ไม่แน่น" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 89).FirstOrDefault().AnsDes == "ไม่เรียบร้อย/ไม่แน่น") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่เรียบร้อย/ไม่แน่น
                         </label>
                     </div>
                 </div>
@@ -1493,12 +1493,12 @@
                     <label class="control-label col-sm-4">ฐานและระดับของเสาจาน</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="baseOnRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 90).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="baseOnRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 90).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="baseOnRadio" value="ไม่ได้ระดับ/เอียง" <%-- <% if (answers.Where(x => x.QuestionId == 90).FirstOrDefault().AnsDes == "ไม่ได้ระดับ/เอียง") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ไม่ได้ระดับ/เอียง
+                            <input type="radio" class="form-check-input" name="baseOnRadio" value="ไม่ได้ระดับ/เอียง" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 90).FirstOrDefault().AnsDes == "ไม่ได้ระดับ/เอียง") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่ได้ระดับ/เอียง
                         </label>
                     </div>
                 </div>
@@ -1510,12 +1510,12 @@
                     <label class="control-label col-sm-4">แนว Line Of Sight</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="lineOfsightRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 91).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="lineOfsightRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 91).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="lineOfsightRadio" value="โดนบัง" <%-- <% if (answers.Where(x => x.QuestionId == 91).FirstOrDefault().AnsDes == "โดนบัง") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />โดนบัง
+                            <input type="radio" class="form-check-input" name="lineOfsightRadio" value="โดนบัง" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 91).FirstOrDefault().AnsDes == "โดนบัง") { Response.Write("checked"); } else { Response.Write(""); } %> />โดนบัง
                         </label>
                     </div>
                 </div>
@@ -1528,12 +1528,12 @@
                     <label class="control-label col-sm-4">ความสะอาดของหน้าจาน</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cleaningDishRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 92).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="cleaningDishRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 92).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cleaningDishRadio" value="สกปรก" <%-- <% if (answers.Where(x => x.QuestionId == 92).FirstOrDefault().AnsDes == "สกปรก") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />สกปรก
+                            <input type="radio" class="form-check-input" name="cleaningDishRadio" value="สกปรก" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 92).FirstOrDefault().AnsDes == "สกปรก") { Response.Write("checked"); } else { Response.Write(""); } %> />สกปรก
                         </label>
                     </div>
                 </div>
@@ -1546,12 +1546,12 @@
                     <label class="control-label col-sm-4">LNB Band Switch</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="lnbbandswitchRadio" value="HIGHBAND" <%-- <% if (answers.Where(x => x.QuestionId == 93).FirstOrDefault().AnsDes == "HIGHBAND") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />HIGH BAND
+                            <input type="radio" class="form-check-input" name="lnbbandswitchRadio" value="HIGHBAND" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 93).FirstOrDefault().AnsDes == "HIGHBAND") { Response.Write("checked"); } else { Response.Write(""); } %> />HIGH BAND
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="lnbbandswitchRadio" value="LOWBAND" <%-- <% if (answers.Where(x => x.QuestionId == 93).FirstOrDefault().AnsDes == "LOWBAND") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />LOW BAND
+                            <input type="radio" class="form-check-input" name="lnbbandswitchRadio" value="LOWBAND" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 93).FirstOrDefault().AnsDes == "LOWBAND") { Response.Write("checked"); } else { Response.Write(""); } %> />LOW BAND
                         </label>
                     </div>
                 </div>
@@ -1581,12 +1581,12 @@
                     <label class="control-label col-sm-4">ระบบ Solar Cell</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="solarcellSystemRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 94).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="solarcellSystemRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 94).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="solarcellSystemRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 94).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="solarcellSystemRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 94).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1597,12 +1597,12 @@
                     <label class="control-label col-sm-4">แผง PV Panel</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="pvPanelRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 95).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="pvPanelRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 95).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="pvPanelRadio" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 95).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="pvPanelRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 95).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1613,12 +1613,12 @@
                     <label class="control-label col-sm-4">อุปกรณ์ Charger</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="toolsCharger" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 96).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="toolsCharger" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 96).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="toolsCharger" value="ชำรุด/ใช้งานไม่ได้" <%-- <% if (answers.Where(x => x.QuestionId == 96).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="toolsCharger" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 96).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1630,12 +1630,12 @@
                     <label class="control-label col-sm-4">ความสะอาดแผง PV</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cleanIngpvRadio" value="ปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 97).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ปกติ
+                            <input type="radio" class="form-check-input" name="cleanIngpvRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 97).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="cleanIngpvRadio" value="สกปรก" <%-- <% if (answers.Where(x => x.QuestionId == 97).FirstOrDefault().AnsDes == "สกปรก") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />สกปรก
+                            <input type="radio" class="form-check-input" name="cleanIngpvRadio" value="สกปรก" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 97).FirstOrDefault().AnsDes == "สกปรก") { Response.Write("checked"); } else { Response.Write(""); } %> />สกปรก
                         </label>
                     </div>
                 </div>
@@ -1647,12 +1647,12 @@
                     <label class="control-label col-sm-4">การติดตั้งแผง PV</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="installPvRadio" value="ที่โล่งรับแดดปกติ" <%-- <% if (answers.Where(x => x.QuestionId == 98).FirstOrDefault().AnsDes == "ที่โล่งรับแดดปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />ที่โล่งรับแดดปกติ
+                            <input type="radio" class="form-check-input" name="installPvRadio" value="ที่โล่งรับแดดปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 98).FirstOrDefault().AnsDes == "ที่โล่งรับแดดปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ที่โล่งรับแดดปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="installPvRadio" value="มีอาคาร/ต้นไม้บัง" <%-- <% if (answers.Where(x => x.QuestionId == 98).FirstOrDefault().AnsDes == "มีอาคาร/ต้นไม้บัง") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />มีอาคาร/ต้นไม้บัง
+                            <input type="radio" class="form-check-input" name="installPvRadio" value="มีอาคาร/ต้นไม้บัง" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 98).FirstOrDefault().AnsDes == "มีอาคาร/ต้นไม้บัง") { Response.Write("checked"); } else { Response.Write(""); } %> />มีอาคาร/ต้นไม้บัง
                         </label>
                     </div>
                 </div>
@@ -2325,12 +2325,12 @@
                     <label class="control-label col-sm-4">รูปภาพป้ายชื่อโรงเรียน</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="billBoardSchoolRadio" value="PASS" <%-- <%-- <% if (answers.Where(x => x.QuestionId == 205).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="billBoardSchoolRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 205).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="billBoardSchoolRadio" value="NOTPASS" <%-- <%-- <% if (answers.Where(x => x.QuestionId == 205).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="billBoardSchoolRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 205).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2340,12 +2340,12 @@
                     <label class="control-label col-sm-4">รูปภาพด้านหน้าศูนย์ (ถ่ายคู่กับ จนท.ประจำศูนย์)</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="pictureWithagentRadio" value="PASS" <%-- <%-- <% if (answers.Where(x => x.QuestionId == 206).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="pictureWithagentRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 206).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="pictureWithagentRadio" value="NOTPASS" <%-- <%-- <% if (answers.Where(x => x.QuestionId == 206).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="pictureWithagentRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 206).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2355,12 +2355,12 @@
                     <label class="control-label col-sm-4">รูปภาพด้านหลังศูนย์</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="pictureBehindHallRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 207).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="pictureBehindHallRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 207).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="pictureBehindHallRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 207).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="pictureBehindHallRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 207).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2371,12 +2371,12 @@
                     <label class="control-label col-sm-4">รูปภาพบริเวณห้องโถง</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picInlobbyRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 208).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picInlobbyRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 208).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picInlobbyRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 208).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picInlobbyRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 208).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2387,12 +2387,12 @@
                     <label class="control-label col-sm-4">รูปภาพบริเวณห้องประชุม</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picinMeetingroomRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 209).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picinMeetingroomRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 209).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picinMeetingroomRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 209).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picinMeetingroomRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 209).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2402,12 +2402,12 @@
                     <label class="control-label col-sm-4">รูปภาพบริเวณห้อง Server</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picInserverRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 210).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picInserverRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 210).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picInserverRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 210).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picInserverRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 210).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2417,12 +2417,12 @@
                     <label class="control-label col-sm-4">รูปภาพบริเวณห้องน้ำ</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picIntoiletRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 211).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="picIntoiletRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 211).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picIntoiletRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 211).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="picIntoiletRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 211).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2431,12 +2431,12 @@
                     <label class="control-label col-sm-4">รูปภาพบริเวณห้องปั๊มน้ำ</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="pictureInwaterpumpRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 212).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="pictureInwaterpumpRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 212).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="pictureInwaterpumpRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 212).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="pictureInwaterpumpRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 212).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2447,12 +2447,12 @@
                     <label class="control-label col-sm-4">รูป PEA Meter</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picpeaMeterRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 213).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picpeaMeterRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 213).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picpeaMeterRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 213).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picpeaMeterRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 213).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2462,12 +2462,12 @@
                     <label class="control-label col-sm-4">รูปการวัดแรงดัน AC และกระแส AC </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="acPicRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 214).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="acPicRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 214).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="acPicRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 214).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="acPicRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 214).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2477,12 +2477,12 @@
                     <label class="control-label col-sm-4">รูปการวัดค่า Ground และ Bar Ground  </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="recGroundBargroundRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 215).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="recGroundBargroundRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 215).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="recGroundBargroundRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 215).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="recGroundBargroundRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 215).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2493,12 +2493,12 @@
                     <label class="control-label col-sm-4">รูปการตรวจสอบสถานะไฟฟ้ารั่วลง Ground (Lamp Test) </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="lightleakRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 216).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="lightleakRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 216).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="lightleakRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 216).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="lightleakRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 216).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2508,12 +2508,12 @@
                     <label class="control-label col-sm-4">รูป MDB  </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="mdbPicRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 217).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="mdbPicRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 217).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="mdbPicRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 217).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="mdbPicRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 217).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2523,12 +2523,12 @@
                     <label class="control-label col-sm-4">รูป Fire Alarm Control </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picFilealarmRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 218).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picFilealarmRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 218).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picFilealarmRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 218).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picFilealarmRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 218).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2538,12 +2538,12 @@
                     <label class="control-label col-sm-4">รูปภาพรวมอุปกรณ์ทั้งหมดภายในตู้ Rack</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="alltoolsInrackRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 219).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="alltoolsInrackRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 219).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="alltoolsInrackRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 219).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="alltoolsInrackRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 219).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2553,12 +2553,12 @@
                     <label class="control-label col-sm-4">รูปหน้าจอ UPS แสดงค่าต่างๆ และ Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="upsAndserialRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 220).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="upsAndserialRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 220).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="upsAndserialRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 220).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="upsAndserialRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 220).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2569,12 +2569,12 @@
                     <label class="control-label col-sm-4">รูป ONU/Modem พร้อม Serial NO. และ MAC</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picOnuRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 221).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picOnuRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 221).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picOnuRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 221).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picOnuRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 221).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2584,12 +2584,12 @@
                     <label class="control-label col-sm-4">รูป Power Supply พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picPsuRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 222).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picPsuRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 222).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picPsuRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 222).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picPsuRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 222).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2599,12 +2599,12 @@
                     <label class="control-label col-sm-4">รูป Switch 8 Port พร้อม Serial NO. และ MAC  </label>
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" name="picSwitchRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 223).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picSwitchRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 223).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picSwitchRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 223).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picSwitchRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 223).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2614,12 +2614,12 @@
                     <label class="control-label col-sm-4" for="">รูป Switch 48 Port พร้อม Serial NO. และ MAC </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picSwitch48Radio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 224).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picSwitch48Radio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 224).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" name="picSwitch48Radio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 224).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picSwitch48Radio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 224).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2629,12 +2629,12 @@
                     <label class="control-label col-sm-4">รูป Outdoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picOutdoorRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 225).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="picOutdoorRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 225).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picOutdoorRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 225).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="picOutdoorRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 225).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2644,12 +2644,12 @@
                     <label class="control-label col-sm-4">รูป Indoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picIndoortwowayRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 226).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="picIndoortwowayRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 226).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picIndoortwowayRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 226).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="picIndoortwowayRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 226).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2659,12 +2659,12 @@
                     <label class="control-label col-sm-4">รูปการ Test Speed จาก App Nperf โดยใช้ WIFI </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picspeedTestRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 227).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="picspeedTestRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 227).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picspeedTestRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 227).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="picspeedTestRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 227).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2675,12 +2675,12 @@
                     <label class="control-label col-sm-4">รูปการ Test Speed จาก App Nperf โดยใช้ LAN </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picspeedTestwithLanRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 228).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="picspeedTestwithLanRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 228).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picspeedTestwithLanRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 228).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="picspeedTestwithLanRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 228).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2691,12 +2691,12 @@
                     <label class="control-label col-sm-4">รูป ก่อน-หลัง การทำความสะอาดรางระบายน้ำ </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picbeforeAftercanelRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 229).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picbeforeAftercanelRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 229).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picbeforeAftercanelRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 229).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picbeforeAftercanelRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 229).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2706,12 +2706,12 @@
                     <label class="control-label col-sm-4">รูปหน้าจอ Monitor กล้องวงจรปิดผ่านจอทีวีในห้องประชุม </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picMonitorRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 230).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picMonitorRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 230).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picMonitorRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 230).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picMonitorRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 230).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2723,12 +2723,12 @@
                     <label class="control-label col-sm-4">รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องโถง </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="beforeArterairCleanRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 231).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="beforeArterairCleanRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 231).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="beforeArterairCleanRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 231).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="beforeArterairCleanRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 231).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2738,12 +2738,12 @@
                     <label class="control-label col-sm-4">รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องประชุม </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picairInmeetingRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 232).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picairInmeetingRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 232).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picairInmeetingRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 232).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picairInmeetingRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 232).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2753,12 +2753,12 @@
                     <label class="control-label col-sm-4">รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server </label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picAirserverRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 233).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picAirserverRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 233).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picAirserverRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 233).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picAirserverRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 233).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2782,12 +2782,12 @@
                     <label class="control-label col-sm-4">รูปจุดติดตั้งจานดาวเทียม</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="inStallBaseRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 234).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="inStallBaseRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 234).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="inStallBaseRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 234).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="inStallBaseRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 234).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2797,12 +2797,12 @@
                     <label class="control-label col-sm-4">รูปความสะอาดบริเวณจานดาวเทียม</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picCleansatelliteRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 235).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picCleansatelliteRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 235).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picCleansatelliteRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 235).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picCleansatelliteRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 235).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2814,12 +2814,12 @@
                     <label class="control-label col-sm-4">รูป LNB พร้อม Part NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picLnbRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 236).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="picLnbRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 236).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picLnbRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 236).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="picLnbRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 236).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2829,12 +2829,12 @@
                     <label class="control-label col-sm-4">รูป BUC พร้อม Part NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picBUCRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 237).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picBUCRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 237).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picBUCRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 237).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picBUCRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 237).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2844,12 +2844,12 @@
                     <label class="control-label col-sm-4">รูปการเก็บสายและพันหัวที่ LNB/BUC</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picWiringLnbRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 238).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="picWiringLnbRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 238).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picWiringLnbRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 238).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="picWiringLnbRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 238).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2859,12 +2859,12 @@
                     <label class="control-label col-sm-4">รูปแนว Line Of Sight (ดูการถูกบังของหน้าจานดาวเทียม)</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picLineofSightRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 239).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picLineofSightRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 239).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picLineofSightRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 239).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picLineofSightRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 239).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2897,12 +2897,12 @@
                     <label class="control-label col-sm-4">รูปจุดติดตั้ง Solar Cell</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picBaseSolarcellRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 240).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="picBaseSolarcellRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 240).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picBaseSolarcellRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 240).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="picBaseSolarcellRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 240).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2912,12 +2912,12 @@
                     <label class="control-label col-sm-4">รูปอุปกรณ์ Solar Cell ภายในห้อง</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="solarcellToolsinroomRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 241).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="solarcellToolsinroomRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 241).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="solarcellToolsinroomRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 241).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="solarcellToolsinroomRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 241).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2929,12 +2929,12 @@
                     <label class="control-label col-sm-4">รูปหน้าจอ Charger แสดงค่าต่างๆ</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="screenChargerRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 242).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="screenChargerRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 242).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="screenChargerRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 242).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="screenChargerRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 242).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2945,12 +2945,12 @@
                     <label class="control-label col-sm-4">รูปหน้าจอ Inverter แสดงค่าต่างๆ</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="screenInverterRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 243).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="screenInverterRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 243).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="screenInverterRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 243).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="screenInverterRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 243).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2961,12 +2961,12 @@
                     <label class="control-label col-sm-4">รูป Circuit Breaker ภายในตู้</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccircuitBreakerRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 244).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="piccircuitBreakerRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 244).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccircuitBreakerRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 244).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="piccircuitBreakerRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 244).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2976,12 +2976,12 @@
                     <label class="control-label col-sm-4">รูป Terminal ต่อสายภายในตู้</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picTerminalRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 245).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="picTerminalRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 245).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picTerminalRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 245).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="picTerminalRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 245).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -2994,12 +2994,12 @@
                     <label class="control-label col-sm-4">รูปความสะอาดแผง PV</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picCleaningPvRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 246).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="picCleaningPvRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 246).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picCleaningPvRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 246).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="picCleaningPvRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 246).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3012,12 +3012,12 @@
                     <label class="control-label col-sm-4">รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picSunriseRadio" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 247).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="picSunriseRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 247).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="picSunriseRadio" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 247).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="picSunriseRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 247).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3042,12 +3042,12 @@
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO.(เครื่องผู้ดูแล)</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio1" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 248).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio1" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 248).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio1" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 248).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio1" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 248).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3058,12 +3058,12 @@
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio2" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 249).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio2" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 249).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio2" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 249).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio2" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 249).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3075,12 +3075,12 @@
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio3" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 250).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio3" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 250).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio3" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 250).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio3" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 250).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3094,12 +3094,12 @@
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio4" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 251).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio4" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 251).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio4" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 251).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio4" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 251).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3112,12 +3112,12 @@
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio5" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 252).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio5" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 252).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio5" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 252).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio5" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 252).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3129,12 +3129,12 @@
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 6 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio6" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 253).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio6" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 253).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio6" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 253).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio6" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 253).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3145,12 +3145,12 @@
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 7 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio7" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 254).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio7" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 254).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio7" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 254).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio7" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 254).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3160,12 +3160,12 @@
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 8 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio8" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 255).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio8" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 255).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio8" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 255).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio8" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 255).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3177,12 +3177,12 @@
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 9 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio9" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 256).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio9" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 256).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %>>PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio9" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 256).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%>>NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio9" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 256).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %>>NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3192,12 +3192,12 @@
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 10 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio10" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 257).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio10" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 257).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio10" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 257).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio10" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 257).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3206,12 +3206,12 @@
                     <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 11 พร้อม Serial NO.</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio11" value="PASS" <%-- <% if (answers.Where(x => x.QuestionId == 258).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio11" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 258).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="piccomAgentRadio11" value="NOTPASS" <%-- <% if (answers.Where(x => x.QuestionId == 258).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> --%> />NOT PASS
+                            <input type="radio" class="form-check-input" name="piccomAgentRadio11" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 258).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                         </label>
                     </div>
                 </div>
@@ -3235,10 +3235,10 @@
                 <div class="row mt-3 ">
                     <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
                     <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" />
-                    <%-- <input type="file" name="image2" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_2" />--%>
+                   
                 </div>
                 <div class="row ml-3 mt-3">
-                    <img id="user_img_2" src="https://placehold.it/250x250" class="placeholder2" />
+                    <img id="user_img_2" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 259).FirstOrDefault().AnsDes); %>' class="placeholder2" />
                 </div>
 
 
@@ -3247,10 +3247,10 @@
                 <div class="row mt-3">
                     <div class="col-sm-12">2.รูป VSAT PICTURE CHECKLIST</div>
                     <asp:FileUpload ID="vsatpictureChecklistImages" runat="server" data-thumbnail="user_img_3" accept="image/" onchange="previewImage(this)" required="required" />
-                    <%--                    <input type="file" name="image3" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_3" />--%>
+              
                 </div>
                 <div class="row ml-3 mt-3">
-                    <img id="user_img_3" src="https://placehold.it/250x250" class="placeholder2" />
+                    <img id="user_img_3" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 260).FirstOrDefault().AnsDes); %>' class="placeholder2" />
                 </div>
 
 
@@ -3258,10 +3258,10 @@
                 <div class="row mt-3">
                     <div class="col-sm-12">3.รูป SOLAR CELL PICTURE CHECKLIST</div>
                     <asp:FileUpload ID="solarcellpictureChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)" required="required" />
-                    <%--                    <input type="file" name="image4" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_4" />--%>
+                   
                 </div>
                 <div class="row ml-3 mt-3">
-                    <img id="user_img_4" src="https://placehold.it/250x250" class="placeholder2" />
+                    <img id="user_img_4" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 261).FirstOrDefault().AnsDes); %>' class="placeholder2" />
                 </div>
 
 
@@ -3270,12 +3270,12 @@
                 <div class="row mt-3">
                     <div class="col-sm-12">4.COMPUTER PICTURE CHECKLIST</div>
                     <asp:FileUpload ID="compictureChecklistImages" runat="server" data-thumbnail="user_img_5" accept="image/" onchange="previewImage(this)" required="required" />
-                    <%--                    <input type="file" name="image5" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_5" />--%>
+               
                 </div>
                 <div class="row ml-3 mt-3">
-                    <img id="user_img_5" src="https://placehold.it/250x250" class="placeholder2" />
+                    <img id="user_img_5" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 262).FirstOrDefault().AnsDes); %>' class="placeholder2" />
                 </div>
-                <%--////////////// --------------------- END  SECTION ID 24 ---------------------------  //////////////////--%>
+                <%------------------------------------------- END  SECTION ID 24 ------------------------------------------------------%>
 
 
                 <br />

@@ -13,7 +13,8 @@ using System.Data.SqlClient;
 using System.Text;
 
 
-// test new branch
+
+
 namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 {
     public partial class WebForm1 : System.Web.UI.Page
@@ -32,8 +33,17 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             User user = (User)Session["strUsername"];
             if (user != null)
             {
-                string ansMonth = Request["AnsMonth"] != null ? Request["AnsMonth"] : DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
-                answers = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth).ToList();
+
+                long siteId = long.Parse(Request["SiteId"]);
+                int currentQuarter = this.GetQuarter(DateTime.Now);
+                SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.SiteId == siteId && x.Status == 1).FirstOrDefault();
+
+
+                if (sR != null)
+                {
+                    answers = uSOEntities.Answers.Where(x => x.SRId == sR.Id).ToList();
+
+                }
             }
             else
             {
@@ -42,12 +52,18 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
             }
 
+
             if (!IsPostBack)
             {
+
+
                 if (answers.Count() > 0)
                 {
                     SetForm();
                 }
+
+
+
             }
 
         }
@@ -56,6 +72,23 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         {
             return (dt.Month - 1) / 3 + 1;
         }
+
+        public string GetImage(byte[] byteImg)
+        {
+            return byteImg != null ? "data:image;base64," + Convert.ToBase64String(byteImg) : "";
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
         void SetForm()
         {
@@ -224,13 +257,14 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
             string ansMonth = DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
+
             long siteId = long.Parse(Request["SiteId"]);
             int currentQuarter = this.GetQuarter(DateTime.Now);
-            SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.Status == 1).FirstOrDefault();
+            SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.SiteId == siteId && x.Status == 1).FirstOrDefault();
             if (sR == null)
             {
                 string srCode = "Q" + currentQuarter.ToString() + "/" + DateTime.Now.ToString("yyyy", CultureInfo.GetCultureInfo("th-US"));
-                uSOEntities.SRs.Add(new SR
+                sR = new SR
                 {
                     Code = srCode,
                     CreatedDate = DateTime.Now,
@@ -240,7 +274,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     SiteId = siteId,
                     Quarter = currentQuarter,
                     Status = 1
-                });
+                };
+                uSOEntities.SRs.Add(sR);
             }
             else
             {
@@ -292,7 +327,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans1 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 1).FirstOrDefault();
+            var ans1 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 1).FirstOrDefault();
             if (ans1 == null)
             {
 
@@ -306,8 +341,6 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     UserId = user.Id,
                     AnsMonth = ansMonth,
                     SRId = sR.Id,
-
-
 
                 };
                 uSOEntities.Answers.Add(answer1);
@@ -324,7 +357,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
             }
 
-            var ans2 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 2).FirstOrDefault();
+            var ans2 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 2).FirstOrDefault();
             if (ans2 == null)
             {
                 // ภูมิภาค
@@ -359,7 +392,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans3 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 3).FirstOrDefault();
+            var ans3 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 3).FirstOrDefault();
             if (ans3 == null)
             {
 
@@ -389,7 +422,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans4 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 4).FirstOrDefault();
+            var ans4 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 4).FirstOrDefault();
             if (ans4 == null)
             {
 
@@ -422,7 +455,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans5 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 5).FirstOrDefault();
+            var ans5 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 5).FirstOrDefault();
             if (ans5 == null)
             {
 
@@ -455,7 +488,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
             //ใส่ป้ายหน้าโรงเรียน :
-            var ans6 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 6).FirstOrDefault();
+            var ans6 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 6).FirstOrDefault();
             if (ans6 == null)
 
             {
@@ -497,7 +530,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans7 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 7).FirstOrDefault();
+            var ans7 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 7).FirstOrDefault();
             if (ans7 == null)
             {
                 string varibles = Request.Form["upsModeRadio"];
@@ -530,7 +563,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans8 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 8).FirstOrDefault();
+            var ans8 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 8).FirstOrDefault();
             if (ans8 == null)
             {
 
@@ -563,7 +596,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans9 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 9).FirstOrDefault();
+            var ans9 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 9).FirstOrDefault();
             if (ans9 == null)
             {
 
@@ -599,7 +632,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans10 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 10).FirstOrDefault();
+            var ans10 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 10).FirstOrDefault();
             if (ans10 == null)
             {
 
@@ -636,7 +669,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans11 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 11).FirstOrDefault();
+            var ans11 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 11).FirstOrDefault();
             if (ans11 == null)
             {
 
@@ -672,7 +705,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans12 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 12).FirstOrDefault();
+            var ans12 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 12).FirstOrDefault();
             if (ans12 == null)
             {
 
@@ -706,7 +739,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans13 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 13).FirstOrDefault();
+            var ans13 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 13).FirstOrDefault();
             if (ans13 == null)
             {
 
@@ -738,7 +771,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
             }
 
-            var ans14 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 14).FirstOrDefault();
+            var ans14 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 14).FirstOrDefault();
             if (ans14 == null)
             {
 
@@ -771,7 +804,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
             }
 
-            var ans15 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 15).FirstOrDefault();
+            var ans15 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 15).FirstOrDefault();
             if (ans15 == null)
             {
 
@@ -803,7 +836,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
             }
 
-            var ans16 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 16).FirstOrDefault();
+            var ans16 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 16).FirstOrDefault();
             if (ans16 == null)
             {
 
@@ -835,7 +868,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
             }
 
-            var ans1641 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 1641).FirstOrDefault();
+            var ans1641 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 1641).FirstOrDefault();
             if (ans1641 == null)
             {
 
@@ -870,7 +903,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans17 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 17).FirstOrDefault();
+            var ans17 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 17).FirstOrDefault();
             if (ans17 == null)
             {
                 //Province :
@@ -902,7 +935,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans18 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 18).FirstOrDefault();
+            var ans18 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 18).FirstOrDefault();
             if (ans18 == null)
             {
                 //Province :
@@ -934,7 +967,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans19 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 19).FirstOrDefault();
+            var ans19 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 19).FirstOrDefault();
             if (ans19 == null)
             {
                 //PM Date :
@@ -1010,7 +1043,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
             }
 
-            var ans21 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 21).FirstOrDefault();
+            var ans21 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 21).FirstOrDefault();
             if (ans21 == null)
             {
 
@@ -1050,7 +1083,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans22 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 22).FirstOrDefault();
+            var ans22 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 22).FirstOrDefault();
             if (ans22 == null)
             {
 
@@ -1083,7 +1116,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans23 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 23).FirstOrDefault();
+            var ans23 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 23).FirstOrDefault();
             if (ans23 == null)
             {
 
@@ -1121,7 +1154,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans24 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 24).FirstOrDefault();
+            var ans24 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 24).FirstOrDefault();
             if (ans24 == null)
             {
                 //name Supervisor :
@@ -1156,7 +1189,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans25 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 25).FirstOrDefault();
+            var ans25 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 25).FirstOrDefault();
             if (ans25 == null)
             {
                 //Date Executor :
@@ -1188,7 +1221,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans26 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 26).FirstOrDefault();
+            var ans26 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 26).FirstOrDefault();
             if (ans26 == null)
             {
                 //Date Supervisor :
@@ -1219,7 +1252,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
             }
 
-            var ans27 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 27).FirstOrDefault();
+            var ans27 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 27).FirstOrDefault();
             if (ans27 == null)
             {
                 //Location name :
@@ -1251,7 +1284,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans28 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 28).FirstOrDefault();
+            var ans28 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 28).FirstOrDefault();
             if (ans28 == null)
             {
                 //Site code section 4 :
@@ -1283,7 +1316,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
             }
 
-            var ans29 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 29).FirstOrDefault();
+            var ans29 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 29).FirstOrDefault();
             if (ans29 == null)
             {
                 //villageIDsection 4 :
@@ -1316,7 +1349,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans30 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 30).FirstOrDefault();
+            var ans30 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 30).FirstOrDefault();
             if (ans30 == null)
             {
                 //lat and long  :
@@ -1348,7 +1381,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
             }
 
-            var ans31 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 31).FirstOrDefault();
+            var ans31 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 31).FirstOrDefault();
             if (ans31 == null)
             {
 
@@ -1385,7 +1418,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans32 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 32).FirstOrDefault();
+            var ans32 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 32).FirstOrDefault();
             if (ans32 == null)
             {
                 //ISP (Existing Network)  :
@@ -1414,7 +1447,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
             }
 
-            var ans33 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 33).FirstOrDefault();
+            var ans33 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 33).FirstOrDefault();
             if (ans33 == null)
             {
                 //elecSystem Radio  :
@@ -1445,7 +1478,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans34 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 34).FirstOrDefault();
+            var ans34 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 34).FirstOrDefault();
             if (ans34 == null)
             {
 
@@ -1479,7 +1512,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans35 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 35).FirstOrDefault();
+            var ans35 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 35).FirstOrDefault();
             if (ans35 == null)
             {
 
@@ -1510,7 +1543,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans36 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 36).FirstOrDefault();
+            var ans36 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 36).FirstOrDefault();
             if (ans36 == null)
             {
 
@@ -1541,7 +1574,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans37 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 37).FirstOrDefault();
+            var ans37 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 37).FirstOrDefault();
             if (ans37 == null)
             {
 
@@ -1574,7 +1607,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans38 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 38).FirstOrDefault();
+            var ans38 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 38).FirstOrDefault();
             if (ans38 == null)
             {
 
@@ -1606,7 +1639,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans39 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 39).FirstOrDefault();
+            var ans39 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 39).FirstOrDefault();
             if (ans39 == null)
             {
 
@@ -1642,7 +1675,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans40 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 40).FirstOrDefault();
+            var ans40 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 40).FirstOrDefault();
             if (ans40 == null)
             {
 
@@ -1676,7 +1709,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans41 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 41).FirstOrDefault();
+            var ans41 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 41).FirstOrDefault();
             if (ans41 == null)
             {
 
@@ -1711,7 +1744,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans42 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 42).FirstOrDefault();
+            var ans42 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 42).FirstOrDefault();
             if (ans42 == null)
             {
 
@@ -1747,7 +1780,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans43 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 43).FirstOrDefault();
+            var ans43 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 43).FirstOrDefault();
             if (ans43 == null)
             {
 
@@ -1780,7 +1813,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans44 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 44).FirstOrDefault();
+            var ans44 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 44).FirstOrDefault();
             if (ans44 == null)
             {
                 // กระเเส โหลด :          
@@ -1812,7 +1845,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans45 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 45).FirstOrDefault();
+            var ans45 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 45).FirstOrDefault();
             if (ans45 == null)
             {
                 //EMER GENNNARATOR   :
@@ -1848,7 +1881,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans46 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 46).FirstOrDefault();
+            var ans46 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 46).FirstOrDefault();
             if (ans46 == null)
             {
                 //สภาพ batterry bank  :
@@ -1883,7 +1916,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans47 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 47).FirstOrDefault();
+            var ans47 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 47).FirstOrDefault();
             if (ans47 == null)
             {
 
@@ -1918,7 +1951,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans48 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 48).FirstOrDefault();
+            var ans48 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 48).FirstOrDefault();
             if (ans48 == null)
             {
                 //Swicth 8 part :
@@ -1951,7 +1984,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans49 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 49).FirstOrDefault();
+            var ans49 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 49).FirstOrDefault();
             if (ans49 == null)
             {
                 //Swicth 48 part :
@@ -1984,7 +2017,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans50 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 50).FirstOrDefault();
+            var ans50 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 50).FirstOrDefault();
             if (ans50 == null)
             {
                 //Outdoor AP ตัวที่ 1 :
@@ -2019,7 +2052,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans51 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 51).FirstOrDefault();
+            var ans51 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 51).FirstOrDefault();
             if (ans51 == null)
             {
 
@@ -2055,7 +2088,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans52 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 52).FirstOrDefault();
+            var ans52 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 52).FirstOrDefault();
             if (ans52 == null)
             {
 
@@ -2091,7 +2124,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans53 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 53).FirstOrDefault();
+            var ans53 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 53).FirstOrDefault();
             if (ans53 == null)
             {
 
@@ -2127,7 +2160,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans54 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 54).FirstOrDefault();
+            var ans54 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 54).FirstOrDefault();
             if (ans54 == null)
             {
                 //การ Wiring สายไฟ :
@@ -2159,7 +2192,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans55 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 55).FirstOrDefault();
+            var ans55 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 55).FirstOrDefault();
             if (ans55 == null)
             {
                 //การ Wiring Patch cord และ สาย LAN :
@@ -2189,7 +2222,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
             }
 
-            var ans57 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 57).FirstOrDefault();
+            var ans57 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 57).FirstOrDefault();
             if (ans57 == null)
             {
 
@@ -2223,7 +2256,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans58 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 58).FirstOrDefault();
+            var ans58 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 58).FirstOrDefault();
             if (ans58 == null)
             {
                 //ความแข็งแรงของน็อตขันหางปลาอุปกรณ์ :
@@ -2258,7 +2291,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans59 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 59).FirstOrDefault();
+            var ans59 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 59).FirstOrDefault();
             if (ans59 == null)
             {
                 //สายกราวด์เรียบร้อย ปลอดภัย สมบูรณ์ :
@@ -2290,7 +2323,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans60 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 60).FirstOrDefault();
+            var ans60 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 60).FirstOrDefault();
             if (ans60 == null)
             {
                 //สถานะไฟฟ้ารั่วลง Ground :
@@ -2322,7 +2355,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans61 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 61).FirstOrDefault();
+            var ans61 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 61).FirstOrDefault();
             if (ans61 == null)
             {
                 //Fire Alarm และ Smoke Detector :
@@ -2357,7 +2390,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans62 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 62).FirstOrDefault();
+            var ans62 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 62).FirstOrDefault();
             if (ans62 == null)
             {
 
@@ -2394,7 +2427,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans63 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 63).FirstOrDefault();
+            var ans63 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 63).FirstOrDefault();
             if (ans63 == null)
             {
 
@@ -2426,7 +2459,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans64 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 64).FirstOrDefault();
+            var ans64 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 64).FirstOrDefault();
             if (ans64 == null)
             {
                 // Battery Fire Alarm ก้อนที่ 2 :          
@@ -2455,7 +2488,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
             }
 
-            var ans65 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 65).FirstOrDefault();
+            var ans65 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 65).FirstOrDefault();
             if (ans65 == null)
             {
                 //ไฟแสงสว่างฉุกเฉิน :
@@ -2486,7 +2519,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans66 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 66).FirstOrDefault();
+            var ans66 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 66).FirstOrDefault();
             if (ans66 == null)
             {
                 //ระบบ Monitor กล้องวงจรปิด :
@@ -2517,7 +2550,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans67 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 67).FirstOrDefault();
+            var ans67 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 67).FirstOrDefault();
             if (ans67 == null)
             {
                 //  กล้องวงจรปิด Computer :
@@ -2552,7 +2585,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans68 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 68).FirstOrDefault();
+            var ans68 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 68).FirstOrDefault();
             if (ans68 == null)
             {
                 //  กล้องวงจรปิดภายนอกอาคาร  :
@@ -2586,7 +2619,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans69 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 69).FirstOrDefault();
+            var ans69 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 69).FirstOrDefault();
             if (ans69 == null)
             {
                 //  กล้องวงจรปิดภายนอกอาคาร 2  :
@@ -2617,7 +2650,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans70 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 70).FirstOrDefault();
+            var ans70 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 70).FirstOrDefault();
             if (ans70 == null)
             {
                 //  จอทีวีห้องประชุม   :
@@ -2648,7 +2681,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans71 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 71).FirstOrDefault();
+            var ans71 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 71).FirstOrDefault();
             if (ans71 == null)
             {
 
@@ -2681,7 +2714,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans72 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 72).FirstOrDefault();
+            var ans72 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 72).FirstOrDefault();
             if (ans72 == null)
             {
 
@@ -2717,7 +2750,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans73 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 73).FirstOrDefault();
+            var ans73 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 73).FirstOrDefault();
             if (ans73 == null)
             {
 
@@ -2750,7 +2783,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans74 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 74).FirstOrDefault();
+            var ans74 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 74).FirstOrDefault();
             if (ans74 == null)
             {
 
@@ -2783,7 +2816,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans75 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 75).FirstOrDefault();
+            var ans75 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 75).FirstOrDefault();
             if (ans75 == null)
             {
 
@@ -2818,7 +2851,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans76 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 76).FirstOrDefault();
+            var ans76 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 76).FirstOrDefault();
             if (ans76 == null)
             {
 
@@ -2853,7 +2886,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans77 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 77).FirstOrDefault();
+            var ans77 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 77).FirstOrDefault();
             if (ans77 == null)
             {
 
@@ -2888,7 +2921,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans78 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 78).FirstOrDefault();
+            var ans78 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 78).FirstOrDefault();
             if (ans78 == null)
             {
 
@@ -2923,7 +2956,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans79 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 79).FirstOrDefault();
+            var ans79 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 79).FirstOrDefault();
             if (ans79 == null)
             {
                 // คอมพิวเตอร์ตัวที่ 7  :
@@ -2958,7 +2991,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans80 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 80).FirstOrDefault();
+            var ans80 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 80).FirstOrDefault();
             if (ans80 == null)
             {
 
@@ -2996,7 +3029,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans81 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 81).FirstOrDefault();
+            var ans81 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 81).FirstOrDefault();
             if (ans81 == null)
             {
 
@@ -3034,7 +3067,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans82 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 82).FirstOrDefault();
+            var ans82 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 82).FirstOrDefault();
             if (ans82 == null)
             {
 
@@ -3070,7 +3103,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans83 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 83).FirstOrDefault();
+            var ans83 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 83).FirstOrDefault();
             if (ans83 == null)
             {
 
@@ -3107,7 +3140,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans84 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 84).FirstOrDefault();
+            var ans84 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 84).FirstOrDefault();
             if (ans84 == null)
             {
 
@@ -3146,7 +3179,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans85 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 85).FirstOrDefault();
+            var ans85 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 85).FirstOrDefault();
             if (ans85 == null)
             {
 
@@ -3183,7 +3216,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans86 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 86).FirstOrDefault();
+            var ans86 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 86).FirstOrDefault();
             if (ans86 == null)
             {
 
@@ -3220,7 +3253,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans87 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 87).FirstOrDefault();
+            var ans87 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 87).FirstOrDefault();
             if (ans87 == null)
             {
 
@@ -3258,7 +3291,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans88 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 88).FirstOrDefault();
+            var ans88 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 88).FirstOrDefault();
             if (ans88 == null)
             {
 
@@ -3293,7 +3326,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans89 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 89).FirstOrDefault();
+            var ans89 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 89).FirstOrDefault();
             if (ans89 == null)
             {
 
@@ -3329,7 +3362,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans90 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 90).FirstOrDefault();
+            var ans90 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 90).FirstOrDefault();
             if (ans90 == null)
             {
 
@@ -3364,7 +3397,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans91 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 91).FirstOrDefault();
+            var ans91 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 91).FirstOrDefault();
             if (ans91 == null)
             {
 
@@ -3401,7 +3434,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans92 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 92).FirstOrDefault();
+            var ans92 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 92).FirstOrDefault();
             if (ans92 == null)
             {
 
@@ -3435,7 +3468,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans93 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 93).FirstOrDefault();
+            var ans93 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 93).FirstOrDefault();
             if (ans93 == null)
             {
 
@@ -3469,7 +3502,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans94 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 94).FirstOrDefault();
+            var ans94 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 94).FirstOrDefault();
             if (ans94 == null)
             {
 
@@ -3504,7 +3537,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans95 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 95).FirstOrDefault();
+            var ans95 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 95).FirstOrDefault();
             if (ans95 == null)
             {
 
@@ -3540,7 +3573,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans96 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 96).FirstOrDefault();
+            var ans96 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 96).FirstOrDefault();
             if (ans96 == null)
             {
 
@@ -3576,7 +3609,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans97 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 97).FirstOrDefault();
+            var ans97 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 97).FirstOrDefault();
             if (ans97 == null)
             {
 
@@ -3613,7 +3646,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans98 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 98).FirstOrDefault();
+            var ans98 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 98).FirstOrDefault();
             if (ans98 == null)
             {
 
@@ -3651,7 +3684,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans99 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 99).FirstOrDefault();
+            var ans99 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 99).FirstOrDefault();
             if (ans99 == null)
             {
 
@@ -3686,7 +3719,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans100 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 100).FirstOrDefault();
+            var ans100 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 100).FirstOrDefault();
             if (ans100 == null)
             {
 
@@ -3721,7 +3754,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans101 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 101).FirstOrDefault();
+            var ans101 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 101).FirstOrDefault();
             if (ans101 == null)
             {
                 // Download (for ONU/VSAT) :          
@@ -3751,7 +3784,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans102 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 102).FirstOrDefault();
+            var ans102 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 102).FirstOrDefault();
             if (ans102 == null)
             {
                 // Upload (for ONU/VSAT) :          
@@ -3779,7 +3812,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans103 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 103).FirstOrDefault();
+            var ans103 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 103).FirstOrDefault();
             if (ans103 == null)
             {
 
@@ -3810,7 +3843,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans104 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 104).FirstOrDefault();
+            var ans104 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 104).FirstOrDefault();
             if (ans104 == null)
             {
 
@@ -3843,7 +3876,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans105 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 105).FirstOrDefault();
+            var ans105 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 105).FirstOrDefault();
             if (ans105 == null)
             {
                 // Upload (for WIFI):          
@@ -3874,7 +3907,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans106 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 106).FirstOrDefault();
+            var ans106 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 106).FirstOrDefault();
             if (ans106 == null)
             {
                 // Ping Test (for WIFI) :          
@@ -3904,7 +3937,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans107 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 107).FirstOrDefault();
+            var ans107 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 107).FirstOrDefault();
             if (ans107 == null)
             {
                 // Download (for LAN) :          
@@ -3935,7 +3968,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans108 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 108).FirstOrDefault();
+            var ans108 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 108).FirstOrDefault();
             if (ans108 == null)
             {
                 //Upload (for LAN) :          
@@ -3966,7 +3999,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans109 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 109).FirstOrDefault();
+            var ans109 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 109).FirstOrDefault();
             if (ans109 == null)
             {
                 //Ping Test  (for LAN) :          
@@ -3998,7 +4031,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans110 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 110).FirstOrDefault();
+            var ans110 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 110).FirstOrDefault();
             if (ans110 == null)
             {
                 //  ปัญหาที่พบ 1 :           
@@ -4028,7 +4061,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans111 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 111).FirstOrDefault();
+            var ans111 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 111).FirstOrDefault();
             if (ans111 == null)
             {
                 //  วิธีแก้ปัญหา 1 :           
@@ -4059,7 +4092,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans112 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 112).FirstOrDefault();
+            var ans112 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 112).FirstOrDefault();
             if (ans112 == null)
             {
                 //  ปัญหาที่พบ 2 :           
@@ -4087,7 +4120,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
 
 
-            var ans113 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 113).FirstOrDefault();
+            var ans113 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 113).FirstOrDefault();
             if (ans113 == null)
             {
                 //  วิธีแก้ปัญหา 2 :           
@@ -4117,7 +4150,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans114 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 114).FirstOrDefault();
+            var ans114 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 114).FirstOrDefault();
             if (ans114 == null)
             {
                 //  ปัญหาที่พบ 3 :           
@@ -4148,7 +4181,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans115 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 115).FirstOrDefault();
+            var ans115 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 115).FirstOrDefault();
             if (ans115 == null)
             {
                 //  วิธีแก้ปัญหา 3 :           
@@ -4180,7 +4213,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans116 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 116).FirstOrDefault();
+            var ans116 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 116).FirstOrDefault();
             if (ans116 == null)
             {
                 //  ปัญหาที่พบ 4 :           
@@ -4211,7 +4244,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans117 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 117).FirstOrDefault();
+            var ans117 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 117).FirstOrDefault();
             if (ans117 == null)
             {
                 //  วิธีแก้ปัญหา 4 :           
@@ -4242,7 +4275,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans118 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 118).FirstOrDefault();
+            var ans118 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 118).FirstOrDefault();
             if (ans118 == null)
             {
 
@@ -4273,7 +4306,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans119 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 119).FirstOrDefault();
+            var ans119 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 119).FirstOrDefault();
             if (ans119 == null)
             {
                 //  วิธีแก้ปัญหา 5 :           
@@ -4309,7 +4342,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans120 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 120).FirstOrDefault();
+            var ans120 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 120).FirstOrDefault();
             if (ans120 == null)
             {
 
@@ -4343,7 +4376,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans121 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 121).FirstOrDefault();
+            var ans121 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 121).FirstOrDefault();
             if (ans121 == null)
             {
 
@@ -4377,7 +4410,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans122 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 122).FirstOrDefault();
+            var ans122 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 122).FirstOrDefault();
             if (ans122 == null)
             {
 
@@ -4412,7 +4445,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans123 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 123).FirstOrDefault();
+            var ans123 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 123).FirstOrDefault();
             if (ans123 == null)
             {
 
@@ -4447,7 +4480,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans124 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 124).FirstOrDefault();
+            var ans124 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 124).FirstOrDefault();
             if (ans124 == null)
             {
 
@@ -4478,7 +4511,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans125 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 125).FirstOrDefault();
+            var ans125 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 125).FirstOrDefault();
             if (ans125 == null)
             {
                 //  วิธีแก้ปัญหา 8 :           
@@ -4508,7 +4541,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans126 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 126).FirstOrDefault();
+            var ans126 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 126).FirstOrDefault();
             if (ans126 == null)
             {
                 //  ปัญหาที่พบ 9 :           
@@ -4537,7 +4570,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans127 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 127).FirstOrDefault();
+            var ans127 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 127).FirstOrDefault();
             if (ans127 == null)
             {
                 //  วิธีแก้ปัญหา 9 :           
@@ -4567,7 +4600,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans128 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 128).FirstOrDefault();
+            var ans128 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 128).FirstOrDefault();
             if (ans128 == null)
             {
 
@@ -4598,7 +4631,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans129 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 129).FirstOrDefault();
+            var ans129 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 129).FirstOrDefault();
             if (ans129 == null)
             {
 
@@ -4628,7 +4661,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans130 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 130).FirstOrDefault();
+            var ans130 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 130).FirstOrDefault();
             if (ans130 == null)
             {
 
@@ -4660,7 +4693,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans131 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 131).FirstOrDefault();
+            var ans131 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 131).FirstOrDefault();
             if (ans131 == null)
             {
 
@@ -4691,7 +4724,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans132 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 132).FirstOrDefault();
+            var ans132 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 132).FirstOrDefault();
             if (ans132 == null)
             {
                 //  ปัญหาที่พบ 12 :           
@@ -4723,7 +4756,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            var ans133 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 133).FirstOrDefault();
+            var ans133 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 133).FirstOrDefault();
             if (ans133 == null)
             {
                 //  วิธีแก้ปัญหา 12 :           
@@ -4750,7 +4783,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans134 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 134).FirstOrDefault();
+                var ans134 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 134).FirstOrDefault();
                 if (ans134 == null)
                 {
                     //  ปัญหาที่พบ 13 :           
@@ -4778,7 +4811,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans135 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 135).FirstOrDefault();
+                var ans135 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 135).FirstOrDefault();
                 if (ans135 == null)
                 {
                     //  วิธีแก้ปัญหา 13 :           
@@ -4806,7 +4839,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans136 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 136).FirstOrDefault();
+                var ans136 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 136).FirstOrDefault();
                 if (ans136 == null)
                 {
                     //  ปัญหาที่พบ 14 :           
@@ -4835,7 +4868,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans137 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 137).FirstOrDefault();
+                var ans137 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 137).FirstOrDefault();
                 if (ans137 == null)
                 {
                     //  วิธีแก้ปัญหา 14 :           
@@ -4862,7 +4895,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans138 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 138).FirstOrDefault();
+                var ans138 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 138).FirstOrDefault();
                 if (ans138 == null)
                 {
                     //  ปัญหาที่พบ 15 :           
@@ -4889,7 +4922,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans139 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 139).FirstOrDefault();
+                var ans139 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 139).FirstOrDefault();
                 if (ans139 == null)
                 {
                     //  วิธีแก้ปัญหา 15 :           
@@ -4917,7 +4950,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans141 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 141).FirstOrDefault();
+                var ans141 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 141).FirstOrDefault();
                 if (ans141 == null)
                 {
                     // รายการอุปกรณ์ 1 :      
@@ -4945,7 +4978,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans142 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 142).FirstOrDefault();
+                var ans142 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 142).FirstOrDefault();
                 if (ans142 == null)
                 {
                     //  SerialNumber :           
@@ -4972,7 +5005,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans143 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 143).FirstOrDefault();
+                var ans143 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 143).FirstOrDefault();
                 if (ans143 == null)
                 {
                     //  new SerialNumber :           
@@ -5000,7 +5033,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans144 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 144).FirstOrDefault();
+                var ans144 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 144).FirstOrDefault();
                 if (ans144 == null)
                 {
                     //  หมายเหตุ :           
@@ -5029,7 +5062,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans145 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 145).FirstOrDefault();
+                var ans145 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 145).FirstOrDefault();
                 if (ans145 == null)
                 {
                     // รายการอุปกรณ์ 2 :      
@@ -5058,7 +5091,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans146 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 146).FirstOrDefault();
+                var ans146 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 146).FirstOrDefault();
                 if (ans146 == null)
                 {
                     //  SerialNumber 2 :           
@@ -5087,7 +5120,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans147 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 147).FirstOrDefault();
+                var ans147 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 147).FirstOrDefault();
                 if (ans147 == null)
                 {
                     //  new SerialNumber 2 :           
@@ -5113,7 +5146,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans147.AnsMonth = ansMonth; ans147.SRId = sR.Id;
                 }
 
-                var ans148 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 148).FirstOrDefault();
+                var ans148 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 148).FirstOrDefault();
                 if (ans148 == null)
                 {
 
@@ -5142,7 +5175,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans149 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 149).FirstOrDefault();
+                var ans149 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 149).FirstOrDefault();
                 if (ans149 == null)
                 {
                     // รายการอุปกรณ์ 3 :      
@@ -5172,7 +5205,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans150 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 150).FirstOrDefault();
+                var ans150 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 150).FirstOrDefault();
                 if (ans150 == null)
                 {
                     //  SerialNumber 3 :           
@@ -5200,7 +5233,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans151 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 151).FirstOrDefault();
+                var ans151 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 151).FirstOrDefault();
                 if (ans151 == null)
                 {
                     //  new SerialNumber 3 :           
@@ -5228,7 +5261,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans152 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 151).FirstOrDefault();
+                var ans152 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 151).FirstOrDefault();
                 if (ans152 == null)
                 {
                     //  หมายเหตุ  3:           
@@ -5256,7 +5289,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans153 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 153).FirstOrDefault();
+                var ans153 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 153).FirstOrDefault();
                 if (ans153 == null)
                 {
                     // รายการอุปกรณ์ 4 :      
@@ -5284,7 +5317,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans154 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 154).FirstOrDefault();
+                var ans154 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 154).FirstOrDefault();
                 if (ans154 == null)
                 {
                     //  SerialNumber 4 :           
@@ -5313,7 +5346,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans155 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 155).FirstOrDefault();
+                var ans155 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 155).FirstOrDefault();
                 if (ans155 == null)
                 {
                     //  new SerialNumber 4 :           
@@ -5342,7 +5375,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans156 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 156).FirstOrDefault();
+                var ans156 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 156).FirstOrDefault();
                 if (ans156 == null)
                 {
                     //  หมายเหตุ  4:           
@@ -5369,7 +5402,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans157 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 157).FirstOrDefault();
+                var ans157 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 157).FirstOrDefault();
                 if (ans157 == null)
                 {
 
@@ -5398,7 +5431,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans158 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 158).FirstOrDefault();
+                var ans158 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 158).FirstOrDefault();
                 if (ans158 == null)
                 {
                     //  SerialNumber 5 :           
@@ -5425,7 +5458,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans159 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 159).FirstOrDefault();
+                var ans159 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 159).FirstOrDefault();
                 if (ans159 == null)
                 {
                     //  new SerialNumber 5 :           
@@ -5453,7 +5486,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans160 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 160).FirstOrDefault();
+                var ans160 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 160).FirstOrDefault();
                 if (ans160 == null)
                 {
 
@@ -5481,7 +5514,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans161 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 161).FirstOrDefault();
+                var ans161 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 161).FirstOrDefault();
                 if (ans161 == null)
                 {
 
@@ -5510,7 +5543,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans162 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 162).FirstOrDefault();
+                var ans162 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 162).FirstOrDefault();
                 if (ans162 == null)
                 {
                     //  SerialNumber 6 :           
@@ -5539,7 +5572,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans163 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 163).FirstOrDefault();
+                var ans163 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 163).FirstOrDefault();
                 if (ans163 == null)
                 {
                     //  new SerialNumber 6 :           
@@ -5567,7 +5600,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans164 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 164).FirstOrDefault();
+                var ans164 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 164).FirstOrDefault();
                 if (ans164 == null)
                 { //  หมายเหตุ  6:           
                     Answer answer164 = new Answer()
@@ -5595,7 +5628,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans165 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 165).FirstOrDefault();
+                var ans165 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 165).FirstOrDefault();
                 if (ans165 == null)
                 {
                     // รายการอุปกรณ์ 7 :      
@@ -5623,7 +5656,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans166 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 166).FirstOrDefault();
+                var ans166 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 166).FirstOrDefault();
                 if (ans166 == null)
                 {
                     //  SerialNumber 7 :           
@@ -5650,7 +5683,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans167 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 167).FirstOrDefault();
+                var ans167 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 167).FirstOrDefault();
                 if (ans167 == null)
                 {
                     //  new SerialNumber 7 :           
@@ -5677,7 +5710,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans168 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 168).FirstOrDefault();
+                var ans168 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 168).FirstOrDefault();
                 if (ans168 == null)
                 {
                     //  หมายเหตุ  7:           
@@ -5704,7 +5737,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans169 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 169).FirstOrDefault();
+                var ans169 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 169).FirstOrDefault();
                 if (ans169 == null)
                 {
                     // รายการอุปกรณ์ 8 :      
@@ -5736,7 +5769,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans170 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 170).FirstOrDefault();
+                var ans170 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 170).FirstOrDefault();
                 if (ans170 == null)
                 {
                     //  SerialNumber 8 :           
@@ -5765,7 +5798,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans171 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 171).FirstOrDefault();
+                var ans171 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 171).FirstOrDefault();
                 if (ans171 == null)
                 {
                     //  new SerialNumber 8 :           
@@ -5794,7 +5827,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans172 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 172).FirstOrDefault();
+                var ans172 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 172).FirstOrDefault();
                 if (ans172 == null)
                 {
                     //  หมายเหตุ  8:           
@@ -5824,7 +5857,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans173 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 173).FirstOrDefault();
+                var ans173 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 173).FirstOrDefault();
                 if (ans173 == null)
                 {
                     // รายการอุปกรณ์ 9 :      
@@ -5854,7 +5887,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans174 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 174).FirstOrDefault();
+                var ans174 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 174).FirstOrDefault();
                 if (ans174 == null)
                 {
                     //  SerialNumber 9 :           
@@ -5881,7 +5914,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans175 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 175).FirstOrDefault();
+                var ans175 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 175).FirstOrDefault();
                 if (ans175 == null)
                 {
                     //  new SerialNumber 9 :           
@@ -5907,7 +5940,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans175.AnsMonth = ansMonth; ans175.SRId = sR.Id;
                 }
 
-                var ans176 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 176).FirstOrDefault();
+                var ans176 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 176).FirstOrDefault();
                 if (ans176 == null)
                 {
                     //  หมายเหตุ  9:           
@@ -5938,7 +5971,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans177 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 177).FirstOrDefault();
+                var ans177 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 177).FirstOrDefault();
                 if (ans177 == null)
                 {
                     // รายการอุปกรณ์ 10 :      
@@ -5967,7 +6000,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans178 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 178).FirstOrDefault();
+                var ans178 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 178).FirstOrDefault();
                 if (ans178 == null)
                 {
                     //  SerialNumber 10 :           
@@ -5995,7 +6028,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans179 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 179).FirstOrDefault();
+                var ans179 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 179).FirstOrDefault();
                 if (ans179 == null)
                 {
                     //  new SerialNumber 10 :           
@@ -6023,7 +6056,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans180 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 180).FirstOrDefault();
+                var ans180 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 180).FirstOrDefault();
                 if (ans180 == null)
                 {
                     //  หมายเหตุ  10:           
@@ -6053,7 +6086,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans181 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 181).FirstOrDefault();
+                var ans181 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 181).FirstOrDefault();
                 if (ans181 == null)
                 {
                     // รายการอุปกรณ์ 11 :      
@@ -6083,7 +6116,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans182 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 182).FirstOrDefault();
+                var ans182 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 182).FirstOrDefault();
                 if (ans182 == null)
                 {
                     //  SerialNumber 11 :           
@@ -6114,7 +6147,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans183 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 183).FirstOrDefault();
+                var ans183 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 183).FirstOrDefault();
                 if (ans183 == null)
                 {
                     //  new SerialNumber 11 :           
@@ -6146,7 +6179,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans184 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 184).FirstOrDefault();
+                var ans184 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 184).FirstOrDefault();
                 if (ans184 == null)
                 {
                     //  หมายเหตุ  11:           
@@ -6179,7 +6212,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans185 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 185).FirstOrDefault();
+                var ans185 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 185).FirstOrDefault();
                 if (ans185 == null)
                 {
 
@@ -6210,7 +6243,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans186 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 186).FirstOrDefault();
+                var ans186 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 186).FirstOrDefault();
                 if (ans186 == null)
                 {
 
@@ -6238,7 +6271,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans186.AnsMonth = ansMonth; ans186.SRId = sR.Id;
                 }
 
-                var ans187 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 187).FirstOrDefault();
+                var ans187 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 187).FirstOrDefault();
                 if (ans187 == null)
                 {
 
@@ -6270,7 +6303,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans188 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 188).FirstOrDefault();
+                var ans188 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 188).FirstOrDefault();
                 if (ans188 == null)
                 {
 
@@ -6303,7 +6336,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans189 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 189).FirstOrDefault();
+                var ans189 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 189).FirstOrDefault();
                 if (ans189 == null)
                 {
 
@@ -6333,7 +6366,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans190 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 190).FirstOrDefault();
+                var ans190 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 190).FirstOrDefault();
                 if (ans190 == null)
                 {
 
@@ -6363,7 +6396,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans191 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 191).FirstOrDefault();
+                var ans191 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 191).FirstOrDefault();
                 if (ans191 == null)
                 {
 
@@ -6391,7 +6424,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans191.AnsMonth = ansMonth; ans191.SRId = sR.Id;
                 }
 
-                var ans192 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 192).FirstOrDefault();
+                var ans192 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 192).FirstOrDefault();
                 if (ans192 == null)
                 {
 
@@ -6420,7 +6453,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans193 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 193).FirstOrDefault();
+                var ans193 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 193).FirstOrDefault();
                 if (ans193 == null)
                 {
 
@@ -6451,7 +6484,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans194 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 194).FirstOrDefault();
+                var ans194 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 194).FirstOrDefault();
                 if (ans194 == null)
                 {
                     //  SerialNumber 14 :           
@@ -6482,7 +6515,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans195 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 195).FirstOrDefault();
+                var ans195 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 195).FirstOrDefault();
                 if (ans195 == null)
                 {
                     //  new SerialNumber 14 :           
@@ -6510,7 +6543,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans196 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 196).FirstOrDefault();
+                var ans196 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 196).FirstOrDefault();
                 if (ans196 == null)
                 {
                     //  หมายเหตุ  143   :    
@@ -6536,7 +6569,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans196.AnsMonth = ansMonth; ans196.SRId = sR.Id;
                 }
 
-                var ans197 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 197).FirstOrDefault();
+                var ans197 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 197).FirstOrDefault();
                 if (ans197 == null)
                 {
                     // รายการอุปกรณ์ 15 :      
@@ -6564,7 +6597,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans198 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 198).FirstOrDefault();
+                var ans198 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 198).FirstOrDefault();
                 if (ans198 == null)
                 {
                     //  SerialNumber 15 :           
@@ -6591,7 +6624,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans199 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 199).FirstOrDefault();
+                var ans199 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 199).FirstOrDefault();
                 if (ans199 == null)
                 {
                     //  new SerialNumber 15 :           
@@ -6620,7 +6653,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans200 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 200).FirstOrDefault();
+                var ans200 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 200).FirstOrDefault();
                 if (ans200 == null)
                 {
                     //  หมายเหตุ  15   :    
@@ -6649,7 +6682,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans201 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 201).FirstOrDefault();
+                var ans201 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 201).FirstOrDefault();
                 if (ans201 == null)
                 {
                     // team name :    
@@ -6675,7 +6708,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans201.AnsMonth = ansMonth; ans201.SRId = sR.Id;
                 }
 
-                var ans202 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 202).FirstOrDefault();
+                var ans202 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 202).FirstOrDefault();
                 if (ans202 == null)
                 {
                     // วันที่ทำ PM :    
@@ -6702,7 +6735,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans203 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 203).FirstOrDefault();
+                var ans203 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 203).FirstOrDefault();
                 if (ans203 == null)
                 {
                     // ชื่อเจ้าหน้าที่ประจำศูนย์ :    
@@ -6731,7 +6764,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans204 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 204).FirstOrDefault();
+                var ans204 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 204).FirstOrDefault();
                 if (ans204 == null)
                 {
                     // เบอร์โทรติดต่อ :    
@@ -6760,7 +6793,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans205 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 205).FirstOrDefault();
+                var ans205 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 205).FirstOrDefault();
                 if (ans205 == null)
                 {
                     // รูปภาพป้ายชื่อโรงเรียน  :
@@ -6791,7 +6824,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans206 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 206).FirstOrDefault();
+                var ans206 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 206).FirstOrDefault();
                 if (ans206 == null)
                 {
                     // รูปภาพด้านหน้าศูนย์ (ถ่ายคู่กับ จนท.ประจำศูนย์)  :
@@ -6821,7 +6854,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans207 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 207).FirstOrDefault();
+                var ans207 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 207).FirstOrDefault();
                 if (ans207 == null)
                 {
                     // รูปภาพด้านหลังศูนย์ :
@@ -6851,7 +6884,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans208 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 208).FirstOrDefault();
+                var ans208 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 208).FirstOrDefault();
                 if (ans208 == null)
                 {
                     // รูปภาพบริเวณห้องโถง :
@@ -6881,7 +6914,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans209 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 209).FirstOrDefault();
+                var ans209 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 209).FirstOrDefault();
                 if (ans209 == null)
                 {
                     // รูปภาพบริเวณห้องประชุม :
@@ -6910,7 +6943,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans210 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 210).FirstOrDefault();
+                var ans210 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 210).FirstOrDefault();
                 if (ans210 == null)
                 {
                     // รูปภาพบริเวณห้อง Server :
@@ -6942,7 +6975,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans211 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 211).FirstOrDefault();
+                var ans211 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 211).FirstOrDefault();
                 if (ans211 == null)
                 {
                     // รูปภาพบริเวณห้องน้ำ :
@@ -6975,7 +7008,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans212 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 212).FirstOrDefault();
+                var ans212 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 212).FirstOrDefault();
                 if (ans212 == null)
                 {
                     // รูปภาพบริเวณห้องปั๊มน้ำ  :
@@ -7006,7 +7039,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans213 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 213).FirstOrDefault();
+                var ans213 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 213).FirstOrDefault();
                 if (ans213 == null)
                 {
                     // รูป PEA Meter  :
@@ -7044,7 +7077,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans214 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 214).FirstOrDefault();
+                var ans214 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 214).FirstOrDefault();
                 if (ans214 == null)
                 {
                     // รูป PEA Meter  :
@@ -7079,7 +7112,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans215 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 215).FirstOrDefault();
+                var ans215 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 215).FirstOrDefault();
                 if (ans215 == null)
                 {
                     // รูป PEA Meter  :
@@ -7112,7 +7145,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans216 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 216).FirstOrDefault();
+                var ans216 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 216).FirstOrDefault();
                 if (ans216 == null)
                 {
                     // รูปการตรวจสอบสถานะไฟฟ้ารั่วลง Ground (Lamp Test)   :
@@ -7143,7 +7176,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans217 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 217).FirstOrDefault();
+                var ans217 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 217).FirstOrDefault();
                 if (ans217 == null)
                 {
                     // รูป MDB  :
@@ -7174,7 +7207,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans218 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 218).FirstOrDefault();
+                var ans218 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 218).FirstOrDefault();
                 if (ans218 == null)
                 {
                     // รูป Fire Alarm Control  :
@@ -7204,7 +7237,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans219 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 219).FirstOrDefault();
+                var ans219 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 219).FirstOrDefault();
                 if (ans219 == null)
                 {
                     // รูปภาพรวมอุปกรณ์ทั้งหมดภายในตู้ Rack  :
@@ -7233,7 +7266,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans220 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 220).FirstOrDefault();
+                var ans220 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 220).FirstOrDefault();
                 if (ans220 == null)
                 {
                     // รูปหน้าจอ UPS แสดงค่าต่างๆ และ Serial NO. :
@@ -7264,7 +7297,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans221 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 221).FirstOrDefault();
+                var ans221 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 221).FirstOrDefault();
                 if (ans221 == null)
                 {
                     // รูป ONU/Modem พร้อม Serial NO. และ MAC. :
@@ -7295,7 +7328,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans222 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 222).FirstOrDefault();
+                var ans222 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 222).FirstOrDefault();
                 if (ans222 == null)
                 {
                     // รูป Power Supply พร้อม Serial NO :
@@ -7326,7 +7359,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans223 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 222).FirstOrDefault();
+                var ans223 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 222).FirstOrDefault();
                 if (ans223 == null)
                 {
                     // รูป Power Supply พร้อม Serial NO :
@@ -7358,7 +7391,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans224 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 224).FirstOrDefault();
+                var ans224 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 224).FirstOrDefault();
                 if (ans224 == null)
                 {
                     // รูป Switch 48 Port พร้อม Serial NO. และ MAC:
@@ -7390,7 +7423,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans225 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 225).FirstOrDefault();
+                var ans225 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 225).FirstOrDefault();
                 if (ans225 == null)
                 {
                     // รูป Outdoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC :
@@ -7421,7 +7454,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans226 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 226).FirstOrDefault();
+                var ans226 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 226).FirstOrDefault();
                 if (ans226 == null)
                 {
                     // รูป Indoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC:
@@ -7455,7 +7488,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans227 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 227).FirstOrDefault();
+                var ans227 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 227).FirstOrDefault();
                 if (ans227 == null)
                 {
                     // รูปการ Test Speed จาก App Nperf โดยใช้ WIFI :
@@ -7490,7 +7523,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans228 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 228).FirstOrDefault();
+                var ans228 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 228).FirstOrDefault();
                 if (ans228 == null)
                 {
                     // รูปการ Test Speed จาก App Nperf โดยใช้ LAN :
@@ -7522,7 +7555,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans229 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 229).FirstOrDefault();
+                var ans229 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 229).FirstOrDefault();
                 if (ans229 == null)
                 {
                     // รูป ก่อน-หลัง การทำความสะอาดรางระบายน้ำ :
@@ -7552,7 +7585,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans230 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 230).FirstOrDefault();
+                var ans230 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 230).FirstOrDefault();
                 if (ans230 == null)
                 {
                     // รูปหน้าจอ Monitor กล้องวงจรปิดผ่านจอทีวีในห้องประชุม :
@@ -7582,7 +7615,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans231 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 231).FirstOrDefault();
+                var ans231 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 231).FirstOrDefault();
                 if (ans231 == null)
                 {
                     // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องโถง  :
@@ -7618,7 +7651,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans232 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 232).FirstOrDefault();
+                var ans232 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 232).FirstOrDefault();
                 if (ans232 == null)
                 {
                     // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องประชุม :
@@ -7650,7 +7683,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans233 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 233).FirstOrDefault();
+                var ans233 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 233).FirstOrDefault();
                 if (ans233 == null)
                 {
                     // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server :
@@ -7681,7 +7714,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans234 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 234).FirstOrDefault();
+                var ans234 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 234).FirstOrDefault();
                 if (ans234 == null)
                 {
                     // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server :
@@ -7713,7 +7746,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans235 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 235).FirstOrDefault();
+                var ans235 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 235).FirstOrDefault();
                 if (ans235 == null)
                 {
                     // รูปความสะอาดบริเวณจานดาวเทียมr :
@@ -7745,7 +7778,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans236 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 236).FirstOrDefault();
+                var ans236 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 236).FirstOrDefault();
                 if (ans236 == null)
                 {
                     // รูป LNB พร้อม Part NO. :
@@ -7775,7 +7808,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans237 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 237).FirstOrDefault();
+                var ans237 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 237).FirstOrDefault();
                 if (ans237 == null)
                 {
                     // รูป BUC พร้อม Part NO :
@@ -7807,7 +7840,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans238 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 238).FirstOrDefault();
+                var ans238 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 238).FirstOrDefault();
                 if (ans238 == null)
                 {
                     // รูปการเก็บสายและพันหัวที่ LNB/BUC :
@@ -7837,7 +7870,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans238.AnsMonth = ansMonth; ans238.SRId = sR.Id;
                 }
 
-                var ans239 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 239).FirstOrDefault();
+                var ans239 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 239).FirstOrDefault();
                 if (ans239 == null)
                 {
                     // รูปแนว Line Of Sight (ดูการถูกบังของหน้าจานดาวเทียม) :
@@ -7868,7 +7901,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans240 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 240).FirstOrDefault();
+                var ans240 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 240).FirstOrDefault();
                 if (ans240 == null)
                 {
                     // รูปจุดติดตั้ง Solar Cell :
@@ -7896,7 +7929,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans240.AnsMonth = ansMonth; ans240.SRId = sR.Id;
                 }
 
-                var ans241 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 241).FirstOrDefault();
+                var ans241 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 241).FirstOrDefault();
                 if (ans241 == null)
                 {
                     // รูปอุปกรณ์ Solar Cell ภายในห้อง :
@@ -7927,7 +7960,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans242 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 242).FirstOrDefault();
+                var ans242 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 242).FirstOrDefault();
                 if (ans242 == null)
                 {
                     // รูปหน้าจอ Charger แสดงค่าต่างๆ :
@@ -7960,7 +7993,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans243 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 243).FirstOrDefault();
+                var ans243 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 243).FirstOrDefault();
                 if (ans243 == null)
                 {
                     // รูปหน้าจอ Inverter แสดงค่าต่างๆ :
@@ -7992,7 +8025,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans244 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 244).FirstOrDefault();
+                var ans244 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 244).FirstOrDefault();
                 if (ans244 == null)
                 {
                     // รูป Circuit Breaker ภายในตู้ :
@@ -8022,7 +8055,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans245 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 245).FirstOrDefault();
+                var ans245 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 245).FirstOrDefault();
                 if (ans245 == null)
                 {
                     // รูป Terminal ต่อสายภายในตู้ :
@@ -8055,7 +8088,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans246 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 246).FirstOrDefault();
+                var ans246 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 246).FirstOrDefault();
                 if (ans246 == null)
                 {
                     // รูปความสะอาดแผง PV :
@@ -8083,7 +8116,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                     ans246.AnsMonth = ansMonth; ans246.SRId = sR.Id;
                 }
 
-                var ans247 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 247).FirstOrDefault();
+                var ans247 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 247).FirstOrDefault();
                 if (ans247 == null)
                 {
                     // รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์  :
@@ -8116,7 +8149,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans248 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 248).FirstOrDefault();
+                var ans248 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 248).FirstOrDefault();
                 if (ans248 == null)
                 {
                     // รูปคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO. :
@@ -8148,7 +8181,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans249 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 249).FirstOrDefault();
+                var ans249 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 249).FirstOrDefault();
                 if (ans249 == null)
                 {
                     // รูปคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO. :
@@ -8180,7 +8213,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans250 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 250).FirstOrDefault();
+                var ans250 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 250).FirstOrDefault();
                 if (ans250 == null)
                 {
                     // รูปคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO. :
@@ -8212,7 +8245,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans251 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 251).FirstOrDefault();
+                var ans251 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 251).FirstOrDefault();
                 if (ans251 == null)
                 {
                     // รูปคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO. :
@@ -8244,7 +8277,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans252 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 252).FirstOrDefault();
+                var ans252 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 252).FirstOrDefault();
                 if (ans252 == null)
                 {
                     // รูปคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.  :
@@ -8274,7 +8307,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans253 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 253).FirstOrDefault();
+                var ans253 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 253).FirstOrDefault();
                 if (ans253 == null)
                 {
                     // รูปคอมพิวเตอร์ตัวที่ 6 พร้อม Serial NO.  :
@@ -8307,7 +8340,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans254 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 254).FirstOrDefault();
+                var ans254 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 254).FirstOrDefault();
                 if (ans254 == null)
                 {
                     // รูปคอมพิวเตอร์ตัวที่ 7 พร้อม Serial NO.  :
@@ -8339,7 +8372,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans255 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 255).FirstOrDefault();
+                var ans255 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 255).FirstOrDefault();
                 if (ans255 == null)
                 {
                     // รูปคอมพิวเตอร์ตัวที่ 8 พร้อม Serial NO.  :
@@ -8370,7 +8403,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans256 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 256).FirstOrDefault();
+                var ans256 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 256).FirstOrDefault();
                 if (ans256 == null)
                 {
                     // รูปคอมพิวเตอร์ตัวที่ 9 พร้อม Serial NO.  :
@@ -8400,7 +8433,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                var ans257 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 257).FirstOrDefault();
+                var ans257 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 257).FirstOrDefault();
                 if (ans257 == null)
                 {
                     // รูปคอมพิวเตอร์ตัวที่ 10 พร้อม Serial NO.  :
@@ -8429,7 +8462,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
 
 
-                var ans258 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.AnsMonth == ansMonth && x.QuestionId == 258).FirstOrDefault();
+                var ans258 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 258).FirstOrDefault();
                 if (ans258 == null)
                 {
                     // รูปคอมพิวเตอร์ตัวที่ 11 พร้อม Serial NO.  :
@@ -8459,89 +8492,183 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-                //1.รูป PICTURE CHECKLIST :
-                if (this.pictureChecklistImages.HasFile)
-                {
-                    string extension = this.pictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                    string newFileName = "images/pictureChecklist_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                    this.pictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
 
-                    Answer answer259 = new Answer()
+
+                //1.รูป PICTURE CHECKLIST :
+                var ans259 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 259).FirstOrDefault();
+                if (ans259 == null)
+                {
+                   
+                    if (this.pictureChecklistImages.HasFile)
                     {
-                        AnsDes = newFileName,
-                        QuestionId = 259,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer259);
+                        string extension = this.pictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                        string newFileName = "images/pictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                        this.pictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                        Answer answer259 = new Answer()
+                        {
+                            AnsDes = newFileName,
+                            QuestionId = 259,
+                            AnserTypeId = 3,
+                            CreateDate = DateTime.Now,
+                            UserId = user.Id,
+                            AnsMonth = ansMonth,
+                            SRId = sR.Id
+                        };
+                        uSOEntities.Answers.Add(answer259);
+                    }
                 }
+                else
+                {
+                    if (this.pictureChecklistImages.HasFile)
+                    {
+                        string extension = this.pictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                        string newFileName = "images/pictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                        this.pictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+                        ans259.QuestionId = 259;
+                        ans259.AnsDes = newFileName;
+                        ans259.AnserTypeId = 3;
+                        ans259.CreateDate = DateTime.Now;
+                        ans259.UserId = user.Id;
+                        ans259.AnsMonth = ansMonth;
+                        ans259.SRId = sR.Id;
+
+                    }
+                }
+
 
                 //2.รูป VSAT PICTURE CHECKLIST :
-                if (this.vsatpictureChecklistImages.HasFile)
+                var ans260 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 260).FirstOrDefault();
+                if (ans260 == null)
                 {
-                    string extension = this.vsatpictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                    string newFileName = "images/VsatPictureChecklist_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                    this.vsatpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
 
-                    Answer answer260 = new Answer()
+                  
+                    if (this.vsatpictureChecklistImages.HasFile)
                     {
-                        AnsDes = newFileName,
-                        QuestionId = 260,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer260);
+                        string extension = this.vsatpictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                        string newFileName = "images/VsatPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                        this.vsatpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                        Answer answer260 = new Answer()
+                        {
+                            AnsDes = newFileName,
+                            QuestionId = 260,
+                            AnserTypeId = 3,
+                            CreateDate = DateTime.Now,
+                            UserId = user.Id,
+                            AnsMonth = ansMonth,
+                            SRId = sR.Id
+                        };
+                        uSOEntities.Answers.Add(answer260);
+                    }
                 }
+                else
+                {
+                    if (this.vsatpictureChecklistImages.HasFile)
+                    {
+                        string extension = this.vsatpictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                        string newFileName = "images/VsatPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                        this.vsatpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+                        ans260.QuestionId = 260;
+                        ans260.AnsDes = newFileName;
+                        ans260.AnserTypeId = 3;
+                        ans260.CreateDate = DateTime.Now;
+                        ans260.UserId = user.Id;
+                        ans260.AnsMonth = ansMonth;
+                        ans260.SRId = sR.Id;
+
+                    }
+                }
+
+
+
 
                 //3.รูป SOLAR CELL PICTURE CHECKLISTT :
-                if (this.solarcellpictureChecklistImages.HasFile)
-                {
-                    string extension = this.solarcellpictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                    string newFileName = "images/SolarcellPictureChecklist_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                    this.solarcellpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
-
-                    Answer answer261 = new Answer()
+                var ans261 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 261).FirstOrDefault();
+                if (ans261 == null)
+                {        
+                    if (this.solarcellpictureChecklistImages.HasFile)
                     {
-                        AnsDes = newFileName,
-                        QuestionId = 261,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer261);
+                        string extension = this.solarcellpictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                        string newFileName = "images/SolarcellPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                        this.solarcellpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                        Answer answer261 = new Answer()
+                        {
+                            AnsDes = newFileName,
+                            QuestionId = 261,
+                            AnserTypeId = 3,
+                            CreateDate = DateTime.Now,
+                            UserId = user.Id,
+                            AnsMonth = ansMonth,
+                            SRId = sR.Id
+                        };
+                        uSOEntities.Answers.Add(answer261);
+                    }
                 }
+                else
+                {
+                    if (this.solarcellpictureChecklistImages.HasFile)
+                    {
+                        string extension = this.solarcellpictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                        string newFileName = "images/SolarcellPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                        this.solarcellpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+                        ans261.QuestionId = 261;
+                        ans261.AnsDes = newFileName;
+                        ans261.AnserTypeId = 3;
+                        ans261.CreateDate = DateTime.Now;
+                        ans261.UserId = user.Id;
+                        ans261.AnsMonth = ansMonth;
+                        ans261.SRId = sR.Id;
+
+                    }
+                }
+
+
+
 
                 //4.COMPUTER PICTURE CHECKLIST :
-                if (this.compictureChecklistImages.HasFile)
+                var ans262 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 262).FirstOrDefault();
+                if (ans262 == null)
                 {
-                    string extension = this.compictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                    string newFileName = "images/ComputerPictureChecklist_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                    this.compictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
-
-                    Answer answer262 = new Answer()
+                   
+                    if (this.compictureChecklistImages.HasFile)
                     {
-                        AnsDes = newFileName,
-                        QuestionId = 262,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer262);
+                        string extension = this.compictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                        string newFileName = "images/ComputerPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                        this.compictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                        Answer answer262 = new Answer()
+                        {
+                            AnsDes = newFileName,
+                            QuestionId = 262,
+                            AnserTypeId = 3,
+                            CreateDate = DateTime.Now,
+                            UserId = user.Id,
+                            AnsMonth = ansMonth,
+                            SRId = sR.Id
+                        };
+                        uSOEntities.Answers.Add(answer262);
+                    }
+
                 }
+                else
+                {
+                    if (this.compictureChecklistImages.HasFile)
+                    {
+                        string extension = this.compictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                        string newFileName = "images/ComputerPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                        this.compictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+                        ans262.QuestionId = 262;
+                        ans262.AnsDes = newFileName;
+                        ans262.AnserTypeId = 3;
+                        ans262.CreateDate = DateTime.Now;
+                        ans262.UserId = user.Id;
+                        ans262.AnsMonth = ansMonth;
+                        ans262.SRId = sR.Id;
 
-
-
-
+                    }
+                }
 
                 int result = uSOEntities.SaveChanges();
                 if (result > 0)
@@ -8568,13 +8695,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-            // exsample
-            //void GetData()
-            //{
-            //    var collection = uSOEntities.Answers.Where(x => x.User.OrganizationId == 1 && x.Question.SectionId == 6).ToList();
-            //    this.ResultRepeater.DataSource = collection.OrderByDescending(x => x.CreateDate).ToList();
-            //    this.ResultRepeater.DataBind();
-            //}
+           
         }
 
 

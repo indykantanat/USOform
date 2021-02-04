@@ -85,11 +85,130 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="login\login.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2_1_3_1\default.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\ComputerPictureChecklist_25640119104732.jpg" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_25640119104732.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_BB2_1_3_1_20210120224759.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_BB2_1_3_1_20210203113801.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_BB2_1_3_1_20210203114911.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_BB2_1_3_1_20210203153541.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_BB2_1_3_1_20210203154312.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_BB2_1_3_1_20210203154853.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_BB2_1_3_1_20210203160449.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_BB2_1_3_1_20210203160617.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_BB2_1_3_1_20210203162209.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_BB2_1_3_1_20210203162441.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_BB2_1_3_1_20210203163258.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\pictureChecklist_BB2_1_3_1_20210203164459.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210120224759.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210202151153.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210202151222.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210202151431.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210202151811.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210202152647.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203113758.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203114908.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203153539.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203153756.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203153927.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203154120.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203154136.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203154216.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203154310.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203154358.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203154502.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203154754.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203154851.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203154901.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203160447.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203160616.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203162207.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203162439.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203163257.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\PictureOrganize_BB2_1_3_1_20210203164458.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SignboardSchool_25640119104732.jpg" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_25640119104732.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_BB2_1_3_1_20210120224759.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_BB2_1_3_1_20210203113801.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_BB2_1_3_1_20210203114911.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_BB2_1_3_1_20210203153541.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_BB2_1_3_1_20210203154312.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_BB2_1_3_1_20210203154853.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_BB2_1_3_1_20210203160449.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_BB2_1_3_1_20210203160617.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_BB2_1_3_1_20210203162209.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_BB2_1_3_1_20210203162441.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_BB2_1_3_1_20210203163258.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\SolarcellPictureChecklist_BB2_1_3_1_20210203164459.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210120224759.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210202151153.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210202151223.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210202151431.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210202151811.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210202151947.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210202152622.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210202152647.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203113758.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203114908.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203153539.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203153756.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203153927.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203154121.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203154136.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203154216.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203154310.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203154358.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203154502.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203154754.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203154851.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203154901.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203160447.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203160616.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203162207.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203162439.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203163257.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\UsonetPictureBB2_2_3_2_20210203164458.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\usonetPicture_25640119104731.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_25640119104732.jpg" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210120224759.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203113801.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203114911.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203153541.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203154312.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203154853.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203160449.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203160617.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203162209.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203162441.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203163258.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203164459.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\previewImg.js" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\ComputerPictureChecklist_25640119104732.jpg" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\ComputerPictureChecklist_BB2_2_3_2_20210120022303.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\ComputerPictureChecklist_BB2_2_3_2_20210203203139.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\pictureChecklist_25640119104732.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\pictureChecklist_BB2_2_3_2_20210120022303.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\pictureChecklist_BB2_2_3_2_20210203203139.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\PictureOrganize_BB2_2_3_2_20210120022303.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\PictureOrganize_BB2_2_3_2_20210203203136.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\SignboardSchoolBB2_2_3_2_20210120022303.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\SignboardSchoolBB2_2_3_2_20210203203137.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\SignboardSchool_25640119104732.jpg" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\SolarcellPictureChecklist_25640119104732.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\SolarcellPictureChecklist_BB2_2_3_2_20210120022303.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\SolarcellPictureChecklist_BB2_2_3_2_20210203203139.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\UsonetPictureBB2_2_3_2_20210120022303.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\UsonetPictureBB2_2_3_2_20210203203137.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\usonetPicture_25640119104731.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\VsatPictureChecklist_25640119104732.jpg" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\VsatPictureChecklist_BB2_2_3_2_20210120022303.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\VsatPictureChecklist_BB2_2_3_2_20210203203139.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\previewImg.js" />
     <Content Include="PreventiveMaintenanceReportBB_1\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2_2_3_2\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2_3_3_3\default.aspx" />
-    <Content Include="PreventiveMaintenanceReportBB_2.4\default.aspx" />
-    <Content Include="PreventiveMaintenanceReportBB_2.4\Prereport_BB_2_4.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB_1\previewImg.js" />
+    <Content Include="PreventiveMaintenanceReportBB_2_4\default.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB_2_4\Prereport_BB_2_4.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\spinner.js" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\previewImg.js" />
@@ -204,7 +323,7 @@
     <Content Include="Web.config" />
     <Content Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\default.aspx" />
     <Content Include="Success.aspx" />
-    <Content Include="testtable.aspx" />
+    <Content Include="dashboard.aspx" />
     <Content Include="home.aspx" />
     <Content Include="WebForm5.aspx" />
     <Content Include="Search.aspx" />
@@ -245,18 +364,18 @@
     <Compile Include="PreventiveMaintenanceReportBB2_3_3_3\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB_2.4\default.aspx.cs">
+    <Compile Include="PreventiveMaintenanceReportBB_2_4\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB_2.4\default.aspx.designer.cs">
+    <Compile Include="PreventiveMaintenanceReportBB_2_4\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB_2.4\Prereport_BB_2_4.aspx.cs">
+    <Compile Include="PreventiveMaintenanceReportBB_2_4\Prereport_BB_2_4.aspx.cs">
       <DependentUpon>Prereport_BB_2_4.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB_2.4\Prereport_BB_2_4.aspx.designer.cs">
+    <Compile Include="PreventiveMaintenanceReportBB_2_4\Prereport_BB_2_4.aspx.designer.cs">
       <DependentUpon>Prereport_BB_2_4.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreventiveMaintenanceReportBB_USOWrap\default.aspx.cs">
@@ -302,12 +421,12 @@
     <Compile Include="Success.aspx.designer.cs">
       <DependentUpon>Success.aspx</DependentUpon>
     </Compile>
-    <Compile Include="testtable.aspx.cs">
-      <DependentUpon>testtable.aspx</DependentUpon>
+    <Compile Include="dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="testtable.aspx.designer.cs">
-      <DependentUpon>testtable.aspx</DependentUpon>
+    <Compile Include="dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
@@ -363,7 +482,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PreventiveMaintenanceReportBB2_3_3_3\images\" />
-    <Folder Include="PreventiveMaintenanceReportBB_2.4\images\" />
+    <Folder Include="PreventiveMaintenanceReportBB_1\images\" />
+    <Folder Include="PreventiveMaintenanceReportBB_2_4\images\" />
     <Folder Include="PreventiveMaintenanceReportBB_USOWrap\images\" />
     <Folder Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\images\" />
   </ItemGroup>
