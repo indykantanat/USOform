@@ -1,33 +1,112 @@
-﻿<%@ Page  Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.PreventiveMaintenanceReportBB2._3_3._3.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.PreventiveMaintenanceReportBB2._3_3._3.WebForm1" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-     <title>Broadband Internet Service(Preventive Maintenance (PM) Report) บริการที่ 2.3,3.3 </title>
+    <title>Broadband Internet Service(Preventive Maintenance (PM) Report) บริการที่ 2.3,3.3 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="~/style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <%-----------------//     font style    //--------------------%>
+    <%------//     font style    //---------%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
-    <%----------------------------//  Signature  //-------------------------------%>
+    <%-------//    date time picker JQURRY   //--------%>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet">
+    <link href="../style/Mystyle.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <%-------//   PREVIEW IMAGES   //--------%>
+    <script src="previewImg.js"></script>
+    <%--------------- //   Signature     //-----------------------%>
     <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
     <script src="../sig/js/jquery.signature.min.js"></script>
     <script src="../sig/js/results.js"></script>
+    <script src="../sig/js/results.js"></script>
+    <%----------------//  Important must have for signature !  //---------------%>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet" />
+    <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
+
+    <style>
+        .kbw-signature {
+            width: 400px;
+            height: 200px;
+        }
+    </style>
+    <!--[if IE]>
+    <script src="excanvas.js"></script>
+    <![endif]-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"/>
+    <script src="../sig/js/jquery.signature.js"></script>
+    <script>
+        //-----------------  ลายเซ็น  //----------------------
+        $(function () {
+            $('#signatureExecutorTextbox').signature({ syncField: '#<%= this.signatureExecutorJSON.ClientID %>' });
+
+            $('#clearButton1').click(function () {
+                $('#signatureExecutorTextbox').signature('clear');
+            });
+
+            $('input[name="syncFormat"]').change(function () {
+                var syncFormat = $('input[name="syncFormat"]:checked').val();
+                $('#signatureExecutorTextbox').signature('option', 'syncFormat', syncFormat);
+            });
+
+            $('#svgStyles').change(function () {
+                $('#signatureExecutorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
+            });
+            $('#redrawButton').click(function () {
+                $('#redrawSignature1').signature('enable').
+                    signature('draw', $('#<%= this.signatureExecutorJSON.ClientID %>').val()).
+                    signature('disable');
+            });
+
+            $('#redrawSignature1').signature({ disabled: true });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#signatureSupervisorTextbox').signature({ syncField: '#<%= this.signatureSupervisorJSON.ClientID %>' });
+
+            $('#clear2Button').click(function () {
+                $('#signatureSupervisorTextbox').signature('clear');
+            });
+
+            $('input[name="syncFormat"]').change(function () {
+                var syncFormat = $('input[name="syncFormat"]:checked').val();
+                $('#signatureSupervisorTextbox').signature('option', 'syncFormat', syncFormat);
+            });
+
+            $('#svgStyles').change(function () {
+                $('#signatureSupervisorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
+            });
+
+            $('#redrawButton').click(function () {
+                $('#redrawSignature').signature('enable').
+                    signature('draw', $('#<%= this.signatureSupervisorJSON.ClientID %>').val()).
+                    signature('disable');
+            });
+
+            $('#redrawSignature').signature({ disabled: true });
+        });
+    </script>
 </head>
 
 <body style="background-color: lightgray">
     <form id="form1" runat="server">
         <div class="container bg-white Myfont mt-3">
-            <%--////////////////////////////////    HEADER CONTENT    ///////////////////////////////////////////////--%>
+            <%-----------------------------------------------//   HEADER CONTENT    //------------------------------------------------------------%>
             <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
                 SUCCESS !!<a href="#" class="alert-link">an example link</a>. Give it a click if you like.
             </div>
             <div class="row pt-5">
                 <div class="col-4">
-                    <asp:FileUpload ID="logoPictureOga" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)"  />
+                    <asp:FileUpload ID="logoPictureOga" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" />
                 </div>
                 <div class="col-4  d-flex justify-content-center ">
                     <h5 class="headerText">Preventive Maintenance Site Report USO (School’s WIFI)</h5>
@@ -36,8 +115,6 @@
                     <img src="/assets/logo_uso.png" class="logoImg" />
                 </div>
             </div>
-
-
             <div class="row">
                 <div class="col-12 text-left ">
                     <div>
@@ -94,8 +171,8 @@
                     <input type="text" class="form-control" id="maintenanceCountTextbox" runat="server" />
                 </div>
                 /
-              <div class="col-sm-1">
-                  <input type="text" class="form-control" id="yearTextbox" runat="server" />
+              <div class="col-sm-2">
+                  <input type="text" class="form-control" id="yearTextbox" runat="server" placeholder="ปีพุทธศักราช" />
               </div>
             </div>
 
@@ -105,12 +182,12 @@
                         <label>
                             <div>วัน เดือน ปี</div>
                         </label>
-                        <input data-date-format="dd/mm/yyyy" id="startDatepicker" runat="server" />
+                        <input class="form-control" type="text" data-date-format="dd/mm/yyyy" id="startDatepicker" runat="server" />
 
                         <label>
                             <div>ถึง</div>
                         </label>
-                        <input data-date-format="dd/mm/yyyy" id="endDatepicker" runat="server" />
+                        <input class="form-control" type="text" data-date-format="dd/mm/yyyy" id="endDatepicker" runat="server" />
                     </div>
                 </div>
             </div>
@@ -215,7 +292,7 @@
 
             <div class="form-row mt-3 table-bordered">
                 <div class="col-sm-12 bg-primary text-white">ใส่ป้ายหน้าโรงเรียน</div>
-                <asp:FileUpload ID="picinfrontImages" runat="server" data-thumbnail="" accept="image/" onchange="previewImage(this)"  />
+                <asp:FileUpload ID="picinfrontImages" runat="server" data-thumbnail="" accept="image/" onchange="previewImage(this)" />
             </div>
 
 
@@ -223,16 +300,6 @@
                 <div class="col-sm-12 bg-primary text-white">รูปบริเวณห้องบริการ WiFi - Computer</div>
                 <asp:FileUpload ID="wifiHallImages" runat="server" data-thumbnail="" accept="image/" onchange="previewImage(this)" />
             </div>
-
-
-
-
-
-
-
-
-
-
 
             <div class="row ">
                 <div class="col-md-12 bg-warning text-white text-center Myfont">
@@ -248,22 +315,26 @@
                     <span>Supervisor</span>
                 </div>
             </div>
+
+
+
             <div class="row mt-3">
                 <div class="col-md-1 text-center">
                     <span>Signature</span>
                 </div>
                 <div class="col-md-5 text-center">
-                     <p><span class="demoLabel">Capture signature:</span></p>
-    <div id="captureSignature"></div>
-    <p style="clear: both;">
-                    <input type="text" class="form-control" id="signatureExecutorTextbox" runat="server" required="required" />
+                    <p style="clear: both;">
+                        <div id="signatureExecutorTextbox"></div>
+                        <input type="hidden" id="signatureExecutorJSON" class="ui-state-active" runat="server" />
+                        <div id="redrawSignature1" hidden="hidden"></div>
                 </div>
                 <div class="col-md-6 text-center">
-
-                    <input type="text" class="form-control" id="signatureSupervisorTextbox" runat="server" required="required" />
+                    <p style="clear: both;">
+                        <div id="signatureSupervisorTextbox"></div>
+                        <input type="hidden" id="signatureSupervisorJSON" class="ui-state-active" runat="server" />
+                        <div id="redrawSignature1" hidden="hidden"></div>
                 </div>
             </div>
-
             <div class="row mt-3">
                 <div class="col-md-1 text-center">
                     <span>Name</span>
@@ -2799,7 +2870,7 @@
             </div>
             <div class="row mt-3 table-bordered">
                 <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
-                <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)"  />
+                <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" />
 
             </div>
             <div class="row ml-3 mt-3">
@@ -2832,7 +2903,7 @@
 
             <div class="row mt-3">
                 <div class="col-sm-12">4. COMPUTER PICTURE CHECKLIST</div>
-                <asp:FileUpload ID="computerChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)"  />
+                <asp:FileUpload ID="computerChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)" />
 
             </div>
             <div class="row ml-3 mt-3">
@@ -2863,38 +2934,17 @@
         </div>
     </form>
 
-
-
+    <%-----------------//  วัน เดือน ปี ที่เริ่มต้น สิ้นสุด   //------------------%>
+    <script>
+        $(function () {
+            $("#startDatepicker").datepicker();
+        });
+    </script>
 
     <script>
-$(function() {
-    
-    
-    $('#captureSignature').signature({syncField: '#signatureJSON'}); 
- 
-$('#clear2Button').click(function() { 
-    $('#captureSignature').signature('clear'); 
-}); 
- 
-$('input[name="syncFormat"]').change(function() { 
-    var syncFormat = $('input[name="syncFormat"]:checked').val(); 
-    $('#captureSignature').signature('option', 'syncFormat', syncFormat); 
-}); 
- 
-$('#svgStyles').change(function() { 
-    $('#captureSignature').signature('option', 'svgStyles', $(this).is(':checked')); 
-});
-
-
-
-$('#redrawButton').click(function() {
-	$('#redrawSignature').signature('enable').
-		signature('draw', $('#signatureJSON').val()).
-		signature('disable');
-});
-
-$('#redrawSignature').signature({disabled: true});
-});
+        $(function () {
+            $("#endDatepicker").datepicker();
+        });
     </script>
 
     <style>

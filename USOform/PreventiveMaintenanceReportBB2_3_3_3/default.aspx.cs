@@ -824,12 +824,29 @@ namespace USOform.PreventiveMaintenanceReportBB2._3_3._3
 
 
             var ans504 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 3 && x.SRId == sR.Id && x.QuestionId == 504).FirstOrDefault();
+            string sx = "";
+            sx = this.signatureExecutorJSON.Value.Replace(' ', '+');
+            sx = sx.Replace("data:image/jpeg;base64,", String.Empty);
+            byte[] imageBytes = Convert.FromBase64String(sx);
+            using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+            {
+                string filename = $"signature{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
+                System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+                image.Save(Server.MapPath($"images/{filename}"));
+            }
+
+
+            int mod1428 = sx.Length % 4;
+            if (mod1428 > 0)
+            {
+                sx += new string('=', 4 - mod1428);
+            }
             if (ans504 == null)
             {
                 //signature Executor :
                 Answer answer21 = new Answer()
                 {
-                    AnsDes = this.signatureExecutorTextbox.Value,
+                    AnsDes = sx,
                     QuestionId = 504,
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
@@ -842,7 +859,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._3_3._3
             else
             {
                 ans504.QuestionId = 504;
-                ans504.AnsDes = this.signatureExecutorTextbox.Value;
+                ans504.AnsDes = sx;
                 ans504.AnserTypeId = 1;
                 ans504.CreateDate = DateTime.Now;
                 ans504.UserId = user.Id;
@@ -852,13 +869,34 @@ namespace USOform.PreventiveMaintenanceReportBB2._3_3._3
 
 
 
+
+
+
+
             var ans505 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 3 && x.SRId == sR.Id && x.QuestionId == 505).FirstOrDefault();
+            string s = "";
+            s = this.signatureSupervisorJSON.Value.Replace(' ', '+');
+            s = s.Replace("data:image/jpeg;base64,", String.Empty);
+
+            byte[] imageBytes2 = Convert.FromBase64String(s);
+            using (var ms2 = new MemoryStream(imageBytes2, 0, imageBytes2.Length))
+            {
+                string filename2 = $"signature2{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
+                System.Drawing.Image image2 = System.Drawing.Image.FromStream(ms2, true);
+                image2.Save(Server.MapPath($"images/{filename2}"));
+            }
+
+            int mod4 = s.Length % 4;
+            if (mod4 > 0)
+            {
+                s += new string('=', 4 - mod4);
+            }
             if (ans505 == null)
             {
                 //signature Supervisor :
                 Answer answer22 = new Answer()
                 {
-                    AnsDes = this.signatureSupervisorTextbox.Value,
+                    AnsDes = s,
                     QuestionId = 505,
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
@@ -871,11 +909,12 @@ namespace USOform.PreventiveMaintenanceReportBB2._3_3._3
             else
             {
                 ans505.QuestionId = 505;
-                ans505.AnsDes = this.signatureSupervisorTextbox.Value;
+                ans505.AnsDes = s;
                 ans505.AnserTypeId = 1;
                 ans505.CreateDate = DateTime.Now;
                 ans505.UserId = user.Id;
-                ans505.AnsMonth = ansMonth; ans505.SRId = sR.Id;
+                ans505.AnsMonth = ansMonth;
+                ans505.SRId = sR.Id;
 
             }
 
@@ -8274,8 +8313,8 @@ namespace USOform.PreventiveMaintenanceReportBB2._3_3._3
             this.provinceTextbox.Value = answers.Where(x => x.QuestionId == 499).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 499).FirstOrDefault().AnsDes : "";
             this.typeTextbox.Value = answers.Where(x => x.QuestionId == 500).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 500).FirstOrDefault().AnsDes : "";
             this.pmdateTextbox.Value = answers.Where(x => x.QuestionId == 501).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 501).FirstOrDefault().AnsDes : "";
-            this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 504).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 504).FirstOrDefault().AnsDes : "";
-            this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 505).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 505).FirstOrDefault().AnsDes : "";
+            //this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 504).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 504).FirstOrDefault().AnsDes : "";
+            //this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 505).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 505).FirstOrDefault().AnsDes : "";
             this.nameExecutorTextbox.Value = answers.Where(x => x.QuestionId == 506).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 506).FirstOrDefault().AnsDes : "";
             this.nameSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 507).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 507).FirstOrDefault().AnsDes : "";
             this.DateExecutorTextbox.Value = answers.Where(x => x.QuestionId == 508).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 508).FirstOrDefault().AnsDes : "";
