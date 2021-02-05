@@ -30,11 +30,11 @@
 
 <body style="background-color: lightgray">
 
-    <form id="form1" runat="server">
+    <form id="form1" name="form1" runat="server">
 
         <div class="container bg-white Myfont mt-3">
             <div class="container bg-white Myfont">
-                <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
+                <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">                  
                     This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
                 </div>
 
@@ -1601,10 +1601,9 @@
             alert(this.value.split("\\").pop())
         })
     </script>
+ 
 
-   
-
-
+  
 
 
     <script>

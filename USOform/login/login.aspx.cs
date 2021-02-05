@@ -34,7 +34,7 @@ namespace USOform.login
             {
                 Session["strUsername"] = user;
               
-                Response.Redirect("/dashboard.aspx");
+                Response.Redirect("~/dashboard.aspx");
               
 
             }

@@ -31,7 +31,7 @@ namespace USOform
             }
             else
             {
-                Response.Redirect("/login/login.aspx");
+                Response.Redirect("~/login/login.aspx");
                 Response.End();
 
             }

@@ -119,7 +119,7 @@
             </div>
             <%-- onchange="previewImage(this)"--%>
             <div class="row ml-3 mt-3">
-                <img id="user_img_logo" src='<% Response.Write(answers.Where(x => x.QuestionId == 1023).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_logo" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1023).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
         <%--////////////////////////////////    END HEADER CONTENT    ///////////////////////////////////////////////--%>
 
@@ -218,7 +218,7 @@
             </div>
             <%-- onchange="previewImage(this)"--%>
             <div class="row ml-3 mt-3">
-                <img id="user_img_0" src='<% Response.Write(answers.Where(x => x.QuestionId == 1033).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_0" src='<% if (answers.Count() > 0)  Response.Write(answers.Where(x => x.QuestionId == 1033).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
 
@@ -2311,7 +2311,7 @@
                    <%-- <input type="file" name="image2" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_2" />--%>
                 </div>
                 <div class="row ml-3 mt-3">
-                    <img id="user_img_2" src='<% Response.Write(answers.Where(x => x.QuestionId == 1228).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                    <img id="user_img_2" src='<% if (answers.Count() > 0)  Response.Write(answers.Where(x => x.QuestionId == 1228).FirstOrDefault().AnsDes); %>' class="placeholder2" />
                 </div>
 
 
@@ -2323,7 +2323,7 @@
 <%--                    <input type="file" name="image3" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_3" />--%>
                 </div>
                 <div class="row ml-3 mt-3">
-                    <img id="user_img_3" src='<% Response.Write(answers.Where(x => x.QuestionId == 1229).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                    <img id="user_img_3" src='<% if (answers.Count() > 0)  Response.Write(answers.Where(x => x.QuestionId == 1229).FirstOrDefault().AnsDes); %>' class="placeholder2" />
                 </div>
 
 
@@ -2334,7 +2334,7 @@
 <%--                    <input type="file" name="image4" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_4" />--%>
                 </div>
                 <div class="row ml-3 mt-3">
-                    <img id="user_img_4" src='<% Response.Write(answers.Where(x => x.QuestionId == 1230).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                    <img id="user_img_4" src='<% if (answers.Count() > 0)  Response.Write(answers.Where(x => x.QuestionId == 1230).FirstOrDefault().AnsDes); %>' class="placeholder2" />
                 </div>
 
 

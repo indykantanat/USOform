@@ -758,7 +758,7 @@ namespace USOform.PreventiveMaintenanceReportBB1
             }
 
 
-            var ans19 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 6 && x.SRId == sR.Id && x.QuestionId == 1248).FirstOrDefault();
+            var ans19 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 6 && x.SRId == sR.Id && x.QuestionId == 1249).FirstOrDefault();
             //ใส่รูปหน้าอาคารศูนย์ USO Net :
             if (ans19 == null)
             {
@@ -4800,7 +4800,7 @@ namespace USOform.PreventiveMaintenanceReportBB1
                 ans165.AnsDes = picBatteryRadio2tex;
                 ans165.AnserTypeId = 4;
                 ans165.CreateDate = DateTime.Now;
-                ans165.QuestionId = 1395;
+                ans165.QuestionId = 1396;
                 ans165.UserId = user.Id;
                 ans165.AnsMonth = ansMonth; ans165.SRId = sR.Id;
             }
@@ -5099,7 +5099,7 @@ namespace USOform.PreventiveMaintenanceReportBB1
             //ans176
             //1.รูป PICTURE CHECKLIST :
 
-            var ans9989 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 5 && x.SRId == sR.Id && x.QuestionId == 1023).FirstOrDefault();
+            var ans9989 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 6 && x.SRId == sR.Id && x.QuestionId == 1407).FirstOrDefault();
             //ใส่รูป Logo 
             if (ans9989 == null)
             {

@@ -5,12 +5,12 @@
 <head runat="server">
     <title>Broadband Internet Service(Preventive Maintenance (PM) Report) บริการที่ 2.3,3.3 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="~/style/Mystyle.css" rel="stylesheet" />
+    <link href="../style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <%------//     font style    //---------%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
-    <%-------//    date time picker JQURRY   //--------%>
+    <%-------//    DATE time picker JQURRY   //--------%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="/resources/demos/style.css" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -112,7 +112,7 @@
                     <h5 class="headerText">Preventive Maintenance Site Report USO (School’s WIFI)</h5>
                 </div>
                 <div class="col-4 ">
-                    <img src="/assets/logo_uso.png" class="logoImg" />
+                    <img src="../assets/logo_uso.png" class="logoImg" />
                 </div>
             </div>
             <div class="row">
@@ -292,13 +292,19 @@
 
             <div class="form-row mt-3 table-bordered">
                 <div class="col-sm-12 bg-primary text-white">ใส่ป้ายหน้าโรงเรียน</div>
-                <asp:FileUpload ID="picinfrontImages" runat="server" data-thumbnail="" accept="image/" onchange="previewImage(this)" />
+                <asp:FileUpload ID="picinfrontImages" runat="server" data-thumbnail="user_img_0" accept="image/" onchange="previewImage(this)" />
+            </div>
+               <div class="row ml-3 mt-3">
+                <img id="user_img_0" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 502).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
 
             <div class="form-row mt-3 table-bordered">
                 <div class="col-sm-12 bg-primary text-white">รูปบริเวณห้องบริการ WiFi - Computer</div>
-                <asp:FileUpload ID="wifiHallImages" runat="server" data-thumbnail="" accept="image/" onchange="previewImage(this)" />
+                <asp:FileUpload ID="wifiHallImages" runat="server" data-thumbnail="user_img_1" accept="image/" onchange="previewImage(this)" />
+            </div>
+               <div class="row ml-3 mt-3">
+                <img id="user_img_1" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 503).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
             <div class="row ">
@@ -328,12 +334,18 @@
                         <input type="hidden" id="signatureExecutorJSON" class="ui-state-active" runat="server" />
                         <div id="redrawSignature1" hidden="hidden"></div>
                 </div>
+                 <div class="row">
+                <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 504).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+            </div>
                 <div class="col-md-6 text-center">
                     <p style="clear: both;">
-                        <div id="signatureSupervisorTextbox"></div>
+                        <div id="signatureSupervisorTextbox" '<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 505).FirstOrDefault().AnsDes); %>' ></div>
                         <input type="hidden" id="signatureSupervisorJSON" class="ui-state-active" runat="server" />
                         <div id="redrawSignature1" hidden="hidden"></div>
                 </div>
+                 <div class="row">
+                <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 505).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+            </div>
             </div>
             <div class="row mt-3">
                 <div class="col-md-1 text-center">
@@ -501,8 +513,8 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">กระแส Line AC (kWh Meter)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3" for="">กระแส Line AC (kWh Meter)</label>
+                <div class="col-sm-7">
                     <input type="text" class="form-control" id="lineAcTextbox" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">A.</label>
@@ -598,14 +610,13 @@
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="voltageLoadRadio" value="4" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 526).FirstOrDefault().AnsDes == "4") { Response.Write("checked"); } else { Response.Write(""); }  %> />4
-                    </label>
-
-                    <div class="form-check-inline">
+                    </label>                 
+                </div>
+                  <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="voltageLoadRadio" value="5" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 526).FirstOrDefault().AnsDes == "5") { Response.Write("checked"); } else { Response.Write(""); }  %> />5
                         </label>
                     </div>
-                </div>
                 <label class="control-label col-sm-2">(ขีดล่าง =1 , ขีดบน = 5)</label>
 
             </div>
@@ -635,14 +646,13 @@
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="batteryCapacityRadio" value="4" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 527).FirstOrDefault().AnsDes == "4") { Response.Write("checked"); } else { Response.Write(""); }  %> />4
-                    </label>
-
-                    <div class="form-check-inline">
+                    </label>                  
+                </div>
+                 <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="batteryCapacityRadio" value="5" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 527).FirstOrDefault().AnsDes == "5") { Response.Write("checked"); } else { Response.Write(""); }  %> />5
                         </label>
                     </div>
-                </div>
                 <label class="control-label col-sm-2">(ขีดล่าง =1 , ขีดบน = 5)</label>
             </div>
 
@@ -869,12 +879,12 @@
                 <label class="control-label col-sm-4">ความแข็งแรงของน็อตขันหางปลาอุปกรณ์</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="notfishRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 540).FirstOrDefault().AnsDes == "เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
+                        <input type="radio" class="form-check-input" name="notfishRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 540).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="notfishRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 540).FirstOrDefault().AnsDes == "เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); }  %> />ชำรุด
+                        <input type="radio" class="form-check-input" name="notfishRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 540).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); }  %> />ชำรุด
                     </label>
                 </div>
             </div>
@@ -1217,12 +1227,12 @@
                 <label class="control-label col-sm-4">ช่อง Cable Inlet  และความสะอาด</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="CableInletRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 562).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
+                        <input type="radio" class="form-check-input" name="CableInletRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 562).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="CableInletRadio" value="ไม่ได้อุดซิลีโคน" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 562).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); }  %> />ไม่ได้อุดซิลีโคน
+                        <input type="radio" class="form-check-input" name="CableInletRadio" value="ไม่ได้อุดซิลีโคน" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 562).FirstOrDefault().AnsDes == "ไม่ได้อุดซิลีโคน") { Response.Write("checked"); } else { Response.Write(""); }  %> />ไม่ได้อุดซิลีโคน
                     </label>
                 </div>
             </div>
@@ -1254,20 +1264,6 @@
                     </label>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
@@ -2790,7 +2786,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 1 </label>
+                <label class="control-label col-sm-5">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 1 </label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicspeedTestRaio1" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 727).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2804,7 +2800,7 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 2</label>
+                <label class="control-label col-sm-5">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 2</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicspeedTestRaio2" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 728).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2817,7 +2813,7 @@
                 </div>
             </div>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 3</label>
+                <label class="control-label col-sm-5">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 3</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicspeedTestRaio3" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 729).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2831,7 +2827,7 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 4</label>
+                <label class="control-label col-sm-5">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 4</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicspeedTestRaio4" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 730).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2845,7 +2841,7 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 5</label>
+                <label class="control-label col-sm-5">รูป Test ใช้งาน Internet (Speed Test) คอมพิวเตอร์ตัวที่ 5</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicspeedTestRaio5" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 731).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2863,12 +2859,12 @@
 
             <br />
 
-            <div class="row mt-3 table-bordered">
+            <div class="row mt-3">
                 <div class="col-md-12  text-black text-center Myfont">
                     <h3>รูปภาพประกอบรายงาน</h3>
                 </div>
             </div>
-            <div class="row mt-3 table-bordered">
+            <div class="row mt-3">
                 <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
                 <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" />
 
@@ -2919,7 +2915,7 @@
             <br />
             <div class="row  justify-content-center">
                 <div class="col-md-6">
-                    <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-success btn-block " OnClick="SubmitButton_Click" />
+                    <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-success btn-block" OnClick="SubmitButton_Click"  />
                 </div>
 
             </div>
@@ -2933,6 +2929,9 @@
             <br />
         </div>
     </form>
+  
+   
+
 
     <%-----------------//  วัน เดือน ปี ที่เริ่มต้น สิ้นสุด   //------------------%>
     <script>

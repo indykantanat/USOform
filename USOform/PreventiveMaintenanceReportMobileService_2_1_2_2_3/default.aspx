@@ -114,7 +114,7 @@
                     <h5 class="headerText">Preventive Maintenance Site Report USO (Mobile)</h5>
                 </div>
                 <div class="col-4 ">
-                    <img src="/assets/logo_uso.png" class="logoImg" />
+                    <img src="../assets/logo_uso.png" class="logoImg" />
                 </div>
             </div>
             <%-----------------------------------//    HEADER CONTENT    //------------------------------------%>
