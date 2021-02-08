@@ -222,6 +222,24 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
         protected global::System.Web.UI.WebControls.FileUpload usonetsignboardImage;
 
         /// <summary>
+        /// signatureExecutorJSON control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden signatureExecutorJSON;
+
+        /// <summary>
+        /// signatureSupervisorJSON control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden signatureSupervisorJSON;
+
+        /// <summary>
         /// nameExecutorTextbox control.
         /// </summary>
         /// <remarks>

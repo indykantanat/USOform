@@ -9,19 +9,89 @@
       <link href="~/style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="previewImg.js"></script>
-
     <%--font style--%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
-
-
-
-
     <%--    date time picker JQURRY--%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+       <%--------------- //   Signature     //-----------------------%>
+    <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
+    <script src="../sig/js/jquery.signature.min.js"></script>
+    <script src="../sig/js/results.js"></script>
+    <script src="../sig/js/results.js"></script>
+    <%----------------//  Important must have for signature !  //---------------%>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet" />
+    <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
+      <style>
+        .kbw-signature {
+            width: 400px;
+            height: 200px;
+        }
+    </style>
+    <!--[if IE]>
+    <script src="excanvas.js"></script>
+    <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../sig/js/jquery.signature.js"></script>
+      <script>
+          //-----------------  ลายเซ็น  //----------------------
+          $(function () {
+              $('#signatureExecutorTextbox').signature({ syncField: '#<%= this.signatureExecutorJSON.ClientID %>' });
+
+            $('#clearButton1').click(function () {
+                $('#signatureExecutorTextbox').signature('clear');
+            });
+
+            $('input[name="syncFormat"]').change(function () {
+                var syncFormat = $('input[name="syncFormat"]:checked').val();
+                $('#signatureExecutorTextbox').signature('option', 'syncFormat', syncFormat);
+            });
+
+            $('#svgStyles').change(function () {
+                $('#signatureExecutorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
+            });
+            $('#redrawButton').click(function () {
+                $('#redrawSignature1').signature('enable').
+                    signature('draw', $('#<%= this.signatureExecutorJSON.ClientID %>').val()).
+                    signature('disable');
+            });
+
+            $('#redrawSignature1').signature({ disabled: true });
+        });
+      </script>
+    <script>
+        $(function () {
+            $('#signatureSupervisorTextbox').signature({ syncField: '#<%= this.signatureSupervisorJSON.ClientID %>' });
+
+            $('#clear2Button').click(function () {
+                $('#signatureSupervisorTextbox').signature('clear');
+            });
+
+            $('input[name="syncFormat"]').change(function () {
+                var syncFormat = $('input[name="syncFormat"]:checked').val();
+                $('#signatureSupervisorTextbox').signature('option', 'syncFormat', syncFormat);
+            });
+
+            $('#svgStyles').change(function () {
+                $('#signatureSupervisorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
+            });
+
+            $('#redrawButton').click(function () {
+                $('#redrawSignature').signature('enable').
+                    signature('draw', $('#<%= this.signatureSupervisorJSON.ClientID %>').val()).
+                    signature('disable');
+            });
+
+            $('#redrawSignature').signature({ disabled: true });
+        });
+    </script>
+
 </head>
 
 <body style="background-color: lightgray">
@@ -238,9 +308,9 @@
             <div class="row mt-3">
                 <div class="col-sm-12 bg-primary text-white">ใส่ป้ายหน้าโรงเรียน</div>
 
-                <asp:FileUpload ID="signboardschoolImage" runat="server" data-thumbnail="user_img_0" accept="image/*" onchange="previewImage(this)" required="required" />
+                <asp:FileUpload ID="signboardschoolImage" runat="server" data-thumbnail="user_img_0" accept="image/*" onchange="previewImage(this)"  />
 
-                <%--    OLD RESOUCE    <input type="file" name="image0" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_0" />--%>
+               
             </div>
             <%-- onchange="previewImage(this)"--%>
             <div class="row ml-3 mt-3">
@@ -252,7 +322,7 @@
             <div class="row mt-3">
                 <div class="col-sm-12 bg-primary text-white">ใส่รูปหน้าอาคารศูนย์ USO Net</div>
                 <%--OLD RESOUCE <asp:FileUpload ID="Building2Image" runat="server" data-thumbnail="user_img_1" accept="image/*" onchange="previewImage(this)" />--%>
-                <asp:FileUpload ID="usonetsignboardImage" runat="server" data-thumbnail="user_img_1" accept="image/*" onchange="previewImage(this)" required="required" />
+                <asp:FileUpload ID="usonetsignboardImage" runat="server" data-thumbnail="user_img_1" accept="image/*" onchange="previewImage(this)"  />
             </div>
             <div class="row ml-3 mt-3">
                 <img id="user_img_1" src='<% if(answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 756).FirstOrDefault().AnsDes); %>' class="placeholder2" />
@@ -277,19 +347,48 @@
             </div>
 
 
+
+
+
+
+
+
+        
             <div class="row mt-3">
                 <div class="col-md-1 text-center">
                     <span>Signature</span>
                 </div>
                 <div class="col-md-5 text-center">
-                    <%-- QuestionId = 21, --%>
-                    <input type="text" class="form-control" id="signatureExecutorTextbox" runat="server" required="required" />
+                    <p style="clear: both;">
+                        <div id="signatureExecutorTextbox"></div>
+                        <input type="hidden" id="signatureExecutorJSON" class="ui-state-active" runat="server" />
+                        <div id="redrawSignature1" hidden="hidden"></div>
                 </div>
-                <div class="col-md-6 text-center">
-                    <%-- QuestionId = 22, --%>
-                    <input type="text" class="form-control" id="signatureSupervisorTextbox" runat="server" required="required" />
-                </div>
+                 <div class="row">
+               <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 758).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
             </div>
+                <div class="col-md-6 text-center">
+                    <p style="clear: both;">
+                        <div id="signatureSupervisorTextbox"  ></div>
+                        <input type="hidden" id="signatureSupervisorJSON" class="ui-state-active" runat="server" />
+                        <div id="redrawSignature1" hidden="hidden"></div>
+                </div>
+                 <div class="row">
+              <%--  <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 759).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
+            </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div class="row mt-3">
                 <div class="col-md-1 text-center">
@@ -324,7 +423,7 @@
         <%---/////////////////////////////////     ////////////////////////////////////////--------%>
       
 
-         <div class="row ">
+         <div class="row mt-3">
                 <div class="col-md-12 bg-success text-white text-center Myfont">
                     <h3>1. รายละเอียดศูนย์</h3>
                 </div>
@@ -759,13 +858,13 @@
                     <label class="control-label col-sm-2">การ Wiring Patch cord และ สาย LAN</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="wiringpatchRadio" value="เรียบร้อย"<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 793).FirstOrDefault().AnsDes == "เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> />เรียบร้อย
+                            <input type="radio" class="form-check-input" name="wiringpatchRadio" value="เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 793).FirstOrDefault().AnsDes == "เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> />เรียบร้อย
                         </label>
                     </div>
 
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="wiringpatchRadio" value="ไม่เรียบร้อย"<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 793).FirstOrDefault().AnsDes == "ไม่เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่เรียบร้อย
+                            <input type="radio" class="form-check-input" name="wiringpatchRadio" value="ไม่เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 793).FirstOrDefault().AnsDes == "ไม่เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่เรียบร้อย
                         </label>
                     </div>
                 </div>
@@ -832,12 +931,12 @@
                     <label class="control-label col-sm-4">สถานะไฟฟ้ารั่วลง Ground</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="brokenElecRadio" value="ไม่พบไฟฟ้ารั่ว"<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 797).FirstOrDefault().AnsDes == "ไม่พบไฟฟ้ารั่") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่พบไฟฟ้ารั่ว
+                            <input type="radio" class="form-check-input" name="brokenElecRadio" value="ไม่พบไฟฟ้ารั่ว"<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 797).FirstOrDefault().AnsDes == "ไม่พบไฟฟ้ารั่ว") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่พบไฟฟ้ารั่ว
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="brokenElecRadio" value="พบไฟฟ้ารั่ว"<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 797).FirstOrDefault().AnsDes == "พบไฟฟ้ารั่") { Response.Write("checked"); } else { Response.Write(""); } %> />พบไฟฟ้ารั่ว
+                            <input type="radio" class="form-check-input" name="brokenElecRadio" value="พบไฟฟ้ารั่ว"<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 797).FirstOrDefault().AnsDes == "พบไฟฟ้ารั่ว") { Response.Write("checked"); } else { Response.Write(""); } %> />พบไฟฟ้ารั่ว
                         </label>
                     </div>
                 </div>
@@ -1227,12 +1326,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 9</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 820).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %>/>ปกติ
+                            <input type="radio" class="form-check-input" name="com9Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 820).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %>/>ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 820).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %>/>ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com9Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 820).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %>/>ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1244,12 +1343,12 @@
                     <label class="control-label col-sm-4">คอมพิวเตอร์ตัวที่ 10</label>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com10Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 821).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %>/>ปกติ
+                            <input type="radio" class="form-check-input" name="com10Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 821).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com10Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 821).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %>/>ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com10Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 821).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -3278,7 +3377,7 @@
                 <%---------------------- QuestionId = 259  ---------------------------%>
                 <div class="row mt-3 ">
                     <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
-                     <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" />
+                     <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" />
                    <%-- <input type="file" name="image2" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_2" />--%>
                 </div>
                 <div class="row ml-3 mt-3">
@@ -3290,7 +3389,7 @@
                  <%---------------------- QuestionId = 260  ---------------------------%>
                 <div class="row mt-3">
                     <div class="col-sm-12">2.รูป VSAT PICTURE CHECKLIST</div>
-                       <asp:FileUpload ID="vsatpictureChecklistImages" runat="server" data-thumbnail="user_img_3" accept="image/" onchange="previewImage(this)" required="required" />
+                       <asp:FileUpload ID="vsatpictureChecklistImages" runat="server" data-thumbnail="user_img_3" accept="image/" onchange="previewImage(this)"  />
 <%--                    <input type="file" name="image3" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_3" />--%>
                 </div>
                 <div class="row ml-3 mt-3">
@@ -3301,7 +3400,7 @@
                  <%---------------------- QuestionId = 261  ---------------------------%>
                 <div class="row mt-3">
                     <div class="col-sm-12">3.รูป SOLAR CELL PICTURE CHECKLIST</div>
-                       <asp:FileUpload ID="solarcellpictureChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)" required="required" />
+                       <asp:FileUpload ID="solarcellpictureChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)"  />
 <%--                    <input type="file" name="image4" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_4" />--%>
                 </div>
                 <div class="row ml-3 mt-3">
@@ -3313,11 +3412,11 @@
                  <%---------------------- QuestionId = 262  ---------------------------%>
                 <div class="row mt-3">
                     <div class="col-sm-12">4.COMPUTER PICTURE CHECKLIST</div>
-                       <asp:FileUpload ID="compictureChecklistImages" runat="server" data-thumbnail="user_img_5" accept="image/" onchange="previewImage(this)" required="required" />
+                       <asp:FileUpload ID="compictureChecklistImages" runat="server" data-thumbnail="user_img_5" accept="image/" onchange="previewImage(this)"  />
 <%--                    <input type="file" name="image5" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_5" />--%>
                 </div>
                 <div class="row ml-3 mt-3">
-                    <img id="user_img_5" src='<% if(answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1013).FirstOrDefault().AnsDes); %>' />
+                    <img id="user_img_5" src='<% if(answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1013).FirstOrDefault().AnsDes); %>' class="placeholder2" />
                 </div>
                  <%--////////////// --------------------- END  SECTION ID 24 ---------------------------  //////////////////--%>
 

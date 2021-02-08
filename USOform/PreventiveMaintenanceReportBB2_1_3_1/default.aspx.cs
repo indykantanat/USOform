@@ -26,15 +26,13 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //string typeOf = Request.Form["typeofsignalRadio"];
-            //if (typeOf == null)
-            //    Console.Write("typeOf is NULL");
+          
 
             //this.GetData();
             User user = (User)Session["strUsername"];
             if (user != null)
             {
-                //string ansMonth = Request["AnsMonth"] != null ? Request["AnsMonth"] : DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
+               
                 long siteId = long.Parse(Request["SiteId"]);
                 int currentQuarter = this.GetQuarter(DateTime.Now);
                 SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.SiteId == siteId && x.Status == 1).FirstOrDefault();
@@ -89,8 +87,8 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
             this.provinceTextbox.Value = answers.Where(x => x.QuestionId == 1030).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1030).FirstOrDefault().AnsDes : "";
             this.typeTextbox.Value = answers.Where(x => x.QuestionId == 1031).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1031).FirstOrDefault().AnsDes : "";
             this.pmdateTextbox.Value = answers.Where(x => x.QuestionId == 1032).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1032).FirstOrDefault().AnsDes : "";
-            this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1034).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1034).FirstOrDefault().AnsDes : "";
-            this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 1035).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1035).FirstOrDefault().AnsDes : "";
+            //this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1034).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1034).FirstOrDefault().AnsDes : "";
+            //this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 1035).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1035).FirstOrDefault().AnsDes : "";
             this.nameExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1036).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1036).FirstOrDefault().AnsDes : "";
             this.nameSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 1037).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1037).FirstOrDefault().AnsDes : "";
             this.DateExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1038).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1038).FirstOrDefault().AnsDes : "";
@@ -232,7 +230,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
             }
             else
             {
-                Response.Redirect("/UsoLogin.aspx");
+                Response.Redirect("~/login/login.aspx");
                 Response.End();
 
             }
@@ -852,41 +850,38 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
                 }
             }
 
-            //signature Executor :
-            var ans20 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 5 && x.SRId == sR.Id && x.QuestionId == 1034).FirstOrDefault();
-            if (ans20 == null)
-            {
-                Answer answer20 = new Answer()
-                {
-                    AnsDes = this.signatureExecutorTextbox.Value,
-                    QuestionId = 1034,
-                    AnserTypeId = 1,
-                    CreateDate = DateTime.Now,
-                    UserId = user.Id,
-                    AnsMonth = ansMonth,
-                    SRId = sR.Id
-                };
-                uSOEntities.Answers.Add(answer20);
-            }
-            else
-            {
-                ans20.AnsDes = this.signatureExecutorTextbox.Value;
-                ans20.AnserTypeId = 1;
-                ans20.CreateDate = DateTime.Now;
-                ans20.QuestionId = 1034;
-                ans20.UserId = user.Id;
-                ans20.AnsMonth = ansMonth; ans20.SRId = sR.Id;
-            }
 
 
-            //signature Supervisor :
-            var ans21 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 5 && x.SRId == sR.Id && x.QuestionId == 1035).FirstOrDefault();
-            if (ans21 == null)
+
+            //signature Executor :       
+            var ans1034 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 5 && x.SRId == sR.Id && x.QuestionId == 1034).FirstOrDefault();
+            string sx = "";
+            sx = this.signatureExecutorJSON.Value.Replace(' ', '+');
+            sx = sx.Replace("data:image/jpeg;base64,", String.Empty);
+            byte[] imageBytes = Convert.FromBase64String(sx);
+            string filename = "";
+            using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
             {
+                filename = $"signatureExecutor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
+                System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+                image.Save(Server.MapPath($"images/{filename}"));
+            }
+
+            string ans1034EIEI = string.Format("images/{0}", filename);
+
+
+            int mod1428 = sx.Length % 4;
+            if (mod1428 > 0)
+            {
+                sx += new string('=', 4 - mod1428);
+            }
+            if (ans1034 == null)
+            {
+                //signature Executor :
                 Answer answer21 = new Answer()
                 {
-                    AnsDes = this.signatureSupervisorTextbox.Value,
-                    QuestionId = 1035,
+                    AnsDes = ans1034EIEI,
+                    QuestionId = 1034,
                     AnserTypeId = 1,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
@@ -897,13 +892,120 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
             }
             else
             {
-                ans21.AnsDes = this.signatureSupervisorTextbox.Value;
-                ans21.AnserTypeId = 1;
-                ans21.CreateDate = DateTime.Now;
-                ans21.QuestionId = 1035;
-                ans21.UserId = user.Id;
-                ans21.AnsMonth = ansMonth; ans21.SRId = sR.Id;
+                ans1034.QuestionId = 1034;
+                ans1034.AnsDes = ans1034EIEI;
+                ans1034.AnserTypeId = 1;
+                ans1034.CreateDate = DateTime.Now;
+                ans1034.UserId = user.Id;
+                ans1034.AnsMonth = ansMonth;
+                ans1034.SRId = sR.Id;
+
             }
+
+
+
+
+
+            //signature Supervisor :
+            var ans1035 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 5 && x.SRId == sR.Id && x.QuestionId == 1035).FirstOrDefault();
+            string s = "";
+            s = this.signatureSupervisorJSON.Value.Replace(' ', '+');
+            s = s.Replace("data:image/jpeg;base64,", String.Empty);
+            string filename2 = "";
+            byte[] imageBytes2 = Convert.FromBase64String(s);
+            using (var ms2 = new MemoryStream(imageBytes2, 0, imageBytes2.Length))
+            {
+                filename2 = $"signatureSupervisor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
+                System.Drawing.Image image2 = System.Drawing.Image.FromStream(ms2, true);
+                image2.Save(Server.MapPath($"images/{filename2}"));
+            }
+            string ans1035Images = string.Format("images/{0}", filename2);
+
+            int mod4 = s.Length % 4;
+            if (mod4 > 0)
+            {
+                s += new string('=', 4 - mod4);
+            }
+            if (ans1035 == null)
+            {
+                //signature Supervisor :
+                Answer answer22 = new Answer()
+                {
+                    AnsDes = ans1035Images,
+                    QuestionId = 1035,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer22);
+            }
+            else
+            {
+                ans1035.QuestionId = 1035;
+                ans1035.AnsDes = ans1035Images;
+                ans1035.AnserTypeId = 3;
+                ans1035.CreateDate = DateTime.Now;
+                ans1035.UserId = user.Id;
+                ans1035.AnsMonth = ansMonth;
+                ans1035.SRId = sR.Id;
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             //name Executor  :
             var ans22 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 5 && x.SRId == sR.Id && x.QuestionId == 1036).FirstOrDefault();
@@ -2446,7 +2548,8 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
                 ans72_.CreateDate = DateTime.Now;
                 ans72_.QuestionId = 1090;
                 ans72_.UserId = user.Id;
-                ans72_.AnsMonth = ansMonth; ans72_.SRId = sR.Id;
+                ans72_.AnsMonth = ansMonth; 
+                ans72_.SRId = sR.Id;
             }
 
 

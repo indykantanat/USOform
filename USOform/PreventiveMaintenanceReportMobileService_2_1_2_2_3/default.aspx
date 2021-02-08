@@ -320,7 +320,7 @@
                     <%-- QuestionId = 21, --%>
                     <div id="signatureExecutorTextbox"></div>
                     <input type="hidden" id="signatureExecutorJSON" class="ui-state-active" runat="server"  />
-                     <button type="button" id="redrawButton">ตกลง</button>
+                   
 
                       <div id="redrawSignature1" hidden="hidden"></div>
 

@@ -5,38 +5,41 @@
 <head runat="server">
     <title>รายงาน PM From BB Zone C+ บริการ USO Wrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="~/style/Mystyle.css" rel="stylesheet" />
+    <link href="../style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <script src="previewImg.js"></script>
-    <script src="spinner.js"></script>
-    <%--------------- //    font style     //-----------------------%>
+    <%------//     font style    //---------%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
-    <%--------------- //    date time picker JQURRY    //-----------------------%>
+    <%-------//    DATE time picker JQURRY   //--------%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="/resources/demos/style.css" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <%--------------- //   Sweet Alert     //-----------------------%>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="sweetalert2.min.css" />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet">
+    <link href="../style/Mystyle.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <%-------//   PREVIEW IMAGES   //--------%>
+    <script src="previewImg.js"></script>
     <%--------------- //   Signature     //-----------------------%>
     <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
     <script src="../sig/js/jquery.signature.min.js"></script>
     <script src="../sig/js/results.js"></script>
     <script src="../sig/js/results.js"></script>
-    <%--//  Important must have for signature !  //--%>
+    <%----------------//  Important must have for signature !  //---------------%>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet" />
     <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
-    <%----------------------------------------%>
+
     <style>
         .kbw-signature {
             width: 400px;
             height: 200px;
         }
+      
+        table, tr, td {
+    border: none;
+}
     </style>
     <!--[if IE]>
     <script src="excanvas.js"></script>
@@ -45,8 +48,9 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="../sig/js/jquery.signature.js"></script>
     <script>
+        //-----------------  ลายเซ็น  //----------------------
         $(function () {
-            $('#signatureExecutorTextbox').signature({ syncField: '#signatureJSON' });
+            $('#signatureExecutorTextbox').signature({ syncField: '#<%= this.signatureExecutorJSON.ClientID %>' });
 
             $('#clearButton1').click(function () {
                 $('#signatureExecutorTextbox').signature('clear');
@@ -60,21 +64,18 @@
             $('#svgStyles').change(function () {
                 $('#signatureExecutorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
             });
-
-
-
             $('#redrawButton').click(function () {
-                $('#redrawSignature').signature('enable').
-                    signature('draw', $('#signatureJSON').val()).
+                $('#redrawSignature1').signature('enable').
+                    signature('draw', $('#<%= this.signatureExecutorJSON.ClientID %>').val()).
                     signature('disable');
             });
 
-            $('#redrawSignature').signature({ disabled: true });
+            $('#redrawSignature1').signature({ disabled: true });
         });
     </script>
     <script>
         $(function () {
-            $('#signatureSupervisorTextbox').signature({ syncField: '#signatureJSON' });
+            $('#signatureSupervisorTextbox').signature({ syncField: '#<%= this.signatureSupervisorJSON.ClientID %>' });
 
             $('#clear2Button').click(function () {
                 $('#signatureSupervisorTextbox').signature('clear');
@@ -91,7 +92,7 @@
 
             $('#redrawButton').click(function () {
                 $('#redrawSignature').signature('enable').
-                    signature('draw', $('#signatureJSON').val()).
+                    signature('draw', $('#<%= this.signatureSupervisorJSON.ClientID %>').val()).
                     signature('disable');
             });
 
@@ -102,15 +103,16 @@
 
 <body style="background-color: lightgrey;">
     <form id="form1" runat="server">
-        <div class="container bg-white Myfont">
-            <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
+         <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
                 This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
             </div>
+        <div class="container bg-white Myfont">
+           
             <%---------------------------//    HEADER CONTENT    //-------------------------%>
 
             <div class="row pt-3">
                 <div class="col-4">
-                    <asp:FileUpload ID="logoPicture" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" />
+                    <asp:FileUpload ID="logoPicture" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)"  />
                 </div>
                 <div class="col-4  d-flex justify-content-center ">
                     <h5 class="headerText">Preventive Maintenance Site Report USO (USO Wrap)</h5>
@@ -307,7 +309,7 @@
             <div class="row mt-3">
                 <div class="col-sm-12 bg-primary text-white">ใส่รูปหน้าอาคารศูนย์ USO Net</div>
 
-                <asp:FileUpload ID="usonetsignboardImage" runat="server" data-thumbnail="user_img_1" accept="image/*" onchange="previewImage(this)" required="required" />
+                <asp:FileUpload ID="usonetsignboardImage" runat="server" data-thumbnail="user_img_1" accept="image/*" onchange="previewImage(this)"  />
             </div>
             <div class="row ml-3 mt-3">
                 <img id="user_img_1" src="https://placehold.it/250x250" class="placeholder2" />
@@ -321,75 +323,53 @@
 
 
             <%--// -------------START  SECTION ID 3 ------------------//--%>
-            <div class="row mt-3">
-                <div class="col-md-12 bg-warning text-white text-center Myfont">
-                    <h4>Contractor</h4>
-                </div>
-            </div>
+       
 
             <div class="row mt-3">
-                <div class="col-md-6  text-center Myfont">
-                    <span>Executor</span>
+                    <div class="col-md-12 bg-warning text-white text-center Myfont">
+                        <h4>Contractor</h4>
+                    </div>
                 </div>
-                <div class="col-md-6 text-center  Myfont">
-                    <span>Supervisor</span>
-                </div>
-            </div>
+           
+                <table  style="width: 100%;" border="0" class="table-responsive-lg">
+                    <tbody>
+                        <tr style="height: 21px;">
+                            <td style="height: 21px; width: 10%;">&nbsp;</td>
+                            <td style="height: 21px; width: 45%;">&nbsp; &nbsp; &nbsp; Executor</td>
+                            <td style="height: 21px; width: 45%;">&nbsp; &nbsp; &nbsp; Supervisor</td>
+                        </tr>
+                        <tr style="height: 21px;">
+                            <td style="height: 21px; width: 10%;">&nbsp;Signature</td>
+                            <td style="height: 21px; width: 45%;">&nbsp;<div id="signatureExecutorTextbox"></div>
+                                <input type="hidden" id="signatureExecutorJSON" class="ui-state-active" runat="server" />
+                                <div id="redrawSignature1" hidden="hidden"></div>
+                            </td>
+                            <td style="height: 21px; width: 45%;">&nbsp;<div id="signatureSupervisorTextbox"></div>
+                                <input type="hidden" id="signatureSupervisorJSON" class="ui-state-active" runat="server" />
+                                <div id="redrawSignature1" hidden="hidden"></div>
+                            </td>
+                        </tr>
+                        <tr style="height: 21px;">
+                            <td style="height: 21px; width: 10%;">&nbsp;Name</td>
+                            <td style="height: 21px; width: 45%;">&nbsp;  
+                                <input type="text" class="form-control" id="nameExecutorTextbox" runat="server" required="required" /></td>
+                            <td style="height: 21px; width: 45%;">&nbsp;  
+                                <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server" required="required" /></td>
+                        </tr>
+                        <tr style="height: 21px;">
+                            <td style="height: 21px; width: 10%;">&nbsp;Date</td>
+                            <td style="height: 21px; width: 45%;">&nbsp;
+                                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" required="required" /></td>
+                            <td style="height: 21px; width: 45%;">&nbsp; 
+                                <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server" required="required" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- DivTable.com -->
 
 
-            <div class="row mt-3">
-                <div class="col-md-1 text-center">
-                    <span>Signature</span>
-                </div>
-                <div class="col-md-5 text-center">
-                    <%-- QuestionId = 21, --%>
-
-                    <%--    <div id="captureSignature"></div>--%>
-                    <div id="signatureExecutorTextbox"></div>
-                    <p style="clear: both;">
-                        <span class="demoLabel">&nbsp;</span>
-                        <button type="button" id="clearButton1">Clear</button>
-                        <%--  <input type="text" class="form-control" id="signatureExecutorTextbox" runat="server" required="required" />    --%>
-                </div>
-                <div class="col-md-6 text-center">
-                    <%-- QuestionId = 22, --%>
-                    <div id="signatureSupervisorTextbox"></div>
-                    <p style="clear: both;">
-                        <span class="demoLabel">&nbsp;</span>
-                        <button type="button" id="clear2Button">Clear</button>
-
-                        <%-- <input type="text" class="form-control" id="signatureSupervisorTextbox" runat="server" required="required" />--%>
-                </div>
-            </div>
-
-            <div class="row mt-3">
-                <div class="col-md-1 text-center">
-                    <span>Name</span>
-                </div>
-                <div class="col-md-5 text-center">
-                    <%-- QuestionId = 23, --%>
-                    <input type="text" class="form-control" id="nameExecutorTextbox" runat="server" required="required" />
-                </div>
-                <div class="col-md-6 text-center">
-                    <%-- QuestionId = 24, --%>
-                    <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server" required="required" />
-                </div>
-            </div>
-
-
-            <div class="row mt-3">
-                <div class="col-md-1 text-center">
-                    <span>Date</span>
-                </div>
-                <div class="col-md-5 text-center">
-                    <%-- QuestionId = 25, --%>
-                    <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" required="required" />
-                </div>
-                <div class="col-md-6 text-center">
-                    <%-- QuestionId = 26, --%>
-                    <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server" required="required" />
-                </div>
-            </div>
+                 <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1034).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
+                 <%-- <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1035).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
 
             <%--////////////// -------------END  SECTION ID 3-----------------  //////////////////--%>
             <br />
@@ -3234,7 +3214,7 @@
                 <%---------------------- QuestionId = 259  ---------------------------%>
                 <div class="row mt-3 ">
                     <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
-                    <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" />
+                    <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)"  />
                    
                 </div>
                 <div class="row ml-3 mt-3">
@@ -3246,7 +3226,7 @@
                 <%---------------------- QuestionId = 260  ---------------------------%>
                 <div class="row mt-3">
                     <div class="col-sm-12">2.รูป VSAT PICTURE CHECKLIST</div>
-                    <asp:FileUpload ID="vsatpictureChecklistImages" runat="server" data-thumbnail="user_img_3" accept="image/" onchange="previewImage(this)" required="required" />
+                    <asp:FileUpload ID="vsatpictureChecklistImages" runat="server" data-thumbnail="user_img_3" accept="image/" onchange="previewImage(this)" />
               
                 </div>
                 <div class="row ml-3 mt-3">
@@ -3257,7 +3237,7 @@
                 <%---------------------- QuestionId = 261  ---------------------------%>
                 <div class="row mt-3">
                     <div class="col-sm-12">3.รูป SOLAR CELL PICTURE CHECKLIST</div>
-                    <asp:FileUpload ID="solarcellpictureChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)" required="required" />
+                    <asp:FileUpload ID="solarcellpictureChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)"  />
                    
                 </div>
                 <div class="row ml-3 mt-3">
@@ -3269,7 +3249,7 @@
                 <%---------------------- QuestionId = 262  ---------------------------%>
                 <div class="row mt-3">
                     <div class="col-sm-12">4.COMPUTER PICTURE CHECKLIST</div>
-                    <asp:FileUpload ID="compictureChecklistImages" runat="server" data-thumbnail="user_img_5" accept="image/" onchange="previewImage(this)" required="required" />
+                    <asp:FileUpload ID="compictureChecklistImages" runat="server" data-thumbnail="user_img_5" accept="image/" onchange="previewImage(this)"  />
                
                 </div>
                 <div class="row ml-3 mt-3">
@@ -3288,7 +3268,6 @@
                         <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-primary btn-block btn-lg" OnClick="SubmitButton_Click" />
 
                     </div>
-
                 </div>
                 <br />
                 <br />
@@ -3338,19 +3317,3 @@
 </html>
 
 
-<%--  Repeater example --%>
-<%--                <table>
-                    <asp:Repeater runat="server" ID="ResultRepeater">
-                        <ItemTemplate>
-                            <tr>
-                                <td>
-                                    <%# Eval("AnsDes") %>
-                                </td>
-                                <td>
-                                    <%# Eval("CreateDate") %></td>
-                                <td>
-                                    <%# Eval("User.FirstName") %></td>
-                            </tr>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </table>--%>

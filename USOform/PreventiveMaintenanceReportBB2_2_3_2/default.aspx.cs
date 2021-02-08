@@ -45,7 +45,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
             }
             else
             {
-                Response.Redirect("/login/login.aspx");
+                Response.Redirect("~/login/login.aspx");
                 Response.End();
 
             }
@@ -95,8 +95,8 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
             this.provinceTextbox.Value = answers.Where(x => x.QuestionId == 753).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 753).FirstOrDefault().AnsDes : "";
             this.typeTextbox.Value = answers.Where(x => x.QuestionId == 754).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 754).FirstOrDefault().AnsDes : "";
             this.pmdateTextbox.Value = answers.Where(x => x.QuestionId == 755).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 755).FirstOrDefault().AnsDes : "";
-            this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 758).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 758).FirstOrDefault().AnsDes : "";
-            this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 759).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 759).FirstOrDefault().AnsDes : "";
+           // this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 758).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 758).FirstOrDefault().AnsDes : "";
+            //this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 759).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 759).FirstOrDefault().AnsDes : "";
             this.nameExecutorTextbox.Value = answers.Where(x => x.QuestionId == 760).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 760).FirstOrDefault().AnsDes : "";
             this.nameSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 761).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 761).FirstOrDefault().AnsDes : "";
             this.DateExecutorTextbox.Value = answers.Where(x => x.QuestionId == 762).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 762).FirstOrDefault().AnsDes : "";
@@ -720,11 +720,13 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
                 ans14.AnsDes = this.subdistrictTextbox.Value;
                 ans14.AnserTypeId = 1;
                 ans14.CreateDate = DateTime.Now;
-                ans14.QuestionId = 1028;
+                ans14.QuestionId = 751;
                 ans14.UserId = user.Id;
                 ans14.AnsMonth = ansMonth; ans14.SRId = sR.Id;
 
             }
+
+
             //District :
             var ans15 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 4 && x.SRId == sR.Id && x.QuestionId == 752).FirstOrDefault();
             if (ans15 == null)
@@ -903,76 +905,142 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
             }
             else
             {
-                string extension = this.signboardschoolImage.PostedFile.FileName.Split('.')[1];
-                string newFileName = "images/SignboardSchoolBB2_2_3_2_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                this.signboardschoolImage.PostedFile.SaveAs(Server.MapPath(newFileName));
+                if (this.signboardschoolImage.HasFile) {
+                    string extension = this.signboardschoolImage.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/SignboardSchoolBB2_2_3_2_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.signboardschoolImage.PostedFile.SaveAs(Server.MapPath(newFileName));
 
 
 
-                ans7899.AnsDes = newFileName;
-                ans7899.QuestionId = 757;
-                ans7899.AnserTypeId = 3;
-                ans7899.CreateDate = DateTime.Now;
-                ans7899.UserId = user.Id;
-                ans7899.AnsMonth = ansMonth;
-                ans7899.SRId = sR.Id;
+                    ans7899.AnsDes = newFileName;
+                    ans7899.QuestionId = 757;
+                    ans7899.AnserTypeId = 3;
+                    ans7899.CreateDate = DateTime.Now;
+                    ans7899.UserId = user.Id;
+                    ans7899.AnsMonth = ansMonth;
+                    ans7899.SRId = sR.Id;
+                }
+                  
 
 
 
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             //signature Executor :
-            var ans20 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 4 && x.SRId == sR.Id && x.QuestionId == 758).FirstOrDefault();
-            if (ans20 == null)
+            var ans758 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 4 && x.SRId == sR.Id && x.QuestionId == 758).FirstOrDefault();
+            string sx = "";
+            sx = this.signatureExecutorJSON.Value.Replace(' ', '+');
+            sx = sx.Replace("data:image/jpeg;base64,", String.Empty);
+            byte[] imageBytes = Convert.FromBase64String(sx);
+            string filename = "";
+            using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
             {
-                Answer answer20 = new Answer()
-                {
-                    AnsDes = this.signatureExecutorTextbox.Value,
-                    QuestionId = 758,
-                    AnserTypeId = 1,
-                    CreateDate = DateTime.Now,
-                    SRId = sR.Id,
-                    UserId = user.Id,
-                    AnsMonth = ansMonth
-                };
-                uSOEntities.Answers.Add(answer20);
-            }
-            else
-            {
-                ans20.AnsDes = this.signatureExecutorTextbox.Value;
-                ans20.AnserTypeId = 1;
-                ans20.CreateDate = DateTime.Now;
-                ans20.QuestionId = 758;
-                ans20.UserId = user.Id;
-                ans20.AnsMonth = ansMonth; ans20.SRId = sR.Id;
+                filename = $"signatureExecutor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
+                System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+                image.Save(Server.MapPath($"images/{filename}"));
             }
 
+            string ans758ImagesSignature = string.Format("images/{0}", filename);
 
-            //signature Supervisor :
-            var ans21 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 4 && x.SRId == sR.Id && x.QuestionId == 759).FirstOrDefault();
-            if (ans21 == null)
+
+            int mod1428 = sx.Length % 4;
+            if (mod1428 > 0)
             {
+                sx += new string('=', 4 - mod1428);
+            }
+            if (ans758 == null)
+            {
+                //signature Executor :
                 Answer answer21 = new Answer()
                 {
-                    AnsDes = this.signatureSupervisorTextbox.Value,
-                    QuestionId = 759,
-                    AnserTypeId = 1,
+                    AnsDes = ans758ImagesSignature,
+                    QuestionId = 758,
+                    AnserTypeId = 3,
                     CreateDate = DateTime.Now,
-                    SRId = sR.Id,
                     UserId = user.Id,
-                    AnsMonth = ansMonth
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer21);
             }
             else
             {
-                ans21.AnsDes = this.signatureSupervisorTextbox.Value;
-                ans21.AnserTypeId = 1;
-                ans21.CreateDate = DateTime.Now;
-                ans21.QuestionId = 759;
-                ans21.UserId = user.Id;
-                ans21.AnsMonth = ansMonth; ans21.SRId = sR.Id;
+                ans758.QuestionId = 758;
+                ans758.AnsDes = ans758ImagesSignature;
+                ans758.AnserTypeId = 3;
+                ans758.CreateDate = DateTime.Now;
+                ans758.UserId = user.Id;
+                ans758.AnsMonth = ansMonth; 
+                ans758.SRId = sR.Id;
+
             }
+
+
+
+
+            //signature Supervisor :
+            var ans759 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 4 && x.SRId == sR.Id && x.QuestionId == 759).FirstOrDefault();
+            string s = "";
+            s = this.signatureSupervisorJSON.Value.Replace(' ', '+');
+            s = s.Replace("data:image/jpeg;base64,", String.Empty);
+            string filename2 = "";
+            byte[] imageBytes2 = Convert.FromBase64String(s);
+            using (var ms2 = new MemoryStream(imageBytes2, 0, imageBytes2.Length))
+            {
+                filename2 = $"signatureSupervisor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
+                System.Drawing.Image image2 = System.Drawing.Image.FromStream(ms2, true);
+                image2.Save(Server.MapPath($"images/{filename2}"));
+            }
+            string ans759SignatureImages = string.Format("images/{0}", filename2);
+
+            int mod4 = s.Length % 4;
+            if (mod4 > 0)
+            {
+                s += new string('=', 4 - mod4);
+            }
+            if (ans759 == null)
+            {
+                //signature Supervisor :
+                Answer answer22 = new Answer()
+                {
+                    AnsDes = ans759SignatureImages,
+                    QuestionId = 759,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer22);
+            }
+            else
+            {
+                ans759.QuestionId = 759;
+                ans759.AnsDes = ans759SignatureImages;
+                ans759.AnserTypeId = 3;
+                ans759.CreateDate = DateTime.Now;
+                ans759.UserId = user.Id;
+                ans759.AnsMonth = ansMonth;
+                ans759.SRId = sR.Id;
+
+            }
+
 
             //name Executor  :
             var ans22 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 4 && x.SRId == sR.Id && x.QuestionId == 760).FirstOrDefault();
@@ -1587,12 +1655,13 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
             else
             {
                 string xx = Request.Form["upsModeRadio"];
-                ans39.AnsDes = xx;
-                ans39.AnserTypeId = 4;
-                ans39.CreateDate = DateTime.Now;
-                ans39.QuestionId = 782;
-                ans39.UserId = user.Id;
-                ans39.AnsMonth = ansMonth; ans39.SRId = sR.Id;
+                ans41.AnsDes = xx;
+                ans41.AnserTypeId = 4;
+                ans41.CreateDate = DateTime.Now;
+                ans41.QuestionId = 782;
+                ans41.UserId = user.Id;
+                ans41.AnsMonth = ansMonth;
+                ans41.SRId = sR.Id;
             }
 
 
@@ -1616,12 +1685,13 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
             else
             {
                 string emergen = Request.Form["emergeneratorRadio"];
-                ans39.AnsDes = emergen;
-                ans39.AnserTypeId = 4;
-                ans39.CreateDate = DateTime.Now;
-                ans39.QuestionId = 783;
-                ans39.UserId = user.Id;
-                ans39.AnsMonth = ansMonth; ans39.SRId = sR.Id;
+                ans42.AnsDes = emergen;
+                ans42.AnserTypeId = 4;
+                ans42.CreateDate = DateTime.Now;
+                ans42.QuestionId = 783;
+                ans42.UserId = user.Id;
+                ans42.AnsMonth = ansMonth;
+                ans42.SRId = sR.Id;
             }
 
             //สภาพ batterry bank  :
@@ -1912,7 +1982,8 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
                 ans51.CreateDate = DateTime.Now;
                 ans51.QuestionId = 793;
                 ans51.UserId = user.Id;
-                ans51.AnsMonth = ansMonth; ans51.SRId = sR.Id;
+                ans51.AnsMonth = ansMonth; 
+                ans51.SRId = sR.Id;
             }
 
 
@@ -1937,12 +2008,13 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
             else
             {
                 string gb = Request.Form["groundbarRadio"];
-                ans51.AnsDes = gb;
-                ans51.AnserTypeId = 4;
-                ans51.CreateDate = DateTime.Now;
-                ans51.QuestionId = 794;
-                ans51.UserId = user.Id;
-                ans51.AnsMonth = ansMonth; ans51.SRId = sR.Id;
+                ans51_.AnsDes = gb;
+                ans51_.AnserTypeId = 4;
+                ans51_.CreateDate = DateTime.Now;
+                ans51_.QuestionId = 794;
+                ans51_.UserId = user.Id;
+                ans51_.AnsMonth = ansMonth;
+                ans51_.SRId = sR.Id;
             }
 
 

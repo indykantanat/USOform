@@ -337,16 +337,25 @@
                  <div class="row">
                 <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 504).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
-                <div class="col-md-6 text-center">
+               
+            </div>
+
+            <div class="row">
+                 <div class="col-md-6 text-center">
                     <p style="clear: both;">
-                        <div id="signatureSupervisorTextbox" '<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 505).FirstOrDefault().AnsDes); %>' ></div>
+                        <div id="signatureSupervisorTextbox"  ></div>
                         <input type="hidden" id="signatureSupervisorJSON" class="ui-state-active" runat="server" />
                         <div id="redrawSignature1" hidden="hidden"></div>
                 </div>
                  <div class="row">
-                <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 505).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 505).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
             </div>
+            
+
+
+
+
             <div class="row mt-3">
                 <div class="col-md-1 text-center">
                     <span>Name</span>

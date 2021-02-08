@@ -110,8 +110,8 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             this.provinceTextbox.Value = answers.Where(x => x.QuestionId == 17).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 17).FirstOrDefault().AnsDes : "";
             this.typeTextbox.Value = answers.Where(x => x.QuestionId == 18).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 18).FirstOrDefault().AnsDes : "";
             this.pmdateTextbox.Value = answers.Where(x => x.QuestionId == 19).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 19).FirstOrDefault().AnsDes : "";
-          //  this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 21).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 21).FirstOrDefault().AnsDes : "";
-          //  this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 22).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 22).FirstOrDefault().AnsDes : "";
+            //  this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 21).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 21).FirstOrDefault().AnsDes : "";
+            //  this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 22).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 22).FirstOrDefault().AnsDes : "";
             this.nameExecutorTextbox.Value = answers.Where(x => x.QuestionId == 23).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 23).FirstOrDefault().AnsDes : "";
             this.nameSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 24).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 24).FirstOrDefault().AnsDes : "";
             this.DateExecutorTextbox.Value = answers.Where(x => x.QuestionId == 25).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 25).FirstOrDefault().AnsDes : "";
@@ -379,15 +379,15 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             else
             {
                 // ภูมิภาค              
-                
-                    ans2.AnsDes = this.AreaTextbox.Value;
-                    ans2.AnserTypeId = 1;
-                    ans2.CreateDate = DateTime.Now;
-                    ans2.QuestionId = 2;
-                    ans2.UserId = user.Id;
-                    ans2.AnsMonth = ansMonth;
-                    ans2.SRId = sR.Id;
-                
+
+                ans2.AnsDes = this.AreaTextbox.Value;
+                ans2.AnserTypeId = 1;
+                ans2.CreateDate = DateTime.Now;
+                ans2.QuestionId = 2;
+                ans2.UserId = user.Id;
+                ans2.AnsMonth = ansMonth;
+                ans2.SRId = sR.Id;
+
 
             }
 
@@ -411,14 +411,14 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 uSOEntities.Answers.Add(answer3);
             }
             else
-            {              
-                    ans3.AnsDes = this.CompanyTextbox.Value;
-                    ans3.AnserTypeId = 1;
-                    ans3.CreateDate = DateTime.Now;
-                    ans3.QuestionId = 3;
-                    ans3.UserId = user.Id;
-                    ans3.AnsMonth = ansMonth; ans3.SRId = sR.Id;
-               
+            {
+                ans3.AnsDes = this.CompanyTextbox.Value;
+                ans3.AnserTypeId = 1;
+                ans3.CreateDate = DateTime.Now;
+                ans3.QuestionId = 3;
+                ans3.UserId = user.Id;
+                ans3.AnsMonth = ansMonth; ans3.SRId = sR.Id;
+
             }
 
 
@@ -443,14 +443,14 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             else
             {
 
-                
-                    ans4.AnsDes = this.maintenanceCountTextbox.Value;
-                    ans4.AnserTypeId = 1;
-                    ans4.CreateDate = DateTime.Now;
-                    ans4.QuestionId = 4;
-                    ans4.UserId = user.Id;
-                    ans4.AnsMonth = ansMonth; ans4.SRId = sR.Id;
-                
+
+                ans4.AnsDes = this.maintenanceCountTextbox.Value;
+                ans4.AnserTypeId = 1;
+                ans4.CreateDate = DateTime.Now;
+                ans4.QuestionId = 4;
+                ans4.UserId = user.Id;
+                ans4.AnsMonth = ansMonth; ans4.SRId = sR.Id;
+
 
             }
 
@@ -475,14 +475,14 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             else
             {
 
-                
-                    ans5.QuestionId = 5;
-                    ans5.AnsDes = this.yearTextbox.Value;
-                    ans5.AnserTypeId = 1;
-                    ans5.CreateDate = DateTime.Now;
-                    ans5.UserId = user.Id;
-                    ans5.AnsMonth = ansMonth; ans5.SRId = sR.Id;
-                
+
+                ans5.QuestionId = 5;
+                ans5.AnsDes = this.yearTextbox.Value;
+                ans5.AnserTypeId = 1;
+                ans5.CreateDate = DateTime.Now;
+                ans5.UserId = user.Id;
+                ans5.AnsMonth = ansMonth; ans5.SRId = sR.Id;
+
 
             }
 
@@ -619,14 +619,14 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             else
             {
 
-                
-                    ans9.QuestionId = 9;
-                    ans9.AnsDes = this.endDatepicker.Value;
-                    ans9.AnserTypeId = 1;
-                    ans9.CreateDate = DateTime.Now;
-                    ans9.UserId = user.Id;
-                    ans9.AnsMonth = ansMonth; ans9.SRId = sR.Id;
-                
+
+                ans9.QuestionId = 9;
+                ans9.AnsDes = this.endDatepicker.Value;
+                ans9.AnserTypeId = 1;
+                ans9.CreateDate = DateTime.Now;
+                ans9.UserId = user.Id;
+                ans9.AnsMonth = ansMonth; ans9.SRId = sR.Id;
+
 
             }
 
@@ -1005,7 +1005,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             if (ans20 == null)
 
             {
-               
+
                 if (this.usonetsignboardImage.HasFile)
                 {
                     string extension = this.usonetsignboardImage.PostedFile.FileName.Split('.')[1];
@@ -1043,77 +1043,107 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 }
             }
 
+
+
+
             var ans21 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 21).FirstOrDefault();
+            string sx = "";
+            sx = this.signatureExecutorJSON.Value.Replace(' ', '+');
+            sx = sx.Replace("data:image/jpeg;base64,", String.Empty);
+            byte[] imageBytes = Convert.FromBase64String(sx);
+            string filename = "";
+            using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+            {
+                filename = $"signatureExecutor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
+                System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+                image.Save(Server.MapPath($"images/{filename}"));
+            }
+
+            string ans21Images = string.Format("images/{0}", filename);
+
+
+            int mod1428 = sx.Length % 4;
+            if (mod1428 > 0)
+            {
+                sx += new string('=', 4 - mod1428);
+            }
             if (ans21 == null)
             {
-
-
-
                 //signature Executor :
                 Answer answer21 = new Answer()
                 {
-                   // AnsDes = this.signatureExecutorTextbox.Value,
+                    AnsDes = ans21Images,
                     QuestionId = 21,
-                    AnserTypeId = 1,
+                    AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
                     SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer21);
-
             }
             else
             {
-
-                {
-                    ans21.QuestionId = 21;
-                   // ans21.AnsDes = this.signatureExecutorTextbox.Value;
-                    ans21.AnserTypeId = 1;
-                    ans21.CreateDate = DateTime.Now;
-                    ans21.UserId = user.Id;
-                    ans21.AnsMonth = ansMonth;
-                    ans21.SRId = sR.Id;
-                }
+                ans21.AnsDes = ans21Images;
+                ans21.QuestionId = 21;
+                ans21.AnserTypeId = 3;
+                ans21.CreateDate = DateTime.Now;
+                ans21.UserId = user.Id;
+                ans21.AnsMonth = ansMonth;
+                ans21.SRId = sR.Id;
 
             }
 
 
 
-
-
-
+            //signature Supervisor :
             var ans22 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 22).FirstOrDefault();
+            string s = "";
+            s = this.signatureSupervisorJSON.Value.Replace(' ', '+');
+            s = s.Replace("data:image/jpeg;base64,", String.Empty);
+            string filename2 = "";
+            byte[] imageBytes2 = Convert.FromBase64String(s);
+            using (var ms2 = new MemoryStream(imageBytes2, 0, imageBytes2.Length))
+            {
+                filename2 = $"signatureSupervisor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
+                System.Drawing.Image image2 = System.Drawing.Image.FromStream(ms2, true);
+                image2.Save(Server.MapPath($"images/{filename2}"));
+            }
+            string ans22Images = string.Format("images/{0}", filename2);
+
+            int mod4 = s.Length % 4;
+            if (mod4 > 0)
+            {
+                s += new string('=', 4 - mod4);
+            }
             if (ans22 == null)
             {
-
-                //signature Executor :
+                //signature Supervisor :
                 Answer answer22 = new Answer()
                 {
-                   // AnsDes = this.signatureSupervisorTextbox.Value,
+                    AnsDes = ans22Images,
                     QuestionId = 22,
-                    AnserTypeId = 1,
+                    AnserTypeId = 3,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
                     SRId = sR.Id
                 };
                 uSOEntities.Answers.Add(answer22);
-
             }
             else
             {
-
-                {
-                    ans22.QuestionId = 21;
-                   // ans22.AnsDes = this.signatureSupervisorTextbox.Value;
-                    ans22.AnserTypeId = 1;
-                    ans22.CreateDate = DateTime.Now;
-                    ans22.UserId = user.Id;
-                    ans22.AnsMonth = ansMonth; ans22.SRId = sR.Id;
-                }
+                ans22.QuestionId = 22;
+                ans22.AnsDes = ans22Images;
+                ans22.AnserTypeId = 3;
+                ans22.CreateDate = DateTime.Now;
+                ans22.UserId = user.Id;
+                ans22.AnsMonth = ansMonth;
+                ans22.SRId = sR.Id;
 
             }
+
+
 
 
             var ans23 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 23).FirstOrDefault();
@@ -4780,3901 +4810,2291 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans133.CreateDate = DateTime.Now;
                 ans133.UserId = user.Id;
                 ans133.AnsMonth = ansMonth; ans133.SRId = sR.Id;
-
-
-
-                var ans134 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 134).FirstOrDefault();
-                if (ans134 == null)
-                {
-                    //  ปัญหาที่พบ 13 :           
-                    Answer answer134 = new Answer()
-                    {
-                        AnsDes = this.problemTextbox13.Value,
-                        QuestionId = 134,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer134);
-                }
-                else
-                {
-                    ans134.QuestionId = 134;
-                    ans134.AnsDes = this.problemTextbox13.Value;
-                    ans134.AnserTypeId = 1;
-                    ans134.CreateDate = DateTime.Now;
-                    ans134.UserId = user.Id;
-                    ans134.AnsMonth = ansMonth; ans134.SRId = sR.Id;
-                }
-
-
-
-                var ans135 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 135).FirstOrDefault();
-                if (ans135 == null)
-                {
-                    //  วิธีแก้ปัญหา 13 :           
-                    Answer answer135 = new Answer()
-                    {
-                        AnsDes = this.howtoSolveTextbox13.Value,
-                        QuestionId = 135,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer135);
-                }
-                else
-                {
-                    ans135.QuestionId = 135;
-                    ans135.AnsDes = this.howtoSolveTextbox13.Value;
-                    ans135.AnserTypeId = 1;
-                    ans135.CreateDate = DateTime.Now;
-                    ans135.UserId = user.Id;
-                    ans135.AnsMonth = ansMonth; ans135.SRId = sR.Id;
-                }
-
-
-
-                var ans136 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 136).FirstOrDefault();
-                if (ans136 == null)
-                {
-                    //  ปัญหาที่พบ 14 :           
-                    Answer answer136 = new Answer()
-                    {
-                        AnsDes = this.problemTextbox14.Value,
-                        QuestionId = 136,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer136);
-                }
-                else
-                {
-                    ans136.QuestionId = 136;
-                    ans136.AnsDes = this.problemTextbox14.Value;
-                    ans136.AnserTypeId = 1;
-                    ans136.CreateDate = DateTime.Now;
-                    ans136.UserId = user.Id;
-                    ans135.AnsMonth = ansMonth; ans135.SRId = sR.Id;
-                }
-
-
-
-
-                var ans137 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 137).FirstOrDefault();
-                if (ans137 == null)
-                {
-                    //  วิธีแก้ปัญหา 14 :           
-                    Answer answer137 = new Answer()
-                    {
-                        AnsDes = this.howtoSolveTextbox14.Value,
-                        QuestionId = 137,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer137);
-                }
-                else
-                {
-                    ans137.QuestionId = 137;
-                    ans137.AnsDes = this.howtoSolveTextbox14.Value;
-                    ans137.AnserTypeId = 1;
-                    ans137.CreateDate = DateTime.Now;
-                    ans137.UserId = user.Id;
-                    ans137.AnsMonth = ansMonth; ans137.SRId = sR.Id;
-                }
-
-
-                var ans138 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 138).FirstOrDefault();
-                if (ans138 == null)
-                {
-                    //  ปัญหาที่พบ 15 :           
-                    Answer answer138 = new Answer()
-                    {
-                        AnsDes = this.problemTextbox15.Value,
-                        QuestionId = 138,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer138);
-                }
-                else
-                {
-                    ans138.QuestionId = 138;
-                    ans138.AnsDes = this.problemTextbox15.Value;
-                    ans138.AnserTypeId = 1;
-                    ans138.CreateDate = DateTime.Now;
-                    ans138.UserId = user.Id;
-                    ans138.AnsMonth = ansMonth; ans138.SRId = sR.Id;
-                }
-
-
-                var ans139 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 139).FirstOrDefault();
-                if (ans139 == null)
-                {
-                    //  วิธีแก้ปัญหา 15 :           
-                    Answer answer139 = new Answer()
-                    {
-                        AnsDes = this.howtoSolveTextbox15.Value,
-                        QuestionId = 139,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer139);
-                }
-                else
-                {
-                    ans139.QuestionId = 139;
-                    ans139.AnsDes = this.howtoSolveTextbox15.Value;
-                    ans139.AnserTypeId = 1;
-                    ans139.CreateDate = DateTime.Now;
-                    ans139.UserId = user.Id;
-                    ans139.AnsMonth = ansMonth; ans139.SRId = sR.Id;
-                }
-
-
-
-                var ans141 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 141).FirstOrDefault();
-                if (ans141 == null)
-                {
-                    // รายการอุปกรณ์ 1 :      
-                    Answer answer141 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox1.Value,
-                        QuestionId = 141,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer141);
-                }
-                else
-                {
-                    ans141.QuestionId = 141;
-                    ans141.AnsDes = this.toolsListTextbox1.Value;
-                    ans141.AnserTypeId = 1;
-                    ans141.CreateDate = DateTime.Now;
-                    ans141.UserId = user.Id;
-                    ans141.AnsMonth = ansMonth; ans141.SRId = sR.Id;
-                }
-
-
-
-                var ans142 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 142).FirstOrDefault();
-                if (ans142 == null)
-                {
-                    //  SerialNumber :           
-                    Answer answer142 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox1.Value,
-                        QuestionId = 142,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer142);
-                }
-                else
-                {
-                    ans142.QuestionId = 142;
-                    ans142.AnsDes = this.serialNumberTextbox1.Value;
-                    ans142.AnserTypeId = 1;
-                    ans142.CreateDate = DateTime.Now;
-                    ans142.UserId = user.Id;
-                    ans142.AnsMonth = ansMonth; ans142.SRId = sR.Id;
-                }
-
-
-                var ans143 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 143).FirstOrDefault();
-                if (ans143 == null)
-                {
-                    //  new SerialNumber :           
-                    Answer answer143 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox1.Value,
-                        QuestionId = 143,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer143);
-                }
-                else
-                {
-                    ans143.QuestionId = 143;
-                    ans143.AnsDes = this.newSerialNumberTextbox1.Value;
-                    ans143.AnserTypeId = 1;
-                    ans143.CreateDate = DateTime.Now;
-                    ans143.UserId = user.Id;
-                    ans143.AnsMonth = ansMonth; ans143.SRId = sR.Id;
-                }
-
-
-
-                var ans144 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 144).FirstOrDefault();
-                if (ans144 == null)
-                {
-                    //  หมายเหตุ :           
-                    Answer answer144 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox1.Value,
-                        QuestionId = 144,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer144);
-                }
-                else
-                {
-                    ans144.QuestionId = 144;
-                    ans144.AnsDes = this.noteTextbox1.Value;
-                    ans144.AnserTypeId = 1;
-                    ans144.CreateDate = DateTime.Now;
-                    ans144.UserId = user.Id;
-                    ans144.AnsMonth = ansMonth; ans144.SRId = sR.Id;
-                }
-
-
-
-
-                var ans145 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 145).FirstOrDefault();
-                if (ans145 == null)
-                {
-                    // รายการอุปกรณ์ 2 :      
-                    Answer answer145 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox2.Value,
-                        QuestionId = 145,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer145);
-                }
-                else
-                {
-                    ans145.QuestionId = 145;
-                    ans145.AnsDes = this.toolsListTextbox2.Value;
-                    ans145.AnserTypeId = 1;
-                    ans145.CreateDate = DateTime.Now;
-                    ans145.UserId = user.Id;
-                    ans145.AnsMonth = ansMonth; ans145.SRId = sR.Id;
-                }
-
-
-
-
-                var ans146 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 146).FirstOrDefault();
-                if (ans146 == null)
-                {
-                    //  SerialNumber 2 :           
-                    Answer answer146 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox2.Value,
-                        QuestionId = 146,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer146);
-                }
-                else
-                {
-                    ans146.QuestionId = 146;
-                    ans146.AnsDes = this.serialNumberTextbox2.Value;
-                    ans146.AnserTypeId = 1;
-                    ans146.CreateDate = DateTime.Now;
-                    ans146.UserId = user.Id;
-                    ans146.AnsMonth = ansMonth; ans146.SRId = sR.Id;
-                }
-
-
-
-
-                var ans147 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 147).FirstOrDefault();
-                if (ans147 == null)
-                {
-                    //  new SerialNumber 2 :           
-                    Answer answer147 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox2.Value,
-                        QuestionId = 147,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer147);
-                }
-                else
-                {
-                    ans147.QuestionId = 147;
-                    ans147.AnsDes = this.newSerialNumberTextbox2.Value;
-                    ans147.AnserTypeId = 1;
-                    ans147.CreateDate = DateTime.Now;
-                    ans147.UserId = user.Id;
-                    ans147.AnsMonth = ansMonth; ans147.SRId = sR.Id;
-                }
-
-                var ans148 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 148).FirstOrDefault();
-                if (ans148 == null)
-                {
-
-                    //  หมายเหตุ  2:           
-                    Answer answer148 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox2.Value,
-                        QuestionId = 148,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer148);
-                }
-                else
-                {
-                    ans148.QuestionId = 148;
-                    ans148.AnsDes = this.noteTextbox2.Value;
-                    ans148.AnserTypeId = 1;
-                    ans148.CreateDate = DateTime.Now;
-                    ans148.UserId = user.Id;
-                    ans148.AnsMonth = ansMonth; ans148.SRId = sR.Id;
-                }
-
-
-
-                var ans149 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 149).FirstOrDefault();
-                if (ans149 == null)
-                {
-                    // รายการอุปกรณ์ 3 :      
-                    Answer answer149 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox3.Value,
-                        QuestionId = 149,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer149);
-                }
-                else
-                {
-                    ans149.QuestionId = 149;
-                    ans149.AnsDes = this.toolsListTextbox3.Value;
-                    ans149.AnserTypeId = 1;
-                    ans149.CreateDate = DateTime.Now;
-                    ans149.UserId = user.Id;
-                    ans149.AnsMonth = ansMonth;
-                    ans149.SRId = sR.Id;
-                }
-
-
-
-
-                var ans150 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 150).FirstOrDefault();
-                if (ans150 == null)
-                {
-                    //  SerialNumber 3 :           
-                    Answer answer150 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox3.Value,
-                        QuestionId = 150,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer150);
-                }
-                else
-                {
-                    ans150.QuestionId = 150;
-                    ans150.AnsDes = this.serialNumberTextbox3.Value;
-                    ans150.AnserTypeId = 1;
-                    ans150.CreateDate = DateTime.Now;
-                    ans150.UserId = user.Id;
-                    ans150.AnsMonth = ansMonth; ans150.SRId = sR.Id;
-                }
-
-
-
-                var ans151 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 151).FirstOrDefault();
-                if (ans151 == null)
-                {
-                    //  new SerialNumber 3 :           
-                    Answer answer151 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox3.Value,
-                        QuestionId = 151,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer151);
-                }
-                else
-                {
-                    ans151.QuestionId = 151;
-                    ans151.AnsDes = this.newSerialNumberTextbox3.Value;
-                    ans151.AnserTypeId = 1;
-                    ans151.CreateDate = DateTime.Now;
-                    ans151.UserId = user.Id;
-                    ans151.AnsMonth = ansMonth; ans151.SRId = sR.Id;
-                }
-
-
-
-                var ans152 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 151).FirstOrDefault();
-                if (ans152 == null)
-                {
-                    //  หมายเหตุ  3:           
-                    Answer answer152 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox3.Value,
-                        QuestionId = 152,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer152);
-                }
-                else
-                {
-                    ans152.QuestionId = 152;
-                    ans152.AnsDes = this.noteTextbox3.Value;
-                    ans152.AnserTypeId = 1;
-                    ans152.CreateDate = DateTime.Now;
-                    ans152.UserId = user.Id;
-                    ans152.AnsMonth = ansMonth; ans152.SRId = sR.Id;
-                }
-
-
-
-                var ans153 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 153).FirstOrDefault();
-                if (ans153 == null)
-                {
-                    // รายการอุปกรณ์ 4 :      
-                    Answer answer153 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox4.Value,
-                        QuestionId = 153,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer153);
-                }
-                else
-                {
-                    ans153.QuestionId = 153;
-                    ans153.AnsDes = this.toolsListTextbox4.Value;
-                    ans153.AnserTypeId = 1;
-                    ans153.CreateDate = DateTime.Now;
-                    ans153.UserId = user.Id;
-                    ans153.AnsMonth = ansMonth; ans153.SRId = sR.Id;
-                }
-
-
-
-                var ans154 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 154).FirstOrDefault();
-                if (ans154 == null)
-                {
-                    //  SerialNumber 4 :           
-                    Answer answer154 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox4.Value,
-                        QuestionId = 154,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer154);
-                }
-                else
-                {
-                    ans154.QuestionId = 154;
-                    ans154.AnsDes = this.serialNumberTextbox4.Value;
-                    ans154.AnserTypeId = 1;
-                    ans154.CreateDate = DateTime.Now;
-                    ans154.UserId = user.Id;
-                    ans154.AnsMonth = ansMonth; ans154.SRId = sR.Id;
-                }
-
-
-
-
-                var ans155 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 155).FirstOrDefault();
-                if (ans155 == null)
-                {
-                    //  new SerialNumber 4 :           
-                    Answer answer155 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox4.Value,
-                        QuestionId = 155,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer155);
-                }
-                else
-                {
-                    ans155.QuestionId = 155;
-                    ans155.AnsDes = this.newSerialNumberTextbox4.Value;
-                    ans155.AnserTypeId = 1;
-                    ans155.CreateDate = DateTime.Now;
-                    ans155.UserId = user.Id;
-                    ans155.AnsMonth = ansMonth; ans155.SRId = sR.Id;
-                }
-
-
-
-
-                var ans156 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 156).FirstOrDefault();
-                if (ans156 == null)
-                {
-                    //  หมายเหตุ  4:           
-                    Answer answer156 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox4.Value,
-                        QuestionId = 156,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer156);
-                }
-                else
-                {
-                    ans156.QuestionId = 156;
-                    ans156.AnsDes = this.noteTextbox4.Value;
-                    ans156.AnserTypeId = 1;
-                    ans156.CreateDate = DateTime.Now;
-                    ans156.UserId = user.Id;
-                    ans156.AnsMonth = ansMonth; ans156.SRId = sR.Id;
-                }
-
-
-                var ans157 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 157).FirstOrDefault();
-                if (ans157 == null)
-                {
-
-                    // รายการอุปกรณ์ 5 :      
-                    Answer answer157 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox5.Value,
-                        QuestionId = 157,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer157);
-                }
-                else
-                {
-                    ans157.QuestionId = 157;
-                    ans157.AnsDes = this.toolsListTextbox5.Value;
-                    ans157.AnserTypeId = 1;
-                    ans157.CreateDate = DateTime.Now;
-                    ans157.UserId = user.Id;
-                    ans157.AnsMonth = ansMonth; ans157.SRId = sR.Id;
-                }
-
-
-
-                var ans158 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 158).FirstOrDefault();
-                if (ans158 == null)
-                {
-                    //  SerialNumber 5 :           
-                    Answer answer158 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox5.Value,
-                        QuestionId = 158,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer158);
-                }
-                else
-                {
-                    ans158.QuestionId = 158;
-                    ans158.AnsDes = this.serialNumberTextbox5.Value;
-                    ans158.AnserTypeId = 1;
-                    ans158.CreateDate = DateTime.Now;
-                    ans158.UserId = user.Id;
-                    ans158.AnsMonth = ansMonth; ans158.SRId = sR.Id;
-                }
-
-
-                var ans159 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 159).FirstOrDefault();
-                if (ans159 == null)
-                {
-                    //  new SerialNumber 5 :           
-                    Answer answer159 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox5.Value,
-                        QuestionId = 159,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer159);
-                }
-                else
-                {
-                    ans159.QuestionId = 159;
-                    ans159.AnsDes = this.newSerialNumberTextbox5.Value;
-                    ans159.AnserTypeId = 1;
-                    ans159.CreateDate = DateTime.Now;
-                    ans159.UserId = user.Id;
-                    ans159.AnsMonth = ansMonth; ans159.SRId = sR.Id;
-                }
-
-
-
-                var ans160 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 160).FirstOrDefault();
-                if (ans160 == null)
-                {
-
-                    //  หมายเหตุ  5:           
-                    Answer answer160 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox5.Value,
-                        QuestionId = 160,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer160);
-                }
-                else
-                {
-                    ans160.QuestionId = 160;
-                    ans160.AnsDes = this.noteTextbox5.Value;
-                    ans160.AnserTypeId = 1;
-                    ans160.CreateDate = DateTime.Now;
-                    ans160.UserId = user.Id;
-                    ans160.AnsMonth = ansMonth; ans160.SRId = sR.Id;
-                }
-
-
-                var ans161 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 161).FirstOrDefault();
-                if (ans161 == null)
-                {
-
-                    // รายการอุปกรณ์ 6 :      
-                    Answer answer161 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox6.Value,
-                        QuestionId = 161,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer161);
-                }
-                else
-                {
-                    ans161.QuestionId = 161;
-                    ans161.AnsDes = this.toolsListTextbox6.Value;
-                    ans161.AnserTypeId = 1;
-                    ans161.CreateDate = DateTime.Now;
-                    ans161.UserId = user.Id;
-                    ans161.AnsMonth = ansMonth; ans161.SRId = sR.Id;
-                }
-
-
-
-                var ans162 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 162).FirstOrDefault();
-                if (ans162 == null)
-                {
-                    //  SerialNumber 6 :           
-                    Answer answer162 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox6.Value,
-                        QuestionId = 162,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer162);
-                }
-                else
-                {
-                    ans162.QuestionId = 162;
-                    ans162.AnsDes = this.serialNumberTextbox6.Value;
-                    ans162.AnserTypeId = 1;
-                    ans162.CreateDate = DateTime.Now;
-                    ans162.UserId = user.Id;
-                    ans162.AnsMonth = ansMonth; ans162.SRId = sR.Id;
-                }
-
-
-
-
-                var ans163 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 163).FirstOrDefault();
-                if (ans163 == null)
-                {
-                    //  new SerialNumber 6 :           
-                    Answer answer163 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox6.Value,
-                        QuestionId = 163,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer163);
-                }
-                else
-                {
-                    ans163.QuestionId = 163;
-                    ans163.AnsDes = this.newSerialNumberTextbox6.Value;
-                    ans163.AnserTypeId = 1;
-                    ans163.CreateDate = DateTime.Now;
-                    ans163.UserId = user.Id;
-                    ans163.AnsMonth = ansMonth; ans163.SRId = sR.Id;
-                }
-
-
-
-                var ans164 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 164).FirstOrDefault();
-                if (ans164 == null)
-                { //  หมายเหตุ  6:           
-                    Answer answer164 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox6.Value,
-                        QuestionId = 164,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer164);
-                }
-                else
-                {
-                    ans164.QuestionId = 164;
-                    ans164.AnsDes = this.noteTextbox6.Value;
-                    ans164.AnserTypeId = 1;
-                    ans164.CreateDate = DateTime.Now;
-                    ans164.UserId = user.Id;
-                    ans164.AnsMonth = ansMonth; ans164.SRId = sR.Id;
-                }
-
-
-
-
-                var ans165 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 165).FirstOrDefault();
-                if (ans165 == null)
-                {
-                    // รายการอุปกรณ์ 7 :      
-                    Answer answer165 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox7.Value,
-                        QuestionId = 165,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer165);
-                }
-                else
-                {
-                    ans165.QuestionId = 165;
-                    ans165.AnsDes = this.toolsListTextbox7.Value;
-                    ans165.AnserTypeId = 1;
-                    ans165.CreateDate = DateTime.Now;
-                    ans165.UserId = user.Id;
-                    ans165.AnsMonth = ansMonth; ans165.SRId = sR.Id;
-                }
-
-
-
-                var ans166 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 166).FirstOrDefault();
-                if (ans166 == null)
-                {
-                    //  SerialNumber 7 :           
-                    Answer answer166 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox7.Value,
-                        QuestionId = 166,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer166);
-                }
-                else
-                {
-                    ans166.QuestionId = 166;
-                    ans166.AnsDes = this.serialNumberTextbox7.Value;
-                    ans166.AnserTypeId = 1;
-                    ans166.CreateDate = DateTime.Now;
-                    ans166.UserId = user.Id;
-                    ans166.AnsMonth = ansMonth; ans166.SRId = sR.Id;
-                }
-
-
-                var ans167 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 167).FirstOrDefault();
-                if (ans167 == null)
-                {
-                    //  new SerialNumber 7 :           
-                    Answer answer167 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox7.Value,
-                        QuestionId = 167,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer167);
-                }
-                else
-                {
-                    ans167.QuestionId = 167;
-                    ans167.AnsDes = this.newSerialNumberTextbox7.Value;
-                    ans167.AnserTypeId = 1;
-                    ans167.CreateDate = DateTime.Now;
-                    ans167.UserId = user.Id;
-                    ans167.AnsMonth = ansMonth; ans167.SRId = sR.Id;
-                }
-
-
-                var ans168 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 168).FirstOrDefault();
-                if (ans168 == null)
-                {
-                    //  หมายเหตุ  7:           
-                    Answer answer168 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox7.Value,
-                        QuestionId = 168,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer168);
-                }
-                else
-                {
-                    ans168.QuestionId = 168;
-                    ans168.AnsDes = this.noteTextbox7.Value;
-                    ans168.AnserTypeId = 1;
-                    ans168.CreateDate = DateTime.Now;
-                    ans168.UserId = user.Id;
-                    ans168.AnsMonth = ansMonth; ans168.SRId = sR.Id;
-                }
-
-
-                var ans169 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 169).FirstOrDefault();
-                if (ans169 == null)
-                {
-                    // รายการอุปกรณ์ 8 :      
-                    Answer answer169 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox8.Value,
-                        QuestionId = 169,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer169);
-                }
-                else
-                {
-                    ans169.QuestionId = 169;
-                    ans169.AnsDes = this.toolsListTextbox8.Value;
-                    ans169.AnserTypeId = 1;
-                    ans169.CreateDate = DateTime.Now;
-                    ans169.UserId = user.Id;
-                    ans169.AnsMonth = ansMonth; ans169.SRId = sR.Id;
-                }
-
-
-
-
-
-
-
-                var ans170 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 170).FirstOrDefault();
-                if (ans170 == null)
-                {
-                    //  SerialNumber 8 :           
-                    Answer answer170 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox8.Value,
-                        QuestionId = 170,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer170);
-                }
-                else
-                {
-                    ans170.QuestionId = 170;
-                    ans170.AnsDes = this.serialNumberTextbox8.Value;
-                    ans170.AnserTypeId = 1;
-                    ans170.CreateDate = DateTime.Now;
-                    ans170.UserId = user.Id;
-                    ans170.AnsMonth = ansMonth; ans170.SRId = sR.Id;
-                }
-
-
-
-
-                var ans171 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 171).FirstOrDefault();
-                if (ans171 == null)
-                {
-                    //  new SerialNumber 8 :           
-                    Answer answer171 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox8.Value,
-                        QuestionId = 171,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer171);
-                }
-                else
-                {
-                    ans171.QuestionId = 171;
-                    ans171.AnsDes = this.newSerialNumberTextbox8.Value;
-                    ans171.AnserTypeId = 1;
-                    ans171.CreateDate = DateTime.Now;
-                    ans171.UserId = user.Id;
-                    ans171.AnsMonth = ansMonth; ans171.SRId = sR.Id;
-                }
-
-
-
-
-                var ans172 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 172).FirstOrDefault();
-                if (ans172 == null)
-                {
-                    //  หมายเหตุ  8:           
-                    Answer answer172 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox8.Value,
-                        QuestionId = 172,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer172);
-                }
-                else
-                {
-                    ans172.QuestionId = 172;
-                    ans172.AnsDes = this.noteTextbox8.Value;
-                    ans172.AnserTypeId = 1;
-                    ans172.CreateDate = DateTime.Now;
-                    ans172.UserId = user.Id;
-                    ans172.AnsMonth = ansMonth; ans172.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans173 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 173).FirstOrDefault();
-                if (ans173 == null)
-                {
-                    // รายการอุปกรณ์ 9 :      
-                    Answer answer173 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox9.Value,
-                        QuestionId = 173,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer173);
-                }
-                else
-                {
-                    ans173.QuestionId = 173;
-                    ans173.AnsDes = this.toolsListTextbox9.Value;
-                    ans173.AnserTypeId = 1;
-                    ans173.CreateDate = DateTime.Now;
-                    ans173.UserId = user.Id;
-                    ans173.AnsMonth = ansMonth; ans173.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans174 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 174).FirstOrDefault();
-                if (ans174 == null)
-                {
-                    //  SerialNumber 9 :           
-                    Answer answer174 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox9.Value,
-                        QuestionId = 174,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer174);
-                }
-                else
-                {
-                    ans174.QuestionId = 174;
-                    ans174.AnsDes = this.serialNumberTextbox9.Value;
-                    ans174.AnserTypeId = 1;
-                    ans174.CreateDate = DateTime.Now;
-                    ans174.UserId = user.Id;
-                    ans174.AnsMonth = ansMonth; ans174.SRId = sR.Id;
-                }
-
-
-                var ans175 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 175).FirstOrDefault();
-                if (ans175 == null)
-                {
-                    //  new SerialNumber 9 :           
-                    Answer answer175 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox9.Value,
-                        QuestionId = 175,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer175);
-                }
-                else
-                {
-                    ans175.QuestionId = 175;
-                    ans175.AnsDes = this.newSerialNumberTextbox9.Value;
-                    ans175.AnserTypeId = 1;
-                    ans175.CreateDate = DateTime.Now;
-                    ans175.UserId = user.Id;
-                    ans175.AnsMonth = ansMonth; ans175.SRId = sR.Id;
-                }
-
-                var ans176 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 176).FirstOrDefault();
-                if (ans176 == null)
-                {
-                    //  หมายเหตุ  9:           
-                    Answer answer176 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox9.Value,
-                        QuestionId = 176,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer176);
-                }
-                else
-                {
-                    ans176.QuestionId = 176;
-                    ans176.AnsDes = this.noteTextbox9.Value;
-                    ans176.AnserTypeId = 1;
-                    ans176.CreateDate = DateTime.Now;
-                    ans176.UserId = user.Id;
-                    ans176.AnsMonth = ansMonth; ans176.SRId = sR.Id;
-                }
-
-
-
-
-
-
-                var ans177 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 177).FirstOrDefault();
-                if (ans177 == null)
-                {
-                    // รายการอุปกรณ์ 10 :      
-                    Answer answer177 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox10.Value,
-                        QuestionId = 177,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer177);
-
-                }
-                else
-                {
-                    ans177.QuestionId = 177;
-                    ans177.AnsDes = this.toolsListTextbox10.Value;
-                    ans177.AnserTypeId = 1;
-                    ans177.CreateDate = DateTime.Now;
-                    ans177.UserId = user.Id;
-                    ans177.AnsMonth = ansMonth; ans177.SRId = sR.Id;
-                }
-
-
-
-                var ans178 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 178).FirstOrDefault();
-                if (ans178 == null)
-                {
-                    //  SerialNumber 10 :           
-                    Answer answer178 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox10.Value,
-                        QuestionId = 178,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer178);
-
-                }
-                else
-                {
-                    ans178.QuestionId = 178;
-                    ans178.AnsDes = this.serialNumberTextbox10.Value;
-                    ans178.AnserTypeId = 1;
-                    ans178.CreateDate = DateTime.Now;
-                    ans178.UserId = user.Id;
-                    ans178.AnsMonth = ansMonth; ans178.SRId = sR.Id;
-                }
-
-
-                var ans179 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 179).FirstOrDefault();
-                if (ans179 == null)
-                {
-                    //  new SerialNumber 10 :           
-                    Answer answer179 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox10.Value,
-                        QuestionId = 179,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer179);
-
-                }
-                else
-                {
-                    ans179.QuestionId = 179;
-                    ans179.AnsDes = this.newSerialNumberTextbox10.Value;
-                    ans179.AnserTypeId = 1;
-                    ans179.CreateDate = DateTime.Now;
-                    ans179.UserId = user.Id;
-                    ans179.AnsMonth = ansMonth; ans179.SRId = sR.Id;
-                }
-
-
-                var ans180 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 180).FirstOrDefault();
-                if (ans180 == null)
-                {
-                    //  หมายเหตุ  10:           
-                    Answer answer180 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox10.Value,
-                        QuestionId = 180,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer180);
-
-                }
-                else
-                {
-                    ans180.QuestionId = 180;
-                    ans180.AnsDes = this.noteTextbox10.Value;
-                    ans180.AnserTypeId = 1;
-                    ans180.CreateDate = DateTime.Now;
-                    ans180.UserId = user.Id;
-                    ans180.AnsMonth = ansMonth; ans180.SRId = sR.Id;
-                }
-
-
-
-
-                var ans181 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 181).FirstOrDefault();
-                if (ans181 == null)
-                {
-                    // รายการอุปกรณ์ 11 :      
-                    Answer answer181 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox11.Value,
-                        QuestionId = 181,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer181);
-
-                }
-                else
-                {
-                    ans181.QuestionId = 181;
-                    ans181.AnsDes = this.toolsListTextbox11.Value;
-                    ans181.AnserTypeId = 1;
-                    ans181.CreateDate = DateTime.Now;
-                    ans181.UserId = user.Id;
-                    ans181.AnsMonth = ansMonth; ans181.SRId = sR.Id;
-                }
-
-
-
-
-                var ans182 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 182).FirstOrDefault();
-                if (ans182 == null)
-                {
-                    //  SerialNumber 11 :           
-                    Answer answer182 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox11.Value,
-                        QuestionId = 182,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer182);
-
-                }
-                else
-                {
-                    ans182.QuestionId = 182;
-                    ans182.AnsDes = this.serialNumberTextbox11.Value;
-                    ans182.AnserTypeId = 1;
-                    ans182.CreateDate = DateTime.Now;
-                    ans182.UserId = user.Id;
-                    ans182.AnsMonth = ansMonth; ans182.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans183 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 183).FirstOrDefault();
-                if (ans183 == null)
-                {
-                    //  new SerialNumber 11 :           
-                    Answer answer183 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox11.Value,
-                        QuestionId = 183,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer183);
-
-                }
-                else
-                {
-                    ans183.QuestionId = 183;
-                    ans183.AnsDes = this.newSerialNumberTextbox11.Value;
-                    ans183.AnserTypeId = 1;
-                    ans183.CreateDate = DateTime.Now;
-                    ans183.UserId = user.Id;
-                    ans183.AnsMonth = ansMonth; ans183.SRId = sR.Id;
-                }
-
-
-
-
-
-
-                var ans184 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 184).FirstOrDefault();
-                if (ans184 == null)
-                {
-                    //  หมายเหตุ  11:           
-                    Answer answer184 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox11.Value,
-                        QuestionId = 184,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer184);
-
-                }
-                else
-                {
-                    ans184.QuestionId = 184;
-                    ans184.AnsDes = this.noteTextbox11.Value;
-                    ans184.AnserTypeId = 1;
-                    ans184.CreateDate = DateTime.Now;
-                    ans184.UserId = user.Id;
-                    ans184.AnsMonth = ansMonth; ans184.SRId = sR.Id;
-                }
-
-
-
-
-
-
-
-                var ans185 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 185).FirstOrDefault();
-                if (ans185 == null)
-                {
-
-                    // รายการอุปกรณ์ 12 :      
-                    Answer answer185 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox12.Value,
-                        QuestionId = 185,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer185);
-
-                }
-                else
-                {
-                    ans185.QuestionId = 185;
-                    ans185.AnsDes = this.toolsListTextbox12.Value;
-                    ans185.AnserTypeId = 1;
-                    ans185.CreateDate = DateTime.Now;
-                    ans185.UserId = user.Id;
-                    ans185.AnsMonth = ansMonth; ans185.SRId = sR.Id;
-                }
-
-
-
-
-                var ans186 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 186).FirstOrDefault();
-                if (ans186 == null)
-                {
-
-                    //  SerialNumber 12 :           
-                    Answer answer186 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox12.Value,
-                        QuestionId = 186,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer186);
-
-                }
-                else
-                {
-                    ans186.QuestionId = 186;
-                    ans186.AnsDes = this.serialNumberTextbox12.Value;
-                    ans186.AnserTypeId = 1;
-                    ans186.CreateDate = DateTime.Now;
-                    ans186.UserId = user.Id;
-                    ans186.AnsMonth = ansMonth; ans186.SRId = sR.Id;
-                }
-
-                var ans187 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 187).FirstOrDefault();
-                if (ans187 == null)
-                {
-
-                    //  new SerialNumber 12 :           
-                    Answer answer187 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox12.Value,
-                        QuestionId = 187,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer187);
-
-                }
-                else
-                {
-                    ans187.QuestionId = 187;
-                    ans187.AnsDes = this.newSerialNumberTextbox12.Value;
-                    ans187.AnserTypeId = 1;
-                    ans187.CreateDate = DateTime.Now;
-                    ans187.UserId = user.Id;
-                    ans187.AnsMonth = ansMonth; ans187.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans188 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 188).FirstOrDefault();
-                if (ans188 == null)
-                {
-
-                    //  หมายเหตุ  12:           
-                    Answer answer188 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox12.Value,
-                        QuestionId = 188,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer188);
-
-                }
-                else
-                {
-                    ans188.QuestionId = 188;
-                    ans188.AnsDes = this.noteTextbox12.Value;
-                    ans188.AnserTypeId = 1;
-                    ans188.CreateDate = DateTime.Now;
-                    ans188.UserId = user.Id;
-                    ans188.AnsMonth = ansMonth; ans188.SRId = sR.Id;
-                }
-
-
-
-
-
-
-                var ans189 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 189).FirstOrDefault();
-                if (ans189 == null)
-                {
-
-                    // รายการอุปกรณ์ 13 :      
-                    Answer answer189 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox13.Value,
-                        QuestionId = 189,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer189);
-
-                }
-                else
-                {
-                    ans189.QuestionId = 189;
-                    ans189.AnsDes = this.toolsListTextbox13.Value;
-                    ans189.AnserTypeId = 1;
-                    ans189.CreateDate = DateTime.Now;
-                    ans189.UserId = user.Id;
-                    ans189.AnsMonth = ansMonth; ans189.SRId = sR.Id;
-                }
-
-
-
-                var ans190 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 190).FirstOrDefault();
-                if (ans190 == null)
-                {
-
-                    //  SerialNumber 13 :           
-                    Answer answer190 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox13.Value,
-                        QuestionId = 190,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer190);
-
-                }
-                else
-                {
-                    ans190.QuestionId = 190;
-                    ans190.AnsDes = this.serialNumberTextbox13.Value;
-                    ans190.AnserTypeId = 1;
-                    ans190.CreateDate = DateTime.Now;
-                    ans190.UserId = user.Id;
-                    ans190.AnsMonth = ansMonth; ans190.SRId = sR.Id;
-                }
-
-
-
-                var ans191 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 191).FirstOrDefault();
-                if (ans191 == null)
-                {
-
-                    //  new SerialNumber 13 :           
-                    Answer answer191 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox13.Value,
-                        QuestionId = 191,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer191);
-
-                }
-                else
-                {
-                    ans191.QuestionId = 191;
-                    ans191.AnsDes = this.newSerialNumberTextbox13.Value;
-                    ans191.AnserTypeId = 1;
-                    ans191.CreateDate = DateTime.Now;
-                    ans191.UserId = user.Id;
-                    ans191.AnsMonth = ansMonth; ans191.SRId = sR.Id;
-                }
-
-                var ans192 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 192).FirstOrDefault();
-                if (ans192 == null)
-                {
-
-                    //  หมายเหตุ  13   :    
-                    Answer answer192 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox13.Value,
-                        QuestionId = 192,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer192);
-
-                }
-                else
-                {
-                    ans192.QuestionId = 192;
-                    ans192.AnsDes = this.noteTextbox13.Value;
-                    ans192.AnserTypeId = 1;
-                    ans192.CreateDate = DateTime.Now;
-                    ans192.UserId = user.Id;
-                    ans192.AnsMonth = ansMonth; ans192.SRId = sR.Id;
-                }
-
-
-                var ans193 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 193).FirstOrDefault();
-                if (ans193 == null)
-                {
-
-                    // รายการอุปกรณ์ 14 :      
-                    Answer answer193 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox14.Value,
-                        QuestionId = 193,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer193);
-
-                }
-                else
-                {
-                    ans193.QuestionId = 193;
-                    ans193.AnsDes = this.toolsListTextbox14.Value;
-                    ans193.AnserTypeId = 1;
-                    ans193.CreateDate = DateTime.Now;
-                    ans193.UserId = user.Id;
-                    ans193.AnsMonth = ansMonth; ans193.SRId = sR.Id;
-                }
-
-
-
-
-                var ans194 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 194).FirstOrDefault();
-                if (ans194 == null)
-                {
-                    //  SerialNumber 14 :           
-                    Answer answer194 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox14.Value,
-                        QuestionId = 194,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer194);
-
-
-                }
-                else
-                {
-                    ans194.QuestionId = 194;
-                    ans194.AnsDes = this.serialNumberTextbox14.Value;
-                    ans194.AnserTypeId = 1;
-                    ans194.CreateDate = DateTime.Now;
-                    ans194.UserId = user.Id;
-                    ans194.AnsMonth = ansMonth; ans194.SRId = sR.Id;
-                }
-
-
-
-
-                var ans195 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 195).FirstOrDefault();
-                if (ans195 == null)
-                {
-                    //  new SerialNumber 14 :           
-                    Answer answer195 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox14.Value,
-                        QuestionId = 195,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer195);
-                }
-                else
-                {
-                    ans195.QuestionId = 195;
-                    ans195.AnsDes = this.newSerialNumberTextbox14.Value;
-                    ans195.AnserTypeId = 1;
-                    ans195.CreateDate = DateTime.Now;
-                    ans195.UserId = user.Id;
-                    ans195.AnsMonth = ansMonth; ans195.SRId = sR.Id;
-                }
-
-
-
-                var ans196 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 196).FirstOrDefault();
-                if (ans196 == null)
-                {
-                    //  หมายเหตุ  143   :    
-                    Answer answer196 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox14.Value,
-                        QuestionId = 196,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer196);
-                }
-                else
-                {
-                    ans196.QuestionId = 196;
-                    ans196.AnsDes = this.noteTextbox14.Value;
-                    ans196.AnserTypeId = 1;
-                    ans196.CreateDate = DateTime.Now;
-                    ans196.UserId = user.Id;
-                    ans196.AnsMonth = ansMonth; ans196.SRId = sR.Id;
-                }
-
-                var ans197 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 197).FirstOrDefault();
-                if (ans197 == null)
-                {
-                    // รายการอุปกรณ์ 15 :      
-                    Answer answer197 = new Answer()
-                    {
-                        AnsDes = this.toolsListTextbox15.Value,
-                        QuestionId = 197,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer197);
-                }
-                else
-                {
-                    ans197.QuestionId = 197;
-                    ans197.AnsDes = this.toolsListTextbox15.Value;
-                    ans197.AnserTypeId = 1;
-                    ans197.CreateDate = DateTime.Now;
-                    ans197.UserId = user.Id;
-                    ans197.AnsMonth = ansMonth; ans197.SRId = sR.Id;
-                }
-
-
-
-                var ans198 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 198).FirstOrDefault();
-                if (ans198 == null)
-                {
-                    //  SerialNumber 15 :           
-                    Answer answer198 = new Answer()
-                    {
-                        AnsDes = this.serialNumberTextbox15.Value,
-                        QuestionId = 198,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer198);
-                }
-                else
-                {
-                    ans198.QuestionId = 198;
-                    ans198.AnsDes = this.serialNumberTextbox15.Value;
-                    ans198.AnserTypeId = 1;
-                    ans198.CreateDate = DateTime.Now;
-                    ans198.UserId = user.Id;
-                    ans198.AnsMonth = ansMonth; ans198.SRId = sR.Id;
-                }
-
-
-                var ans199 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 199).FirstOrDefault();
-                if (ans199 == null)
-                {
-                    //  new SerialNumber 15 :           
-                    Answer answer199 = new Answer()
-                    {
-                        AnsDes = this.newSerialNumberTextbox15.Value,
-                        QuestionId = 199,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer199);
-                }
-                else
-                {
-                    ans199.QuestionId = 199;
-                    ans199.AnsDes = this.newSerialNumberTextbox15.Value;
-                    ans199.AnserTypeId = 1;
-                    ans199.CreateDate = DateTime.Now;
-                    ans199.UserId = user.Id;
-                    ans199.AnsMonth = ansMonth; ans199.SRId = sR.Id;
-                }
-
-
-
-
-                var ans200 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 200).FirstOrDefault();
-                if (ans200 == null)
-                {
-                    //  หมายเหตุ  15   :    
-                    Answer answer200 = new Answer()
-                    {
-                        AnsDes = this.noteTextbox15.Value,
-                        QuestionId = 200,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer200);
-                }
-                else
-                {
-                    ans200.QuestionId = 200;
-                    ans200.AnsDes = this.noteTextbox15.Value;
-                    ans200.AnserTypeId = 1;
-                    ans200.CreateDate = DateTime.Now;
-                    ans200.UserId = user.Id;
-                    ans200.AnsMonth = ansMonth; ans200.SRId = sR.Id;
-                }
-
-
-
-
-                var ans201 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 201).FirstOrDefault();
-                if (ans201 == null)
-                {
-                    // team name :    
-                    Answer answer201 = new Answer()
-                    {
-                        AnsDes = this.nameTeampmTextbox.Value,
-                        QuestionId = 201,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer201);
-                }
-                else
-                {
-                    ans201.QuestionId = 201;
-                    ans201.AnsDes = this.nameTeampmTextbox.Value;
-                    ans201.AnserTypeId = 1;
-                    ans201.CreateDate = DateTime.Now;
-                    ans201.UserId = user.Id;
-                    ans201.AnsMonth = ansMonth; ans201.SRId = sR.Id;
-                }
-
-                var ans202 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 202).FirstOrDefault();
-                if (ans202 == null)
-                {
-                    // วันที่ทำ PM :    
-                    Answer answer202 = new Answer()
-                    {
-                        AnsDes = this.dayDopmTextbox.Value,
-                        QuestionId = 202,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer202);
-                }
-                else
-                {
-                    ans202.QuestionId = 202;
-                    ans202.AnsDes = this.dayDopmTextbox.Value;
-                    ans202.AnserTypeId = 1;
-                    ans202.CreateDate = DateTime.Now;
-                    ans202.UserId = user.Id;
-                    ans202.AnsMonth = ansMonth; ans202.SRId = sR.Id;
-                }
-
-
-                var ans203 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 203).FirstOrDefault();
-                if (ans203 == null)
-                {
-                    // ชื่อเจ้าหน้าที่ประจำศูนย์ :    
-                    Answer answer203 = new Answer()
-                    {
-                        AnsDes = this.nameAgentareaTextbox.Value,
-                        QuestionId = 203,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer203);
-                }
-                else
-                {
-                    ans203.QuestionId = 203;
-                    ans203.AnsDes = this.nameAgentareaTextbox.Value;
-                    ans203.AnserTypeId = 1;
-                    ans203.CreateDate = DateTime.Now;
-                    ans203.UserId = user.Id;
-                    ans203.AnsMonth = ansMonth; ans203.SRId = sR.Id;
-                }
-
-
-
-
-                var ans204 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 204).FirstOrDefault();
-                if (ans204 == null)
-                {
-                    // เบอร์โทรติดต่อ :    
-                    Answer answer204 = new Answer()
-                    {
-                        AnsDes = this.telephoneAgentTextbox.Value,
-                        QuestionId = 204,
-                        AnserTypeId = 1,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer204);
-                }
-                else
-                {
-                    ans204.QuestionId = 204;
-                    ans204.AnsDes = this.telephoneAgentTextbox.Value;
-                    ans204.AnserTypeId = 1;
-                    ans204.CreateDate = DateTime.Now;
-                    ans204.UserId = user.Id;
-                    ans204.AnsMonth = ansMonth; ans204.SRId = sR.Id;
-                }
-
-
-
-
-                var ans205 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 205).FirstOrDefault();
-                if (ans205 == null)
-                {
-                    // รูปภาพป้ายชื่อโรงเรียน  :
-                    string billBoardSchool = Request.Form["billBoardSchoolRadio"];
-                    Answer answer205 = new Answer()
-                    {
-                        AnsDes = billBoardSchool,
-                        QuestionId = 205,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer205);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["billBoardSchoolRadio"];
-                    ans205.QuestionId = 205;
-                    ans205.AnsDes = billBoardSchool;
-                    ans205.AnserTypeId = 1;
-                    ans205.CreateDate = DateTime.Now;
-                    ans205.UserId = user.Id;
-                    ans205.AnsMonth = ansMonth; ans205.SRId = sR.Id;
-                }
-
-
-
-
-                var ans206 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 206).FirstOrDefault();
-                if (ans206 == null)
-                {
-                    // รูปภาพด้านหน้าศูนย์ (ถ่ายคู่กับ จนท.ประจำศูนย์)  :
-                    string picTuragent = Request.Form["pictureWithagentRadio"];
-                    Answer answer206 = new Answer()
-                    {
-                        AnsDes = picTuragent,
-                        QuestionId = 206,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer206);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["pictureWithagentRadio"];
-                    ans206.QuestionId = 206;
-                    ans206.AnsDes = billBoardSchool;
-                    ans206.AnserTypeId = 1;
-                    ans206.CreateDate = DateTime.Now;
-                    ans206.UserId = user.Id;
-                    ans206.AnsMonth = ansMonth; ans206.SRId = sR.Id;
-                }
-
-
-
-                var ans207 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 207).FirstOrDefault();
-                if (ans207 == null)
-                {
-                    // รูปภาพด้านหลังศูนย์ :
-                    string behinddHall = Request.Form["pictureBehindHallRadio"];
-                    Answer answer207 = new Answer()
-                    {
-                        AnsDes = behinddHall,
-                        QuestionId = 207,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer207);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["pictureBehindHallRadio"];
-                    ans207.QuestionId = 207;
-                    ans207.AnsDes = billBoardSchool;
-                    ans207.AnserTypeId = 1;
-                    ans207.CreateDate = DateTime.Now;
-                    ans207.UserId = user.Id;
-                    ans207.AnsMonth = ansMonth; ans207.SRId = sR.Id;
-                }
-
-
-
-                var ans208 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 208).FirstOrDefault();
-                if (ans208 == null)
-                {
-                    // รูปภาพบริเวณห้องโถง :
-                    string picInhall = Request.Form["picInlobbyRadio"];
-                    Answer answer208 = new Answer()
-                    {
-                        AnsDes = picInhall,
-                        QuestionId = 208,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer208);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picInlobbyRadio"];
-                    ans208.QuestionId = 208;
-                    ans208.AnsDes = billBoardSchool;
-                    ans208.AnserTypeId = 1;
-                    ans208.CreateDate = DateTime.Now;
-                    ans208.UserId = user.Id;
-                    ans208.AnsMonth = ansMonth; ans208.SRId = sR.Id;
-                }
-
-
-
-                var ans209 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 209).FirstOrDefault();
-                if (ans209 == null)
-                {
-                    // รูปภาพบริเวณห้องประชุม :
-                    string picMett = Request.Form["picinMeetingroomRadio"];
-                    Answer answer209 = new Answer()
-                    {
-                        AnsDes = picMett,
-                        QuestionId = 209,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer209);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picinMeetingroomRadio"];
-                    ans209.QuestionId = 209;
-                    ans209.AnsDes = billBoardSchool;
-                    ans209.AnserTypeId = 1;
-                    ans209.CreateDate = DateTime.Now;
-                    ans209.UserId = user.Id;
-                    ans209.AnsMonth = ansMonth; ans209.SRId = sR.Id;
-                }
-
-
-                var ans210 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 210).FirstOrDefault();
-                if (ans210 == null)
-                {
-                    // รูปภาพบริเวณห้อง Server :
-                    string picinserVer = Request.Form["picInserverRadio"];
-                    Answer answer210 = new Answer()
-                    {
-                        AnsDes = picinserVer,
-                        QuestionId = 210,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer210);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picInserverRadio"];
-                    ans210.QuestionId = 210;
-                    ans210.AnsDes = billBoardSchool;
-                    ans210.AnserTypeId = 1;
-                    ans210.CreateDate = DateTime.Now;
-                    ans210.UserId = user.Id;
-                    ans210.AnsMonth = ansMonth; ans210.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans211 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 211).FirstOrDefault();
-                if (ans211 == null)
-                {
-                    // รูปภาพบริเวณห้องน้ำ :
-                    string picIntoileteiei = Request.Form["picIntoiletRadio"];
-                    Answer answer211 = new Answer()
-                    {
-                        AnsDes = picIntoileteiei,
-                        QuestionId = 211,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer211);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picIntoiletRadio"];
-                    ans211.QuestionId = 211;
-                    ans211.AnsDes = billBoardSchool;
-                    ans211.AnserTypeId = 1;
-                    ans211.CreateDate = DateTime.Now;
-                    ans211.UserId = user.Id;
-                    ans211.AnsMonth = ansMonth; ans211.SRId = sR.Id;
-                }
-
-
-
-
-
-
-                var ans212 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 212).FirstOrDefault();
-                if (ans212 == null)
-                {
-                    // รูปภาพบริเวณห้องปั๊มน้ำ  :
-                    string picinWaterpump = Request.Form["pictureInwaterpumpRadio"];
-                    Answer answer212 = new Answer()
-                    {
-                        AnsDes = picinWaterpump,
-                        QuestionId = 212,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer212);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["pictureInwaterpumpRadio"];
-                    ans212.QuestionId = 212;
-                    ans212.AnsDes = billBoardSchool;
-                    ans212.AnserTypeId = 1;
-                    ans212.CreateDate = DateTime.Now;
-                    ans212.UserId = user.Id;
-                    ans212.AnsMonth = ansMonth; ans212.SRId = sR.Id;
-                }
-
-
-
-
-                var ans213 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 213).FirstOrDefault();
-                if (ans213 == null)
-                {
-                    // รูป PEA Meter  :
-                    string picMeter = Request.Form["picpeaMeterRadio"];
-                    Answer answer213 = new Answer()
-                    {
-                        AnsDes = picMeter,
-                        QuestionId = 213,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer213);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picpeaMeterRadio"];
-                    ans213.QuestionId = 213;
-                    ans213.AnsDes = billBoardSchool;
-                    ans213.AnserTypeId = 1;
-                    ans213.CreateDate = DateTime.Now;
-                    ans213.UserId = user.Id;
-                    ans213.AnsMonth = ansMonth; ans213.SRId = sR.Id;
-                }
-
-
-
-
-
-
-
-
-
-
-
-                var ans214 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 214).FirstOrDefault();
-                if (ans214 == null)
-                {
-                    // รูป PEA Meter  :
-                    string acPic = Request.Form["acPicRadio"];
-                    Answer answer214 = new Answer()
-                    {
-                        AnsDes = acPic,
-                        QuestionId = 214,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer214);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["acPicRadio"];
-                    ans214.QuestionId = 214;
-                    ans214.AnsDes = billBoardSchool;
-                    ans214.AnserTypeId = 1;
-                    ans214.CreateDate = DateTime.Now;
-                    ans214.UserId = user.Id;
-                    ans214.AnsMonth = ansMonth; ans214.SRId = sR.Id;
-                }
-
-
-
-
-
-
-
-
-                var ans215 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 215).FirstOrDefault();
-                if (ans215 == null)
-                {
-                    // รูป PEA Meter  :
-                    string recGroundBar = Request.Form["recGroundBargroundRadio"];
-                    Answer answer215 = new Answer()
-                    {
-                        AnsDes = recGroundBar,
-                        QuestionId = 215,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer215);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["recGroundBargroundRadio"];
-                    ans215.QuestionId = 215;
-                    ans215.AnsDes = billBoardSchool;
-                    ans215.AnserTypeId = 1;
-                    ans215.CreateDate = DateTime.Now;
-                    ans215.UserId = user.Id;
-                    ans215.AnsMonth = ansMonth; ans215.SRId = sR.Id;
-                }
-
-
-
-
-
-
-                var ans216 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 216).FirstOrDefault();
-                if (ans216 == null)
-                {
-                    // รูปการตรวจสอบสถานะไฟฟ้ารั่วลง Ground (Lamp Test)   :
-                    string lightleak = Request.Form["lightleakRadio"];
-                    Answer answer216 = new Answer()
-                    {
-                        AnsDes = lightleak,
-                        QuestionId = 216,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer216);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["lightleakRadio"];
-                    ans216.QuestionId = 216;
-                    ans216.AnsDes = billBoardSchool;
-                    ans216.AnserTypeId = 1;
-                    ans216.CreateDate = DateTime.Now;
-                    ans216.UserId = user.Id;
-                    ans216.AnsMonth = ansMonth; ans216.SRId = sR.Id;
-                }
-
-
-
-
-                var ans217 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 217).FirstOrDefault();
-                if (ans217 == null)
-                {
-                    // รูป MDB  :
-                    string mdbPic = Request.Form["mdbPicRadio"];
-                    Answer answer217 = new Answer()
-                    {
-                        AnsDes = mdbPic,
-                        QuestionId = 217,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer217);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["mdbPicRadio"];
-                    ans217.QuestionId = 217;
-                    ans217.AnsDes = billBoardSchool;
-                    ans217.AnserTypeId = 1;
-                    ans217.CreateDate = DateTime.Now;
-                    ans217.UserId = user.Id;
-                    ans217.AnsMonth = ansMonth; ans217.SRId = sR.Id;
-                }
-
-
-
-
-                var ans218 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 218).FirstOrDefault();
-                if (ans218 == null)
-                {
-                    // รูป Fire Alarm Control  :
-                    string picFilealarm = Request.Form["picFilealarmRadio"];
-                    Answer answer218 = new Answer()
-                    {
-                        AnsDes = picFilealarm,
-                        QuestionId = 218,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer218);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picFilealarmRadio"];
-                    ans218.QuestionId = 218;
-                    ans218.AnsDes = billBoardSchool;
-                    ans218.AnserTypeId = 1;
-                    ans218.CreateDate = DateTime.Now;
-                    ans218.UserId = user.Id;
-                    ans218.AnsMonth = ansMonth; ans218.SRId = sR.Id;
-                }
-
-
-
-                var ans219 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 219).FirstOrDefault();
-                if (ans219 == null)
-                {
-                    // รูปภาพรวมอุปกรณ์ทั้งหมดภายในตู้ Rack  :
-                    string alltoolsInrack = Request.Form["alltoolsInrackRadio"];
-                    Answer answer219 = new Answer()
-                    {
-                        AnsDes = alltoolsInrack,
-                        QuestionId = 219,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer219);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["alltoolsInrackRadio"];
-                    ans219.QuestionId = 219;
-                    ans219.AnsDes = billBoardSchool;
-                    ans219.AnserTypeId = 1;
-                    ans219.CreateDate = DateTime.Now;
-                    ans219.UserId = user.Id;
-                    ans219.AnsMonth = ansMonth; ans219.SRId = sR.Id;
-                }
-
-
-                var ans220 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 220).FirstOrDefault();
-                if (ans220 == null)
-                {
-                    // รูปหน้าจอ UPS แสดงค่าต่างๆ และ Serial NO. :
-                    string upsAndserial = Request.Form["upsAndserialRadio"];
-                    Answer answer220 = new Answer()
-                    {
-                        AnsDes = upsAndserial,
-                        QuestionId = 220,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer220);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["upsAndserialRadio"];
-                    ans220.QuestionId = 220;
-                    ans220.AnsDes = billBoardSchool;
-                    ans220.AnserTypeId = 1;
-                    ans220.CreateDate = DateTime.Now;
-                    ans220.UserId = user.Id;
-                    ans220.AnsMonth = ansMonth; ans220.SRId = sR.Id;
-                }
-
-
-
-
-                var ans221 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 221).FirstOrDefault();
-                if (ans221 == null)
-                {
-                    // รูป ONU/Modem พร้อม Serial NO. และ MAC. :
-                    string picOnu = Request.Form["picOnuRadio"];
-                    Answer answer221 = new Answer()
-                    {
-                        AnsDes = picOnu,
-                        QuestionId = 221,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer221);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picOnuRadio"];
-                    ans221.QuestionId = 221;
-                    ans221.AnsDes = billBoardSchool;
-                    ans221.AnserTypeId = 1;
-                    ans221.CreateDate = DateTime.Now;
-                    ans221.UserId = user.Id;
-                    ans221.AnsMonth = ansMonth; ans221.SRId = sR.Id;
-                }
-
-
-
-
-                var ans222 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 222).FirstOrDefault();
-                if (ans222 == null)
-                {
-                    // รูป Power Supply พร้อม Serial NO :
-                    string picPsu = Request.Form["picPsuRadio"];
-                    Answer answer222 = new Answer()
-                    {
-                        AnsDes = picPsu,
-                        QuestionId = 222,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer222);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picPsuRadio"];
-                    ans222.QuestionId = 222;
-                    ans222.AnsDes = billBoardSchool;
-                    ans222.AnserTypeId = 1;
-                    ans222.CreateDate = DateTime.Now;
-                    ans222.UserId = user.Id;
-                    ans222.AnsMonth = ansMonth; ans222.SRId = sR.Id;
-                }
-
-
-
-
-                var ans223 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 222).FirstOrDefault();
-                if (ans223 == null)
-                {
-                    // รูป Power Supply พร้อม Serial NO :
-                    string picSwitch = Request.Form["picSwitchRadio"];
-                    Answer answer223 = new Answer()
-                    {
-                        AnsDes = picSwitch,
-                        QuestionId = 223,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer223);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picSwitchRadio"];
-                    ans223.QuestionId = 223;
-                    ans223.AnsDes = billBoardSchool;
-                    ans223.AnserTypeId = 1;
-                    ans223.CreateDate = DateTime.Now;
-                    ans223.UserId = user.Id;
-                    ans223.AnsMonth = ansMonth; ans223.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans224 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 224).FirstOrDefault();
-                if (ans224 == null)
-                {
-                    // รูป Switch 48 Port พร้อม Serial NO. และ MAC:
-                    string picSwitch48 = Request.Form["picSwitch48Radio"];
-                    Answer answer224 = new Answer()
-                    {
-                        AnsDes = picSwitch48,
-                        QuestionId = 224,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer224);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picSwitch48Radio"];
-                    ans224.QuestionId = 224;
-                    ans224.AnsDes = billBoardSchool;
-                    ans224.AnserTypeId = 1;
-                    ans224.CreateDate = DateTime.Now;
-                    ans224.UserId = user.Id;
-                    ans224.AnsMonth = ansMonth; ans224.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans225 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 225).FirstOrDefault();
-                if (ans225 == null)
-                {
-                    // รูป Outdoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC :
-                    string picOutdoor = Request.Form["picOutdoorRadio"];
-                    Answer answer225 = new Answer()
-                    {
-                        AnsDes = picOutdoor,
-                        QuestionId = 225,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer225);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picOutdoorRadio"];
-                    ans225.QuestionId = 225;
-                    ans225.AnsDes = billBoardSchool;
-                    ans225.AnserTypeId = 1;
-                    ans225.CreateDate = DateTime.Now;
-                    ans225.UserId = user.Id;
-                    ans225.AnsMonth = ansMonth; ans225.SRId = sR.Id;
-                }
-
-
-
-
-                var ans226 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 226).FirstOrDefault();
-                if (ans226 == null)
-                {
-                    // รูป Indoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC:
-                    string picIndoortwoway = Request.Form["picIndoortwowayRadio"];
-                    Answer answer226 = new Answer()
-                    {
-                        AnsDes = picIndoortwoway,
-                        QuestionId = 226,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer226);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picIndoortwowayRadio"];
-                    ans226.QuestionId = 226;
-                    ans226.AnsDes = billBoardSchool;
-                    ans226.AnserTypeId = 1;
-                    ans226.CreateDate = DateTime.Now;
-                    ans226.UserId = user.Id;
-                    ans226.AnsMonth = ansMonth; ans226.SRId = sR.Id;
-                }
-
-
-
-
-
-
-
-                var ans227 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 227).FirstOrDefault();
-                if (ans227 == null)
-                {
-                    // รูปการ Test Speed จาก App Nperf โดยใช้ WIFI :
-                    string picspeedTest = Request.Form["picspeedTestRadio"];
-                    Answer answer227 = new Answer()
-                    {
-                        AnsDes = picspeedTest,
-                        QuestionId = 227,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer227);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picspeedTestRadio"];
-                    ans227.QuestionId = 227;
-                    ans227.AnsDes = billBoardSchool;
-                    ans227.AnserTypeId = 1;
-                    ans227.CreateDate = DateTime.Now;
-                    ans227.UserId = user.Id;
-                    ans227.AnsMonth = ansMonth; ans227.SRId = sR.Id;
-                }
-
-
-
-
-
-
-
-
-                var ans228 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 228).FirstOrDefault();
-                if (ans228 == null)
-                {
-                    // รูปการ Test Speed จาก App Nperf โดยใช้ LAN :
-                    string picspeedTestwithLan = Request.Form["picspeedTestwithLanRadio"];
-                    Answer answer228 = new Answer()
-                    {
-                        AnsDes = picspeedTestwithLan,
-                        QuestionId = 228,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer228);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picspeedTestwithLanRadio"];
-                    ans228.QuestionId = 228;
-                    ans228.AnsDes = billBoardSchool;
-                    ans228.AnserTypeId = 1;
-                    ans228.CreateDate = DateTime.Now;
-                    ans228.UserId = user.Id;
-                    ans228.AnsMonth = ansMonth; ans228.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans229 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 229).FirstOrDefault();
-                if (ans229 == null)
-                {
-                    // รูป ก่อน-หลัง การทำความสะอาดรางระบายน้ำ :
-                    string picbeforeAftercanel = Request.Form["picbeforeAftercanelRadio"];
-                    Answer answer229 = new Answer()
-                    {
-                        AnsDes = picbeforeAftercanel,
-                        QuestionId = 229,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer229);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picbeforeAftercanelRadio"];
-                    ans229.QuestionId = 229;
-                    ans229.AnsDes = billBoardSchool;
-                    ans229.AnserTypeId = 1;
-                    ans229.CreateDate = DateTime.Now;
-                    ans229.UserId = user.Id;
-                    ans229.AnsMonth = ansMonth; ans229.SRId = sR.Id;
-                }
-
-
-
-                var ans230 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 230).FirstOrDefault();
-                if (ans230 == null)
-                {
-                    // รูปหน้าจอ Monitor กล้องวงจรปิดผ่านจอทีวีในห้องประชุม :
-                    string picMonitor = Request.Form["picMonitorRadio"];
-                    Answer answer230 = new Answer()
-                    {
-                        AnsDes = picMonitor,
-                        QuestionId = 230,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer230);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picMonitorRadio"];
-                    ans230.QuestionId = 230;
-                    ans230.AnsDes = billBoardSchool;
-                    ans230.AnserTypeId = 1;
-                    ans230.CreateDate = DateTime.Now;
-                    ans230.UserId = user.Id;
-                    ans230.AnsMonth = ansMonth; ans230.SRId = sR.Id;
-                }
-
-
-
-                var ans231 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 231).FirstOrDefault();
-                if (ans231 == null)
-                {
-                    // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องโถง  :
-                    string beforeArterairClean = Request.Form["beforeArterairCleanRadio"];
-                    Answer answer231 = new Answer()
-                    {
-                        AnsDes = beforeArterairClean,
-                        QuestionId = 231,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer231);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["beforeArterairCleanRadio"];
-                    ans231.QuestionId = 231;
-                    ans231.AnsDes = billBoardSchool;
-                    ans231.AnserTypeId = 1;
-                    ans231.CreateDate = DateTime.Now;
-                    ans231.UserId = user.Id;
-                    ans231.AnsMonth = ansMonth; ans231.SRId = sR.Id;
-                }
-
-
-
-
-
-
-
-
-
-                var ans232 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 232).FirstOrDefault();
-                if (ans232 == null)
-                {
-                    // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องประชุม :
-                    string picairInmeeting = Request.Form["picairInmeetingRadio"];
-                    Answer answer232 = new Answer()
-                    {
-                        AnsDes = picairInmeeting,
-                        QuestionId = 232,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer232);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picairInmeetingRadio"];
-                    ans232.QuestionId = 232;
-                    ans232.AnsDes = billBoardSchool;
-                    ans232.AnserTypeId = 1;
-                    ans232.CreateDate = DateTime.Now;
-                    ans232.UserId = user.Id;
-                    ans232.AnsMonth = ansMonth; ans232.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans233 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 233).FirstOrDefault();
-                if (ans233 == null)
-                {
-                    // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server :
-                    string picAirserver = Request.Form["picAirserverRadio"];
-                    Answer answer233 = new Answer()
-                    {
-                        AnsDes = picAirserver,
-                        QuestionId = 233,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer233);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picAirserverRadio"];
-                    ans233.QuestionId = 232;
-                    ans233.AnsDes = billBoardSchool;
-                    ans233.AnserTypeId = 1;
-                    ans233.CreateDate = DateTime.Now;
-                    ans233.UserId = user.Id;
-                    ans233.AnsMonth = ansMonth; ans233.SRId = sR.Id;
-                }
-
-
-
-
-                var ans234 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 234).FirstOrDefault();
-                if (ans234 == null)
-                {
-                    // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server :
-                    string inStallBase = Request.Form["inStallBaseRadio"];
-                    Answer answer234 = new Answer()
-                    {
-                        AnsDes = inStallBase,
-                        QuestionId = 234,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer234);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["inStallBaseRadio"];
-                    ans234.QuestionId = 234;
-                    ans234.AnsDes = billBoardSchool;
-                    ans234.AnserTypeId = 1;
-                    ans234.CreateDate = DateTime.Now;
-                    ans234.UserId = user.Id;
-                    ans234.AnsMonth = ansMonth; ans234.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans235 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 235).FirstOrDefault();
-                if (ans235 == null)
-                {
-                    // รูปความสะอาดบริเวณจานดาวเทียมr :
-                    string picCleansatellite = Request.Form["picCleansatelliteRadio"];
-                    Answer answer235 = new Answer()
-                    {
-                        AnsDes = picCleansatellite,
-                        QuestionId = 235,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer235);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picCleansatelliteRadio"];
-                    ans235.QuestionId = 235;
-                    ans235.AnsDes = billBoardSchool;
-                    ans235.AnserTypeId = 1;
-                    ans235.CreateDate = DateTime.Now;
-                    ans235.UserId = user.Id;
-                    ans235.AnsMonth = ansMonth; ans235.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans236 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 236).FirstOrDefault();
-                if (ans236 == null)
-                {
-                    // รูป LNB พร้อม Part NO. :
-                    string picLnb = Request.Form["picLnbRadio"];
-                    Answer answer236 = new Answer()
-                    {
-                        AnsDes = picLnb,
-                        QuestionId = 236,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer236);
-
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picLnbRadio"];
-                    ans236.QuestionId = 236;
-                    ans236.AnsDes = billBoardSchool;
-                    ans236.AnserTypeId = 1;
-                    ans236.CreateDate = DateTime.Now;
-                    ans236.UserId = user.Id;
-                    ans236.AnsMonth = ansMonth; ans236.SRId = sR.Id;
-                }
-
-
-                var ans237 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 237).FirstOrDefault();
-                if (ans237 == null)
-                {
-                    // รูป BUC พร้อม Part NO :
-                    string picBUC = Request.Form["picBUCRadio"];
-                    Answer answer237 = new Answer()
-                    {
-                        AnsDes = picBUC,
-                        QuestionId = 237,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer237);
-
-
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picBUCRadio"];
-                    ans237.QuestionId = 237;
-                    ans237.AnsDes = billBoardSchool;
-                    ans237.AnserTypeId = 1;
-                    ans237.CreateDate = DateTime.Now;
-                    ans237.UserId = user.Id;
-                    ans237.AnsMonth = ansMonth; ans237.SRId = sR.Id;
-                }
-
-
-
-                var ans238 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 238).FirstOrDefault();
-                if (ans238 == null)
-                {
-                    // รูปการเก็บสายและพันหัวที่ LNB/BUC :
-                    string picWiringLnb = Request.Form["picWiringLnbRadio"];
-                    Answer answer238 = new Answer()
-                    {
-                        AnsDes = picWiringLnb,
-                        QuestionId = 238,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer238);
-
-
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picWiringLnbRadio"];
-                    ans238.QuestionId = 238;
-                    ans238.AnsDes = billBoardSchool;
-                    ans238.AnserTypeId = 1;
-                    ans238.CreateDate = DateTime.Now;
-                    ans238.UserId = user.Id;
-                    ans238.AnsMonth = ansMonth; ans238.SRId = sR.Id;
-                }
-
-                var ans239 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 239).FirstOrDefault();
-                if (ans239 == null)
-                {
-                    // รูปแนว Line Of Sight (ดูการถูกบังของหน้าจานดาวเทียม) :
-                    string picLineofSight = Request.Form["picLineofSightRadio"];
-                    Answer answer239 = new Answer()
-                    {
-                        AnsDes = picLineofSight,
-                        QuestionId = 239,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer239);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picLineofSightRadio"];
-                    ans239.QuestionId = 239;
-                    ans239.AnsDes = billBoardSchool;
-                    ans239.AnserTypeId = 1;
-                    ans239.CreateDate = DateTime.Now;
-                    ans239.UserId = user.Id;
-                    ans239.AnsMonth = ansMonth; ans239.SRId = sR.Id;
-                }
-
-
-
-
-                var ans240 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 240).FirstOrDefault();
-                if (ans240 == null)
-                {
-                    // รูปจุดติดตั้ง Solar Cell :
-                    string picBaseSolarcell = Request.Form["picBaseSolarcellRadio"];
-                    Answer answer240 = new Answer()
-                    {
-                        AnsDes = picBaseSolarcell,
-                        QuestionId = 240,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer240);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picBaseSolarcellRadio"];
-                    ans240.QuestionId = 240;
-                    ans240.AnsDes = billBoardSchool;
-                    ans240.AnserTypeId = 1;
-                    ans240.CreateDate = DateTime.Now;
-                    ans240.UserId = user.Id;
-                    ans240.AnsMonth = ansMonth; ans240.SRId = sR.Id;
-                }
-
-                var ans241 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 241).FirstOrDefault();
-                if (ans241 == null)
-                {
-                    // รูปอุปกรณ์ Solar Cell ภายในห้อง :
-                    string solarcellToolsinroom = Request.Form["solarcellToolsinroomRadio"];
-                    Answer answer241 = new Answer()
-                    {
-                        AnsDes = solarcellToolsinroom,
-                        QuestionId = 241,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer241);
-
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["solarcellToolsinroomRadio"];
-                    ans241.QuestionId = 241;
-                    ans241.AnsDes = billBoardSchool;
-                    ans241.AnserTypeId = 1;
-                    ans241.CreateDate = DateTime.Now;
-                    ans241.UserId = user.Id;
-                    ans241.AnsMonth = ansMonth; ans241.SRId = sR.Id;
-                }
-
-
-
-                var ans242 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 242).FirstOrDefault();
-                if (ans242 == null)
-                {
-                    // รูปหน้าจอ Charger แสดงค่าต่างๆ :
-                    string screenCharger = Request.Form["screenChargerRadio"];
-                    Answer answer242 = new Answer()
-                    {
-                        AnsDes = screenCharger,
-                        QuestionId = 242,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer242);
-
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["screenChargerRadio"];
-                    ans242.QuestionId = 242;
-                    ans242.AnsDes = billBoardSchool;
-                    ans242.AnserTypeId = 1;
-                    ans242.CreateDate = DateTime.Now;
-                    ans242.UserId = user.Id;
-                    ans242.AnsMonth = ansMonth; ans242.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans243 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 243).FirstOrDefault();
-                if (ans243 == null)
-                {
-                    // รูปหน้าจอ Inverter แสดงค่าต่างๆ :
-                    string screenInverter = Request.Form["screenInverterRadio"];
-                    Answer answer243 = new Answer()
-                    {
-                        AnsDes = screenInverter,
-                        QuestionId = 243,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer243);
-
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["screenInverterRadio"];
-                    ans243.QuestionId = 243;
-                    ans243.AnsDes = billBoardSchool;
-                    ans243.AnserTypeId = 1;
-                    ans243.CreateDate = DateTime.Now;
-                    ans243.UserId = user.Id;
-                    ans243.AnsMonth = ansMonth; ans243.SRId = sR.Id;
-                }
-
-
-
-
-                var ans244 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 244).FirstOrDefault();
-                if (ans244 == null)
-                {
-                    // รูป Circuit Breaker ภายในตู้ :
-                    string piccircuitBreaker = Request.Form["piccircuitBreakerRadio"];
-                    Answer answer244 = new Answer()
-                    {
-                        AnsDes = piccircuitBreaker,
-                        QuestionId = 244,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer244);
-
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["piccircuitBreakerRadio"];
-                    ans244.QuestionId = 244;
-                    ans244.AnsDes = billBoardSchool;
-                    ans244.AnserTypeId = 1;
-                    ans244.CreateDate = DateTime.Now;
-                    ans244.UserId = user.Id;
-                    ans244.AnsMonth = ansMonth; ans244.SRId = sR.Id;
-                }
-
-
-                var ans245 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 245).FirstOrDefault();
-                if (ans245 == null)
-                {
-                    // รูป Terminal ต่อสายภายในตู้ :
-                    string picTerminal = Request.Form["picTerminalRadio"];
-                    Answer answer245 = new Answer()
-                    {
-                        AnsDes = picTerminal,
-                        QuestionId = 245,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer245);
-
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picTerminalRadio"];
-                    ans245.QuestionId = 245;
-                    ans245.AnsDes = billBoardSchool;
-                    ans245.AnserTypeId = 1;
-                    ans245.CreateDate = DateTime.Now;
-                    ans245.UserId = user.Id;
-                    ans245.AnsMonth = ansMonth; ans245.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans246 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 246).FirstOrDefault();
-                if (ans246 == null)
-                {
-                    // รูปความสะอาดแผง PV :
-                    string picCleaningPv = Request.Form["picCleaningPvRadio"];
-                    Answer answer246 = new Answer()
-                    {
-                        AnsDes = picCleaningPv,
-                        QuestionId = 246,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer246);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picCleaningPvRadio"];
-                    ans246.QuestionId = 246;
-                    ans246.AnsDes = billBoardSchool;
-                    ans246.AnserTypeId = 1;
-                    ans246.CreateDate = DateTime.Now;
-                    ans246.UserId = user.Id;
-                    ans246.AnsMonth = ansMonth; ans246.SRId = sR.Id;
-                }
-
-                var ans247 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 247).FirstOrDefault();
-                if (ans247 == null)
-                {
-                    // รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์  :
-                    string picSunrise = Request.Form["picSunriseRadio"];
-                    Answer answer247 = new Answer()
-                    {
-                        AnsDes = picSunrise,
-                        QuestionId = 247,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer247);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["picSunriseRadio"];
-                    ans247.QuestionId = 247;
-                    ans247.AnsDes = billBoardSchool;
-                    ans247.AnserTypeId = 1;
-                    ans247.CreateDate = DateTime.Now;
-                    ans247.UserId = user.Id;
-                    ans247.AnsMonth = ansMonth; ans247.SRId = sR.Id;
-                }
-
-
-
-
-
-
-                var ans248 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 248).FirstOrDefault();
-                if (ans248 == null)
-                {
-                    // รูปคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO. :
-                    string piccomAgent1 = Request.Form["piccomAgentRadio1"];
-                    Answer answer248 = new Answer()
-                    {
-                        AnsDes = piccomAgent1,
-                        QuestionId = 248,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer248);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["piccomAgentRadio1"];
-                    ans248.QuestionId = 248;
-                    ans248.AnsDes = billBoardSchool;
-                    ans248.AnserTypeId = 1;
-                    ans248.CreateDate = DateTime.Now;
-                    ans248.UserId = user.Id;
-                    ans248.AnsMonth = ansMonth; ans248.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans249 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 249).FirstOrDefault();
-                if (ans249 == null)
-                {
-                    // รูปคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO. :
-                    string piccomAgent2 = Request.Form["piccomAgentRadio2"];
-                    Answer answer249 = new Answer()
-                    {
-                        AnsDes = piccomAgent2,
-                        QuestionId = 249,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer249);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["piccomAgentRadio2"];
-                    ans249.QuestionId = 249;
-                    ans249.AnsDes = billBoardSchool;
-                    ans249.AnserTypeId = 1;
-                    ans249.CreateDate = DateTime.Now;
-                    ans249.UserId = user.Id;
-                    ans249.AnsMonth = ansMonth; ans249.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans250 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 250).FirstOrDefault();
-                if (ans250 == null)
-                {
-                    // รูปคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO. :
-                    string piccomAgent3 = Request.Form["piccomAgentRadio3"];
-                    Answer answer250 = new Answer()
-                    {
-                        AnsDes = piccomAgent3,
-                        QuestionId = 250,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer250);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["piccomAgentRadio3"];
-                    ans250.QuestionId = 250;
-                    ans250.AnsDes = billBoardSchool;
-                    ans250.AnserTypeId = 1;
-                    ans250.CreateDate = DateTime.Now;
-                    ans250.UserId = user.Id;
-                    ans250.AnsMonth = ansMonth; ans250.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans251 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 251).FirstOrDefault();
-                if (ans251 == null)
-                {
-                    // รูปคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO. :
-                    string piccomAgent4 = Request.Form["piccomAgentRadio4"];
-                    Answer answer251 = new Answer()
-                    {
-                        AnsDes = piccomAgent4,
-                        QuestionId = 251,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer251);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["piccomAgentRadio4"];
-                    ans251.QuestionId = 251;
-                    ans251.AnsDes = billBoardSchool;
-                    ans251.AnserTypeId = 1;
-                    ans251.CreateDate = DateTime.Now;
-                    ans251.UserId = user.Id;
-                    ans251.AnsMonth = ansMonth; ans251.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans252 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 252).FirstOrDefault();
-                if (ans252 == null)
-                {
-                    // รูปคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.  :
-                    string piccomAgent5 = Request.Form["piccomAgentRadio5"];
-                    Answer answer252 = new Answer()
-                    {
-                        AnsDes = piccomAgent5,
-                        QuestionId = 252,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer252);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["piccomAgentRadio5"];
-                    ans252.QuestionId = 252;
-                    ans252.AnsDes = billBoardSchool;
-                    ans252.AnserTypeId = 1;
-                    ans252.CreateDate = DateTime.Now;
-                    ans252.UserId = user.Id;
-                    ans252.AnsMonth = ansMonth; ans252.SRId = sR.Id;
-                }
-
-
-
-                var ans253 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 253).FirstOrDefault();
-                if (ans253 == null)
-                {
-                    // รูปคอมพิวเตอร์ตัวที่ 6 พร้อม Serial NO.  :
-                    string piccomAgent6 = Request.Form["piccomAgentRadio6"];
-                    Answer answer253 = new Answer()
-                    {
-                        AnsDes = piccomAgent6,
-                        QuestionId = 253,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer253);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["piccomAgentRadio6"];
-                    ans253.QuestionId = 253;
-                    ans253.AnsDes = billBoardSchool;
-                    ans253.AnserTypeId = 1;
-                    ans253.CreateDate = DateTime.Now;
-                    ans253.UserId = user.Id;
-                    ans253.AnsMonth = ansMonth; ans253.SRId = sR.Id;
-                }
-
-
-
-
-
-
-                var ans254 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 254).FirstOrDefault();
-                if (ans254 == null)
-                {
-                    // รูปคอมพิวเตอร์ตัวที่ 7 พร้อม Serial NO.  :
-                    string piccomAgent7 = Request.Form["piccomAgentRadio7"];
-                    Answer answer254 = new Answer()
-                    {
-                        AnsDes = piccomAgent7,
-                        QuestionId = 254,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer254);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["piccomAgentRadio7"];
-                    ans254.QuestionId = 254;
-                    ans254.AnsDes = billBoardSchool;
-                    ans254.AnserTypeId = 1;
-                    ans254.CreateDate = DateTime.Now;
-                    ans254.UserId = user.Id;
-                    ans254.AnsMonth = ansMonth; ans254.SRId = sR.Id;
-                }
-
-
-
-
-
-                var ans255 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 255).FirstOrDefault();
-                if (ans255 == null)
-                {
-                    // รูปคอมพิวเตอร์ตัวที่ 8 พร้อม Serial NO.  :
-                    string piccomAgent8 = Request.Form["piccomAgentRadio8"];
-                    Answer answer255 = new Answer()
-                    {
-                        AnsDes = piccomAgent8,
-                        QuestionId = 255,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer255);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["piccomAgentRadio8"];
-                    ans255.QuestionId = 255;
-                    ans255.AnsDes = billBoardSchool;
-                    ans255.AnserTypeId = 1;
-                    ans255.CreateDate = DateTime.Now;
-                    ans255.UserId = user.Id;
-                    ans255.AnsMonth = ansMonth; ans255.SRId = sR.Id;
-                }
-
-
-
-
-                var ans256 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 256).FirstOrDefault();
-                if (ans256 == null)
-                {
-                    // รูปคอมพิวเตอร์ตัวที่ 9 พร้อม Serial NO.  :
-                    string piccomAgent9 = Request.Form["piccomAgentRadio9"];
-                    Answer answer256 = new Answer()
-                    {
-                        AnsDes = piccomAgent9,
-                        QuestionId = 256,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer256);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["piccomAgentRadio9"];
-                    ans256.QuestionId = 256;
-                    ans256.AnsDes = billBoardSchool;
-                    ans256.AnserTypeId = 1;
-                    ans256.CreateDate = DateTime.Now;
-                    ans256.UserId = user.Id;
-                    ans256.AnsMonth = ansMonth; ans256.SRId = sR.Id;
-                }
-
-
-
-                var ans257 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 257).FirstOrDefault();
-                if (ans257 == null)
-                {
-                    // รูปคอมพิวเตอร์ตัวที่ 10 พร้อม Serial NO.  :
-                    string piccomAgent10 = Request.Form["piccomAgentRadio10"];
-                    Answer answer257 = new Answer()
-                    {
-                        AnsDes = piccomAgent10,
-                        QuestionId = 257,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer257);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["piccomAgentRadio10"];
-                    ans257.QuestionId = 257;
-                    ans257.AnsDes = billBoardSchool;
-                    ans257.AnserTypeId = 1;
-                    ans257.CreateDate = DateTime.Now;
-                    ans257.UserId = user.Id;
-                    ans257.AnsMonth = ansMonth; ans257.SRId = sR.Id;
-                }
-
-
-                var ans258 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 258).FirstOrDefault();
-                if (ans258 == null)
-                {
-                    // รูปคอมพิวเตอร์ตัวที่ 11 พร้อม Serial NO.  :
-                    string piccomAgent11 = Request.Form["piccomAgentRadio11"];
-                    Answer answer258 = new Answer()
-                    {
-                        AnsDes = piccomAgent11,
-                        QuestionId = 258,
-                        AnserTypeId = 3,
-                        CreateDate = DateTime.Now,
-                        UserId = user.Id,
-                        AnsMonth = ansMonth,
-                        SRId = sR.Id
-                    };
-                    uSOEntities.Answers.Add(answer258);
-                }
-                else
-                {
-                    string billBoardSchool = Request.Form["piccomAgentRadio11"];
-                    ans258.QuestionId = 258;
-                    ans258.AnsDes = billBoardSchool;
-                    ans258.AnserTypeId = 1;
-                    ans258.CreateDate = DateTime.Now;
-                    ans258.UserId = user.Id;
-                    ans258.AnsMonth = ansMonth; ans258.SRId = sR.Id;
-                }
-
-
-
-
-
-                //1.รูป PICTURE CHECKLIST :
-                var ans259 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 259).FirstOrDefault();
-                if (ans259 == null)
-                {
-                   
-                    if (this.pictureChecklistImages.HasFile)
-                    {
-                        string extension = this.pictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                        string newFileName = "images/pictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                        this.pictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
-
-                        Answer answer259 = new Answer()
-                        {
-                            AnsDes = newFileName,
-                            QuestionId = 259,
-                            AnserTypeId = 3,
-                            CreateDate = DateTime.Now,
-                            UserId = user.Id,
-                            AnsMonth = ansMonth,
-                            SRId = sR.Id
-                        };
-                        uSOEntities.Answers.Add(answer259);
-                    }
-                }
-                else
-                {
-                    if (this.pictureChecklistImages.HasFile)
-                    {
-                        string extension = this.pictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                        string newFileName = "images/pictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                        this.pictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
-                        ans259.QuestionId = 259;
-                        ans259.AnsDes = newFileName;
-                        ans259.AnserTypeId = 3;
-                        ans259.CreateDate = DateTime.Now;
-                        ans259.UserId = user.Id;
-                        ans259.AnsMonth = ansMonth;
-                        ans259.SRId = sR.Id;
-
-                    }
-                }
-
-
-                //2.รูป VSAT PICTURE CHECKLIST :
-                var ans260 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 260).FirstOrDefault();
-                if (ans260 == null)
-                {
-
-                  
-                    if (this.vsatpictureChecklistImages.HasFile)
-                    {
-                        string extension = this.vsatpictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                        string newFileName = "images/VsatPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                        this.vsatpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
-
-                        Answer answer260 = new Answer()
-                        {
-                            AnsDes = newFileName,
-                            QuestionId = 260,
-                            AnserTypeId = 3,
-                            CreateDate = DateTime.Now,
-                            UserId = user.Id,
-                            AnsMonth = ansMonth,
-                            SRId = sR.Id
-                        };
-                        uSOEntities.Answers.Add(answer260);
-                    }
-                }
-                else
-                {
-                    if (this.vsatpictureChecklistImages.HasFile)
-                    {
-                        string extension = this.vsatpictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                        string newFileName = "images/VsatPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                        this.vsatpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
-                        ans260.QuestionId = 260;
-                        ans260.AnsDes = newFileName;
-                        ans260.AnserTypeId = 3;
-                        ans260.CreateDate = DateTime.Now;
-                        ans260.UserId = user.Id;
-                        ans260.AnsMonth = ansMonth;
-                        ans260.SRId = sR.Id;
-
-                    }
-                }
-
-
-
-
-                //3.รูป SOLAR CELL PICTURE CHECKLISTT :
-                var ans261 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 261).FirstOrDefault();
-                if (ans261 == null)
-                {        
-                    if (this.solarcellpictureChecklistImages.HasFile)
-                    {
-                        string extension = this.solarcellpictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                        string newFileName = "images/SolarcellPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                        this.solarcellpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
-
-                        Answer answer261 = new Answer()
-                        {
-                            AnsDes = newFileName,
-                            QuestionId = 261,
-                            AnserTypeId = 3,
-                            CreateDate = DateTime.Now,
-                            UserId = user.Id,
-                            AnsMonth = ansMonth,
-                            SRId = sR.Id
-                        };
-                        uSOEntities.Answers.Add(answer261);
-                    }
-                }
-                else
-                {
-                    if (this.solarcellpictureChecklistImages.HasFile)
-                    {
-                        string extension = this.solarcellpictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                        string newFileName = "images/SolarcellPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                        this.solarcellpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
-                        ans261.QuestionId = 261;
-                        ans261.AnsDes = newFileName;
-                        ans261.AnserTypeId = 3;
-                        ans261.CreateDate = DateTime.Now;
-                        ans261.UserId = user.Id;
-                        ans261.AnsMonth = ansMonth;
-                        ans261.SRId = sR.Id;
-
-                    }
-                }
-
-
-
-
-                //4.COMPUTER PICTURE CHECKLIST :
-                var ans262 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 262).FirstOrDefault();
-                if (ans262 == null)
-                {
-                   
-                    if (this.compictureChecklistImages.HasFile)
-                    {
-                        string extension = this.compictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                        string newFileName = "images/ComputerPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                        this.compictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
-
-                        Answer answer262 = new Answer()
-                        {
-                            AnsDes = newFileName,
-                            QuestionId = 262,
-                            AnserTypeId = 3,
-                            CreateDate = DateTime.Now,
-                            UserId = user.Id,
-                            AnsMonth = ansMonth,
-                            SRId = sR.Id
-                        };
-                        uSOEntities.Answers.Add(answer262);
-                    }
-
-                }
-                else
-                {
-                    if (this.compictureChecklistImages.HasFile)
-                    {
-                        string extension = this.compictureChecklistImages.PostedFile.FileName.Split('.')[1];
-                        string newFileName = "images/ComputerPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                        this.compictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
-                        ans262.QuestionId = 262;
-                        ans262.AnsDes = newFileName;
-                        ans262.AnserTypeId = 3;
-                        ans262.CreateDate = DateTime.Now;
-                        ans262.UserId = user.Id;
-                        ans262.AnsMonth = ansMonth;
-                        ans262.SRId = sR.Id;
-
-                    }
-                }
-
-                int result = uSOEntities.SaveChanges();
-                if (result > 0)
-                {
-                    this.SuccessPanel.Visible = true;
-                }
+            }
+
+
+            var ans134 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 134).FirstOrDefault();
+            if (ans134 == null)
+            {
+                //  ปัญหาที่พบ 13 :           
+                Answer answer134 = new Answer()
+                {
+                    AnsDes = this.problemTextbox13.Value,
+                    QuestionId = 134,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer134);
+            }
+            else
+            {
+                ans134.QuestionId = 134;
+                ans134.AnsDes = this.problemTextbox13.Value;
+                ans134.AnserTypeId = 1;
+                ans134.CreateDate = DateTime.Now;
+                ans134.UserId = user.Id;
+                ans134.AnsMonth = ansMonth; ans134.SRId = sR.Id;
+            }
+
+
+
+            var ans135 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 135).FirstOrDefault();
+            if (ans135 == null)
+            {
+                //  วิธีแก้ปัญหา 13 :           
+                Answer answer135 = new Answer()
+                {
+                    AnsDes = this.howtoSolveTextbox13.Value,
+                    QuestionId = 135,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer135);
+            }
+            else
+            {
+                ans135.QuestionId = 135;
+                ans135.AnsDes = this.howtoSolveTextbox13.Value;
+                ans135.AnserTypeId = 1;
+                ans135.CreateDate = DateTime.Now;
+                ans135.UserId = user.Id;
+                ans135.AnsMonth = ansMonth; ans135.SRId = sR.Id;
+            }
+
+
+
+            var ans136 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 136).FirstOrDefault();
+            if (ans136 == null)
+            {
+                //  ปัญหาที่พบ 14 :           
+                Answer answer136 = new Answer()
+                {
+                    AnsDes = this.problemTextbox14.Value,
+                    QuestionId = 136,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer136);
+            }
+            else
+            {
+                ans136.QuestionId = 136;
+                ans136.AnsDes = this.problemTextbox14.Value;
+                ans136.AnserTypeId = 1;
+                ans136.CreateDate = DateTime.Now;
+                ans136.UserId = user.Id;
+                ans135.AnsMonth = ansMonth; ans135.SRId = sR.Id;
+            }
+
+
+
+
+            var ans137 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 137).FirstOrDefault();
+            if (ans137 == null)
+            {
+                //  วิธีแก้ปัญหา 14 :           
+                Answer answer137 = new Answer()
+                {
+                    AnsDes = this.howtoSolveTextbox14.Value,
+                    QuestionId = 137,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer137);
+            }
+            else
+            {
+                ans137.QuestionId = 137;
+                ans137.AnsDes = this.howtoSolveTextbox14.Value;
+                ans137.AnserTypeId = 1;
+                ans137.CreateDate = DateTime.Now;
+                ans137.UserId = user.Id;
+                ans137.AnsMonth = ansMonth; ans137.SRId = sR.Id;
+            }
+
+
+            var ans138 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 138).FirstOrDefault();
+            if (ans138 == null)
+            {
+                //  ปัญหาที่พบ 15 :           
+                Answer answer138 = new Answer()
+                {
+                    AnsDes = this.problemTextbox15.Value,
+                    QuestionId = 138,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer138);
+            }
+            else
+            {
+                ans138.QuestionId = 138;
+                ans138.AnsDes = this.problemTextbox15.Value;
+                ans138.AnserTypeId = 1;
+                ans138.CreateDate = DateTime.Now;
+                ans138.UserId = user.Id;
+                ans138.AnsMonth = ansMonth; ans138.SRId = sR.Id;
+            }
+
+
+            var ans139 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 139).FirstOrDefault();
+            if (ans139 == null)
+            {
+                //  วิธีแก้ปัญหา 15 :           
+                Answer answer139 = new Answer()
+                {
+                    AnsDes = this.howtoSolveTextbox15.Value,
+                    QuestionId = 139,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer139);
+            }
+            else
+            {
+                ans139.QuestionId = 139;
+                ans139.AnsDes = this.howtoSolveTextbox15.Value;
+                ans139.AnserTypeId = 1;
+                ans139.CreateDate = DateTime.Now;
+                ans139.UserId = user.Id;
+                ans139.AnsMonth = ansMonth; ans139.SRId = sR.Id;
+            }
+
+
+
+            var ans141 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 141).FirstOrDefault();
+            if (ans141 == null)
+            {
+                // รายการอุปกรณ์ 1 :      
+                Answer answer141 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox1.Value,
+                    QuestionId = 141,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer141);
+            }
+            else
+            {
+                ans141.QuestionId = 141;
+                ans141.AnsDes = this.toolsListTextbox1.Value;
+                ans141.AnserTypeId = 1;
+                ans141.CreateDate = DateTime.Now;
+                ans141.UserId = user.Id;
+                ans141.AnsMonth = ansMonth; ans141.SRId = sR.Id;
+            }
+
+
+
+            var ans142 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 142).FirstOrDefault();
+            if (ans142 == null)
+            {
+                //  SerialNumber :           
+                Answer answer142 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox1.Value,
+                    QuestionId = 142,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer142);
+            }
+            else
+            {
+                ans142.QuestionId = 142;
+                ans142.AnsDes = this.serialNumberTextbox1.Value;
+                ans142.AnserTypeId = 1;
+                ans142.CreateDate = DateTime.Now;
+                ans142.UserId = user.Id;
+                ans142.AnsMonth = ansMonth; ans142.SRId = sR.Id;
+            }
+
+
+            var ans143 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 143).FirstOrDefault();
+            if (ans143 == null)
+            {
+                //  new SerialNumber :           
+                Answer answer143 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox1.Value,
+                    QuestionId = 143,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer143);
+            }
+            else
+            {
+                ans143.QuestionId = 143;
+                ans143.AnsDes = this.newSerialNumberTextbox1.Value;
+                ans143.AnserTypeId = 1;
+                ans143.CreateDate = DateTime.Now;
+                ans143.UserId = user.Id;
+                ans143.AnsMonth = ansMonth; ans143.SRId = sR.Id;
+            }
+
+
+
+            var ans144 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 144).FirstOrDefault();
+            if (ans144 == null)
+            {
+                //  หมายเหตุ :           
+                Answer answer144 = new Answer()
+                {
+                    AnsDes = this.noteTextbox1.Value,
+                    QuestionId = 144,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer144);
+            }
+            else
+            {
+                ans144.QuestionId = 144;
+                ans144.AnsDes = this.noteTextbox1.Value;
+                ans144.AnserTypeId = 1;
+                ans144.CreateDate = DateTime.Now;
+                ans144.UserId = user.Id;
+                ans144.AnsMonth = ansMonth; ans144.SRId = sR.Id;
+            }
+
+
+
+
+            var ans145 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 145).FirstOrDefault();
+            if (ans145 == null)
+            {
+                // รายการอุปกรณ์ 2 :      
+                Answer answer145 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox2.Value,
+                    QuestionId = 145,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer145);
+            }
+            else
+            {
+                ans145.QuestionId = 145;
+                ans145.AnsDes = this.toolsListTextbox2.Value;
+                ans145.AnserTypeId = 1;
+                ans145.CreateDate = DateTime.Now;
+                ans145.UserId = user.Id;
+                ans145.AnsMonth = ansMonth; ans145.SRId = sR.Id;
+            }
+
+
+
+
+            var ans146 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 146).FirstOrDefault();
+            if (ans146 == null)
+            {
+                //  SerialNumber 2 :           
+                Answer answer146 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox2.Value,
+                    QuestionId = 146,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer146);
+            }
+            else
+            {
+                ans146.QuestionId = 146;
+                ans146.AnsDes = this.serialNumberTextbox2.Value;
+                ans146.AnserTypeId = 1;
+                ans146.CreateDate = DateTime.Now;
+                ans146.UserId = user.Id;
+                ans146.AnsMonth = ansMonth; ans146.SRId = sR.Id;
+            }
+
+
+
+
+            var ans147 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 147).FirstOrDefault();
+            if (ans147 == null)
+            {
+                //  new SerialNumber 2 :           
+                Answer answer147 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox2.Value,
+                    QuestionId = 147,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer147);
+            }
+            else
+            {
+                ans147.QuestionId = 147;
+                ans147.AnsDes = this.newSerialNumberTextbox2.Value;
+                ans147.AnserTypeId = 1;
+                ans147.CreateDate = DateTime.Now;
+                ans147.UserId = user.Id;
+                ans147.AnsMonth = ansMonth; ans147.SRId = sR.Id;
+            }
+
+            var ans148 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 148).FirstOrDefault();
+            if (ans148 == null)
+            {
+
+                //  หมายเหตุ  2:           
+                Answer answer148 = new Answer()
+                {
+                    AnsDes = this.noteTextbox2.Value,
+                    QuestionId = 148,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer148);
+            }
+            else
+            {
+                ans148.QuestionId = 148;
+                ans148.AnsDes = this.noteTextbox2.Value;
+                ans148.AnserTypeId = 1;
+                ans148.CreateDate = DateTime.Now;
+                ans148.UserId = user.Id;
+                ans148.AnsMonth = ansMonth; ans148.SRId = sR.Id;
+            }
+
+
+
+            var ans149 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 149).FirstOrDefault();
+            if (ans149 == null)
+            {
+                // รายการอุปกรณ์ 3 :      
+                Answer answer149 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox3.Value,
+                    QuestionId = 149,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer149);
+            }
+            else
+            {
+                ans149.QuestionId = 149;
+                ans149.AnsDes = this.toolsListTextbox3.Value;
+                ans149.AnserTypeId = 1;
+                ans149.CreateDate = DateTime.Now;
+                ans149.UserId = user.Id;
+                ans149.AnsMonth = ansMonth;
+                ans149.SRId = sR.Id;
+            }
+
+
+
+
+            var ans150 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 150).FirstOrDefault();
+            if (ans150 == null)
+            {
+                //  SerialNumber 3 :           
+                Answer answer150 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox3.Value,
+                    QuestionId = 150,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer150);
+            }
+            else
+            {
+                ans150.QuestionId = 150;
+                ans150.AnsDes = this.serialNumberTextbox3.Value;
+                ans150.AnserTypeId = 1;
+                ans150.CreateDate = DateTime.Now;
+                ans150.UserId = user.Id;
+                ans150.AnsMonth = ansMonth; ans150.SRId = sR.Id;
+            }
+
+
+
+            var ans151 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 151).FirstOrDefault();
+            if (ans151 == null)
+            {
+                //  new SerialNumber 3 :           
+                Answer answer151 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox3.Value,
+                    QuestionId = 151,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer151);
+            }
+            else
+            {
+                ans151.QuestionId = 151;
+                ans151.AnsDes = this.newSerialNumberTextbox3.Value;
+                ans151.AnserTypeId = 1;
+                ans151.CreateDate = DateTime.Now;
+                ans151.UserId = user.Id;
+                ans151.AnsMonth = ansMonth; ans151.SRId = sR.Id;
+            }
+
+
+
+            var ans152 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 151).FirstOrDefault();
+            if (ans152 == null)
+            {
+                //  หมายเหตุ  3:           
+                Answer answer152 = new Answer()
+                {
+                    AnsDes = this.noteTextbox3.Value,
+                    QuestionId = 152,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer152);
+            }
+            else
+            {
+                ans152.QuestionId = 152;
+                ans152.AnsDes = this.noteTextbox3.Value;
+                ans152.AnserTypeId = 1;
+                ans152.CreateDate = DateTime.Now;
+                ans152.UserId = user.Id;
+                ans152.AnsMonth = ansMonth; ans152.SRId = sR.Id;
+            }
+
+
+
+            var ans153 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 153).FirstOrDefault();
+            if (ans153 == null)
+            {
+                // รายการอุปกรณ์ 4 :      
+                Answer answer153 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox4.Value,
+                    QuestionId = 153,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer153);
+            }
+            else
+            {
+                ans153.QuestionId = 153;
+                ans153.AnsDes = this.toolsListTextbox4.Value;
+                ans153.AnserTypeId = 1;
+                ans153.CreateDate = DateTime.Now;
+                ans153.UserId = user.Id;
+                ans153.AnsMonth = ansMonth; ans153.SRId = sR.Id;
+            }
+
+
+
+            var ans154 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 154).FirstOrDefault();
+            if (ans154 == null)
+            {
+                //  SerialNumber 4 :           
+                Answer answer154 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox4.Value,
+                    QuestionId = 154,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer154);
+            }
+            else
+            {
+                ans154.QuestionId = 154;
+                ans154.AnsDes = this.serialNumberTextbox4.Value;
+                ans154.AnserTypeId = 1;
+                ans154.CreateDate = DateTime.Now;
+                ans154.UserId = user.Id;
+                ans154.AnsMonth = ansMonth; ans154.SRId = sR.Id;
+            }
+
+
+
+
+            var ans155 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 155).FirstOrDefault();
+            if (ans155 == null)
+            {
+                //  new SerialNumber 4 :           
+                Answer answer155 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox4.Value,
+                    QuestionId = 155,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer155);
+            }
+            else
+            {
+                ans155.QuestionId = 155;
+                ans155.AnsDes = this.newSerialNumberTextbox4.Value;
+                ans155.AnserTypeId = 1;
+                ans155.CreateDate = DateTime.Now;
+                ans155.UserId = user.Id;
+                ans155.AnsMonth = ansMonth; ans155.SRId = sR.Id;
+            }
+
+
+
+
+            var ans156 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 156).FirstOrDefault();
+            if (ans156 == null)
+            {
+                //  หมายเหตุ  4:           
+                Answer answer156 = new Answer()
+                {
+                    AnsDes = this.noteTextbox4.Value,
+                    QuestionId = 156,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer156);
+            }
+            else
+            {
+                ans156.QuestionId = 156;
+                ans156.AnsDes = this.noteTextbox4.Value;
+                ans156.AnserTypeId = 1;
+                ans156.CreateDate = DateTime.Now;
+                ans156.UserId = user.Id;
+                ans156.AnsMonth = ansMonth; ans156.SRId = sR.Id;
+            }
+
+
+            var ans157 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 157).FirstOrDefault();
+            if (ans157 == null)
+            {
+
+                // รายการอุปกรณ์ 5 :      
+                Answer answer157 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox5.Value,
+                    QuestionId = 157,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer157);
+            }
+            else
+            {
+                ans157.QuestionId = 157;
+                ans157.AnsDes = this.toolsListTextbox5.Value;
+                ans157.AnserTypeId = 1;
+                ans157.CreateDate = DateTime.Now;
+                ans157.UserId = user.Id;
+                ans157.AnsMonth = ansMonth; ans157.SRId = sR.Id;
+            }
+
+
+
+            var ans158 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 158).FirstOrDefault();
+            if (ans158 == null)
+            {
+                //  SerialNumber 5 :           
+                Answer answer158 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox5.Value,
+                    QuestionId = 158,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer158);
+            }
+            else
+            {
+                ans158.QuestionId = 158;
+                ans158.AnsDes = this.serialNumberTextbox5.Value;
+                ans158.AnserTypeId = 1;
+                ans158.CreateDate = DateTime.Now;
+                ans158.UserId = user.Id;
+                ans158.AnsMonth = ansMonth; ans158.SRId = sR.Id;
+            }
+
+
+            var ans159 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 159).FirstOrDefault();
+            if (ans159 == null)
+            {
+                //  new SerialNumber 5 :           
+                Answer answer159 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox5.Value,
+                    QuestionId = 159,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer159);
+            }
+            else
+            {
+                ans159.QuestionId = 159;
+                ans159.AnsDes = this.newSerialNumberTextbox5.Value;
+                ans159.AnserTypeId = 1;
+                ans159.CreateDate = DateTime.Now;
+                ans159.UserId = user.Id;
+                ans159.AnsMonth = ansMonth; ans159.SRId = sR.Id;
+            }
+
+
+
+            var ans160 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 160).FirstOrDefault();
+            if (ans160 == null)
+            {
+
+                //  หมายเหตุ  5:           
+                Answer answer160 = new Answer()
+                {
+                    AnsDes = this.noteTextbox5.Value,
+                    QuestionId = 160,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer160);
+            }
+            else
+            {
+                ans160.QuestionId = 160;
+                ans160.AnsDes = this.noteTextbox5.Value;
+                ans160.AnserTypeId = 1;
+                ans160.CreateDate = DateTime.Now;
+                ans160.UserId = user.Id;
+                ans160.AnsMonth = ansMonth; ans160.SRId = sR.Id;
+            }
+
+
+            var ans161 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 161).FirstOrDefault();
+            if (ans161 == null)
+            {
+
+                // รายการอุปกรณ์ 6 :      
+                Answer answer161 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox6.Value,
+                    QuestionId = 161,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer161);
+            }
+            else
+            {
+                ans161.QuestionId = 161;
+                ans161.AnsDes = this.toolsListTextbox6.Value;
+                ans161.AnserTypeId = 1;
+                ans161.CreateDate = DateTime.Now;
+                ans161.UserId = user.Id;
+                ans161.AnsMonth = ansMonth; ans161.SRId = sR.Id;
+            }
+
+
+
+            var ans162 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 162).FirstOrDefault();
+            if (ans162 == null)
+            {
+                //  SerialNumber 6 :           
+                Answer answer162 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox6.Value,
+                    QuestionId = 162,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer162);
+            }
+            else
+            {
+                ans162.QuestionId = 162;
+                ans162.AnsDes = this.serialNumberTextbox6.Value;
+                ans162.AnserTypeId = 1;
+                ans162.CreateDate = DateTime.Now;
+                ans162.UserId = user.Id;
+                ans162.AnsMonth = ansMonth; ans162.SRId = sR.Id;
+            }
+
+
+
+
+            var ans163 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 163).FirstOrDefault();
+            if (ans163 == null)
+            {
+                //  new SerialNumber 6 :           
+                Answer answer163 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox6.Value,
+                    QuestionId = 163,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer163);
+            }
+            else
+            {
+                ans163.QuestionId = 163;
+                ans163.AnsDes = this.newSerialNumberTextbox6.Value;
+                ans163.AnserTypeId = 1;
+                ans163.CreateDate = DateTime.Now;
+                ans163.UserId = user.Id;
+                ans163.AnsMonth = ansMonth; ans163.SRId = sR.Id;
+            }
+
+
+
+            var ans164 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 164).FirstOrDefault();
+            if (ans164 == null)
+            { //  หมายเหตุ  6:           
+                Answer answer164 = new Answer()
+                {
+                    AnsDes = this.noteTextbox6.Value,
+                    QuestionId = 164,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer164);
+            }
+            else
+            {
+                ans164.QuestionId = 164;
+                ans164.AnsDes = this.noteTextbox6.Value;
+                ans164.AnserTypeId = 1;
+                ans164.CreateDate = DateTime.Now;
+                ans164.UserId = user.Id;
+                ans164.AnsMonth = ansMonth; ans164.SRId = sR.Id;
+            }
+
+
+
+
+            var ans165 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 165).FirstOrDefault();
+            if (ans165 == null)
+            {
+                // รายการอุปกรณ์ 7 :      
+                Answer answer165 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox7.Value,
+                    QuestionId = 165,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer165);
+            }
+            else
+            {
+                ans165.QuestionId = 165;
+                ans165.AnsDes = this.toolsListTextbox7.Value;
+                ans165.AnserTypeId = 1;
+                ans165.CreateDate = DateTime.Now;
+                ans165.UserId = user.Id;
+                ans165.AnsMonth = ansMonth; ans165.SRId = sR.Id;
+            }
+
+
+
+            var ans166 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 166).FirstOrDefault();
+            if (ans166 == null)
+            {
+                //  SerialNumber 7 :           
+                Answer answer166 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox7.Value,
+                    QuestionId = 166,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer166);
+            }
+            else
+            {
+                ans166.QuestionId = 166;
+                ans166.AnsDes = this.serialNumberTextbox7.Value;
+                ans166.AnserTypeId = 1;
+                ans166.CreateDate = DateTime.Now;
+                ans166.UserId = user.Id;
+                ans166.AnsMonth = ansMonth; ans166.SRId = sR.Id;
+            }
+
+
+            var ans167 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 167).FirstOrDefault();
+            if (ans167 == null)
+            {
+                //  new SerialNumber 7 :           
+                Answer answer167 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox7.Value,
+                    QuestionId = 167,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer167);
+            }
+            else
+            {
+                ans167.QuestionId = 167;
+                ans167.AnsDes = this.newSerialNumberTextbox7.Value;
+                ans167.AnserTypeId = 1;
+                ans167.CreateDate = DateTime.Now;
+                ans167.UserId = user.Id;
+                ans167.AnsMonth = ansMonth; ans167.SRId = sR.Id;
+            }
+
+
+            var ans168 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 168).FirstOrDefault();
+            if (ans168 == null)
+            {
+                //  หมายเหตุ  7:           
+                Answer answer168 = new Answer()
+                {
+                    AnsDes = this.noteTextbox7.Value,
+                    QuestionId = 168,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer168);
+            }
+            else
+            {
+                ans168.QuestionId = 168;
+                ans168.AnsDes = this.noteTextbox7.Value;
+                ans168.AnserTypeId = 1;
+                ans168.CreateDate = DateTime.Now;
+                ans168.UserId = user.Id;
+                ans168.AnsMonth = ansMonth; ans168.SRId = sR.Id;
+            }
+
+
+            var ans169 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 169).FirstOrDefault();
+            if (ans169 == null)
+            {
+                // รายการอุปกรณ์ 8 :      
+                Answer answer169 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox8.Value,
+                    QuestionId = 169,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer169);
+            }
+            else
+            {
+                ans169.QuestionId = 169;
+                ans169.AnsDes = this.toolsListTextbox8.Value;
+                ans169.AnserTypeId = 1;
+                ans169.CreateDate = DateTime.Now;
+                ans169.UserId = user.Id;
+                ans169.AnsMonth = ansMonth; ans169.SRId = sR.Id;
+            }
+
+
+
+
+
+
+
+            var ans170 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 170).FirstOrDefault();
+            if (ans170 == null)
+            {
+                //  SerialNumber 8 :           
+                Answer answer170 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox8.Value,
+                    QuestionId = 170,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer170);
+            }
+            else
+            {
+                ans170.QuestionId = 170;
+                ans170.AnsDes = this.serialNumberTextbox8.Value;
+                ans170.AnserTypeId = 1;
+                ans170.CreateDate = DateTime.Now;
+                ans170.UserId = user.Id;
+                ans170.AnsMonth = ansMonth; ans170.SRId = sR.Id;
+            }
+
+
+
+
+            var ans171 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 171).FirstOrDefault();
+            if (ans171 == null)
+            {
+                //  new SerialNumber 8 :           
+                Answer answer171 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox8.Value,
+                    QuestionId = 171,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer171);
+            }
+            else
+            {
+                ans171.QuestionId = 171;
+                ans171.AnsDes = this.newSerialNumberTextbox8.Value;
+                ans171.AnserTypeId = 1;
+                ans171.CreateDate = DateTime.Now;
+                ans171.UserId = user.Id;
+                ans171.AnsMonth = ansMonth; ans171.SRId = sR.Id;
+            }
+
+
+
+
+            var ans172 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 172).FirstOrDefault();
+            if (ans172 == null)
+            {
+                //  หมายเหตุ  8:           
+                Answer answer172 = new Answer()
+                {
+                    AnsDes = this.noteTextbox8.Value,
+                    QuestionId = 172,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer172);
+            }
+            else
+            {
+                ans172.QuestionId = 172;
+                ans172.AnsDes = this.noteTextbox8.Value;
+                ans172.AnserTypeId = 1;
+                ans172.CreateDate = DateTime.Now;
+                ans172.UserId = user.Id;
+                ans172.AnsMonth = ansMonth; ans172.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans173 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 173).FirstOrDefault();
+            if (ans173 == null)
+            {
+                // รายการอุปกรณ์ 9 :      
+                Answer answer173 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox9.Value,
+                    QuestionId = 173,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer173);
+            }
+            else
+            {
+                ans173.QuestionId = 173;
+                ans173.AnsDes = this.toolsListTextbox9.Value;
+                ans173.AnserTypeId = 1;
+                ans173.CreateDate = DateTime.Now;
+                ans173.UserId = user.Id;
+                ans173.AnsMonth = ansMonth; ans173.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans174 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 174).FirstOrDefault();
+            if (ans174 == null)
+            {
+                //  SerialNumber 9 :           
+                Answer answer174 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox9.Value,
+                    QuestionId = 174,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer174);
+            }
+            else
+            {
+                ans174.QuestionId = 174;
+                ans174.AnsDes = this.serialNumberTextbox9.Value;
+                ans174.AnserTypeId = 1;
+                ans174.CreateDate = DateTime.Now;
+                ans174.UserId = user.Id;
+                ans174.AnsMonth = ansMonth; ans174.SRId = sR.Id;
+            }
+
+
+            var ans175 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 175).FirstOrDefault();
+            if (ans175 == null)
+            {
+                //  new SerialNumber 9 :           
+                Answer answer175 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox9.Value,
+                    QuestionId = 175,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer175);
+            }
+            else
+            {
+                ans175.QuestionId = 175;
+                ans175.AnsDes = this.newSerialNumberTextbox9.Value;
+                ans175.AnserTypeId = 1;
+                ans175.CreateDate = DateTime.Now;
+                ans175.UserId = user.Id;
+                ans175.AnsMonth = ansMonth; ans175.SRId = sR.Id;
+            }
+
+            var ans176 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 176).FirstOrDefault();
+            if (ans176 == null)
+            {
+                //  หมายเหตุ  9:           
+                Answer answer176 = new Answer()
+                {
+                    AnsDes = this.noteTextbox9.Value,
+                    QuestionId = 176,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer176);
+            }
+            else
+            {
+                ans176.QuestionId = 176;
+                ans176.AnsDes = this.noteTextbox9.Value;
+                ans176.AnserTypeId = 1;
+                ans176.CreateDate = DateTime.Now;
+                ans176.UserId = user.Id;
+                ans176.AnsMonth = ansMonth; ans176.SRId = sR.Id;
+            }
+
+
+
+
+
+
+            var ans177 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 177).FirstOrDefault();
+            if (ans177 == null)
+            {
+                // รายการอุปกรณ์ 10 :      
+                Answer answer177 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox10.Value,
+                    QuestionId = 177,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer177);
+
+            }
+            else
+            {
+                ans177.QuestionId = 177;
+                ans177.AnsDes = this.toolsListTextbox10.Value;
+                ans177.AnserTypeId = 1;
+                ans177.CreateDate = DateTime.Now;
+                ans177.UserId = user.Id;
+                ans177.AnsMonth = ansMonth; ans177.SRId = sR.Id;
+            }
+
+
+
+            var ans178 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 178).FirstOrDefault();
+            if (ans178 == null)
+            {
+                //  SerialNumber 10 :           
+                Answer answer178 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox10.Value,
+                    QuestionId = 178,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer178);
+
+            }
+            else
+            {
+                ans178.QuestionId = 178;
+                ans178.AnsDes = this.serialNumberTextbox10.Value;
+                ans178.AnserTypeId = 1;
+                ans178.CreateDate = DateTime.Now;
+                ans178.UserId = user.Id;
+                ans178.AnsMonth = ansMonth; ans178.SRId = sR.Id;
+            }
+
+
+            var ans179 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 179).FirstOrDefault();
+            if (ans179 == null)
+            {
+                //  new SerialNumber 10 :           
+                Answer answer179 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox10.Value,
+                    QuestionId = 179,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer179);
+
+            }
+            else
+            {
+                ans179.QuestionId = 179;
+                ans179.AnsDes = this.newSerialNumberTextbox10.Value;
+                ans179.AnserTypeId = 1;
+                ans179.CreateDate = DateTime.Now;
+                ans179.UserId = user.Id;
+                ans179.AnsMonth = ansMonth; ans179.SRId = sR.Id;
+            }
+
+
+            var ans180 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 180).FirstOrDefault();
+            if (ans180 == null)
+            {
+                //  หมายเหตุ  10:           
+                Answer answer180 = new Answer()
+                {
+                    AnsDes = this.noteTextbox10.Value,
+                    QuestionId = 180,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer180);
+
+            }
+            else
+            {
+                ans180.QuestionId = 180;
+                ans180.AnsDes = this.noteTextbox10.Value;
+                ans180.AnserTypeId = 1;
+                ans180.CreateDate = DateTime.Now;
+                ans180.UserId = user.Id;
+                ans180.AnsMonth = ansMonth; ans180.SRId = sR.Id;
+            }
+
+
+
+
+            var ans181 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 181).FirstOrDefault();
+            if (ans181 == null)
+            {
+                // รายการอุปกรณ์ 11 :      
+                Answer answer181 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox11.Value,
+                    QuestionId = 181,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer181);
+
+            }
+            else
+            {
+                ans181.QuestionId = 181;
+                ans181.AnsDes = this.toolsListTextbox11.Value;
+                ans181.AnserTypeId = 1;
+                ans181.CreateDate = DateTime.Now;
+                ans181.UserId = user.Id;
+                ans181.AnsMonth = ansMonth; ans181.SRId = sR.Id;
+            }
+
+
+
+
+            var ans182 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 182).FirstOrDefault();
+            if (ans182 == null)
+            {
+                //  SerialNumber 11 :           
+                Answer answer182 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox11.Value,
+                    QuestionId = 182,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer182);
+
+            }
+            else
+            {
+                ans182.QuestionId = 182;
+                ans182.AnsDes = this.serialNumberTextbox11.Value;
+                ans182.AnserTypeId = 1;
+                ans182.CreateDate = DateTime.Now;
+                ans182.UserId = user.Id;
+                ans182.AnsMonth = ansMonth; ans182.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans183 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 183).FirstOrDefault();
+            if (ans183 == null)
+            {
+                //  new SerialNumber 11 :           
+                Answer answer183 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox11.Value,
+                    QuestionId = 183,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer183);
+
+            }
+            else
+            {
+                ans183.QuestionId = 183;
+                ans183.AnsDes = this.newSerialNumberTextbox11.Value;
+                ans183.AnserTypeId = 1;
+                ans183.CreateDate = DateTime.Now;
+                ans183.UserId = user.Id;
+                ans183.AnsMonth = ansMonth; ans183.SRId = sR.Id;
+            }
+
+
+
+
+
+
+            var ans184 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 184).FirstOrDefault();
+            if (ans184 == null)
+            {
+                //  หมายเหตุ  11:           
+                Answer answer184 = new Answer()
+                {
+                    AnsDes = this.noteTextbox11.Value,
+                    QuestionId = 184,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer184);
+
+            }
+            else
+            {
+                ans184.QuestionId = 184;
+                ans184.AnsDes = this.noteTextbox11.Value;
+                ans184.AnserTypeId = 1;
+                ans184.CreateDate = DateTime.Now;
+                ans184.UserId = user.Id;
+                ans184.AnsMonth = ansMonth; ans184.SRId = sR.Id;
+            }
+
+
+
+
+
+
+
+            var ans185 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 185).FirstOrDefault();
+            if (ans185 == null)
+            {
+
+                // รายการอุปกรณ์ 12 :      
+                Answer answer185 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox12.Value,
+                    QuestionId = 185,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer185);
+
+            }
+            else
+            {
+                ans185.QuestionId = 185;
+                ans185.AnsDes = this.toolsListTextbox12.Value;
+                ans185.AnserTypeId = 1;
+                ans185.CreateDate = DateTime.Now;
+                ans185.UserId = user.Id;
+                ans185.AnsMonth = ansMonth; ans185.SRId = sR.Id;
+            }
+
+
+
+
+            var ans186 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 186).FirstOrDefault();
+            if (ans186 == null)
+            {
+
+                //  SerialNumber 12 :           
+                Answer answer186 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox12.Value,
+                    QuestionId = 186,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer186);
+
+            }
+            else
+            {
+                ans186.QuestionId = 186;
+                ans186.AnsDes = this.serialNumberTextbox12.Value;
+                ans186.AnserTypeId = 1;
+                ans186.CreateDate = DateTime.Now;
+                ans186.UserId = user.Id;
+                ans186.AnsMonth = ansMonth; ans186.SRId = sR.Id;
+            }
+
+            var ans187 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 187).FirstOrDefault();
+            if (ans187 == null)
+            {
+
+                //  new SerialNumber 12 :           
+                Answer answer187 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox12.Value,
+                    QuestionId = 187,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer187);
+
+            }
+            else
+            {
+                ans187.QuestionId = 187;
+                ans187.AnsDes = this.newSerialNumberTextbox12.Value;
+                ans187.AnserTypeId = 1;
+                ans187.CreateDate = DateTime.Now;
+                ans187.UserId = user.Id;
+                ans187.AnsMonth = ansMonth; ans187.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans188 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 188).FirstOrDefault();
+            if (ans188 == null)
+            {
+
+                //  หมายเหตุ  12:           
+                Answer answer188 = new Answer()
+                {
+                    AnsDes = this.noteTextbox12.Value,
+                    QuestionId = 188,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer188);
+
+            }
+            else
+            {
+                ans188.QuestionId = 188;
+                ans188.AnsDes = this.noteTextbox12.Value;
+                ans188.AnserTypeId = 1;
+                ans188.CreateDate = DateTime.Now;
+                ans188.UserId = user.Id;
+                ans188.AnsMonth = ansMonth; ans188.SRId = sR.Id;
+            }
+
+
+
+
+
+
+            var ans189 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 189).FirstOrDefault();
+            if (ans189 == null)
+            {
+
+                // รายการอุปกรณ์ 13 :      
+                Answer answer189 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox13.Value,
+                    QuestionId = 189,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer189);
+
+            }
+            else
+            {
+                ans189.QuestionId = 189;
+                ans189.AnsDes = this.toolsListTextbox13.Value;
+                ans189.AnserTypeId = 1;
+                ans189.CreateDate = DateTime.Now;
+                ans189.UserId = user.Id;
+                ans189.AnsMonth = ansMonth; ans189.SRId = sR.Id;
+            }
+
+
+
+            var ans190 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 190).FirstOrDefault();
+            if (ans190 == null)
+            {
+
+                //  SerialNumber 13 :           
+                Answer answer190 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox13.Value,
+                    QuestionId = 190,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer190);
+
+            }
+            else
+            {
+                ans190.QuestionId = 190;
+                ans190.AnsDes = this.serialNumberTextbox13.Value;
+                ans190.AnserTypeId = 1;
+                ans190.CreateDate = DateTime.Now;
+                ans190.UserId = user.Id;
+                ans190.AnsMonth = ansMonth; ans190.SRId = sR.Id;
+            }
+
+
+
+            var ans191 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 191).FirstOrDefault();
+            if (ans191 == null)
+            {
+
+                //  new SerialNumber 13 :           
+                Answer answer191 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox13.Value,
+                    QuestionId = 191,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer191);
+
+            }
+            else
+            {
+                ans191.QuestionId = 191;
+                ans191.AnsDes = this.newSerialNumberTextbox13.Value;
+                ans191.AnserTypeId = 1;
+                ans191.CreateDate = DateTime.Now;
+                ans191.UserId = user.Id;
+                ans191.AnsMonth = ansMonth; ans191.SRId = sR.Id;
+            }
+
+            var ans192 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 192).FirstOrDefault();
+            if (ans192 == null)
+            {
+
+                //  หมายเหตุ  13   :    
+                Answer answer192 = new Answer()
+                {
+                    AnsDes = this.noteTextbox13.Value,
+                    QuestionId = 192,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer192);
+
+            }
+            else
+            {
+                ans192.QuestionId = 192;
+                ans192.AnsDes = this.noteTextbox13.Value;
+                ans192.AnserTypeId = 1;
+                ans192.CreateDate = DateTime.Now;
+                ans192.UserId = user.Id;
+                ans192.AnsMonth = ansMonth; ans192.SRId = sR.Id;
+            }
+
+
+            var ans193 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 193).FirstOrDefault();
+            if (ans193 == null)
+            {
+
+                // รายการอุปกรณ์ 14 :      
+                Answer answer193 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox14.Value,
+                    QuestionId = 193,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer193);
+
+            }
+            else
+            {
+                ans193.QuestionId = 193;
+                ans193.AnsDes = this.toolsListTextbox14.Value;
+                ans193.AnserTypeId = 1;
+                ans193.CreateDate = DateTime.Now;
+                ans193.UserId = user.Id;
+                ans193.AnsMonth = ansMonth; ans193.SRId = sR.Id;
+            }
+
+
+
+
+            var ans194 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 194).FirstOrDefault();
+            if (ans194 == null)
+            {
+                //  SerialNumber 14 :           
+                Answer answer194 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox14.Value,
+                    QuestionId = 194,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer194);
+
+
+            }
+            else
+            {
+                ans194.QuestionId = 194;
+                ans194.AnsDes = this.serialNumberTextbox14.Value;
+                ans194.AnserTypeId = 1;
+                ans194.CreateDate = DateTime.Now;
+                ans194.UserId = user.Id;
+                ans194.AnsMonth = ansMonth; ans194.SRId = sR.Id;
+            }
+
+
+
+
+            var ans195 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 195).FirstOrDefault();
+            if (ans195 == null)
+            {
+                //  new SerialNumber 14 :           
+                Answer answer195 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox14.Value,
+                    QuestionId = 195,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer195);
+            }
+            else
+            {
+                ans195.QuestionId = 195;
+                ans195.AnsDes = this.newSerialNumberTextbox14.Value;
+                ans195.AnserTypeId = 1;
+                ans195.CreateDate = DateTime.Now;
+                ans195.UserId = user.Id;
+                ans195.AnsMonth = ansMonth; ans195.SRId = sR.Id;
+            }
+
+
+
+            var ans196 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 196).FirstOrDefault();
+            if (ans196 == null)
+            {
+                //  หมายเหตุ  143   :    
+                Answer answer196 = new Answer()
+                {
+                    AnsDes = this.noteTextbox14.Value,
+                    QuestionId = 196,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer196);
+            }
+            else
+            {
+                ans196.QuestionId = 196;
+                ans196.AnsDes = this.noteTextbox14.Value;
+                ans196.AnserTypeId = 1;
+                ans196.CreateDate = DateTime.Now;
+                ans196.UserId = user.Id;
+                ans196.AnsMonth = ansMonth; ans196.SRId = sR.Id;
+            }
+
+            var ans197 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 197).FirstOrDefault();
+            if (ans197 == null)
+            {
+                // รายการอุปกรณ์ 15 :      
+                Answer answer197 = new Answer()
+                {
+                    AnsDes = this.toolsListTextbox15.Value,
+                    QuestionId = 197,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer197);
+            }
+            else
+            {
+                ans197.QuestionId = 197;
+                ans197.AnsDes = this.toolsListTextbox15.Value;
+                ans197.AnserTypeId = 1;
+                ans197.CreateDate = DateTime.Now;
+                ans197.UserId = user.Id;
+                ans197.AnsMonth = ansMonth; ans197.SRId = sR.Id;
+            }
+
+
+
+            var ans198 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 198).FirstOrDefault();
+            if (ans198 == null)
+            {
+                //  SerialNumber 15 :           
+                Answer answer198 = new Answer()
+                {
+                    AnsDes = this.serialNumberTextbox15.Value,
+                    QuestionId = 198,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer198);
+            }
+            else
+            {
+                ans198.QuestionId = 198;
+                ans198.AnsDes = this.serialNumberTextbox15.Value;
+                ans198.AnserTypeId = 1;
+                ans198.CreateDate = DateTime.Now;
+                ans198.UserId = user.Id;
+                ans198.AnsMonth = ansMonth; ans198.SRId = sR.Id;
+            }
+
+
+            var ans199 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 199).FirstOrDefault();
+            if (ans199 == null)
+            {
+                //  new SerialNumber 15 :           
+                Answer answer199 = new Answer()
+                {
+                    AnsDes = this.newSerialNumberTextbox15.Value,
+                    QuestionId = 199,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer199);
+            }
+            else
+            {
+                ans199.QuestionId = 199;
+                ans199.AnsDes = this.newSerialNumberTextbox15.Value;
+                ans199.AnserTypeId = 1;
+                ans199.CreateDate = DateTime.Now;
+                ans199.UserId = user.Id;
+                ans199.AnsMonth = ansMonth; ans199.SRId = sR.Id;
+            }
+
+
+
+
+            var ans200 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 200).FirstOrDefault();
+            if (ans200 == null)
+            {
+                //  หมายเหตุ  15   :    
+                Answer answer200 = new Answer()
+                {
+                    AnsDes = this.noteTextbox15.Value,
+                    QuestionId = 200,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer200);
+            }
+            else
+            {
+                ans200.QuestionId = 200;
+                ans200.AnsDes = this.noteTextbox15.Value;
+                ans200.AnserTypeId = 1;
+                ans200.CreateDate = DateTime.Now;
+                ans200.UserId = user.Id;
+                ans200.AnsMonth = ansMonth; ans200.SRId = sR.Id;
+            }
+
+
+
+
+            var ans201 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 201).FirstOrDefault();
+            if (ans201 == null)
+            {
+                // team name :    
+                Answer answer201 = new Answer()
+                {
+                    AnsDes = this.nameTeampmTextbox.Value,
+                    QuestionId = 201,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer201);
+            }
+            else
+            {
+                ans201.QuestionId = 201;
+                ans201.AnsDes = this.nameTeampmTextbox.Value;
+                ans201.AnserTypeId = 1;
+                ans201.CreateDate = DateTime.Now;
+                ans201.UserId = user.Id;
+                ans201.AnsMonth = ansMonth; ans201.SRId = sR.Id;
+            }
+
+            var ans202 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 202).FirstOrDefault();
+            if (ans202 == null)
+            {
+                // วันที่ทำ PM :    
+                Answer answer202 = new Answer()
+                {
+                    AnsDes = this.dayDopmTextbox.Value,
+                    QuestionId = 202,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer202);
+            }
+            else
+            {
+                ans202.QuestionId = 202;
+                ans202.AnsDes = this.dayDopmTextbox.Value;
+                ans202.AnserTypeId = 1;
+                ans202.CreateDate = DateTime.Now;
+                ans202.UserId = user.Id;
+                ans202.AnsMonth = ansMonth; ans202.SRId = sR.Id;
+            }
+
+
+            var ans203 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 203).FirstOrDefault();
+            if (ans203 == null)
+            {
+                // ชื่อเจ้าหน้าที่ประจำศูนย์ :    
+                Answer answer203 = new Answer()
+                {
+                    AnsDes = this.nameAgentareaTextbox.Value,
+                    QuestionId = 203,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer203);
+            }
+            else
+            {
+                ans203.QuestionId = 203;
+                ans203.AnsDes = this.nameAgentareaTextbox.Value;
+                ans203.AnserTypeId = 1;
+                ans203.CreateDate = DateTime.Now;
+                ans203.UserId = user.Id;
+                ans203.AnsMonth = ansMonth; ans203.SRId = sR.Id;
+            }
+
+
+
+
+            var ans204 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 204).FirstOrDefault();
+            if (ans204 == null)
+            {
+                // เบอร์โทรติดต่อ :    
+                Answer answer204 = new Answer()
+                {
+                    AnsDes = this.telephoneAgentTextbox.Value,
+                    QuestionId = 204,
+                    AnserTypeId = 1,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer204);
+            }
+            else
+            {
+                ans204.QuestionId = 204;
+                ans204.AnsDes = this.telephoneAgentTextbox.Value;
+                ans204.AnserTypeId = 1;
+                ans204.CreateDate = DateTime.Now;
+                ans204.UserId = user.Id;
+                ans204.AnsMonth = ansMonth; ans204.SRId = sR.Id;
+            }
+
+
+
+
+            var ans205 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 205).FirstOrDefault();
+            if (ans205 == null)
+            {
+                // รูปภาพป้ายชื่อโรงเรียน  :
+                string billBoardSchool = Request.Form["billBoardSchoolRadio"];
+                Answer answer205 = new Answer()
+                {
+                    AnsDes = billBoardSchool,
+                    QuestionId = 205,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer205);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["billBoardSchoolRadio"];
+                ans205.QuestionId = 205;
+                ans205.AnsDes = billBoardSchool;
+                ans205.AnserTypeId = 1;
+                ans205.CreateDate = DateTime.Now;
+                ans205.UserId = user.Id;
+                ans205.AnsMonth = ansMonth; ans205.SRId = sR.Id;
+            }
+
+
+
+
+            var ans206 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 206).FirstOrDefault();
+            if (ans206 == null)
+            {
+                // รูปภาพด้านหน้าศูนย์ (ถ่ายคู่กับ จนท.ประจำศูนย์)  :
+                string picTuragent = Request.Form["pictureWithagentRadio"];
+                Answer answer206 = new Answer()
+                {
+                    AnsDes = picTuragent,
+                    QuestionId = 206,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer206);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["pictureWithagentRadio"];
+                ans206.QuestionId = 206;
+                ans206.AnsDes = billBoardSchool;
+                ans206.AnserTypeId = 1;
+                ans206.CreateDate = DateTime.Now;
+                ans206.UserId = user.Id;
+                ans206.AnsMonth = ansMonth; ans206.SRId = sR.Id;
+            }
+
+
+
+            var ans207 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 207).FirstOrDefault();
+            if (ans207 == null)
+            {
+                // รูปภาพด้านหลังศูนย์ :
+                string behinddHall = Request.Form["pictureBehindHallRadio"];
+                Answer answer207 = new Answer()
+                {
+                    AnsDes = behinddHall,
+                    QuestionId = 207,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer207);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["pictureBehindHallRadio"];
+                ans207.QuestionId = 207;
+                ans207.AnsDes = billBoardSchool;
+                ans207.AnserTypeId = 1;
+                ans207.CreateDate = DateTime.Now;
+                ans207.UserId = user.Id;
+                ans207.AnsMonth = ansMonth; ans207.SRId = sR.Id;
+            }
+
+
+
+            var ans208 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 208).FirstOrDefault();
+            if (ans208 == null)
+            {
+                // รูปภาพบริเวณห้องโถง :
+                string picInhall = Request.Form["picInlobbyRadio"];
+                Answer answer208 = new Answer()
+                {
+                    AnsDes = picInhall,
+                    QuestionId = 208,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer208);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picInlobbyRadio"];
+                ans208.QuestionId = 208;
+                ans208.AnsDes = billBoardSchool;
+                ans208.AnserTypeId = 1;
+                ans208.CreateDate = DateTime.Now;
+                ans208.UserId = user.Id;
+                ans208.AnsMonth = ansMonth; ans208.SRId = sR.Id;
+            }
+
+
+
+            var ans209 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 209).FirstOrDefault();
+            if (ans209 == null)
+            {
+                // รูปภาพบริเวณห้องประชุม :
+                string picMett = Request.Form["picinMeetingroomRadio"];
+                Answer answer209 = new Answer()
+                {
+                    AnsDes = picMett,
+                    QuestionId = 209,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer209);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picinMeetingroomRadio"];
+                ans209.QuestionId = 209;
+                ans209.AnsDes = billBoardSchool;
+                ans209.AnserTypeId = 1;
+                ans209.CreateDate = DateTime.Now;
+                ans209.UserId = user.Id;
+                ans209.AnsMonth = ansMonth; ans209.SRId = sR.Id;
+            }
+
+
+            var ans210 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 210).FirstOrDefault();
+            if (ans210 == null)
+            {
+                // รูปภาพบริเวณห้อง Server :
+                string picinserVer = Request.Form["picInserverRadio"];
+                Answer answer210 = new Answer()
+                {
+                    AnsDes = picinserVer,
+                    QuestionId = 210,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer210);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picInserverRadio"];
+                ans210.QuestionId = 210;
+                ans210.AnsDes = billBoardSchool;
+                ans210.AnserTypeId = 1;
+                ans210.CreateDate = DateTime.Now;
+                ans210.UserId = user.Id;
+                ans210.AnsMonth = ansMonth; ans210.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans211 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 211).FirstOrDefault();
+            if (ans211 == null)
+            {
+                // รูปภาพบริเวณห้องน้ำ :
+                string picIntoileteiei = Request.Form["picIntoiletRadio"];
+                Answer answer211 = new Answer()
+                {
+                    AnsDes = picIntoileteiei,
+                    QuestionId = 211,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer211);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picIntoiletRadio"];
+                ans211.QuestionId = 211;
+                ans211.AnsDes = billBoardSchool;
+                ans211.AnserTypeId = 1;
+                ans211.CreateDate = DateTime.Now;
+                ans211.UserId = user.Id;
+                ans211.AnsMonth = ansMonth; ans211.SRId = sR.Id;
+            }
+
+
+
+
+
+
+            var ans212 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 212).FirstOrDefault();
+            if (ans212 == null)
+            {
+                // รูปภาพบริเวณห้องปั๊มน้ำ  :
+                string picinWaterpump = Request.Form["pictureInwaterpumpRadio"];
+                Answer answer212 = new Answer()
+                {
+                    AnsDes = picinWaterpump,
+                    QuestionId = 212,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer212);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["pictureInwaterpumpRadio"];
+                ans212.QuestionId = 212;
+                ans212.AnsDes = billBoardSchool;
+                ans212.AnserTypeId = 1;
+                ans212.CreateDate = DateTime.Now;
+                ans212.UserId = user.Id;
+                ans212.AnsMonth = ansMonth; ans212.SRId = sR.Id;
+            }
+
+
+
+
+            var ans213 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 213).FirstOrDefault();
+            if (ans213 == null)
+            {
+                // รูป PEA Meter  :
+                string picMeter = Request.Form["picpeaMeterRadio"];
+                Answer answer213 = new Answer()
+                {
+                    AnsDes = picMeter,
+                    QuestionId = 213,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer213);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picpeaMeterRadio"];
+                ans213.QuestionId = 213;
+                ans213.AnsDes = billBoardSchool;
+                ans213.AnserTypeId = 1;
+                ans213.CreateDate = DateTime.Now;
+                ans213.UserId = user.Id;
+                ans213.AnsMonth = ansMonth; ans213.SRId = sR.Id;
             }
 
 
@@ -8687,6 +7107,33 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
+            var ans214 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 214).FirstOrDefault();
+            if (ans214 == null)
+            {
+                // รูป PEA Meter  :
+                string acPic = Request.Form["acPicRadio"];
+                Answer answer214 = new Answer()
+                {
+                    AnsDes = acPic,
+                    QuestionId = 214,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer214);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["acPicRadio"];
+                ans214.QuestionId = 214;
+                ans214.AnsDes = billBoardSchool;
+                ans214.AnserTypeId = 1;
+                ans214.CreateDate = DateTime.Now;
+                ans214.UserId = user.Id;
+                ans214.AnsMonth = ansMonth; ans214.SRId = sR.Id;
+            }
 
 
 
@@ -8695,7 +7142,1572 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
 
 
 
-           
+            var ans215 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 215).FirstOrDefault();
+            if (ans215 == null)
+            {
+                // รูป PEA Meter  :
+                string recGroundBar = Request.Form["recGroundBargroundRadio"];
+                Answer answer215 = new Answer()
+                {
+                    AnsDes = recGroundBar,
+                    QuestionId = 215,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer215);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["recGroundBargroundRadio"];
+                ans215.QuestionId = 215;
+                ans215.AnsDes = billBoardSchool;
+                ans215.AnserTypeId = 1;
+                ans215.CreateDate = DateTime.Now;
+                ans215.UserId = user.Id;
+                ans215.AnsMonth = ansMonth; ans215.SRId = sR.Id;
+            }
+
+
+
+
+
+
+            var ans216 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 216).FirstOrDefault();
+            if (ans216 == null)
+            {
+                // รูปการตรวจสอบสถานะไฟฟ้ารั่วลง Ground (Lamp Test)   :
+                string lightleak = Request.Form["lightleakRadio"];
+                Answer answer216 = new Answer()
+                {
+                    AnsDes = lightleak,
+                    QuestionId = 216,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer216);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["lightleakRadio"];
+                ans216.QuestionId = 216;
+                ans216.AnsDes = billBoardSchool;
+                ans216.AnserTypeId = 1;
+                ans216.CreateDate = DateTime.Now;
+                ans216.UserId = user.Id;
+                ans216.AnsMonth = ansMonth; ans216.SRId = sR.Id;
+            }
+
+
+
+
+            var ans217 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 217).FirstOrDefault();
+            if (ans217 == null)
+            {
+                // รูป MDB  :
+                string mdbPic = Request.Form["mdbPicRadio"];
+                Answer answer217 = new Answer()
+                {
+                    AnsDes = mdbPic,
+                    QuestionId = 217,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer217);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["mdbPicRadio"];
+                ans217.QuestionId = 217;
+                ans217.AnsDes = billBoardSchool;
+                ans217.AnserTypeId = 1;
+                ans217.CreateDate = DateTime.Now;
+                ans217.UserId = user.Id;
+                ans217.AnsMonth = ansMonth; ans217.SRId = sR.Id;
+            }
+
+
+
+
+            var ans218 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 218).FirstOrDefault();
+            if (ans218 == null)
+            {
+                // รูป Fire Alarm Control  :
+                string picFilealarm = Request.Form["picFilealarmRadio"];
+                Answer answer218 = new Answer()
+                {
+                    AnsDes = picFilealarm,
+                    QuestionId = 218,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer218);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picFilealarmRadio"];
+                ans218.QuestionId = 218;
+                ans218.AnsDes = billBoardSchool;
+                ans218.AnserTypeId = 1;
+                ans218.CreateDate = DateTime.Now;
+                ans218.UserId = user.Id;
+                ans218.AnsMonth = ansMonth; ans218.SRId = sR.Id;
+            }
+
+
+
+            var ans219 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 219).FirstOrDefault();
+            if (ans219 == null)
+            {
+                // รูปภาพรวมอุปกรณ์ทั้งหมดภายในตู้ Rack  :
+                string alltoolsInrack = Request.Form["alltoolsInrackRadio"];
+                Answer answer219 = new Answer()
+                {
+                    AnsDes = alltoolsInrack,
+                    QuestionId = 219,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer219);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["alltoolsInrackRadio"];
+                ans219.QuestionId = 219;
+                ans219.AnsDes = billBoardSchool;
+                ans219.AnserTypeId = 1;
+                ans219.CreateDate = DateTime.Now;
+                ans219.UserId = user.Id;
+                ans219.AnsMonth = ansMonth; ans219.SRId = sR.Id;
+            }
+
+
+            var ans220 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 220).FirstOrDefault();
+            if (ans220 == null)
+            {
+                // รูปหน้าจอ UPS แสดงค่าต่างๆ และ Serial NO. :
+                string upsAndserial = Request.Form["upsAndserialRadio"];
+                Answer answer220 = new Answer()
+                {
+                    AnsDes = upsAndserial,
+                    QuestionId = 220,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer220);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["upsAndserialRadio"];
+                ans220.QuestionId = 220;
+                ans220.AnsDes = billBoardSchool;
+                ans220.AnserTypeId = 1;
+                ans220.CreateDate = DateTime.Now;
+                ans220.UserId = user.Id;
+                ans220.AnsMonth = ansMonth; ans220.SRId = sR.Id;
+            }
+
+
+
+
+            var ans221 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 221).FirstOrDefault();
+            if (ans221 == null)
+            {
+                // รูป ONU/Modem พร้อม Serial NO. และ MAC. :
+                string picOnu = Request.Form["picOnuRadio"];
+                Answer answer221 = new Answer()
+                {
+                    AnsDes = picOnu,
+                    QuestionId = 221,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer221);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picOnuRadio"];
+                ans221.QuestionId = 221;
+                ans221.AnsDes = billBoardSchool;
+                ans221.AnserTypeId = 1;
+                ans221.CreateDate = DateTime.Now;
+                ans221.UserId = user.Id;
+                ans221.AnsMonth = ansMonth; ans221.SRId = sR.Id;
+            }
+
+
+
+
+            var ans222 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 222).FirstOrDefault();
+            if (ans222 == null)
+            {
+                // รูป Power Supply พร้อม Serial NO :
+                string picPsu = Request.Form["picPsuRadio"];
+                Answer answer222 = new Answer()
+                {
+                    AnsDes = picPsu,
+                    QuestionId = 222,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer222);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picPsuRadio"];
+                ans222.QuestionId = 222;
+                ans222.AnsDes = billBoardSchool;
+                ans222.AnserTypeId = 1;
+                ans222.CreateDate = DateTime.Now;
+                ans222.UserId = user.Id;
+                ans222.AnsMonth = ansMonth; ans222.SRId = sR.Id;
+            }
+
+
+
+
+            var ans223 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 222).FirstOrDefault();
+            if (ans223 == null)
+            {
+                // รูป Power Supply พร้อม Serial NO :
+                string picSwitch = Request.Form["picSwitchRadio"];
+                Answer answer223 = new Answer()
+                {
+                    AnsDes = picSwitch,
+                    QuestionId = 223,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer223);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picSwitchRadio"];
+                ans223.QuestionId = 223;
+                ans223.AnsDes = billBoardSchool;
+                ans223.AnserTypeId = 1;
+                ans223.CreateDate = DateTime.Now;
+                ans223.UserId = user.Id;
+                ans223.AnsMonth = ansMonth; ans223.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans224 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 224).FirstOrDefault();
+            if (ans224 == null)
+            {
+                // รูป Switch 48 Port พร้อม Serial NO. และ MAC:
+                string picSwitch48 = Request.Form["picSwitch48Radio"];
+                Answer answer224 = new Answer()
+                {
+                    AnsDes = picSwitch48,
+                    QuestionId = 224,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer224);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picSwitch48Radio"];
+                ans224.QuestionId = 224;
+                ans224.AnsDes = billBoardSchool;
+                ans224.AnserTypeId = 1;
+                ans224.CreateDate = DateTime.Now;
+                ans224.UserId = user.Id;
+                ans224.AnsMonth = ansMonth; ans224.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans225 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 225).FirstOrDefault();
+            if (ans225 == null)
+            {
+                // รูป Outdoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC :
+                string picOutdoor = Request.Form["picOutdoorRadio"];
+                Answer answer225 = new Answer()
+                {
+                    AnsDes = picOutdoor,
+                    QuestionId = 225,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer225);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picOutdoorRadio"];
+                ans225.QuestionId = 225;
+                ans225.AnsDes = billBoardSchool;
+                ans225.AnserTypeId = 1;
+                ans225.CreateDate = DateTime.Now;
+                ans225.UserId = user.Id;
+                ans225.AnsMonth = ansMonth; ans225.SRId = sR.Id;
+            }
+
+
+
+
+            var ans226 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 226).FirstOrDefault();
+            if (ans226 == null)
+            {
+                // รูป Indoor AP ทั้ง 2 จุด พร้อม Serial NO. และ MAC:
+                string picIndoortwoway = Request.Form["picIndoortwowayRadio"];
+                Answer answer226 = new Answer()
+                {
+                    AnsDes = picIndoortwoway,
+                    QuestionId = 226,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer226);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picIndoortwowayRadio"];
+                ans226.QuestionId = 226;
+                ans226.AnsDes = billBoardSchool;
+                ans226.AnserTypeId = 1;
+                ans226.CreateDate = DateTime.Now;
+                ans226.UserId = user.Id;
+                ans226.AnsMonth = ansMonth; ans226.SRId = sR.Id;
+            }
+
+
+
+
+
+
+
+            var ans227 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 227).FirstOrDefault();
+            if (ans227 == null)
+            {
+                // รูปการ Test Speed จาก App Nperf โดยใช้ WIFI :
+                string picspeedTest = Request.Form["picspeedTestRadio"];
+                Answer answer227 = new Answer()
+                {
+                    AnsDes = picspeedTest,
+                    QuestionId = 227,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer227);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picspeedTestRadio"];
+                ans227.QuestionId = 227;
+                ans227.AnsDes = billBoardSchool;
+                ans227.AnserTypeId = 1;
+                ans227.CreateDate = DateTime.Now;
+                ans227.UserId = user.Id;
+                ans227.AnsMonth = ansMonth; ans227.SRId = sR.Id;
+            }
+
+
+
+
+
+
+
+
+            var ans228 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 228).FirstOrDefault();
+            if (ans228 == null)
+            {
+                // รูปการ Test Speed จาก App Nperf โดยใช้ LAN :
+                string picspeedTestwithLan = Request.Form["picspeedTestwithLanRadio"];
+                Answer answer228 = new Answer()
+                {
+                    AnsDes = picspeedTestwithLan,
+                    QuestionId = 228,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer228);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picspeedTestwithLanRadio"];
+                ans228.QuestionId = 228;
+                ans228.AnsDes = billBoardSchool;
+                ans228.AnserTypeId = 1;
+                ans228.CreateDate = DateTime.Now;
+                ans228.UserId = user.Id;
+                ans228.AnsMonth = ansMonth; ans228.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans229 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 229).FirstOrDefault();
+            if (ans229 == null)
+            {
+                // รูป ก่อน-หลัง การทำความสะอาดรางระบายน้ำ :
+                string picbeforeAftercanel = Request.Form["picbeforeAftercanelRadio"];
+                Answer answer229 = new Answer()
+                {
+                    AnsDes = picbeforeAftercanel,
+                    QuestionId = 229,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer229);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picbeforeAftercanelRadio"];
+                ans229.QuestionId = 229;
+                ans229.AnsDes = billBoardSchool;
+                ans229.AnserTypeId = 1;
+                ans229.CreateDate = DateTime.Now;
+                ans229.UserId = user.Id;
+                ans229.AnsMonth = ansMonth; ans229.SRId = sR.Id;
+            }
+
+
+
+            var ans230 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 230).FirstOrDefault();
+            if (ans230 == null)
+            {
+                // รูปหน้าจอ Monitor กล้องวงจรปิดผ่านจอทีวีในห้องประชุม :
+                string picMonitor = Request.Form["picMonitorRadio"];
+                Answer answer230 = new Answer()
+                {
+                    AnsDes = picMonitor,
+                    QuestionId = 230,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer230);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picMonitorRadio"];
+                ans230.QuestionId = 230;
+                ans230.AnsDes = billBoardSchool;
+                ans230.AnserTypeId = 1;
+                ans230.CreateDate = DateTime.Now;
+                ans230.UserId = user.Id;
+                ans230.AnsMonth = ansMonth; ans230.SRId = sR.Id;
+            }
+
+
+
+            var ans231 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 231).FirstOrDefault();
+            if (ans231 == null)
+            {
+                // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องโถง  :
+                string beforeArterairClean = Request.Form["beforeArterairCleanRadio"];
+                Answer answer231 = new Answer()
+                {
+                    AnsDes = beforeArterairClean,
+                    QuestionId = 231,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer231);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["beforeArterairCleanRadio"];
+                ans231.QuestionId = 231;
+                ans231.AnsDes = billBoardSchool;
+                ans231.AnserTypeId = 1;
+                ans231.CreateDate = DateTime.Now;
+                ans231.UserId = user.Id;
+                ans231.AnsMonth = ansMonth; ans231.SRId = sR.Id;
+            }
+
+
+
+
+
+
+
+
+
+            var ans232 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 232).FirstOrDefault();
+            if (ans232 == null)
+            {
+                // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้องประชุม :
+                string picairInmeeting = Request.Form["picairInmeetingRadio"];
+                Answer answer232 = new Answer()
+                {
+                    AnsDes = picairInmeeting,
+                    QuestionId = 232,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer232);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picairInmeetingRadio"];
+                ans232.QuestionId = 232;
+                ans232.AnsDes = billBoardSchool;
+                ans232.AnserTypeId = 1;
+                ans232.CreateDate = DateTime.Now;
+                ans232.UserId = user.Id;
+                ans232.AnsMonth = ansMonth; ans232.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans233 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 233).FirstOrDefault();
+            if (ans233 == null)
+            {
+                // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server :
+                string picAirserver = Request.Form["picAirserverRadio"];
+                Answer answer233 = new Answer()
+                {
+                    AnsDes = picAirserver,
+                    QuestionId = 233,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer233);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picAirserverRadio"];
+                ans233.QuestionId = 232;
+                ans233.AnsDes = billBoardSchool;
+                ans233.AnserTypeId = 1;
+                ans233.CreateDate = DateTime.Now;
+                ans233.UserId = user.Id;
+                ans233.AnsMonth = ansMonth; ans233.SRId = sR.Id;
+            }
+
+
+
+
+            var ans234 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 234).FirstOrDefault();
+            if (ans234 == null)
+            {
+                // รูปภาพก่อน-หลัง การทำความสะอาดแอร์ห้อง Server :
+                string inStallBase = Request.Form["inStallBaseRadio"];
+                Answer answer234 = new Answer()
+                {
+                    AnsDes = inStallBase,
+                    QuestionId = 234,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer234);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["inStallBaseRadio"];
+                ans234.QuestionId = 234;
+                ans234.AnsDes = billBoardSchool;
+                ans234.AnserTypeId = 1;
+                ans234.CreateDate = DateTime.Now;
+                ans234.UserId = user.Id;
+                ans234.AnsMonth = ansMonth; ans234.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans235 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 235).FirstOrDefault();
+            if (ans235 == null)
+            {
+                // รูปความสะอาดบริเวณจานดาวเทียมr :
+                string picCleansatellite = Request.Form["picCleansatelliteRadio"];
+                Answer answer235 = new Answer()
+                {
+                    AnsDes = picCleansatellite,
+                    QuestionId = 235,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer235);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picCleansatelliteRadio"];
+                ans235.QuestionId = 235;
+                ans235.AnsDes = billBoardSchool;
+                ans235.AnserTypeId = 1;
+                ans235.CreateDate = DateTime.Now;
+                ans235.UserId = user.Id;
+                ans235.AnsMonth = ansMonth; ans235.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans236 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 236).FirstOrDefault();
+            if (ans236 == null)
+            {
+                // รูป LNB พร้อม Part NO. :
+                string picLnb = Request.Form["picLnbRadio"];
+                Answer answer236 = new Answer()
+                {
+                    AnsDes = picLnb,
+                    QuestionId = 236,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer236);
+
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picLnbRadio"];
+                ans236.QuestionId = 236;
+                ans236.AnsDes = billBoardSchool;
+                ans236.AnserTypeId = 1;
+                ans236.CreateDate = DateTime.Now;
+                ans236.UserId = user.Id;
+                ans236.AnsMonth = ansMonth; ans236.SRId = sR.Id;
+            }
+
+
+            var ans237 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 237).FirstOrDefault();
+            if (ans237 == null)
+            {
+                // รูป BUC พร้อม Part NO :
+                string picBUC = Request.Form["picBUCRadio"];
+                Answer answer237 = new Answer()
+                {
+                    AnsDes = picBUC,
+                    QuestionId = 237,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer237);
+
+
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picBUCRadio"];
+                ans237.QuestionId = 237;
+                ans237.AnsDes = billBoardSchool;
+                ans237.AnserTypeId = 1;
+                ans237.CreateDate = DateTime.Now;
+                ans237.UserId = user.Id;
+                ans237.AnsMonth = ansMonth; ans237.SRId = sR.Id;
+            }
+
+
+
+            var ans238 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 238).FirstOrDefault();
+            if (ans238 == null)
+            {
+                // รูปการเก็บสายและพันหัวที่ LNB/BUC :
+                string picWiringLnb = Request.Form["picWiringLnbRadio"];
+                Answer answer238 = new Answer()
+                {
+                    AnsDes = picWiringLnb,
+                    QuestionId = 238,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer238);
+
+
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picWiringLnbRadio"];
+                ans238.QuestionId = 238;
+                ans238.AnsDes = billBoardSchool;
+                ans238.AnserTypeId = 1;
+                ans238.CreateDate = DateTime.Now;
+                ans238.UserId = user.Id;
+                ans238.AnsMonth = ansMonth; ans238.SRId = sR.Id;
+            }
+
+            var ans239 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 239).FirstOrDefault();
+            if (ans239 == null)
+            {
+                // รูปแนว Line Of Sight (ดูการถูกบังของหน้าจานดาวเทียม) :
+                string picLineofSight = Request.Form["picLineofSightRadio"];
+                Answer answer239 = new Answer()
+                {
+                    AnsDes = picLineofSight,
+                    QuestionId = 239,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer239);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picLineofSightRadio"];
+                ans239.QuestionId = 239;
+                ans239.AnsDes = billBoardSchool;
+                ans239.AnserTypeId = 1;
+                ans239.CreateDate = DateTime.Now;
+                ans239.UserId = user.Id;
+                ans239.AnsMonth = ansMonth; ans239.SRId = sR.Id;
+            }
+
+
+
+
+            var ans240 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 240).FirstOrDefault();
+            if (ans240 == null)
+            {
+                // รูปจุดติดตั้ง Solar Cell :
+                string picBaseSolarcell = Request.Form["picBaseSolarcellRadio"];
+                Answer answer240 = new Answer()
+                {
+                    AnsDes = picBaseSolarcell,
+                    QuestionId = 240,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer240);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picBaseSolarcellRadio"];
+                ans240.QuestionId = 240;
+                ans240.AnsDes = billBoardSchool;
+                ans240.AnserTypeId = 1;
+                ans240.CreateDate = DateTime.Now;
+                ans240.UserId = user.Id;
+                ans240.AnsMonth = ansMonth; ans240.SRId = sR.Id;
+            }
+
+            var ans241 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 241).FirstOrDefault();
+            if (ans241 == null)
+            {
+                // รูปอุปกรณ์ Solar Cell ภายในห้อง :
+                string solarcellToolsinroom = Request.Form["solarcellToolsinroomRadio"];
+                Answer answer241 = new Answer()
+                {
+                    AnsDes = solarcellToolsinroom,
+                    QuestionId = 241,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer241);
+
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["solarcellToolsinroomRadio"];
+                ans241.QuestionId = 241;
+                ans241.AnsDes = billBoardSchool;
+                ans241.AnserTypeId = 1;
+                ans241.CreateDate = DateTime.Now;
+                ans241.UserId = user.Id;
+                ans241.AnsMonth = ansMonth; ans241.SRId = sR.Id;
+            }
+
+
+
+            var ans242 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 242).FirstOrDefault();
+            if (ans242 == null)
+            {
+                // รูปหน้าจอ Charger แสดงค่าต่างๆ :
+                string screenCharger = Request.Form["screenChargerRadio"];
+                Answer answer242 = new Answer()
+                {
+                    AnsDes = screenCharger,
+                    QuestionId = 242,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer242);
+
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["screenChargerRadio"];
+                ans242.QuestionId = 242;
+                ans242.AnsDes = billBoardSchool;
+                ans242.AnserTypeId = 1;
+                ans242.CreateDate = DateTime.Now;
+                ans242.UserId = user.Id;
+                ans242.AnsMonth = ansMonth; ans242.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans243 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 243).FirstOrDefault();
+            if (ans243 == null)
+            {
+                // รูปหน้าจอ Inverter แสดงค่าต่างๆ :
+                string screenInverter = Request.Form["screenInverterRadio"];
+                Answer answer243 = new Answer()
+                {
+                    AnsDes = screenInverter,
+                    QuestionId = 243,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer243);
+
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["screenInverterRadio"];
+                ans243.QuestionId = 243;
+                ans243.AnsDes = billBoardSchool;
+                ans243.AnserTypeId = 1;
+                ans243.CreateDate = DateTime.Now;
+                ans243.UserId = user.Id;
+                ans243.AnsMonth = ansMonth; ans243.SRId = sR.Id;
+            }
+
+
+
+
+            var ans244 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 244).FirstOrDefault();
+            if (ans244 == null)
+            {
+                // รูป Circuit Breaker ภายในตู้ :
+                string piccircuitBreaker = Request.Form["piccircuitBreakerRadio"];
+                Answer answer244 = new Answer()
+                {
+                    AnsDes = piccircuitBreaker,
+                    QuestionId = 244,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer244);
+
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["piccircuitBreakerRadio"];
+                ans244.QuestionId = 244;
+                ans244.AnsDes = billBoardSchool;
+                ans244.AnserTypeId = 1;
+                ans244.CreateDate = DateTime.Now;
+                ans244.UserId = user.Id;
+                ans244.AnsMonth = ansMonth; ans244.SRId = sR.Id;
+            }
+
+
+            var ans245 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 245).FirstOrDefault();
+            if (ans245 == null)
+            {
+                // รูป Terminal ต่อสายภายในตู้ :
+                string picTerminal = Request.Form["picTerminalRadio"];
+                Answer answer245 = new Answer()
+                {
+                    AnsDes = picTerminal,
+                    QuestionId = 245,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer245);
+
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picTerminalRadio"];
+                ans245.QuestionId = 245;
+                ans245.AnsDes = billBoardSchool;
+                ans245.AnserTypeId = 1;
+                ans245.CreateDate = DateTime.Now;
+                ans245.UserId = user.Id;
+                ans245.AnsMonth = ansMonth; ans245.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans246 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 246).FirstOrDefault();
+            if (ans246 == null)
+            {
+                // รูปความสะอาดแผง PV :
+                string picCleaningPv = Request.Form["picCleaningPvRadio"];
+                Answer answer246 = new Answer()
+                {
+                    AnsDes = picCleaningPv,
+                    QuestionId = 246,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer246);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picCleaningPvRadio"];
+                ans246.QuestionId = 246;
+                ans246.AnsDes = billBoardSchool;
+                ans246.AnserTypeId = 1;
+                ans246.CreateDate = DateTime.Now;
+                ans246.UserId = user.Id;
+                ans246.AnsMonth = ansMonth; ans246.SRId = sR.Id;
+            }
+
+            var ans247 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 247).FirstOrDefault();
+            if (ans247 == null)
+            {
+                // รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์  :
+                string picSunrise = Request.Form["picSunriseRadio"];
+                Answer answer247 = new Answer()
+                {
+                    AnsDes = picSunrise,
+                    QuestionId = 247,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer247);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["picSunriseRadio"];
+                ans247.QuestionId = 247;
+                ans247.AnsDes = billBoardSchool;
+                ans247.AnserTypeId = 1;
+                ans247.CreateDate = DateTime.Now;
+                ans247.UserId = user.Id;
+                ans247.AnsMonth = ansMonth; ans247.SRId = sR.Id;
+            }
+
+
+
+
+
+
+            var ans248 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 248).FirstOrDefault();
+            if (ans248 == null)
+            {
+                // รูปคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO. :
+                string piccomAgent1 = Request.Form["piccomAgentRadio1"];
+                Answer answer248 = new Answer()
+                {
+                    AnsDes = piccomAgent1,
+                    QuestionId = 248,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer248);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["piccomAgentRadio1"];
+                ans248.QuestionId = 248;
+                ans248.AnsDes = billBoardSchool;
+                ans248.AnserTypeId = 1;
+                ans248.CreateDate = DateTime.Now;
+                ans248.UserId = user.Id;
+                ans248.AnsMonth = ansMonth; ans248.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans249 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 249).FirstOrDefault();
+            if (ans249 == null)
+            {
+                // รูปคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO. :
+                string piccomAgent2 = Request.Form["piccomAgentRadio2"];
+                Answer answer249 = new Answer()
+                {
+                    AnsDes = piccomAgent2,
+                    QuestionId = 249,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer249);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["piccomAgentRadio2"];
+                ans249.QuestionId = 249;
+                ans249.AnsDes = billBoardSchool;
+                ans249.AnserTypeId = 1;
+                ans249.CreateDate = DateTime.Now;
+                ans249.UserId = user.Id;
+                ans249.AnsMonth = ansMonth; ans249.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans250 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 250).FirstOrDefault();
+            if (ans250 == null)
+            {
+                // รูปคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO. :
+                string piccomAgent3 = Request.Form["piccomAgentRadio3"];
+                Answer answer250 = new Answer()
+                {
+                    AnsDes = piccomAgent3,
+                    QuestionId = 250,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer250);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["piccomAgentRadio3"];
+                ans250.QuestionId = 250;
+                ans250.AnsDes = billBoardSchool;
+                ans250.AnserTypeId = 1;
+                ans250.CreateDate = DateTime.Now;
+                ans250.UserId = user.Id;
+                ans250.AnsMonth = ansMonth; ans250.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans251 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 251).FirstOrDefault();
+            if (ans251 == null)
+            {
+                // รูปคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO. :
+                string piccomAgent4 = Request.Form["piccomAgentRadio4"];
+                Answer answer251 = new Answer()
+                {
+                    AnsDes = piccomAgent4,
+                    QuestionId = 251,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer251);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["piccomAgentRadio4"];
+                ans251.QuestionId = 251;
+                ans251.AnsDes = billBoardSchool;
+                ans251.AnserTypeId = 1;
+                ans251.CreateDate = DateTime.Now;
+                ans251.UserId = user.Id;
+                ans251.AnsMonth = ansMonth; ans251.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans252 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 252).FirstOrDefault();
+            if (ans252 == null)
+            {
+                // รูปคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.  :
+                string piccomAgent5 = Request.Form["piccomAgentRadio5"];
+                Answer answer252 = new Answer()
+                {
+                    AnsDes = piccomAgent5,
+                    QuestionId = 252,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer252);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["piccomAgentRadio5"];
+                ans252.QuestionId = 252;
+                ans252.AnsDes = billBoardSchool;
+                ans252.AnserTypeId = 1;
+                ans252.CreateDate = DateTime.Now;
+                ans252.UserId = user.Id;
+                ans252.AnsMonth = ansMonth; ans252.SRId = sR.Id;
+            }
+
+
+
+            var ans253 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 253).FirstOrDefault();
+            if (ans253 == null)
+            {
+                // รูปคอมพิวเตอร์ตัวที่ 6 พร้อม Serial NO.  :
+                string piccomAgent6 = Request.Form["piccomAgentRadio6"];
+                Answer answer253 = new Answer()
+                {
+                    AnsDes = piccomAgent6,
+                    QuestionId = 253,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer253);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["piccomAgentRadio6"];
+                ans253.QuestionId = 253;
+                ans253.AnsDes = billBoardSchool;
+                ans253.AnserTypeId = 1;
+                ans253.CreateDate = DateTime.Now;
+                ans253.UserId = user.Id;
+                ans253.AnsMonth = ansMonth; ans253.SRId = sR.Id;
+            }
+
+
+
+
+
+
+            var ans254 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 254).FirstOrDefault();
+            if (ans254 == null)
+            {
+                // รูปคอมพิวเตอร์ตัวที่ 7 พร้อม Serial NO.  :
+                string piccomAgent7 = Request.Form["piccomAgentRadio7"];
+                Answer answer254 = new Answer()
+                {
+                    AnsDes = piccomAgent7,
+                    QuestionId = 254,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer254);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["piccomAgentRadio7"];
+                ans254.QuestionId = 254;
+                ans254.AnsDes = billBoardSchool;
+                ans254.AnserTypeId = 1;
+                ans254.CreateDate = DateTime.Now;
+                ans254.UserId = user.Id;
+                ans254.AnsMonth = ansMonth; ans254.SRId = sR.Id;
+            }
+
+
+
+
+
+            var ans255 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 255).FirstOrDefault();
+            if (ans255 == null)
+            {
+                // รูปคอมพิวเตอร์ตัวที่ 8 พร้อม Serial NO.  :
+                string piccomAgent8 = Request.Form["piccomAgentRadio8"];
+                Answer answer255 = new Answer()
+                {
+                    AnsDes = piccomAgent8,
+                    QuestionId = 255,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer255);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["piccomAgentRadio8"];
+                ans255.QuestionId = 255;
+                ans255.AnsDes = billBoardSchool;
+                ans255.AnserTypeId = 1;
+                ans255.CreateDate = DateTime.Now;
+                ans255.UserId = user.Id;
+                ans255.AnsMonth = ansMonth; ans255.SRId = sR.Id;
+            }
+
+
+
+
+            var ans256 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 256).FirstOrDefault();
+            if (ans256 == null)
+            {
+                // รูปคอมพิวเตอร์ตัวที่ 9 พร้อม Serial NO.  :
+                string piccomAgent9 = Request.Form["piccomAgentRadio9"];
+                Answer answer256 = new Answer()
+                {
+                    AnsDes = piccomAgent9,
+                    QuestionId = 256,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer256);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["piccomAgentRadio9"];
+                ans256.QuestionId = 256;
+                ans256.AnsDes = billBoardSchool;
+                ans256.AnserTypeId = 1;
+                ans256.CreateDate = DateTime.Now;
+                ans256.UserId = user.Id;
+                ans256.AnsMonth = ansMonth; ans256.SRId = sR.Id;
+            }
+
+
+
+            var ans257 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 257).FirstOrDefault();
+            if (ans257 == null)
+            {
+                // รูปคอมพิวเตอร์ตัวที่ 10 พร้อม Serial NO.  :
+                string piccomAgent10 = Request.Form["piccomAgentRadio10"];
+                Answer answer257 = new Answer()
+                {
+                    AnsDes = piccomAgent10,
+                    QuestionId = 257,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer257);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["piccomAgentRadio10"];
+                ans257.QuestionId = 257;
+                ans257.AnsDes = billBoardSchool;
+                ans257.AnserTypeId = 1;
+                ans257.CreateDate = DateTime.Now;
+                ans257.UserId = user.Id;
+                ans257.AnsMonth = ansMonth; ans257.SRId = sR.Id;
+            }
+
+
+            var ans258 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 258).FirstOrDefault();
+            if (ans258 == null)
+            {
+                // รูปคอมพิวเตอร์ตัวที่ 11 พร้อม Serial NO.  :
+                string piccomAgent11 = Request.Form["piccomAgentRadio11"];
+                Answer answer258 = new Answer()
+                {
+                    AnsDes = piccomAgent11,
+                    QuestionId = 258,
+                    AnserTypeId = 3,
+                    CreateDate = DateTime.Now,
+                    UserId = user.Id,
+                    AnsMonth = ansMonth,
+                    SRId = sR.Id
+                };
+                uSOEntities.Answers.Add(answer258);
+            }
+            else
+            {
+                string billBoardSchool = Request.Form["piccomAgentRadio11"];
+                ans258.QuestionId = 258;
+                ans258.AnsDes = billBoardSchool;
+                ans258.AnserTypeId = 1;
+                ans258.CreateDate = DateTime.Now;
+                ans258.UserId = user.Id;
+                ans258.AnsMonth = ansMonth; ans258.SRId = sR.Id;
+            }
+
+
+
+
+
+
+            //1.รูป PICTURE CHECKLIST :
+            var ans259 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 259).FirstOrDefault();
+            if (ans259 == null)
+            {
+
+                if (this.pictureChecklistImages.HasFile)
+                {
+                    string extension = this.pictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/pictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.pictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                    Answer answer259 = new Answer()
+                    {
+                        AnsDes = newFileName,
+                        QuestionId = 259,
+                        AnserTypeId = 3,
+                        CreateDate = DateTime.Now,
+                        UserId = user.Id,
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
+                    };
+                    uSOEntities.Answers.Add(answer259);
+                }
+            }
+            else
+            {
+                if (this.pictureChecklistImages.HasFile)
+                {
+                    string extension = this.pictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/pictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.pictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+                    ans259.QuestionId = 259;
+                    ans259.AnsDes = newFileName;
+                    ans259.AnserTypeId = 3;
+                    ans259.CreateDate = DateTime.Now;
+                    ans259.UserId = user.Id;
+                    ans259.AnsMonth = ansMonth;
+                    ans259.SRId = sR.Id;
+
+                }
+            }
+
+
+            //2.รูป VSAT PICTURE CHECKLIST :
+            var ans260 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 260).FirstOrDefault();
+            if (ans260 == null)
+            {
+
+
+                if (this.vsatpictureChecklistImages.HasFile)
+                {
+                    string extension = this.vsatpictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/VsatPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.vsatpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                    Answer answer260 = new Answer()
+                    {
+                        AnsDes = newFileName,
+                        QuestionId = 260,
+                        AnserTypeId = 3,
+                        CreateDate = DateTime.Now,
+                        UserId = user.Id,
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
+                    };
+                    uSOEntities.Answers.Add(answer260);
+                }
+            }
+            else
+            {
+                if (this.vsatpictureChecklistImages.HasFile)
+                {
+                    string extension = this.vsatpictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/VsatPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.vsatpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+                    ans260.QuestionId = 260;
+                    ans260.AnsDes = newFileName;
+                    ans260.AnserTypeId = 3;
+                    ans260.CreateDate = DateTime.Now;
+                    ans260.UserId = user.Id;
+                    ans260.AnsMonth = ansMonth;
+                    ans260.SRId = sR.Id;
+
+                }
+            }
+
+
+
+
+            //3.รูป SOLAR CELL PICTURE CHECKLISTT :
+            var ans261 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 261).FirstOrDefault();
+            if (ans261 == null)
+            {
+                if (this.solarcellpictureChecklistImages.HasFile)
+                {
+                    string extension = this.solarcellpictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/SolarcellPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.solarcellpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                    Answer answer261 = new Answer()
+                    {
+                        AnsDes = newFileName,
+                        QuestionId = 261,
+                        AnserTypeId = 3,
+                        CreateDate = DateTime.Now,
+                        UserId = user.Id,
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
+                    };
+                    uSOEntities.Answers.Add(answer261);
+                }
+            }
+            else
+            {
+                if (this.solarcellpictureChecklistImages.HasFile)
+                {
+                    string extension = this.solarcellpictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/SolarcellPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.solarcellpictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+                    ans261.QuestionId = 261;
+                    ans261.AnsDes = newFileName;
+                    ans261.AnserTypeId = 3;
+                    ans261.CreateDate = DateTime.Now;
+                    ans261.UserId = user.Id;
+                    ans261.AnsMonth = ansMonth;
+                    ans261.SRId = sR.Id;
+
+                }
+            }
+
+
+
+
+            //4.COMPUTER PICTURE CHECKLIST :
+            var ans262 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 262).FirstOrDefault();
+            if (ans262 == null)
+            {
+
+                if (this.compictureChecklistImages.HasFile)
+                {
+                    string extension = this.compictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/ComputerPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.compictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+
+                    Answer answer262 = new Answer()
+                    {
+                        AnsDes = newFileName,
+                        QuestionId = 262,
+                        AnserTypeId = 3,
+                        CreateDate = DateTime.Now,
+                        UserId = user.Id,
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
+                    };
+                    uSOEntities.Answers.Add(answer262);
+                }
+
+            }
+            else
+            {
+                if (this.compictureChecklistImages.HasFile)
+                {
+                    string extension = this.compictureChecklistImages.PostedFile.FileName.Split('.')[1];
+                    string newFileName = "images/ComputerPictureChecklist_usoWrap_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
+                    this.compictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
+                    ans262.QuestionId = 262;
+                    ans262.AnsDes = newFileName;
+                    ans262.AnserTypeId = 3;
+                    ans262.CreateDate = DateTime.Now;
+                    ans262.UserId = user.Id;
+                    ans262.AnsMonth = ansMonth;
+                    ans262.SRId = sR.Id;
+
+                }
+            }
+
+            int result = uSOEntities.SaveChanges();
+            if (result > 0)
+            {
+                this.SuccessPanel.Visible = true;
+            }
+
+
         }
 
 

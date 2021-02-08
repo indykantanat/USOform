@@ -222,22 +222,22 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
         protected global::System.Web.UI.WebControls.FileUpload usonetsignboardImage;
 
         /// <summary>
-        /// signatureExecutorTextbox control.
+        /// signatureExecutorJSON control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText signatureExecutorTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden signatureExecutorJSON;
 
         /// <summary>
-        /// signatureSupervisorTextbox control.
+        /// signatureSupervisorJSON control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText signatureSupervisorTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden signatureSupervisorJSON;
 
         /// <summary>
         /// nameExecutorTextbox control.

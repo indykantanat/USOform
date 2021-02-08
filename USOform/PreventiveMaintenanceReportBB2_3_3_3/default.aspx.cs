@@ -43,7 +43,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._3_3._3
             }
             else
             {
-                Response.Redirect("/login/login.aspx");
+                Response.Redirect("~/login/login.aspx");
                 Response.End();
             }
 
@@ -889,6 +889,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._3_3._3
                 image2.Save(Server.MapPath($"images/{filename2}"));
             }
             string asn505eiei = string.Format("images/{0}", filename2);
+
             int mod4 = s.Length % 4;
             if (mod4 > 0)
             {
