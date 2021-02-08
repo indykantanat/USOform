@@ -19,12 +19,6 @@
             <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
                 This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
             </div>
-
-
-
-
-
-
             <div class="row pt-5">
                 <div class="col-4">
                     <asp:FileUpload ID="logoPicture2" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" Visible="false" />
