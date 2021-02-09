@@ -24,7 +24,7 @@ namespace CommonClassLibrary
         public string Name { get; set; }
         public string Detail { get; set; }
         public Nullable<int> Status { get; set; }
-        public Nullable<int> HeadId { get; set; }
+        public int HeadId { get; set; }
         public string CabinetId { get; set; }
         public Nullable<long> SiteCode { get; set; }
         public string VillageId { get; set; }
@@ -32,6 +32,7 @@ namespace CommonClassLibrary
         public string SubDistrict { get; set; }
         public string District { get; set; }
         public string Province { get; set; }
+        public string Contract { get; set; }
         public string Type { get; set; }
         public string Lat { get; set; }
         public string Long { get; set; }

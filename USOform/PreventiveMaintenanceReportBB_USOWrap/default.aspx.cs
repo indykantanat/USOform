@@ -1968,7 +1968,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             else
             {
                 string emergen = Request.Form["onuModemRadio"];
-                ans47.QuestionId = 46;
+                ans47.QuestionId = 47;
                 ans47.AnsDes = emergen;
                 ans47.AnserTypeId = 1;
                 ans47.CreateDate = DateTime.Now;
@@ -3083,11 +3083,11 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
             else
             {
-                string emerr = Request.Form["com9Radio"];
+                string com9 = Request.Form["com9Radio"];
                 ans81.QuestionId = 81;
-                ans81.AnsDes = emerr;
+                ans81.AnsDes = com9;
                 ans81.AnserTypeId = 1;
-                ans81.CreateDate = DateTime.Now;
+                ans81.CreateDate = DateTime.Now;    
                 ans81.UserId = user.Id;
                 ans81.AnsMonth = ansMonth;
                 ans81.SRId = sR.Id;
@@ -3143,7 +3143,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 {
                     AnsDes = air1,
                     QuestionId = 83,
-                    AnserTypeId = 3,
+                    AnserTypeId = 4,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
@@ -3156,10 +3156,10 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
             else
             {
-                string emerr = Request.Form["airRadio"];
+                string air1 = Request.Form["airRadio"];
                 ans83.QuestionId = 83;
-                ans83.AnsDes = emerr;
-                ans83.AnserTypeId = 1;
+                ans83.AnsDes = air1;
+                ans83.AnserTypeId = 4;
                 ans83.CreateDate = DateTime.Now;
                 ans83.UserId = user.Id;
                 ans83.AnsMonth = ansMonth;
@@ -3193,14 +3193,14 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             }
             else
             {
-                string emerr = Request.Form["air2Radio"];
-                ans83.QuestionId = 84;
-                ans83.AnsDes = emerr;
-                ans83.AnserTypeId = 1;
-                ans83.CreateDate = DateTime.Now;
-                ans83.UserId = user.Id;
-                ans83.AnsMonth = ansMonth;
-                ans83.SRId = sR.Id;
+                string air2 = Request.Form["air2Radio"];
+                ans84.QuestionId = 84;
+                ans84.AnsDes = air2;
+                ans84.AnserTypeId = 1;
+                ans84.CreateDate = DateTime.Now;
+                ans84.UserId = user.Id;
+                ans84.AnsMonth = ansMonth;
+                ans84.SRId = sR.Id;
             }
 
 
@@ -3294,7 +3294,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 {
                     AnsDes = dOOr,
                     QuestionId = 87,
-                    AnserTypeId = 3,
+                    AnserTypeId = 4,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
@@ -3311,7 +3311,7 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 string emerr = Request.Form["doorRadio"];
                 ans87.QuestionId = 87;
                 ans87.AnsDes = emerr;
-                ans87.AnserTypeId = 1;
+                ans87.AnserTypeId = 4;
                 ans87.CreateDate = DateTime.Now;
                 ans87.UserId = user.Id;
                 ans87.AnsMonth = ansMonth;
@@ -7383,13 +7383,14 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
                 ans222.AnserTypeId = 1;
                 ans222.CreateDate = DateTime.Now;
                 ans222.UserId = user.Id;
-                ans222.AnsMonth = ansMonth; ans222.SRId = sR.Id;
+                ans222.AnsMonth = ansMonth; 
+                ans222.SRId = sR.Id;
             }
 
 
 
 
-            var ans223 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 222).FirstOrDefault();
+            var ans223 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 1 && x.SRId == sR.Id && x.QuestionId == 223).FirstOrDefault();
             if (ans223 == null)
             {
                 // รูป Power Supply พร้อม Serial NO :
@@ -7733,12 +7734,13 @@ namespace USOform.PreventiveMaintenanceReportBBUSOWrap
             else
             {
                 string billBoardSchool = Request.Form["picAirserverRadio"];
-                ans233.QuestionId = 232;
+                ans233.QuestionId = 233;
                 ans233.AnsDes = billBoardSchool;
                 ans233.AnserTypeId = 1;
                 ans233.CreateDate = DateTime.Now;
                 ans233.UserId = user.Id;
-                ans233.AnsMonth = ansMonth; ans233.SRId = sR.Id;
+                ans233.AnsMonth = ansMonth; 
+                ans233.SRId = sR.Id;
             }
 
 

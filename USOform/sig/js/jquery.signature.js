@@ -71,7 +71,7 @@ $(selector).signature({color: 'blue', guideline: true}) */
 			this.element.addClass(this.widgetFullName || this.widgetBaseClass);
 			try {
 				this.canvas = $('<canvas width="' + this.element.width() + '" height="' +
-					this.element.height() + '">' + this.options.notAvailable + '</canvas>')[0];
+				this.element.height()  + '">' + this.options.notAvailable + '</canvas>')[0];
 				this.element.append(this.canvas);
 			}
 			catch (e) {
@@ -413,6 +413,7 @@ $(selector).signature({color: 'blue', guideline: true}) */
 		});
 	}
 
+	//$.widget('kbw.signature', $.ui.mouse, signatureOverrides);
 	$.widget('kbw.signature', $.ui.mouse, signatureOverrides);
 
 	// Make some things more accessible

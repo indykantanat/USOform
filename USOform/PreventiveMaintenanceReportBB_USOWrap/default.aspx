@@ -976,7 +976,7 @@
                 <div class="form-row mt-3">
                     <label class="control-label col-sm-2">Battery Fire Alarm ก้อนที่ 2</label>
                     <div class="col-sm-8">
-                        <%--                        <input type="text" class="form-control"  runat="server"  required="required" id="battFirealarm2Textbox" />--%>
+                    
                         <input type="text" class="form-control" id="battFirealarm3Textbox" runat="server" required="required" />
                     </div>
                     <label class="control-label col-sm-2">V.</label>
@@ -1281,7 +1281,7 @@
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="com9Radio" value="รุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 81).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
+                            <input type="radio" class="form-check-input" name="com9Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 81).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                         </label>
                     </div>
                 </div>
@@ -1407,7 +1407,7 @@
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="doorRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 07).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด
+                            <input type="radio" class="form-check-input" name="doorRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 87).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด
                         </label>
                     </div>
                 </div>
@@ -3218,7 +3218,7 @@
                    
                 </div>
                 <div class="row ml-3 mt-3">
-                    <img id="user_img_2" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 259).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                   <%-- <img id="user_img_2" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 259).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
                 </div>
 
 

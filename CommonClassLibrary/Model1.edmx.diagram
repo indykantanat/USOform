@@ -5,30 +5,30 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a2b5e534784d4255a0963cb8f8613ff9" Name="Diagram1" ZoomLevel="93">
-        <EntityTypeShape EntityType="USOModel.Answer" Width="1.5" PointX="7.25" PointY="0.75" />
-        <EntityTypeShape EntityType="USOModel.AnswerType" Width="1.5" PointX="4" PointY="4.5" />
-        <EntityTypeShape EntityType="USOModel.Head" Width="1.5" PointX="0.5" PointY="1.375" />
-        <EntityTypeShape EntityType="USOModel.Organization" Width="1.5" PointX="2.75" PointY="7.75" />
-        <EntityTypeShape EntityType="USOModel.Question" Width="1.5" PointX="5" PointY="1.25" />
-        <EntityTypeShape EntityType="USOModel.Section" Width="1.5" PointX="2.75" PointY="1.25" />
-        <EntityTypeShape EntityType="USOModel.User" Width="1.5" PointX="5" PointY="7.375" />
-        <EntityTypeShape EntityType="USOModel.TBAnswer_Type" Width="1.5" PointX="0.5" PointY="4.5" />
-        <EntityTypeShape EntityType="USOModel.TBSurvey_answer01" Width="1.5" PointX="7.5" PointY="5.5" />
-        <EntityTypeShape EntityType="USOModel.TBSurvey_Head" Width="1.5" PointX="9.5" PointY="0.5" />
-        <EntityTypeShape EntityType="USOModel.TBSurvey_Question" Width="1.5" PointX="9.5" PointY="3.5" />
-        <EntityTypeShape EntityType="USOModel.TBSurvey_Section" Width="1.5" PointX="9.5" PointY="6.5" />
+        <EntityTypeShape EntityType="USOModel.Answer" Width="1.5" PointX="7.5" PointY="3.625" />
+        <EntityTypeShape EntityType="USOModel.AnswerType" Width="1.5" PointX="5.25" PointY="9.875" />
+        <EntityTypeShape EntityType="USOModel.Head" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="USOModel.Organization" Width="1.5" PointX="3" PointY="13.75" />
+        <EntityTypeShape EntityType="USOModel.Question" Width="1.5" PointX="5.25" PointY="2" />
+        <EntityTypeShape EntityType="USOModel.Section" Width="1.5" PointX="3" PointY="2" />
+        <EntityTypeShape EntityType="USOModel.Site" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="USOModel.SR" Width="1.5" PointX="5.25" PointY="5.75" />
+        <EntityTypeShape EntityType="USOModel.SR_Log" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="USOModel.User" Width="1.5" PointX="5.25" PointY="13.375" />
+        <EntityTypeShape EntityType="USOModel.TBAnswer_Type" Width="1.5" PointX="7.75" PointY="8.75" />
+        <EntityTypeShape EntityType="USOModel.TBSurvey_answer01" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="USOModel.TBSurvey_Head" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="USOModel.TBSurvey_Question" Width="1.5" PointX="9.75" PointY="7.75" />
+        <EntityTypeShape EntityType="USOModel.TBSurvey_Section" Width="1.5" PointX="0.75" PointY="10.75" />
         <AssociationConnector Association="USOModel.FK_Answer_AnswerType" />
         <AssociationConnector Association="USOModel.FK_Answer_Question" />
+        <AssociationConnector Association="USOModel.FK_Answer_SR" />
         <AssociationConnector Association="USOModel.FK_Answer_User" />
         <AssociationConnector Association="USOModel.FK_Section_Head" />
+        <AssociationConnector Association="USOModel.FK_Site_Head" />
         <AssociationConnector Association="USOModel.FK_User_Organization" />
         <AssociationConnector Association="USOModel.FK_Question_Section" />
-        <EntityTypeShape EntityType="USOModel.Site" Width="1.5" PointX="2.75" PointY="12.125" />
-        <EntityTypeShape EntityType="USOModel.SR" Width="1.5" PointX="5" PointY="11.75" />
-        <AssociationConnector Association="USOModel.FK_Answer_SR" />
-        <AssociationConnector Association="USOModel.FK_Site_Head" />
         <AssociationConnector Association="USOModel.FK_SR_Site" />
-        <EntityTypeShape EntityType="USOModel.SR_Log" Width="1.5" PointX="7.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

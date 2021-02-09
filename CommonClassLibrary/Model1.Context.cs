@@ -31,14 +31,14 @@ namespace CommonClassLibrary
         public virtual DbSet<Organization> Organizations { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Section> Sections { get; set; }
+        public virtual DbSet<Site> Sites { get; set; }
+        public virtual DbSet<SR> SRs { get; set; }
+        public virtual DbSet<SR_Log> SR_Log { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<TBAnswer_Type> TBAnswer_Type { get; set; }
         public virtual DbSet<TBSurvey_answer01> TBSurvey_answer01 { get; set; }
         public virtual DbSet<TBSurvey_Head> TBSurvey_Head { get; set; }
         public virtual DbSet<TBSurvey_Question> TBSurvey_Question { get; set; }
         public virtual DbSet<TBSurvey_Section> TBSurvey_Section { get; set; }
-        public virtual DbSet<Site> Sites { get; set; }
-        public virtual DbSet<SR> SRs { get; set; }
-        public virtual DbSet<SR_Log> SR_Log { get; set; }
     }
 }

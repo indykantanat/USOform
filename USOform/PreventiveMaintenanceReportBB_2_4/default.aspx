@@ -7,37 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="../style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <%------//     font style    //---------%>
+    <%------//     font style    //------------------------------------------------------------%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
-    <%-------//    DATE time picker JQURRY   //--------%>
+    <%-------//    DATE time picker JQURRY   //-------------------------------------------------%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="/resources/demos/style.css" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet" />
     <link href="../style/Mystyle.css" rel="stylesheet" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <%-------//   PREVIEW IMAGES   //--------%>
+    <%-------//   PREVIEW IMAGES   //------------------------------------------------------------%>
     <script src="previewImg.js"></script>
     <%--------------- //   Signature     //-----------------------%>
     <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
     <script src="../sig/js/jquery.signature.min.js"></script>
     <script src="../sig/js/results.js"></script>
-    <script src="../sig/js/results.js"></script>
-    <%----------------//  Important must have for signature !  //---------------%>
+    <%----------------//  Important must have for signature !  //--------------------------------%>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet" />
-    <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
     <style>
         .kbw-signature {
-            width: 400px;
+            width: 300px;
             height: 200px;
+            -ms-touch-action: none;
+            touch-action: none;
         }
 
         table, tr, td {
             border: none;
+        }
+
+        .kbw-signature canvas {
+            touch-action: none;
+            -ms-touch-action: none;
         }
     </style>
     <!--[if IE]>
@@ -99,7 +104,7 @@
         });
     </script>
 </head>
-<body style="background-color: lightgray;">
+<body style="background-color: lightgray; ">
     <form id="form1" runat="server">
         <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
             ทำรายการเสร็จสิ้น <a href="#" class="alert-link">ดูรายงานเพื่อพิมพ์</a>
@@ -300,41 +305,50 @@
                     <h4>Contractor</h4>
                 </div>
             </div>
-            <table style="width: 100%;" border="0" class="table-responsive-lg">
-                <tbody>
-                    <tr style="height: 21px;">
-                        <td style="height: 21px; width: 10%;">&nbsp;</td>
-                        <td style="height: 21px; width: 45%;">&nbsp; &nbsp; &nbsp; Executor</td>
-                        <td style="height: 21px; width: 45%;">&nbsp; &nbsp; &nbsp; Supervisor</td>
-                    </tr>
-                    <tr style="height: 21px;">
-                        <td style="height: 21px; width: 10%;">&nbsp;Signature</td>
-                        <td style="height: 21px; width: 45%;">&nbsp;<div id="signatureExecutorTextbox"></div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Executor
+                        </div>
+                        <div class="card-body">
+                            <div id="signatureExecutorTextbox"></div>
+                            <div id="redrawSignature1" hidden="hidden"></div>
                             <input type="hidden" id="signatureExecutorJSON" class="ui-state-active" runat="server" />
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" id="nameExecutorTextbox" runat="server" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server" required="required" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Supervisor
+                        </div>
+                        <div class="card-body">
+                            <div id="signatureSupervisorTextbox"></div>
                             <div id="redrawSignature1" hidden="hidden"></div>
-                        </td>
-                        <td style="height: 21px; width: 45%;">&nbsp;<div id="signatureSupervisorTextbox"></div>
                             <input type="hidden" id="signatureSupervisorJSON" class="ui-state-active" runat="server" />
-                            <div id="redrawSignature1" hidden="hidden"></div>
-                        </td>
-                    </tr>
-                    <tr style="height: 21px;">
-                        <td style="height: 21px; width: 10%;">&nbsp;Name</td>
-                        <td style="height: 21px; width: 45%;">&nbsp;  
-                                <input type="text" class="form-control" id="nameExecutorTextbox" runat="server" required="required" /></td>
-                        <td style="height: 21px; width: 45%;">&nbsp;  
-                                <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server" required="required" /></td>
-                    </tr>
-                    <tr style="height: 21px;">
-                        <td style="height: 21px; width: 10%;">&nbsp;Date</td>
-                        <td style="height: 21px; width: 45%;">&nbsp;
-                                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" required="required" /></td>
-                        <td style="height: 21px; width: 45%;">&nbsp; 
-                                <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server" required="required" /></td>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- DivTable.com -->
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server" required="required" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 
             <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1034).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
@@ -2348,16 +2362,16 @@
                 height: 1.5em;
             }
 
-        // solution 2:
+
         .datepicker2 {
             font-size: 0.875em;
         }
-        /* solution 2: the original datepicker use 20px so replace with the following:*/
+            /* solution 2: the original datepicker use 20px so replace with the following:*/
 
-        .datepicker2 td, .datepicker2 th {
-            width: 1.5em;
-            height: 1.5em;
-        }
+            .datepicker2 td, .datepicker2 th {
+                width: 1.5em;
+                height: 1.5em;
+            }
     </style>
 
 

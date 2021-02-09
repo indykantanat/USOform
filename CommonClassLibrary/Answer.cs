@@ -27,7 +27,7 @@ namespace CommonClassLibrary
     
         public virtual AnswerType AnswerType { get; set; }
         public virtual Question Question { get; set; }
-        public virtual User User { get; set; }
         public virtual SR SR { get; set; }
+        public virtual User User { get; set; }
     }
 }

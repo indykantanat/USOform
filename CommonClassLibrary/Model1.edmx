@@ -71,7 +71,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="500" />
           <Property Name="Detail" Type="nvarchar" MaxLength="500" />
           <Property Name="Status" Type="int" />
-          <Property Name="HeadId" Type="int" />
+          <Property Name="HeadId" Type="int" Nullable="false" />
           <Property Name="CabinetId" Type="nvarchar" MaxLength="100" />
           <Property Name="SiteCode" Type="bigint" />
           <Property Name="VillageId" Type="nvarchar" MaxLength="100" />
@@ -79,6 +79,7 @@
           <Property Name="SubDistrict" Type="nvarchar" MaxLength="100" />
           <Property Name="District" Type="nvarchar" MaxLength="100" />
           <Property Name="Province" Type="nvarchar" MaxLength="100" />
+          <Property Name="Contract" Type="nvarchar" MaxLength="50" />
           <Property Name="Type" Type="nvarchar" MaxLength="100" />
           <Property Name="Lat" Type="nvarchar" MaxLength="100" />
           <Property Name="Long" Type="nvarchar" MaxLength="100" />
@@ -259,7 +260,7 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Site_Head">
-          <End Role="Head" Type="Self.Head" Multiplicity="0..1" />
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
           <End Role="Site" Type="Self.Site" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Head">
@@ -389,6 +390,9 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
           <EntitySet Name="Organizations" EntityType="USOModel.Organization" />
           <EntitySet Name="Questions" EntityType="USOModel.Question" />
           <EntitySet Name="Sections" EntityType="USOModel.Section" />
+          <EntitySet Name="Sites" EntityType="USOModel.Site" />
+          <EntitySet Name="SRs" EntityType="USOModel.SR" />
+          <EntitySet Name="SR_Log" EntityType="USOModel.SR_Log" />
           <EntitySet Name="Users" EntityType="USOModel.User" />
           <EntitySet Name="TBAnswer_Type" EntityType="USOModel.TBAnswer_Type" />
           <EntitySet Name="TBSurvey_answer01" EntityType="USOModel.TBSurvey_answer01" />
@@ -403,6 +407,10 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
             <End Role="Question" EntitySet="Questions" />
             <End Role="Answer" EntitySet="Answers" />
           </AssociationSet>
+          <AssociationSet Name="FK_Answer_SR" Association="USOModel.FK_Answer_SR">
+            <End Role="SR" EntitySet="SRs" />
+            <End Role="Answer" EntitySet="Answers" />
+          </AssociationSet>
           <AssociationSet Name="FK_Answer_User" Association="USOModel.FK_Answer_User">
             <End Role="User" EntitySet="Users" />
             <End Role="Answer" EntitySet="Answers" />
@@ -410,6 +418,10 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
           <AssociationSet Name="FK_Section_Head" Association="USOModel.FK_Section_Head">
             <End Role="Head" EntitySet="Heads" />
             <End Role="Section" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_Head" Association="USOModel.FK_Site_Head">
+            <End Role="Head" EntitySet="Heads" />
+            <End Role="Site" EntitySet="Sites" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Organization" Association="USOModel.FK_User_Organization">
             <End Role="Organization" EntitySet="Organizations" />
@@ -419,21 +431,10 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
             <End Role="Section" EntitySet="Sections" />
             <End Role="Question" EntitySet="Questions" />
           </AssociationSet>
-          <EntitySet Name="Sites" EntityType="USOModel.Site" />
-          <EntitySet Name="SRs" EntityType="USOModel.SR" />
-          <AssociationSet Name="FK_Answer_SR" Association="USOModel.FK_Answer_SR">
-            <End Role="SR" EntitySet="SRs" />
-            <End Role="Answer" EntitySet="Answers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Site_Head" Association="USOModel.FK_Site_Head">
-            <End Role="Head" EntitySet="Heads" />
-            <End Role="Site" EntitySet="Sites" />
-          </AssociationSet>
           <AssociationSet Name="FK_SR_Site" Association="USOModel.FK_SR_Site">
             <End Role="Site" EntitySet="Sites" />
             <End Role="SR" EntitySet="SRs" />
           </AssociationSet>
-          <EntitySet Name="SR_Log" EntityType="USOModel.SR_Log" />
         </EntityContainer>
         <EntityType Name="Answer">
           <Key>
@@ -447,12 +448,12 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
           <Property Name="StartDate" Type="DateTime" Precision="3" />
           <Property Name="EndDate" Type="DateTime" Precision="3" />
           <Property Name="UserId" Type="Int64" />
-          <NavigationProperty Name="AnswerType" Relationship="USOModel.FK_Answer_AnswerType" FromRole="Answer" ToRole="AnswerType" />
-          <NavigationProperty Name="Question" Relationship="USOModel.FK_Answer_Question" FromRole="Answer" ToRole="Question" />
-          <NavigationProperty Name="User" Relationship="USOModel.FK_Answer_User" FromRole="Answer" ToRole="User" />
           <Property Name="AnsMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SRId" Type="Int64" />
+          <NavigationProperty Name="AnswerType" Relationship="USOModel.FK_Answer_AnswerType" FromRole="Answer" ToRole="AnswerType" />
+          <NavigationProperty Name="Question" Relationship="USOModel.FK_Answer_Question" FromRole="Answer" ToRole="Question" />
           <NavigationProperty Name="SR" Relationship="USOModel.FK_Answer_SR" FromRole="Answer" ToRole="SR" />
+          <NavigationProperty Name="User" Relationship="USOModel.FK_Answer_User" FromRole="Answer" ToRole="User" />
         </EntityType>
         <EntityType Name="AnswerType">
           <Key>
@@ -504,6 +505,54 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
           <Property Name="HeadId" Type="Int32" />
           <NavigationProperty Name="Head" Relationship="USOModel.FK_Section_Head" FromRole="Section" ToRole="Head" />
           <NavigationProperty Name="Questions" Relationship="USOModel.FK_Question_Section" FromRole="Section" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="HeadId" Type="Int32" Nullable="false" />
+          <Property Name="CabinetId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SiteCode" Type="Int64" />
+          <Property Name="VillageId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Village" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SubDistrict" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Contract" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Lat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Long" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TypeofSignal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Head" Relationship="USOModel.FK_Site_Head" FromRole="Site" ToRole="Head" />
+          <NavigationProperty Name="SRs" Relationship="USOModel.FK_SR_Site" FromRole="Site" ToRole="SR" />
+        </EntityType>
+        <EntityType Name="SR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quarter" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="LastUser" Type="Int64" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="SiteId" Type="Int64" />
+          <NavigationProperty Name="Answers" Relationship="USOModel.FK_Answer_SR" FromRole="SR" ToRole="Answer" />
+          <NavigationProperty Name="Site" Relationship="USOModel.FK_SR_Site" FromRole="SR" ToRole="Site" />
+        </EntityType>
+        <EntityType Name="SR_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SrId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Signature" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -584,6 +633,18 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Answer_SR">
+          <End Type="USOModel.SR" Role="SR" Multiplicity="0..1" />
+          <End Type="USOModel.Answer" Role="Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SR">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="SRId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Answer_User">
           <End Type="USOModel.User" Role="User" Multiplicity="0..1" />
           <End Type="USOModel.Answer" Role="Answer" Multiplicity="*" />
@@ -604,6 +665,18 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Section">
+              <PropertyRef Name="HeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_Head">
+          <End Type="USOModel.Head" Role="Head" Multiplicity="1" />
+          <End Type="USOModel.Site" Role="Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
               <PropertyRef Name="HeadId" />
             </Dependent>
           </ReferentialConstraint>
@@ -632,69 +705,6 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Site">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Int32" />
-          <Property Name="HeadId" Type="Int32" />
-          <NavigationProperty Name="Head" Relationship="USOModel.FK_Site_Head" FromRole="Site" ToRole="Head" />
-          <NavigationProperty Name="SRs" Relationship="USOModel.FK_SR_Site" FromRole="Site" ToRole="SR" />
-          <Property Name="CabinetId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SiteCode" Type="Int64" />
-          <Property Name="VillageId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Village" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SubDistrict" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Province" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Lat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Long" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="TypeofSignal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="SR">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Quarter" Type="Int32" />
-          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
-          <Property Name="LastUser" Type="Int64" />
-          <Property Name="Status" Type="Int32" />
-          <Property Name="SiteId" Type="Int64" />
-          <NavigationProperty Name="Answers" Relationship="USOModel.FK_Answer_SR" FromRole="SR" ToRole="Answer" />
-          <NavigationProperty Name="Site" Relationship="USOModel.FK_SR_Site" FromRole="SR" ToRole="Site" />
-        </EntityType>
-        <Association Name="FK_Answer_SR">
-          <End Type="USOModel.SR" Role="SR" Multiplicity="0..1" />
-          <End Type="USOModel.Answer" Role="Answer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SR">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Answer">
-              <PropertyRef Name="SRId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Site_Head">
-          <End Type="USOModel.Head" Role="Head" Multiplicity="0..1" />
-          <End Type="USOModel.Site" Role="Site" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Head">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Site">
-              <PropertyRef Name="HeadId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SR_Site">
           <End Type="USOModel.Site" Role="Site" Multiplicity="0..1" />
           <End Type="USOModel.SR" Role="SR" Multiplicity="*" />
@@ -707,14 +717,6 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="SR_Log">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SrId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Signature" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -785,6 +787,53 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Sites">
+            <EntityTypeMapping TypeName="USOModel.Site">
+              <MappingFragment StoreEntitySet="Site">
+                <ScalarProperty Name="TypeofSignal" ColumnName="TypeofSignal" />
+                <ScalarProperty Name="Long" ColumnName="Long" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Contract" ColumnName="Contract" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="SubDistrict" ColumnName="SubDistrict" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="VillageId" ColumnName="VillageId" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="CabinetId" ColumnName="CabinetId" />
+                <ScalarProperty Name="HeadId" ColumnName="HeadId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRs">
+            <EntityTypeMapping TypeName="USOModel.SR">
+              <MappingFragment StoreEntitySet="SR">
+                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SR_Log">
+            <EntityTypeMapping TypeName="USOModel.SR_Log">
+              <MappingFragment StoreEntitySet="SR_Log">
+                <ScalarProperty Name="Signature" ColumnName="Signature" />
+                <ScalarProperty Name="SrId" ColumnName="SrId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="USOModel.User">
               <MappingFragment StoreEntitySet="User">
@@ -841,52 +890,6 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
               <MappingFragment StoreEntitySet="TBSurvey_Section">
                 <ScalarProperty Name="SName" ColumnName="SName" />
                 <ScalarProperty Name="SID" ColumnName="SID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Sites">
-            <EntityTypeMapping TypeName="USOModel.Site">
-              <MappingFragment StoreEntitySet="Site">
-                <ScalarProperty Name="TypeofSignal" ColumnName="TypeofSignal" />
-                <ScalarProperty Name="Long" ColumnName="Long" />
-                <ScalarProperty Name="Lat" ColumnName="Lat" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Province" ColumnName="Province" />
-                <ScalarProperty Name="District" ColumnName="District" />
-                <ScalarProperty Name="SubDistrict" ColumnName="SubDistrict" />
-                <ScalarProperty Name="Village" ColumnName="Village" />
-                <ScalarProperty Name="VillageId" ColumnName="VillageId" />
-                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
-                <ScalarProperty Name="CabinetId" ColumnName="CabinetId" />
-                <ScalarProperty Name="HeadId" ColumnName="HeadId" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SRs">
-            <EntityTypeMapping TypeName="USOModel.SR">
-              <MappingFragment StoreEntitySet="SR">
-                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="LastUser" ColumnName="LastUser" />
-                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Quarter" ColumnName="Quarter" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SR_Log">
-            <EntityTypeMapping TypeName="USOModel.SR_Log">
-              <MappingFragment StoreEntitySet="SR_Log">
-                <ScalarProperty Name="Signature" ColumnName="Signature" />
-                <ScalarProperty Name="SrId" ColumnName="SrId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -45,7 +45,7 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
             }
             else
             {
-                Response.Redirect("/login/login.aspx");
+                Response.Redirect("~/login/login.aspx");
                 Response.End();
 
             }
@@ -7228,7 +7228,7 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
                     string newFileName = "images/pictureChecklist_bb_2_4_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
                     this.pictureChecklistImages.PostedFile.SaveAs(Server.MapPath(newFileName));
 
-                    Answer answer259 = new Answer()
+                    Answer answer480 = new Answer()
                     {
                         AnsDes = newFileName,
                         QuestionId = 480,
@@ -7238,7 +7238,7 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
                         AnsMonth = ansMonth,
                         SRId = sR.Id
                     };
-                    uSOEntities.Answers.Add(answer259);
+                    uSOEntities.Answers.Add(answer480);
                 }
 
             }
