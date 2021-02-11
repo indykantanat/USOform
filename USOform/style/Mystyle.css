@@ -106,13 +106,17 @@ input[type="text"] {
 }
 
 .placeholder2 {
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-    width: 250px;
-    height: 250px;
+/*    width: 250px;
+    height: 250px;*/
+width:70%;
+height:auto;
+
 }
 
+.imgLogoOganize {
+    width:40%;
+    height:auto;
+}
 
 
 

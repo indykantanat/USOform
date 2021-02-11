@@ -76,8 +76,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\errorImg.png" />
+    <Content Include="assets\loader2.gif" />
+    <Content Include="assets\loader.gif" />
     <Content Include="assets\logo_3-03.png" />
     <Content Include="assets\logo_uso.png" />
+    <Content Include="assets\successImages.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -182,6 +186,7 @@
     <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203162441.png" />
     <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203163258.png" />
     <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\VsatPictureChecklist_BB2_1_3_1_20210203164459.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_1_3_1\preview.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2_1_3_1\previewImg.js" />
     <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\ComputerPictureChecklist_25640119104732.jpg" />
     <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\ComputerPictureChecklist_BB2_2_3_2_20210120022303.png" />
@@ -211,7 +216,9 @@
     <Content Include="PreventiveMaintenanceReportBB_2_4\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_2_4\Prereport_BB_2_4.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\default.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB_USOWrap\preview.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\previewImg.js" />
+    <Content Include="PreventiveMaintenanceReportBB_USOWrap\WebForm1.aspx" />
     <Content Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\previewImg.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -319,6 +326,7 @@
     <Content Include="sig\sig.html" />
     <Content Include="sig\testsig.aspx" />
     <Content Include="style\Mystyle.css" />
+    <Content Include="success.aspx" />
     <Content Include="Web.config" />
     <Content Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\default.aspx" />
     <Content Include="dashboard.aspx" />
@@ -337,6 +345,13 @@
     </Compile>
     <Compile Include="PreventiveMaintenanceReportBB2_1_3_1\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB2_1_3_1\preview.aspx.cs">
+      <DependentUpon>preview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB2_1_3_1\preview.aspx.designer.cs">
+      <DependentUpon>preview.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreventiveMaintenanceReportBB_1\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -380,6 +395,20 @@
     <Compile Include="PreventiveMaintenanceReportBB_USOWrap\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB_USOWrap\preview.aspx.cs">
+      <DependentUpon>preview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB_USOWrap\preview.aspx.designer.cs">
+      <DependentUpon>preview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB_USOWrap\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB_USOWrap\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -401,6 +430,13 @@
     </Compile>
     <Compile Include="dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="success.aspx.cs">
+      <DependentUpon>success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="success.aspx.designer.cs">
+      <DependentUpon>success.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

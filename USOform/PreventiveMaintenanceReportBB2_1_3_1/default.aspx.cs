@@ -46,7 +46,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
             }
             else
             {
-                Response.Redirect("/login/login.aspx");
+                Response.Redirect("~/login/login.aspx");
                 Response.End();
 
             }
@@ -6643,7 +6643,8 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
             int result = uSOEntities.SaveChanges();
             if (result > 0)
             {
-                this.SuccessPanel.Visible = true;
+              
+                Response.Redirect("~/success.aspx");          
             }
 
         }
