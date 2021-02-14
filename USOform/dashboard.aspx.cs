@@ -37,7 +37,7 @@ namespace USOform
             }
             // old resouce
             //string script = "$(document).ready(function () { $('[id*=btnSubmit]').click(); });";
-
+           
             this.GetData();
 
 
@@ -47,7 +47,8 @@ namespace USOform
         {
             User user = (User)Session["strUsername"];
             // Add Fake Delay to simulate long running process.
-            System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(2000);
+
             var collection = uSOEntities.Sites.Where(x => x.Status == 1).ToList();
             this.SiteRepeater.DataSource = collection.ToList();
             this.SiteRepeater.DataBind();

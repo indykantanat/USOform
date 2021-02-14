@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USOform.PreventiveMaintenanceReportBB_2._4
+namespace USOform.PreventiveMaintenanceReportBB2_2_3_2
 {
 
 
-    public partial class WebForm1
+    public partial class preview
     {
 
         /// <summary>
@@ -24,1308 +24,1272 @@ namespace USOform.PreventiveMaintenanceReportBB_2._4
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// SuccessPanel control.
+        /// GroupNameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SuccessPanel;
+        protected global::System.Web.UI.WebControls.Label GroupNameLabel;
 
         /// <summary>
-        /// logoPicture2 control.
+        /// AreaLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload logoPicture2;
+        protected global::System.Web.UI.WebControls.Label AreaLabel;
 
         /// <summary>
-        /// groupTextbox control.
+        /// CompanyLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText groupTextbox;
+        protected global::System.Web.UI.WebControls.Label CompanyLabel;
 
         /// <summary>
-        /// AreaTextbox control.
+        /// maintenanceCountLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText AreaTextbox;
+        protected global::System.Web.UI.WebControls.Label maintenanceCountLabel;
 
         /// <summary>
-        /// CompanyTextbox control.
+        /// yearLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CompanyTextbox;
+        protected global::System.Web.UI.WebControls.Label yearLabel;
 
         /// <summary>
-        /// maintenanceCountTextbox control.
+        /// startDatepickerLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText maintenanceCountTextbox;
+        protected global::System.Web.UI.WebControls.Label startDatepickerLabel;
 
         /// <summary>
-        /// yearTextbox control.
+        /// endDatepickerLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText yearTextbox;
+        protected global::System.Web.UI.WebControls.Label endDatepickerLabel;
 
         /// <summary>
-        /// startDatepicker control.
+        /// siteCodeLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText startDatepicker;
+        protected global::System.Web.UI.WebControls.Label siteCodeLabel;
 
         /// <summary>
-        /// endDatepicker control.
+        /// cabinetIdLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText endDatepicker;
+        protected global::System.Web.UI.WebControls.Label cabinetIdLabel;
 
         /// <summary>
-        /// siteCodeTextbox control.
+        /// sitecodeLabelSection2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText siteCodeTextbox;
+        protected global::System.Web.UI.WebControls.Label sitecodeLabelSection2;
 
         /// <summary>
-        /// cabinetIdTextbox control.
+        /// VillageIdLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText cabinetIdTextbox;
+        protected global::System.Web.UI.WebControls.Label VillageIdLabel;
 
         /// <summary>
-        /// sitecodeTextboxSection2 control.
+        /// villageLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText sitecodeTextboxSection2;
+        protected global::System.Web.UI.WebControls.Label villageLabel;
 
         /// <summary>
-        /// VillageIdTextbox control.
+        /// schoolnameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText VillageIdTextbox;
+        protected global::System.Web.UI.WebControls.Label schoolnameLabel;
 
         /// <summary>
-        /// phoNameTextbox control.
+        /// subdistrictLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText phoNameTextbox;
+        protected global::System.Web.UI.WebControls.Label subdistrictLabel;
 
         /// <summary>
-        /// villageTextbox control.
+        /// districtLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText villageTextbox;
+        protected global::System.Web.UI.WebControls.Label districtLabel;
 
         /// <summary>
-        /// subdistrictTextbox control.
+        /// provinceLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText subdistrictTextbox;
+        protected global::System.Web.UI.WebControls.Label provinceLabel;
 
         /// <summary>
-        /// DistrictTextbox control.
+        /// typeLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText DistrictTextbox;
+        protected global::System.Web.UI.WebControls.Label typeLabel;
 
         /// <summary>
-        /// provinceTextbox control.
+        /// pmdateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText provinceTextbox;
+        protected global::System.Web.UI.WebControls.Label pmdateLabel;
 
         /// <summary>
-        /// typeTextbox control.
+        /// nameExecutorLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText typeTextbox;
+        protected global::System.Web.UI.WebControls.Label nameExecutorLabel;
 
         /// <summary>
-        /// pmdateTextbox control.
+        /// DateExecutorLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText pmdateTextbox;
+        protected global::System.Web.UI.WebControls.Label DateExecutorLabel;
 
         /// <summary>
-        /// picinfrontImages control.
+        /// nameSupervisorLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload picinfrontImages;
+        protected global::System.Web.UI.WebControls.Label nameSupervisorLabel;
 
         /// <summary>
-        /// signatureExecutorTextbox control.
+        /// DateSupervisorLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText signatureExecutorTextbox;
+        protected global::System.Web.UI.WebControls.Label DateSupervisorLabel;
 
         /// <summary>
-        /// signatureSupervisorTextbox control.
+        /// LocationnameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText signatureSupervisorTextbox;
+        protected global::System.Web.UI.WebControls.Label LocationnameLabel;
 
         /// <summary>
-        /// nameExecutorTextbox control.
+        /// sitecodeLabelSection4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nameExecutorTextbox;
+        protected global::System.Web.UI.WebControls.Label sitecodeLabelSection4;
 
         /// <summary>
-        /// nameSupervisorTextbox control.
+        /// villageIDLabelSection4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nameSupervisorTextbox;
+        protected global::System.Web.UI.WebControls.Label villageIDLabelSection4;
 
         /// <summary>
-        /// DateExecutorTextbox control.
+        /// latandlongLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText DateExecutorTextbox;
+        protected global::System.Web.UI.WebControls.Label latandlongLabel;
 
         /// <summary>
-        /// DateSupervisorTextbox control.
+        /// oltidLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText DateSupervisorTextbox;
+        protected global::System.Web.UI.WebControls.Label oltidLabel;
 
         /// <summary>
-        /// cabinetId2Textbox control.
+        /// numberuserLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText cabinetId2Textbox;
+        protected global::System.Web.UI.WebControls.Label numberuserLabel;
 
         /// <summary>
-        /// sitecodeTextboxSection4 control.
+        /// kwhMeterLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText sitecodeTextboxSection4;
+        protected global::System.Web.UI.WebControls.Label kwhMeterLabel;
 
         /// <summary>
-        /// villageIDTextboxSection4 control.
+        /// acLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText villageIDTextboxSection4;
+        protected global::System.Web.UI.WebControls.Label acLabel;
 
         /// <summary>
-        /// latandlongTextbox control.
+        /// lineAcLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText latandlongTextbox;
+        protected global::System.Web.UI.WebControls.Label lineAcLabel;
 
         /// <summary>
-        /// oltIdTextbox control.
+        /// neutronacLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText oltIdTextbox;
+        protected global::System.Web.UI.WebControls.Label neutronacLabel;
 
         /// <summary>
-        /// numberIdTextbox control.
+        /// acfromupsLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText numberIdTextbox;
+        protected global::System.Web.UI.WebControls.Label acfromupsLabel;
 
         /// <summary>
-        /// kwhMeterTextbox control.
+        /// electricloadLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText kwhMeterTextbox;
+        protected global::System.Web.UI.WebControls.Label electricloadLabel;
 
         /// <summary>
-        /// acvoltTextbox control.
+        /// battFirealarm1Label control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText acvoltTextbox;
+        protected global::System.Web.UI.WebControls.Label battFirealarm1Label;
 
         /// <summary>
-        /// lineAcTextbox control.
+        /// battFirealarm3Label control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText lineAcTextbox;
+        protected global::System.Web.UI.WebControls.Label battFirealarm3Label;
 
         /// <summary>
-        /// neutronAcEIEITextbox control.
+        /// voltageInverterLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText neutronAcEIEITextbox;
+        protected global::System.Web.UI.WebControls.Label voltageInverterLabel;
 
         /// <summary>
-        /// acfromupsTextbox control.
+        /// voltageLoadLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText acfromupsTextbox;
+        protected global::System.Web.UI.WebControls.Label voltageLoadLabel;
 
         /// <summary>
-        /// voltInverterTextbox control.
+        /// dowloadforOnuLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText voltInverterTextbox;
+        protected global::System.Web.UI.WebControls.Label dowloadforOnuLabel;
 
         /// <summary>
-        /// loadVoltTageTextbox control.
+        /// uploadforOnuLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText loadVoltTageTextbox;
+        protected global::System.Web.UI.WebControls.Label uploadforOnuLabel;
 
         /// <summary>
-        /// batterTextbox1 control.
+        /// pingTestLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText batterTextbox1;
+        protected global::System.Web.UI.WebControls.Label pingTestLabel;
 
         /// <summary>
-        /// batterTextbox2 control.
+        /// dowloadForwifiLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText batterTextbox2;
+        protected global::System.Web.UI.WebControls.Label dowloadForwifiLabel;
 
         /// <summary>
-        /// batterTextbox3 control.
+        /// uploadForwifiLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText batterTextbox3;
+        protected global::System.Web.UI.WebControls.Label uploadForwifiLabel;
 
         /// <summary>
-        /// batterTextbox4 control.
+        /// pingtestForwifiLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText batterTextbox4;
+        protected global::System.Web.UI.WebControls.Label pingtestForwifiLabel;
 
         /// <summary>
-        /// dowloadOnuTextbox control.
+        /// dowlaodForlanLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText dowloadOnuTextbox;
+        protected global::System.Web.UI.WebControls.Label dowlaodForlanLabel;
 
         /// <summary>
-        /// uploadforOnuTextbox control.
+        /// uploadForlandLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText uploadforOnuTextbox;
+        protected global::System.Web.UI.WebControls.Label uploadForlandLabel;
 
         /// <summary>
-        /// pinngtestforOnuTextbox control.
+        /// pingtestForlanLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText pinngtestforOnuTextbox;
+        protected global::System.Web.UI.WebControls.Label pingtestForlanLabel;
 
         /// <summary>
-        /// dowloadforMobileTextbox control.
+        /// problemLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText dowloadforMobileTextbox;
+        protected global::System.Web.UI.WebControls.Label problemLabel1;
 
         /// <summary>
-        /// uploadforMobileTextbox control.
+        /// howtoSolveLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText uploadforMobileTextbox;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel1;
 
         /// <summary>
-        /// pingtestFormobileTextbox control.
+        /// problemLabel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText pingtestFormobileTextbox;
+        protected global::System.Web.UI.WebControls.Label problemLabel2;
 
         /// <summary>
-        /// problemTextbox1 control.
+        /// howtoSolveLabel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox1;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel2;
 
         /// <summary>
-        /// howtoSolveTextbox1 control.
+        /// problemLabel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox1;
+        protected global::System.Web.UI.WebControls.Label problemLabel3;
 
         /// <summary>
-        /// problemTextbox2 control.
+        /// howtoSolveLabel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox2;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel3;
 
         /// <summary>
-        /// howtoSolveTextbox2 control.
+        /// problemLabel4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox2;
+        protected global::System.Web.UI.WebControls.Label problemLabel4;
 
         /// <summary>
-        /// problemTextbox3 control.
+        /// howtoSolveLabel4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox3;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel4;
 
         /// <summary>
-        /// howtoSolveTextbox3 control.
+        /// problemLabel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox3;
+        protected global::System.Web.UI.WebControls.Label problemLabel5;
 
         /// <summary>
-        /// problemTextbox4 control.
+        /// howtoSolveLabel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox4;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel5;
 
         /// <summary>
-        /// howtoSolveTextbox4 control.
+        /// problemLabel6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox4;
+        protected global::System.Web.UI.WebControls.Label problemLabel6;
 
         /// <summary>
-        /// problemTextbox5 control.
+        /// howtoSolveLabel6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox5;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel6;
 
         /// <summary>
-        /// howtoSolveTextbox5 control.
+        /// problemLabel7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox5;
+        protected global::System.Web.UI.WebControls.Label problemLabel7;
 
         /// <summary>
-        /// problemTextbox6 control.
+        /// howtoSolveLabel7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox6;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel7;
 
         /// <summary>
-        /// howtoSolveTextbox6 control.
+        /// problemLabel8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox6;
+        protected global::System.Web.UI.WebControls.Label problemLabel8;
 
         /// <summary>
-        /// problemTextbox7 control.
+        /// howtoSolveLabel8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox7;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel8;
 
         /// <summary>
-        /// howtoSolveTextbox7 control.
+        /// problemLabel9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox7;
+        protected global::System.Web.UI.WebControls.Label problemLabel9;
 
         /// <summary>
-        /// problemTextbox8 control.
+        /// howtoSolveLabel9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox8;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel9;
 
         /// <summary>
-        /// howtoSolveTextbox8 control.
+        /// problemLabel10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox8;
+        protected global::System.Web.UI.WebControls.Label problemLabel10;
 
         /// <summary>
-        /// problemTextbox9 control.
+        /// howtoSolveLabel10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox9;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel10;
 
         /// <summary>
-        /// howtoSolveTextbox9 control.
+        /// problemLabel11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox9;
+        protected global::System.Web.UI.WebControls.Label problemLabel11;
 
         /// <summary>
-        /// problemTextbox10 control.
+        /// howtoSolveLabel11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox10;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel11;
 
         /// <summary>
-        /// howtoSolveTextbox10 control.
+        /// problemLabel12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox10;
+        protected global::System.Web.UI.WebControls.Label problemLabel12;
 
         /// <summary>
-        /// problemTextbox11 control.
+        /// howtoSolveLabel12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox11;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel12;
 
         /// <summary>
-        /// howtoSolveTextbox11 control.
+        /// problemLabel13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox11;
+        protected global::System.Web.UI.WebControls.Label problemLabel13;
 
         /// <summary>
-        /// problemTextbox12 control.
+        /// howtoSolveLabel13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox12;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel13;
 
         /// <summary>
-        /// howtoSolveTextbox12 control.
+        /// problemLabel14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox12;
+        protected global::System.Web.UI.WebControls.Label problemLabel14;
 
         /// <summary>
-        /// problemTextbox13 control.
+        /// howtoSolveLabel14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox13;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel14;
 
         /// <summary>
-        /// howtoSolveTextbox13 control.
+        /// problemLabel15 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox13;
+        protected global::System.Web.UI.WebControls.Label problemLabel15;
 
         /// <summary>
-        /// problemTextbox14 control.
+        /// howtoSolveLabel15 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox14;
+        protected global::System.Web.UI.WebControls.Label howtoSolveLabel15;
 
         /// <summary>
-        /// howtoSolveTextbox14 control.
+        /// toolsListLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox14;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel1;
 
         /// <summary>
-        /// problemTextbox15 control.
+        /// serialNumberLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText problemTextbox15;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel1;
 
         /// <summary>
-        /// howtoSolveTextbox15 control.
+        /// newSerialNumberLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText howtoSolveTextbox15;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel1;
 
         /// <summary>
-        /// toolsListTextbox1 control.
+        /// noteLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox1;
+        protected global::System.Web.UI.WebControls.Label noteLabel1;
 
         /// <summary>
-        /// serialNumberTextbox1 control.
+        /// toolsListLabel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox1;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel2;
 
         /// <summary>
-        /// newSerialNumberTextbox1 control.
+        /// serialNumberLabel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox1;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel2;
 
         /// <summary>
-        /// noteTextbox1 control.
+        /// newSerialNumberLabel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox1;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel2;
 
         /// <summary>
-        /// toolsListTextbox2 control.
+        /// noteLabel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox2;
+        protected global::System.Web.UI.WebControls.Label noteLabel2;
 
         /// <summary>
-        /// serialNumberTextbox2 control.
+        /// toolsListLabel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox2;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel3;
 
         /// <summary>
-        /// newSerialNumberTextbox2 control.
+        /// serialNumberLabel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox2;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel3;
 
         /// <summary>
-        /// noteTextbox2 control.
+        /// newSerialNumberLabel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox2;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel3;
 
         /// <summary>
-        /// toolsListTextbox3 control.
+        /// noteLabel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox3;
+        protected global::System.Web.UI.WebControls.Label noteLabel3;
 
         /// <summary>
-        /// serialNumberTextbox3 control.
+        /// toolsListLabel4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox3;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel4;
 
         /// <summary>
-        /// newSerialNumberTextbox3 control.
+        /// serialNumberLabel4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox3;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel4;
 
         /// <summary>
-        /// noteTextbox3 control.
+        /// newSerialNumberLabel4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox3;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel4;
 
         /// <summary>
-        /// toolsListTextbox4 control.
+        /// noteLabel4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox4;
+        protected global::System.Web.UI.WebControls.Label noteLabel4;
 
         /// <summary>
-        /// serialNumberTextbox4 control.
+        /// toolsListLabel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox4;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel5;
 
         /// <summary>
-        /// newSerialNumberTextbox4 control.
+        /// serialNumberLabel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox4;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel5;
 
         /// <summary>
-        /// noteTextbox4 control.
+        /// newSerialNumberLabel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox4;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel5;
 
         /// <summary>
-        /// toolsListTextbox5 control.
+        /// noteLabel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox5;
+        protected global::System.Web.UI.WebControls.Label noteLabel5;
 
         /// <summary>
-        /// serialNumberTextbox5 control.
+        /// toolsListLabel6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox5;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel6;
 
         /// <summary>
-        /// newSerialNumberTextbox5 control.
+        /// serialNumberLabel6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox5;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel6;
 
         /// <summary>
-        /// noteTextbox5 control.
+        /// newSerialNumberLabel6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox5;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel6;
 
         /// <summary>
-        /// toolsListTextbox6 control.
+        /// noteLabel6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox6;
+        protected global::System.Web.UI.WebControls.Label noteLabel6;
 
         /// <summary>
-        /// serialNumberTextbox6 control.
+        /// toolsListLabel7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox6;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel7;
 
         /// <summary>
-        /// newSerialNumberTextbox6 control.
+        /// serialNumberLabel7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox6;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel7;
 
         /// <summary>
-        /// noteTextbox6 control.
+        /// newSerialNumberLabel7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox6;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel7;
 
         /// <summary>
-        /// toolsListTextbox7 control.
+        /// noteLabel7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox7;
+        protected global::System.Web.UI.WebControls.Label noteLabel7;
 
         /// <summary>
-        /// serialNumberTextbox7 control.
+        /// toolsListLabel8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox7;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel8;
 
         /// <summary>
-        /// newSerialNumberTextbox7 control.
+        /// serialNumberLabel8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox7;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel8;
 
         /// <summary>
-        /// noteTextbox7 control.
+        /// newSerialNumberLabel8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox7;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel8;
 
         /// <summary>
-        /// toolsListTextbox8 control.
+        /// noteLabel8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox8;
+        protected global::System.Web.UI.WebControls.Label noteLabel8;
 
         /// <summary>
-        /// serialNumberTextbox8 control.
+        /// toolsListLabel9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox8;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel9;
 
         /// <summary>
-        /// newSerialNumberTextbox8 control.
+        /// serialNumberLabel9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox8;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel9;
 
         /// <summary>
-        /// noteTextbox8 control.
+        /// newSerialNumberLabel9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox8;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel9;
 
         /// <summary>
-        /// toolsListTextbox9 control.
+        /// noteLabel9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox9;
+        protected global::System.Web.UI.WebControls.Label noteLabel9;
 
         /// <summary>
-        /// serialNumberTextbox9 control.
+        /// toolsListLabel10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox9;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel10;
 
         /// <summary>
-        /// newSerialNumberTextbox9 control.
+        /// serialNumberLabel10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox9;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel10;
 
         /// <summary>
-        /// noteTextbox9 control.
+        /// newSerialNumberLabel10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox9;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel10;
 
         /// <summary>
-        /// toolsListTextbox10 control.
+        /// noteLabel10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox10;
+        protected global::System.Web.UI.WebControls.Label noteLabel10;
 
         /// <summary>
-        /// serialNumberTextbox10 control.
+        /// toolsListLabel11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox10;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel11;
 
         /// <summary>
-        /// newSerialNumberTextbox10 control.
+        /// serialNumberLabel11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox10;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel11;
 
         /// <summary>
-        /// noteTextbox10 control.
+        /// newSerialNumberLabel11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox10;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel11;
 
         /// <summary>
-        /// toolsListTextbox11 control.
+        /// noteLabel11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox11;
+        protected global::System.Web.UI.WebControls.Label noteLabel11;
 
         /// <summary>
-        /// serialNumberTextbox11 control.
+        /// toolsListLabel12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox11;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel12;
 
         /// <summary>
-        /// newSerialNumberTextbox11 control.
+        /// serialNumberLabel12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox11;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel12;
 
         /// <summary>
-        /// noteTextbox11 control.
+        /// newSerialNumberLabel12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox11;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel12;
 
         /// <summary>
-        /// toolsListTextbox12 control.
+        /// noteLabel12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox12;
+        protected global::System.Web.UI.WebControls.Label noteLabel12;
 
         /// <summary>
-        /// serialNumberTextbox12 control.
+        /// toolsListLabel13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox12;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel13;
 
         /// <summary>
-        /// newSerialNumberTextbox12 control.
+        /// serialNumberLabel13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox12;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel13;
 
         /// <summary>
-        /// noteTextbox12 control.
+        /// newSerialNumberLabel13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox12;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel13;
 
         /// <summary>
-        /// toolsListTextbox13 control.
+        /// noteLabel13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox13;
+        protected global::System.Web.UI.WebControls.Label noteLabel13;
 
         /// <summary>
-        /// serialNumberTextbox13 control.
+        /// toolsListLabel14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox13;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel14;
 
         /// <summary>
-        /// newSerialNumberTextbox13 control.
+        /// serialNumberLabel14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox13;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel14;
 
         /// <summary>
-        /// noteTextbox13 control.
+        /// newSerialNumberLabel14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox13;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel14;
 
         /// <summary>
-        /// toolsListTextbox14 control.
+        /// noteLabel14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox14;
+        protected global::System.Web.UI.WebControls.Label noteLabel14;
 
         /// <summary>
-        /// serialNumberTextbox14 control.
+        /// toolsListLabel15 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox14;
+        protected global::System.Web.UI.WebControls.Label toolsListLabel15;
 
         /// <summary>
-        /// newSerialNumberTextbox14 control.
+        /// serialNumberLabel15 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox14;
+        protected global::System.Web.UI.WebControls.Label serialNumberLabel15;
 
         /// <summary>
-        /// noteTextbox14 control.
+        /// newSerialNumberLabel15 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox14;
+        protected global::System.Web.UI.WebControls.Label newSerialNumberLabel15;
 
         /// <summary>
-        /// toolsListTextbox15 control.
+        /// noteLabel15 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText toolsListTextbox15;
+        protected global::System.Web.UI.WebControls.Label noteLabel15;
 
         /// <summary>
-        /// serialNumberTextbox15 control.
+        /// nameTeampmLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText serialNumberTextbox15;
+        protected global::System.Web.UI.WebControls.Label nameTeampmLabel;
 
         /// <summary>
-        /// newSerialNumberTextbox15 control.
+        /// dayDopmLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newSerialNumberTextbox15;
+        protected global::System.Web.UI.WebControls.Label dayDopmLabel;
 
         /// <summary>
-        /// noteTextbox15 control.
+        /// nameAgentareaLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noteTextbox15;
+        protected global::System.Web.UI.WebControls.Label nameAgentareaLabel;
 
         /// <summary>
-        /// nameDopmTextbox control.
+        /// telephoneAgentLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nameDopmTextbox;
-
-        /// <summary>
-        /// dayDopmTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText dayDopmTextbox;
-
-        /// <summary>
-        /// pictureChecklistImages control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload pictureChecklistImages;
-
-        /// <summary>
-        /// vsatpictureChecklistImages control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload vsatpictureChecklistImages;
-
-        /// <summary>
-        /// solarcellpictureChecklistImages control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload solarcellpictureChecklistImages;
+        protected global::System.Web.UI.WebControls.Label telephoneAgentLabel;
     }
 }

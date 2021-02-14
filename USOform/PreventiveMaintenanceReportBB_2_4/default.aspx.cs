@@ -53,17 +53,11 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
 
             if (!IsPostBack)
             {
-
-
                 if (answers.Count() > 0)
                 {
                     SetForm();
                 }
-
-
-
             }
-
         }
 
 
@@ -132,13 +126,13 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
 
             {
                 //1: logoPicture
-                if (this.logoPicture2.HasFile)
+                if (this.logoPictureff.HasFile)
                 {
-                    string extension = this.logoPicture2.PostedFile.FileName.Split('.')[1];
+                    string extension = this.logoPictureff.PostedFile.FileName.Split('.')[1];
                     string newFileName = "images/logoImages_bb_2_4_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                    this.logoPicture2.PostedFile.SaveAs(Server.MapPath(newFileName));
+                    this.logoPictureff.PostedFile.SaveAs(Server.MapPath(newFileName));
 
-                    Answer answe264 = new Answer()
+                    Answer answer264 = new Answer()
                     {
                         AnsDes = newFileName,
                         QuestionId = 264,
@@ -149,22 +143,23 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
                         SRId = sR.Id
 
                     };
-                    uSOEntities.Answers.Add(answe264);
+                    uSOEntities.Answers.Add(answer264);
                 }
             }
             else
             {
-                if (this.logoPicture2.HasFile)
+                if (this.logoPictureff.HasFile)
                 {
-                    string extension = this.logoPicture2.PostedFile.FileName.Split('.')[1];
+                    string extension = this.logoPictureff.PostedFile.FileName.Split('.')[1];
                     string newFileName = "images/logoImages_bb_2_4_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
-                    this.logoPicture2.PostedFile.SaveAs(Server.MapPath(newFileName));
+                    this.logoPictureff.PostedFile.SaveAs(Server.MapPath(newFileName));
                     ans264.QuestionId = 264;
                     ans264.AnsDes = newFileName;
                     ans264.AnserTypeId = 3;
                     ans264.CreateDate = DateTime.Now;
                     ans264.UserId = user.Id;
-                    ans264.AnsMonth = ansMonth; ans264.SRId = sR.Id;
+                    ans264.AnsMonth = ansMonth; 
+                    ans264.SRId = sR.Id;
                 }
             }
 
@@ -7350,7 +7345,7 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
             int result = uSOEntities.SaveChanges();
             if (result > 0)
             {
-                this.SuccessPanel.Visible = true;
+                Response.Redirect("~/success.aspx");
             }
         }
 

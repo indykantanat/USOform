@@ -101,12 +101,11 @@
     <form id="form1" runat="server">
         <div class="container bg-white Myfont mt-3">
             <%-----------------------------------------------//   HEADER CONTENT    //------------------------------------------------------------%>
-            <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
-                SUCCESS !!<a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-            </div>
+         
             <div class="row pt-5">
                 <div class="col-4">
-                    <asp:FileUpload ID="logoPictureOga" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" />
+                    <asp:FileUpload ID="logoPictureOga" runat="server" data-thumbnail="user_img_10" accept="image/" onchange="previewImage(this)" />
+                      <img id="user_img_10" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 483).FirstOrDefault().AnsDes); %>' class="imgLogoOganize float-left" />
                 </div>
                 <div class="col-4  d-flex justify-content-center ">
                     <h5 class="headerText">Preventive Maintenance Site Report USO (School’s WIFI)</h5>
@@ -128,21 +127,21 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">กลุ่ม :</label>
+                <label class="control-label col-sm-1" >กลุ่ม :</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="groupTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">ภาค :</label>
+                <label class="control-label col-sm-1" >ภาค :</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="AreaTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">บริษัท :</label>
+                <label class="control-label col-sm-1" >บริษัท :</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="CompanyTextbox" runat="server" />
                 </div>
@@ -151,14 +150,14 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-7" for="">ส่วนที่ 1 การจัดให้มีบริการอินเทอร์เน็ตความเร็วสูง (Broadband Internet Service) บริการประเภทที่</label>
+                <label class="control-label col-sm-7" >ส่วนที่ 1 การจัดให้มีบริการอินเทอร์เน็ตความเร็วสูง (Broadband Internet Service) บริการประเภทที่</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="seLectOptionRadio" value="2.3" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 487).FirstOrDefault().AnsDes == "2.3") { Response.Write("checked"); } else { Response.Write(""); }  %> />2.3
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="seLectOptionRadio" value="3.3" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 487).FirstOrDefault().AnsDes == "3.3") { Response.Write("checked"); } else { Response.Write(""); }  %> />3.3
                     </label>
                 </div>
@@ -166,7 +165,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">รอบการบำรุงรักษา ครั้งที่ </label>
+                <label class="control-label col-sm-2" >รอบการบำรุงรักษา ครั้งที่ </label>
                 <div class="col-sm-1">
                     <input type="text" class="form-control" id="maintenanceCountTextbox" runat="server" />
                 </div>
@@ -193,7 +192,7 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">สถานที่ (Site code)</label>
+                <label class="control-label col-sm-2" >สถานที่ (Site code)</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="siteCodeTextbox" runat="server" />
                 </div>
@@ -219,71 +218,71 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Cabinet ID :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-1" >Cabinet ID :</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="cabinetIdTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Site Code :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-1" >Site Code :</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="sitecodeTextboxSection2" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Village ID :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-1" >Village ID :</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="VillageIdTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Village :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-1" >Village :</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="villageTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">School’s name</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-1" >School’s name</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="schoolNameTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Sub-District :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-1" >Sub-District :</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="subdistrictTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">District :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-1" >District :</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="DistrictTextboxEIEI" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Province :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-1" >Province :</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="provinceTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Type :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-1" >Type :</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="typeTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">PM Date :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-1" >PM Date :</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="pmdateTextbox" runat="server" />
                 </div>
             </div>
@@ -307,83 +306,91 @@
                 <img id="user_img_1" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 503).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
-            <div class="row ">
+
+
+
+
+
+
+
+
+
+
+         <div class="row mt-3">
                 <div class="col-md-12 bg-warning text-white text-center Myfont">
                     <h4>Contractor</h4>
                 </div>
             </div>
-
-            <div class="row mt-3">
-                <div class="col-md-6  text-center Myfont">
-                    <span>Executor</span>
+            <div class="row mt-2">
+                <div class="col-lg-6">               
+                         <div class="card">
+                        <div class="card-header">
+                            Executor
+                        </div>                                        
+                              <div class="card-body">
+                            <div id="signatureExecutorTextbox"></div>
+                            <div id="redrawSignature1" hidden="hidden"></div>
+                    
+                            <input type="text" id="signatureExecutorJSON" class="ui-state-active" runat="server"   hidden="hidden"/>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" id="nameExecutorTextbox" runat="server"  />
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server"  />
+                            </div>
+                
+                        </div>                                   
+                    </div>                                    
                 </div>
-                <div class="col-md-6 text-center  Myfont">
-                    <span>Supervisor</span>
-                </div>
-            </div>
 
-
-
-            <div class="row mt-3">
-                <div class="col-md-1 text-center">
-                    <span>Signature</span>
-                </div>
-                <div class="col-md-5 text-center">
-                    <p style="clear: both;">
-                        <div id="signatureExecutorTextbox"></div>
-                        <input type="hidden" id="signatureExecutorJSON" class="ui-state-active" runat="server" />
-                        <div id="redrawSignature1" hidden="hidden"></div>
-                </div>
-                 <div class="row">
-                <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 504).FirstOrDefault().AnsDes); %>' class="placeholder2" />
-            </div>
-               
-            </div>
-
-            <div class="row">
-                 <div class="col-md-6 text-center">
-                    <p style="clear: both;">
-                        <div id="signatureSupervisorTextbox"  ></div>
-                        <input type="hidden" id="signatureSupervisorJSON" class="ui-state-active" runat="server" />
-                        <div id="redrawSignature1" hidden="hidden"></div>
-                </div>
-                 <div class="row">
-                <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 505).FirstOrDefault().AnsDes); %>' class="placeholder2" />
-            </div>
-            </div>
-            
-
-
-
-
-            <div class="row mt-3">
-                <div class="col-md-1 text-center">
-                    <span>Name</span>
-                </div>
-                <div class="col-md-5 text-center">
-
-                    <input type="text" class="form-control" id="nameExecutorTextbox" runat="server" required="required" />
-                </div>
-                <div class="col-md-6 text-center">
-
-                    <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server" required="required" />
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Supervisor
+                        </div>
+                        <div class="card-body">
+                            <div id="signatureSupervisorTextbox"></div>
+                            <div id="redrawSignature1" hidden="hidden"></div>
+                            <input type="text" id="signatureSupervisorJSON" class="ui-state-active" runat="server"   hidden="hidden" />
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server"  />
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server"  />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <%--------// FOR PREVIEW/  /-----------%>
+            <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 758).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
+            <%-- <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 759).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
 
-            <div class="row mt-3">
-                <div class="col-md-1 text-center">
-                    <span>Date</span>
-                </div>
-                <div class="col-md-5 text-center">
 
-                    <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" required="required" />
-                </div>
-                <div class="col-md-6 text-center">
 
-                    <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server" required="required" />
-                </div>
-            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -404,52 +411,52 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Cabinet ID :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-2" >Cabinet ID :</label>
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="cabinetId2Textbox" runat="server" />
                 </div>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Site code :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-2" >Site code :</label>
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="sitecodeTextboxSection4" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">Village ID :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-2" >Village ID :</label>
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="villageIDTextboxSection4" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">LAT & LONG :</label>
-                <div class="col-sm-10">
+                <label class="control-label col-sm-2" >LAT & LONG :</label>
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="latandlongTextbox" runat="server" />
                 </div>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">Type of Signal</label>
+                <label class="control-label col-sm-2" >Type of Signal</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="TypeofSignaleieiRadio" value="OFC" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 514).FirstOrDefault().AnsDes == "OFC") { Response.Write("checked"); } else { Response.Write(""); }  %> />OFC
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="TypeofSignaleieiRadio" value="Satellite" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 514).FirstOrDefault().AnsDes == "Satellite") { Response.Write("checked"); } else { Response.Write(""); }  %> />Satellite
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">OLT ID :</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-2" >OLT ID :</label>
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="oltIdTextbox" runat="server" />
                 </div>
             </div>
@@ -485,81 +492,81 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">ระบบไฟฟ้า</label>
+                <label class="control-label col-sm-2" >ระบบไฟฟ้า</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="voltSystemRadio" value="PEA" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 516).FirstOrDefault().AnsDes == "PEA") { Response.Write("checked"); } else { Response.Write(""); }  %> />PEA
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="voltSystemRadio" value="SolarCell" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 516).FirstOrDefault().AnsDes == "SolarCell") { Response.Write("checked"); } else { Response.Write(""); }  %>>Solar Cell
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1" for="">หมายเลขผู้ใช้ไฟ</label>
-                <div class="col-sm-11">
+                <label class="control-label col-sm-2" >หมายเลขผู้ใช้ไฟ</label>
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="numberIdTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">หน่วยใช้ไฟ (kWh Meter)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-2" >หน่วยใช้ไฟ (kWh Meter)</label>
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="kwhMeterTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2" for="">kWh</label>
+                <label class="control-label col-sm-1" >kWh</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">แรงดัน AC (kWh Meter)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-2" >แรงดัน AC (kWh Meter)</label>
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="acvoltTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2" for="">V.</label>
+                <label class="control-label col-sm-1" >V.</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-3" for="">กระแส Line AC (kWh Meter)</label>
-                <div class="col-sm-7">
+                <label class="control-label col-sm-2" >กระแส Line AC (kWh Meter)</label>
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="lineAcTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2" for="">A.</label>
+                <label class="control-label col" >A.</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">กระแส Neutron AC (kWh Meter)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-2" >กระแส Neutron AC (kWh Meter)</label>
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="neutronAcEIEITextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2" for="">A.</label>
+                <label class="control-label col" >A.</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">สภาพ kWh Meter</label>
+                <label class="control-label col-sm-2" >สภาพ kWh Meter</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="conditionRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 522).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="conditionRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 522).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); }  %> />ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2" for="">สภาพ Circuit Breaker</label>
+                <label class="control-label col-sm-2" >สภาพ Circuit Breaker</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="MDBCircuitBreakerRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 523).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="MDBCircuitBreakerRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 523).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); }  %> />ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
@@ -589,7 +596,7 @@
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน AC จาก UPS</label>
-                <div class="col-sm-8">
+                <div class="col-sm-1">
                     <input type="text" class="form-control" id="acfromupsTextbox" runat="server" required="required" />
                 </div>
                 <label class="control-label col-sm-2">V.</label>
@@ -742,122 +749,122 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-3" for="">ONU/Modem Network</label>
+                <label class="control-label col-sm-3" >ONU/Modem Network</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="ONUModemNetworkRadio" value="USO" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 531).FirstOrDefault().AnsDes == "USO") { Response.Write("checked"); } else { Response.Write(""); }  %> />USO
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="ONUModemNetworkRadio" value="TRUE" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 531).FirstOrDefault().AnsDes == "TRUE") { Response.Write("checked"); } else { Response.Write(""); }  %> />TRUE
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="ONUModemNetworkRadio" value="3BB" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 531).FirstOrDefault().AnsDes == "3BB") { Response.Write("checked"); } else { Response.Write(""); }  %> />3BB
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="ONUModemNetworkRadio" value="Satellite" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 531).FirstOrDefault().AnsDes == "Satellite") { Response.Write("checked"); } else { Response.Write(""); }  %> />Satellite
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-3" for="">Power Supply (for Switch)</label>
+                <label class="control-label col-sm-3" >Power Supply (for Switch)</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="psuForswitchRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 532).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="psuForswitchRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 532).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); }  %> />ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-3" for="">Switch 8 Port</label>
+                <label class="control-label col-sm-3" >Switch 8 Port</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="switchPortRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 533).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="switchPortRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 533).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); }  %> />ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-3" for="">Outdoor AP 2.4 GHz</label>
+                <label class="control-label col-sm-3" >Outdoor AP 2.4 GHz</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="OutdoorAP24Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 534).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="OutdoorAP24Radio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 534).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); }  %> />ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-3" for="">Outdoor AP 5 GHz</label>
+                <label class="control-label col-sm-3" >Outdoor AP 5 GHz</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="OutdoorAP5GHzRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 535).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="OutdoorAP5GHzRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 535).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); }  %> />ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-3" for="">ระบบระบายอากาศ (T-Power)</label>
+                <label class="control-label col-sm-3" >ระบบระบายอากาศ (T-Power)</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="tPowerRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 536).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="tPowerRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 536).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); }  %> />ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-3" for="">การ Wiring สายไฟและสาย Ground</label>
+                <label class="control-label col-sm-3" >การ Wiring สายไฟและสาย Ground</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="WiringGroundRadio" value="เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 537).FirstOrDefault().AnsDes == "เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); }  %> />เรียบร้อย
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="WiringGroundRadio" value="ไม่เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 537).FirstOrDefault().AnsDes == "ไม่เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); }  %> />ไม่เรียบร้อย
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-3" for="">การ Wiring Patch cord และ สาย LAN</label>
+                <label class="control-label col-sm-3" >การ Wiring Patch cord และ สาย LAN</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="wirePatchRadio" value="เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 538).FirstOrDefault().AnsDes == "เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); }  %> />เรียบร้อย
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="wirePatchRadio" value="ไม่เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 538).FirstOrDefault().AnsDes == "ไม่เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); }  %> />ไม่เรียบร้อย
                     </label>
                 </div>
@@ -1460,49 +1467,49 @@
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดันไฟจาก Inverter</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="voltInverterTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">V.</label>
+                <label class="control-label col">V.</label>
             </div>
 
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">กระแส Load</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="loadVoltTageTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">A.</label>
+                <label class="control-label col">A.</label>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน Battery ก้อนที่ 1</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="batterTextbox1" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">V.</label>
+                <label class="control-label col">V.</label>
             </div>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน Battery ก้อนที่ 2</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="batterTextbox2" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">V.</label>
+                <label class="control-label col">V.</label>
             </div>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน Battery ก้อนที่ 3</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="batterTextbox3" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">V.</label>
+                <label class="control-label col">V.</label>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน Battery ก้อนที่ 4</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="batterTextbox4" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">V.</label>
+                <label class="control-label col">V.</label>
             </div>
 
 
@@ -1531,64 +1538,53 @@
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">Download (for ONU/VSAT)</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="dowloadOnuTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">Upload (for ONU/VSAT)</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="uploadforOnuTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">Ping Test (for ONU/VSAT)</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="pinngtestforOnuTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">ms</label>
+                <label class="control-label col">ms</label>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">Download (for WIFI)</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="dowloadforMobileTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">Upload (for WIFI)</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="uploadforMobileTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">Ping Test (for WIFI)</label>
-                <div class="col-sm-8">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="pingtestFormobileTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Ms</label>
+                <label class="control-label col">Ms</label>
             </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
             <div class="row mt-3">
@@ -2444,56 +2440,56 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปจุดติดตั้ง Solar Cell</label>
+                <label class="control-label col-sm-4" >รูปจุดติดตั้ง Solar Cell</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="solarCellRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 705).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="solarCellRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 705).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปอุปกรณ์ภายในตู้ Solar Cell</label>
+                <label class="control-label col-sm-4" >รูปอุปกรณ์ภายในตู้ Solar Cell</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="toolsinSolarcellRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 706).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="toolsinSolarcellRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 706).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปหน้าจอ Charger แสดงค่าต่างๆ</label>
+                <label class="control-label col-sm-4" >รูปหน้าจอ Charger แสดงค่าต่างๆ</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="chargerRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 707).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" name="chargerRadio" value="NOTPASS <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 707).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %>" />NOT PASS
+                    <label class="form-check-label" >
+                        <input type="radio" class="form-check-input" name="chargerRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 707).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปหน้าจอ Inverter แสดงค่าต่างๆ</label>
+                <label class="control-label col-sm-4" >รูปหน้าจอ Inverter แสดงค่าต่างๆ</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="snowingInverterRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 708).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="snowingInverterRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 708).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />NOT PASS
                     </label>
                 </div>
@@ -2501,135 +2497,116 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูป Circuit Breaker ภายในตู้</label>
+                <label class="control-label col-sm-4" >รูป Circuit Breaker ภายในตู้</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="cirBreakerRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 709).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="cirBreakerRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 709).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูป Terminal ต่อสายภายในตู้</label>
+                <label class="control-label col-sm-4" >รูป Terminal ต่อสายภายในตู้</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="termialInnerRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 710).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="termialInnerRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 710).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการวัดแรงดัน Battery ก้อนที่ 1</label>
+                <label class="control-label col-sm-4" >รูปการวัดแรงดัน Battery ก้อนที่ 1</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="batteryVoltRadio1" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 711).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="batteryVoltRadio1" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 711).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการวัดแรงดัน Battery ก้อนที่ 2</label>
+                <label class="control-label col-sm-4" >รูปการวัดแรงดัน Battery ก้อนที่ 2</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="batteryVoltRadio2" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 712).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="batteryVoltRadio2" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 712).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการวัดแรงดัน Battery ก้อนที่ 3</label>
+                <label class="control-label col-sm-4" >รูปการวัดแรงดัน Battery ก้อนที่ 3</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="batteryVoltRadio3" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 713).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="batteryVoltRadio3" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 713).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปการวัดแรงดัน Battery ก้อนที่ 4</label>
+                <label class="control-label col-sm-4" >รูปการวัดแรงดัน Battery ก้อนที่ 4</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="batteryVoltRadio4" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 714).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="batteryVoltRadio4" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 714).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปความสะอาดแผง PV</label>
+                <label class="control-label col-sm-4" >รูปความสะอาดแผง PV</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="cleaninPVVRADIO" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 715).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="cleaninPVVRADIO" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 715).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />NOT PASS
                     </label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4" for="">รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์</label>
+                <label class="control-label col-sm-4" >รูปภาพรวมดูสิ่งบดบังแสงอาทิตย์</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="sunnyRadio" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 716).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />PASS
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label" >
                         <input type="radio" class="form-check-input" name="sunnyRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 716).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />NOT PASS
                     </label>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="row mt-3">
                 <div class="col-md-12 bg-warning text-white text-center Myfont">
@@ -2638,7 +2615,7 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO.</label>
+                <label class="control-label col-sm-5">รูปคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO.</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicComRadio1" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 717).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2653,7 +2630,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO.</label>
+                <label class="control-label col-sm-5">รูปคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO.</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicComRadio2" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 718).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2668,7 +2645,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO.</label>
+                <label class="control-label col-sm-5">รูปคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO.</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicComRadio3" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 719).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2683,7 +2660,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO.</label>
+                <label class="control-label col-sm-5">รูปคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO.</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicComRadio4" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 720).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2699,7 +2676,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูปคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.</label>
+                <label class="control-label col-sm-5">รูปคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicComRadio5" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 721).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2714,7 +2691,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO.</label>
+                <label class="control-label col-sm-5">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 1 พร้อม Serial NO.</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicupsRadio1" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 722).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2729,7 +2706,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO.</label>
+                <label class="control-label col-sm-5">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 2 พร้อม Serial NO.</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicupsRadio2" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 723).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2745,7 +2722,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO.</label>
+                <label class="control-label col-sm-5">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 3 พร้อม Serial NO.</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicupsRadio3" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 724).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2761,7 +2738,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO.</label>
+                <label class="control-label col-sm-5">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 4 พร้อม Serial NO.</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicupsRadio4" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 725).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2777,7 +2754,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.</label>
+                <label class="control-label col-sm-5">รูป USP สำหรับคอมพิวเตอร์ตัวที่ 5 พร้อม Serial NO.</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="PicupsRadio5" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 726).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); }  %> />ปกติ
@@ -2908,7 +2885,7 @@
 
             <div class="row mt-3">
                 <div class="col-sm-12">4. COMPUTER PICTURE CHECKLIST</div>
-                <asp:FileUpload ID="computerChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)" />
+                <asp:FileUpload ID="computerChecklistImages" runat="server" data-thumbnail="user_img_5" accept="image/" onchange="previewImage(this)" />
 
             </div>
             <div class="row ml-3 mt-3">
@@ -2952,6 +2929,18 @@
     <script>
         $(function () {
             $("#endDatepicker").datepicker();
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#DateExecutorTextbox").datepicker();
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#DateSupervisorTextbox").datepicker();
         });
     </script>
 

@@ -8290,7 +8290,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._3_3._3
             int result = uSOEntities.SaveChanges();
             if (result > 0)
             {
-                this.SuccessPanel.Visible = true;
+                Response.Redirect("~/success.aspx");
             }
 
 

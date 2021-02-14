@@ -50,11 +50,6 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
 
             }
 
-
-
-
-
-
             //this.GetData();
             if (!IsPostBack)
             {
@@ -64,14 +59,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
                     SetForm();
                 }
             }
-            //*** Check login Status ***//
-            //if (Convert.ToString(Session["strUsername"]) == "")
-            //{
-            //    Response.Redirect("/UsoLogin.aspx");
-            //    Response.End();
-            //}
-
-
+          
         }
 
         void SetForm()
@@ -229,6 +217,10 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
         {
             return (dt.Month - 1) / 3 + 1;
         }
+
+
+
+
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             User user = (User)Session["strUsername"];
@@ -8297,7 +8289,6 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
 
 
             //4.COMPUTER PICTURE CHECKLIST :
-
             var ans258 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 4 && x.SRId == sR.Id && x.QuestionId == 1013).FirstOrDefault();
             if (ans258 == null)
             {
@@ -8346,7 +8337,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
             int result = uSOEntities.SaveChanges();
             if (result > 0)
             {
-                this.SuccessPanel.Visible = true;
+                Response.Redirect("~/success.aspx");
             }
 
         }

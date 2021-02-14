@@ -24,13 +24,13 @@ namespace USOform.PreventiveMaintenanceReportBB1
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// SuccessPanel control.
+        /// pictureOrganize_ control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SuccessPanel;
+        protected global::System.Web.UI.WebControls.FileUpload pictureOrganize_;
 
         /// <summary>
         /// GroupNameTextBox control.
@@ -103,15 +103,6 @@ namespace USOform.PreventiveMaintenanceReportBB1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText siteCodeTextbox;
-
-        /// <summary>
-        /// pictureOrganize_ control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload pictureOrganize_;
 
         /// <summary>
         /// cabinetIdTextbox control.
@@ -204,22 +195,13 @@ namespace USOform.PreventiveMaintenanceReportBB1
         protected global::System.Web.UI.WebControls.FileUpload signboardfontImage;
 
         /// <summary>
-        /// signatureExecutorTextbox control.
+        /// signatureExecutorJSON control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText signatureExecutorTextbox;
-
-        /// <summary>
-        /// signatureSupervisorTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText signatureSupervisorTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText signatureExecutorJSON;
 
         /// <summary>
         /// nameExecutorTextbox control.
@@ -231,15 +213,6 @@ namespace USOform.PreventiveMaintenanceReportBB1
         protected global::System.Web.UI.HtmlControls.HtmlInputText nameExecutorTextbox;
 
         /// <summary>
-        /// nameSupervisorTextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nameSupervisorTextbox;
-
-        /// <summary>
         /// DateExecutorTextbox control.
         /// </summary>
         /// <remarks>
@@ -247,6 +220,24 @@ namespace USOform.PreventiveMaintenanceReportBB1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText DateExecutorTextbox;
+
+        /// <summary>
+        /// signatureSupervisorJSON control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText signatureSupervisorJSON;
+
+        /// <summary>
+        /// nameSupervisorTextbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nameSupervisorTextbox;
 
         /// <summary>
         /// DateSupervisorTextbox control.

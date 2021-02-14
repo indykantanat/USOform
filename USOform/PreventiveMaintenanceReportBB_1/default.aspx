@@ -1,17 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="USOform.PreventiveMaintenanceReportBB1.WebForm1" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>รายงาน PM From BB Zone C+ บริการที่ 1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="../style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <%------//     font style    //------------------------------------------------------------%>
+    <%------//     font style    //---------%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
-    <%-------//    DATE time picker JQURRY   //-------------------------------------------------%>
+    <%-------//    DATE time picker JQURRY   //--------%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="/resources/demos/style.css" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -19,24 +18,113 @@
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet" />
     <link href="../style/Mystyle.css" rel="stylesheet" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <%-------//   PREVIEW IMAGES   //------------------------------------------------------------%>
+    <%-------//   PREVIEW IMAGES   //--------%>
     <script src="previewImg.js"></script>
     <%--------------- //   Signature     //-----------------------%>
     <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
     <script src="../sig/js/jquery.signature.min.js"></script>
     <script src="../sig/js/results.js"></script>
-    <%----------------//  Important must have for signature !  //--------------------------------%>
+    <script src="../sig/js/results.js"></script>
+    <%----------------//  Important must have for signature !  //---------------%>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet" />
+    <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
+
+    <style>
+        .kbw-signature {
+            width: 348px;
+            height: 200px;
+        }
+
+        table, tr, td {
+            border: none;
+        }
+    </style>
+    <!--[if IE]>
+    <script src="excanvas.js"></script>
+    <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../sig/js/jquery.signature.js"></script>
+    <script>
+        //-----------------  ลายเซ็น  //----------------------
+        $(function () {
+            $('#signatureExecutorTextbox').signature({ syncField: '#<%= this.signatureExecutorJSON.ClientID %>' });
+
+            $('#clearButton1').click(function () {
+                $('#signatureExecutorTextbox').signature('clear');
+            });
+
+            $('input[name="syncFormat"]').change(function () {
+                var syncFormat = $('input[name="syncFormat"]:checked').val();
+                $('#signatureExecutorTextbox').signature('option', 'syncFormat', syncFormat);
+            });
+
+            $('#svgStyles').change(function () {
+                $('#signatureExecutorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
+            });
+
+            $('#redrawButton').click(function () {
+                $('#redrawSignature1').signature('enable').
+                    signature('draw', $('#<%= this.signatureExecutorJSON.ClientID %>').val()).
+                    signature('disable');
+            });
+
+            $('#redrawSignature1').signature({ disabled: true });
+        });
+
+     
+    </script>
+    <script>
+        $(function () {
+            $('#signatureSupervisorTextbox').signature({ syncField: '#<%= this.signatureSupervisorJSON.ClientID %>' });
+
+            $('#clear2Button').click(function () {
+                $('#signatureSupervisorTextbox').signature('clear');
+            });
+
+            $('input[name="syncFormat"]').change(function () {
+                var syncFormat = $('input[name="syncFormat"]:checked').val();
+                $('#signatureSupervisorTextbox').signature('option', 'syncFormat', syncFormat);
+            });
+
+            $('#svgStyles').change(function () {
+                $('#signatureSupervisorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
+            });
+
+            $('#redrawButton').click(function () {
+                $('#redrawSignature').signature('enable').
+                    signature('draw', $('#<%= this.signatureSupervisorJSON.ClientID %>').val()).
+                    signature('disable');
+            });
+
+            $('#redrawSignature').signature({ disabled: true });
+        });
+       
+    </script>
 </head>
 
 <body style="background-color: lightgray">
-    <form id="form1" name="form1" runat="server">
-        <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
-            ทำรายการสำเร็จ <a href="#" class="alert-link">คลิกเพื่อดูตัวอย่างก่อนพิม</a>
-        </div>
+    <form id="form1" name="form1" runat="server">                
         <div class="container bg-white Myfont mt-3">
+            <div class="row pt-5">
+                <div class="col-4">
+                    <asp:FileUpload ID="pictureOrganize_" runat="server" data-thumbnail="user_img_3" accept="image/" onchange="previewImage(this)" />
+                    <div class="row ml-3 mt-3">
+                        <img id="user_img_3" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1239).FirstOrDefault().AnsDes); %>' class="imgLogoOganize  float-left" />
+                    </div>
+                </div>
+
+                <div class="col-4  d-flex justify-content-center ">
+                    <h5 class="headerText">Preventive Maintenance Site Report USO (OLT)</h5>
+                </div>
+                <div class="col-4 ">
+                    <img src="../assets/logo_uso.png" class="logoImg" />
+                </div>
+            </div>
+
+
             <div class="row mt-3">
                 <div class="col-12 text-left ">
                     <div>
@@ -49,8 +137,7 @@
             </div>
 
 
-          
-
+        
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">กลุ่ม :</label>
                 <div class="col-sm-4">
@@ -82,11 +169,11 @@
         <div class="form-row mt-3">
             <label class="control-label col-sm-2" for="">รอบการบำรุงรักษา ครั้งที่ </label>
             <div class="col-sm-1">
-                <input type="text" class="form-control" id="maintenanceCountTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="maintenanceCountTextbox" runat="server"  />
             </div>
             /
               <div class="col-sm-3">
-                  <input type="text" class="form-control" placeholder="ปีพุทธศักราช" id="yearTextbox" runat="server" required="required" />
+                  <input type="text" class="form-control" placeholder="ปีพุทธศักราช" id="yearTextbox" runat="server"  />
               </div>
         </div>
 
@@ -96,13 +183,13 @@
                     <label>
                         <div>วัน เดือน ปี</div>
                     </label>
-                    <input class="form-control" type="text" id="startDatepicker" runat="server" required="required" />
+                    <input class="form-control" type="text" id="startDatepicker" runat="server"  />
 
                     <%-- QuestionId = 9,--%>
                     <label>
                         <div>ถึง</div>
                     </label>
-                    <input class="form-control" type="text" id="endDatepicker" runat="server" required="required" />
+                    <input class="form-control" type="text" id="endDatepicker" runat="server"  />
                 </div>
             </div>
         </div>
@@ -115,17 +202,6 @@
         </div>
 
 
-        <div class="row mt-3">
-            <div class="col-sm-12 bg-primary text-white">Logo</div>
-
-            <asp:FileUpload ID="pictureOrganize_" runat="server" data-thumbnail="user_img_logo" accept="image/*" onchange="previewImage(this)" />
-
-            <%--    OLD RESOUCE    <input type="file" name="image0" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_0" />--%>
-        </div>
-        <%-- onchange="previewImage(this)"--%>
-        <div class="row ml-3 mt-3">
-            <img id="user_img_logo" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1239).FirstOrDefault().AnsDes); %>' class="placeholder2" />
-        </div>
 
 
         <%--////////////// SECTION 2  //////////////////--%>
@@ -139,7 +215,7 @@
         <div class="form-row mt-3">
             <label class="control-label col-sm-1">Cabinet ID :</label>
             <div class="col-sm-11">
-                <input type="text" class="form-control" id="cabinetIdTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="cabinetIdTextbox" runat="server"  />
             </div>
         </div>
 
@@ -147,7 +223,7 @@
         <div class="form-row mt-3">
             <label class="control-label col-sm-1">Site Code :</label>
             <div class="col-sm-11">
-                <input class="form-control" type="text" id="sitecodeTextboxSection2" runat="server" required="required" />
+                <input class="form-control" type="text" id="sitecodeTextboxSection2" runat="server"  />
             </div>
         </div>
 
@@ -155,7 +231,7 @@
         <div class="form-row mt-3">
             <label class="control-label col-sm-1">Village ID :</label>
             <div class="col-sm-11">
-                <input type="text" class="form-control" id="VillageIdTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="VillageIdTextbox" runat="server"  />
             </div>
         </div>
 
@@ -163,7 +239,7 @@
         <div class="form-row mt-3">
             <label class="control-label col-sm-1">Village :</label>
             <div class="col-sm-11">
-                <input type="text" class="form-control" id="villageTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="villageTextbox" runat="server"  />
             </div>
         </div>
 
@@ -173,14 +249,14 @@
         <div class="form-row mt-3">
             <label class="control-label col-sm-1">Sub-District :</label>
             <div class="col-sm-11">
-                <input type="text" class="form-control" id="subdistrictTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="subdistrictTextbox" runat="server"  />
             </div>
         </div>
 
         <div class="form-row mt-3">
             <label class="control-label col-sm-1">District :</label>
             <div class="col-sm-11">
-                <input type="text" class="form-control" id="districtTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="districtTextbox" runat="server"  />
             </div>
         </div>
 
@@ -190,7 +266,7 @@
         <div class="form-row mt-3">
             <label class="control-label col-sm-1">Province :</label>
             <div class="col-sm-11">
-                <input type="text" class="form-control" id="provinceTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="provinceTextbox" runat="server"  />
             </div>
         </div>
 
@@ -198,7 +274,7 @@
         <div class="form-row mt-3">
             <label class="control-label col-sm-1">Type :</label>
             <div class="col-sm-11">
-                <input type="text" class="form-control" id="typeTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="typeTextbox" runat="server"  />
             </div>
         </div>
 
@@ -207,7 +283,7 @@
         <div class="form-row mt-3">
             <label class="control-label col-sm-1">PM Date : </label>
             <div class="col-sm-11">
-                <input type="text" class="form-control" id="pmdateTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="pmdateTextbox" runat="server"  />
             </div>
         </div>
 
@@ -215,81 +291,68 @@
         <%-- QuestionId = 6, --%>
         <div class="row mt-3">
             <div class="col-sm-12 bg-primary text-white">ใส่รูปหน้าตู้</div>
-
-            <asp:FileUpload ID="signboardfontImage" runat="server" data-thumbnail="user_img_0" accept="image/*" onchange="previewImage(this)" required="required" />
-
-            <%--    OLD RESOUCE    <input type="file" name="image0" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_0" />--%>
+            <asp:FileUpload ID="signboardfontImage" runat="server" data-thumbnail="user_img_0" accept="image/*" onchange="previewImage(this)"  />
         </div>
         <div class="row ml-3 mt-3">
-            <img id="user_img_0" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1239).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+            <img id="user_img_0" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1249).FirstOrDefault().AnsDes); %>' class="placeholder2" />
         </div>
 
 
 
-
-
-
-
-
-        <div class="row mt-3">
-            <div class="col-md-12 bg-warning text-white text-center Myfont">
-                <h4>Contractor</h4>
+             <div class="row mt-3">
+                <div class="col-md-12 bg-warning text-white text-center Myfont">
+                    <h4>Contractor</h4>
+                </div>
             </div>
-        </div>
+            <div class="row mt-2">
+                <div class="col-lg-6">               
+                         <div class="card">
+                        <div class="card-header">
+                            Executor
+                        </div>                                        
+                              <div class="card-body">
+                            <div id="signatureExecutorTextbox"></div>
+                            <div id="redrawSignature1" hidden="hidden"></div>
+                    
+                            <input type="text" id="signatureExecutorJSON" class="ui-state-active" runat="server"   hidden="hidden"/>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" id="nameExecutorTextbox" runat="server"  />
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server"  />
+                            </div>
+                
+                        </div>                                   
+                    </div>                                    
+                </div>
 
-        <div class="row mt-3">
-            <div class="col-md-6  text-center Myfont">
-                <span>Executor</span>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Supervisor
+                        </div>
+                        <div class="card-body">
+                            <div id="signatureSupervisorTextbox"></div>
+                            <div id="redrawSignature1" hidden="hidden"></div>
+                            <input type="text" id="signatureSupervisorJSON" class="ui-state-active" runat="server"   hidden="hidden" />
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server"  />
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server"  />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6 text-center  Myfont">
-                <span>Supervisor</span>
-            </div>
-        </div>
 
-
-        <div class="row mt-3">
-            <div class="col-md-1 text-center">
-                <span>Signature</span>
-            </div>
-            <div class="col-md-5 text-center">
-                <%-- QuestionId = 21, --%>
-                <input type="text" class="form-control" id="signatureExecutorTextbox" runat="server" required="required" />
-            </div>
-            <div class="col-md-6 text-center">
-                <%-- QuestionId = 22, --%>
-                <input type="text" class="form-control" id="signatureSupervisorTextbox" runat="server" required="required" />
-            </div>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col-md-1 text-center">
-                <span>Name</span>
-            </div>
-            <div class="col-md-5 text-center">
-                <%-- QuestionId = 23, --%>
-                <input type="text" class="form-control" id="nameExecutorTextbox" runat="server" required="required" />
-            </div>
-            <div class="col-md-6 text-center">
-                <%-- QuestionId = 24, --%>
-                <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server" required="required" />
-            </div>
-        </div>
-
-
-        <div class="row mt-3">
-            <div class="col-md-1 text-center">
-                <span>Date</span>
-            </div>
-            <div class="col-md-5 text-center">
-                <%-- QuestionId = 25, --%>
-                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" required="required" />
-            </div>
-            <div class="col-md-6 text-center">
-                <%-- QuestionId = 26, --%>
-                <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server" required="required" />
-            </div>
-        </div>
-
+             <%--FOR PREVIEW--%>
+            <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1034).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
+            <%-- <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1035).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
 
         <div class="row mt-3">
             <div class="col-md-12 bg-primary text-white text-center Myfont">
@@ -301,7 +364,7 @@
             <%-- QuestionId = 27, --%>
             <label class="control-label col-sm-1">Cabinet ID </label>
             <div class="col-sm-11">
-                <input type="text" class="form-control" id="CabinetTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="CabinetTextbox" runat="server"  />
             </div>
         </div>
 
@@ -309,7 +372,7 @@
             <label class="control-label col-sm-1">Site Code</label>
             <div class="col-sm-11">
                 <%-- QuestionId = 28, --%>
-                <input type="text" class="form-control" id="sitecodeTextboxSection4" runat="server" required="required" />
+                <input type="text" class="form-control" id="sitecodeTextboxSection4" runat="server"  />
             </div>
         </div>
 
@@ -317,7 +380,7 @@
             <label class="control-label col-sm-1">Village ID</label>
             <div class="col-sm-11">
                 <%-- QuestionId = 29, --%>
-                <input type="text" class="form-control" id="villageIDTextboxSection4" runat="server" required="required" />
+                <input type="text" class="form-control" id="villageIDTextboxSection4" runat="server"  />
             </div>
         </div>
 
@@ -325,7 +388,7 @@
             <label class="control-label col-sm-1">LAT & LONG</label>
             <div class="col-sm-11">
                 <%-- QuestionId = 30, --%>
-                <input type="text" class="form-control" id="latandlongTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="latandlongTextbox" runat="server"  />
             </div>
         </div>
 
@@ -342,7 +405,7 @@
             <%------, ----------------------------------------------------------------------------------------------------------%>
             <label class="control-label col-sm-2">หมายเลขผู้ใช้ไฟ</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="numberuserTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="numberuserTextbox" runat="server"  />
             </div>
         </div>
 
@@ -350,7 +413,7 @@
             <%------  ----------------------------------------------------------------------------------------------------------%>
             <label class="control-label col-sm-2">หน่วยใช้ไฟ (kWh Meter)</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="kwhMeterTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="kwhMeterTextbox" runat="server"  />
             </div>
             <label class="control-label col-sm-2">kWh</label>
         </div>
@@ -360,7 +423,7 @@
             <%------ , ---------------------------------------------------------------------------------------------------------%>
             <label class="control-label col-sm-2">แรงดัน AC (kWh Meter)</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="acTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="acTextbox" runat="server"  />
             </div>
             <label class="control-label col-sm-2">V.</label>
         </div>
@@ -369,7 +432,7 @@
             <%------  ----------------------------------------------------------------------------------------------------------%>
             <label class="control-label col-sm-2">กระแส Line AC (kWh Meter)</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="lineAcTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="lineAcTextbox" runat="server"  />
             </div>
             <label class="control-label col-sm-2">A.</label>
         </div>
@@ -378,7 +441,7 @@
             <%------  -----------------------------------------------------------------------------------------------------------%>
             <label class="control-label col-sm-2">กระแส Neutron AC (kWh Meter)</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="neutronacTextbox" runat="server" required="required" />
+                <input type="text" class="form-control" id="neutronacTextbox" runat="server"  />
             </div>
             <label class="control-label col-sm-2">A.</label>
         </div>
@@ -519,7 +582,7 @@
         </div>
 
         <div class="form-row mt-3">
-            <label class="control-label col-sm-2" for="">Door Alarm</label>
+            <label class="control-label col-sm-3" for="">Door Alarm</label>
             <div class="form-check-inline">
                 <label class="form-check-label" for="">
                     <input type="radio" class="form-check-input" name="dooralarmRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1277).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %>>ปกติ 
@@ -534,7 +597,7 @@
         </div>
 
         <div class="form-row mt-3">
-            <label class="control-label col-sm-2" for="">Main Power Failure Alarm</label>
+            <label class="control-label col-sm-3" for="">Main Power Failure Alarm</label>
             <div class="form-check-inline">
                 <label class="form-check-label" for="">
                     <input type="radio" class="form-check-input" name="maimpowerFailureAlarm" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1278).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %>>ปกติ 
@@ -549,7 +612,7 @@
 
 
         <div class="form-row mt-3">
-            <label class="control-label col-sm-2" for="">Rectifier 1 Comm. Fail Alarm</label>
+            <label class="control-label col-sm-3" for="">Rectifier 1 Comm. Fail Alarm</label>
             <div class="form-check-inline">
                 <label class="form-check-label" for="">
                     <input type="radio" class="form-check-input" name="rectifier1Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1279).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ 
@@ -564,7 +627,7 @@
         </div>
 
         <div class="form-row mt-3">
-            <label class="control-label col-sm-2" for="">Rectifier 2 Comm. Fail Alarm</label>
+            <label class="control-label col-sm-3" for="">Rectifier 2 Comm. Fail Alarm</label>
             <div class="form-check-inline">
                 <label class="form-check-label" for="">
                     <input type="radio" class="form-check-input" name="rectifier2Radio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1280).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ 
@@ -591,7 +654,7 @@
 
         <div class="form-row mt-3">
             <%----------------------  ---------------------------%>
-            <label class="control-label col-sm-4">ความแข็งแรงจุดต่อ Ground Bar</label>
+            <label class="control-label col-sm-3">ความแข็งแรงจุดต่อ Ground Bar</label>
             <div class="form-check-inline">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="groundbarRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1281).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
@@ -606,7 +669,7 @@
 
         <div class="form-row mt-3">
             <%----------------------  ---------------------------%>
-            <label class="control-label col-sm-4">ความแข็งแรงของน็อตขันหางปลาอุปกรณ์</label>
+            <label class="control-label col-sm-3">ความแข็งแรงของน็อตขันหางปลาอุปกรณ์</label>
             <div class="form-check-inline">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="notfishRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1282).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
@@ -621,7 +684,7 @@
 
         <div class="form-row mt-3">
             <%---------------------- , ---------------------------%>
-            <label class="control-label col-sm-4">สายกราวด์เรียบร้อย ปลอดภัย สมบูรณ์</label>
+            <label class="control-label col-sm-3">สายกราวด์เรียบร้อย ปลอดภัย สมบูรณ์</label>
             <div class="form-check-inline">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="safegroundRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1283).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
@@ -638,7 +701,7 @@
 
         <%----------------------  ---------------------------%>
         <div class="form-row mt-3">
-            <label class="control-label col-sm-4">สถานะไฟฟ้ารั่วลง Ground</label>
+            <label class="control-label col-sm-3">สถานะไฟฟ้ารั่วลง Ground</label>
             <div class="form-check-inline">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="brokenElecRadio" value="ไม่พบไฟฟ้ารั่ว" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1284).FirstOrDefault().AnsDes == "ไม่พบไฟฟ้ารั่ว") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่พบไฟฟ้ารั่ว
@@ -1210,7 +1273,7 @@
             <div class="col-md-3 text-center">
                 <span>ชื่อทีม</span>
             </div>
-            <div class="col-md-9">
+            <div class="col-sm-5">
                 <input type="text" class="form-control" id="nameTeampmTextbox" runat="server" />
             </div>
 
@@ -1221,7 +1284,7 @@
             <div class="col-md-3 text-center">
                 <span>วันที่ทำ PM</span>
             </div>
-            <div class="col-md-9">
+            <div class="col-sm-5">
                 <input type="text" class="form-control" id="dayDopmTextbox" runat="server" />
             </div>
         </div>
@@ -1460,7 +1523,6 @@
                 </label>
             </div>
         </div>
-        2.2
         <div class="form-row mt-3">
             <label class="control-label col-sm-4" for="">รูปการ Test Rectifier 2 Comm. Fail  Alarm </label>
             <div class="form-check-inline">
@@ -1562,7 +1624,7 @@
         <%---------------------- QuestionId = 259  ---------------------------%>
         <div class="row mt-3 ">
             <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
-            <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" required="required" />
+            <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)"  />
             <%-- <input type="file" name="image2" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_2" />--%>
         </div>
         <div class="row ml-3 mt-3">

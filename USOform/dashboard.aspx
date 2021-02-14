@@ -5,7 +5,7 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="~/style/Mystyle.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" /> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <%---------------------------------//  font style  //------------------------------------%>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200;300;400;500&display=swap" rel="stylesheet" />
@@ -13,21 +13,25 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
-  
+
 
     <title>USO FORM DASHBOARD </title>
 </head>
 
 <body>
     <form id="form1" runat="server">
-        <div class="container-fluid bg-white     p-5">
-            <div class="loading" align="center">
+        <div class="container-fluid bg-white p-5">              
+            <div class="loading text-center">
                 Loading. Please wait.<br />
                 <br />
                 <img src="../assets/loader2.gif" alt="loading..." />
             </div>
+
+
+         
+            
             <table id="example" class="table table-striped table-responsive" style="width: 100%">
-                <thead>                 
+                <thead>
                     <tr>
                         <td>จุดที่</td>
                         <td>SR
@@ -105,6 +109,7 @@
                     </asp:Repeater>
                 </tbody>
             </table>
+               
 
             <br />
             <br />
@@ -127,7 +132,7 @@
 
 
     <%------------------------------//  LOADING SCREEN //-------------------------------------%>
-<%--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>--%>
+    <%--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>--%>
     <script type="text/javascript">
         function ShowProgress() {
             setTimeout(function () {
@@ -169,7 +174,7 @@
             font-weight: 400;
         }
 
-        .modal {
+        /* .modal {
             position: fixed;
             top: 0;
             left: 0;
@@ -180,18 +185,75 @@
             -moz-opacity: 0.8;
             min-height: 100%;
             width: 100%;
+        }*/
+        .modal {
+            padding: 0 !important;
+            // override inline padding-right added from js
         }
+
+            .modal .modal-dialog {
+                width: 100%;
+                max-width: none;
+                height: 100%;
+                margin: 0;
+            }
+
+            .modal .modal-content {
+                height: 100%;
+                border: 0;
+                border-radius: 0;
+            }
+
+            .modal .modal-body {
+                overflow-y: auto;
+            }
 
         .loading {
             font-family: Arial;
             font-size: 10pt;
             border: 5px solid #67CFF5;
-            width: 200px;
-            height: 100px;
+            width: 100%;
+            height: auto;
             display: none;
             position: fixed;
             background-color: red;
             z-index: 999;
+        }
+
+        #overlay {
+            position: fixed;
+            z-index: 99;
+            top: 0px;
+            left: 0px;
+            background-color: #f8f8f8;
+            width: 100%;
+            height: 100%;
+            filter: Alpha(Opacity=90);
+            opacity: 0.9;
+            -moz-opacity: 0.9;
+        }
+
+        #theprogress {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            filter: Alpha(Opacity=100);
+            opacity: 1;
+            -moz-opacity: 1;
+        }
+
+        #modalprogress {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            margin: -11px 0 0 -150px;
+            color: #990000;
+            font-weight: bold;
+            font-size: 14px;
         }
     </style>
 

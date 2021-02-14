@@ -33,7 +33,6 @@
     <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
 
     <style>
-       
         .kbw-signature {
             width: 400px;
             height: 200px;
@@ -41,6 +40,16 @@
 
         table, tr, td {
             border: none;
+        }
+        .signatureImages {
+        width:200px;
+        height:200px;
+        }
+
+        @media print {
+            input[type="radio"]:checked + span {
+                font-weight: bold;
+            }
         }
     </style>
     <%--   <style type="text/css" media="print">
@@ -62,6 +71,9 @@
             .printText {
                 border: none !important;
             }
+             #printPageButton {
+             display: none;
+  }
         }
     </style>
     <!--[if IE]>
@@ -70,79 +82,31 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="../sig/js/jquery.signature.js"></script>
-    <script>
-        //-----------------  ลายเซ็น  //----------------------
-        $(function () {
-            $('#signatureExecutorTextbox').signature({ syncField: '#<%= this.signatureExecutorJSON.ClientID %>' });
-
-            $('#clearButton1').click(function () {
-                $('#signatureExecutorTextbox').signature('clear');
-            });
-
-            $('input[name="syncFormat"]').change(function () {
-                var syncFormat = $('input[name="syncFormat"]:checked').val();
-                $('#signatureExecutorTextbox').signature('option', 'syncFormat', syncFormat);
-            });
-
-            $('#svgStyles').change(function () {
-                $('#signatureExecutorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
-            });
-            $('#redrawButton').click(function () {
-                $('#redrawSignature1').signature('enable').
-                    signature('draw', $('#<%= this.signatureExecutorJSON.ClientID %>').val()).
-                    signature('disable');
-            });
-
-            $('#redrawSignature1').signature({ disabled: true });
-        });
-    </script>
-    <script>
-        $(function () {
-            $('#signatureSupervisorTextbox').signature({ syncField: '#<%= this.signatureSupervisorJSON.ClientID %>' });
-
-            $('#clear2Button').click(function () {
-                $('#signatureSupervisorTextbox').signature('clear');
-            });
-
-            $('input[name="syncFormat"]').change(function () {
-                var syncFormat = $('input[name="syncFormat"]:checked').val();
-                $('#signatureSupervisorTextbox').signature('option', 'syncFormat', syncFormat);
-            });
-
-            $('#svgStyles').change(function () {
-                $('#signatureSupervisorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
-            });
-
-            $('#redrawButton').click(function () {
-                $('#redrawSignature').signature('enable').
-                    signature('draw', $('#<%= this.signatureSupervisorJSON.ClientID %>').val()).
-                    signature('disable');
-            });
-
-            $('#redrawSignature').signature({ disabled: true });
-        });
-    </script>
-    <script>
-        $(document).ready(function () {
-            $(".toast").toast();
-        });
-    </script>
+    
 </head>
 
-<body style="background-color: lightgray;" class="printText">
+<body style="background-color: white;">
     <form id="form1" runat="server">
-        <%-- <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
-                   ทำรายการสำเร็จ
-                </div>--%>
-        <!-- Success Alert -->
-        <div class="alert alert-success alert-dismissible fade show" role="alert" runat="server" id="SuccessPanel" visible="false">
-            <strong>ทำรายการสำเร็จ !</strong> ข้อมูลของท่านถูกบันทึกเรียบร้อยเเล้ว.
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        </div>
         <div class="container bg-white Myfont mt-3">
-            <button onclick="window.print()">Print this page</button>
             <%-------------------------//    HEADER CONTENT    //------------------------------------------------%>
-            <div class="row">
+            <div class="row pt-5">
+                <div class="col-4">
+                    
+                    <div class="row ml-3 mt-3">
+                        <img id="user_img_logo" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1023).FirstOrDefault().AnsDes); %>' class="imgLogoOganize  float-left" />
+                    </div>
+                </div>
+
+                <div class="col-4  d-flex justify-content-center ">
+                    <h5 class="headerText">Preventive Maintenance Site Report USO (Village’s WIFI)</h5>
+                </div>
+                <div class="col-4 ">
+                    <img src="../assets/logo_uso.png" class="logoImg" />
+                </div>
+            </div>
+
+
+            <div class="row mt-5">
                 <div class="col-12 text-left ">
                     <div>
                         <h5>รายงานผลการตรวจสอบและบำรุงรักษาชุดอุปกรณ์ Broadband Internet Service (Preventive Maintenance (PM) Report)</h5>
@@ -154,29 +118,24 @@
             </div>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">กลุ่ม :</label>
-                <div class="col-sm-4">
-                    <asp:Label runat="server" ID="GroupNameLabel"></asp:Label>
-                    <%-- <input type="text" class="form-control printText" id="GroupNameTextBox" runat="server" readonly />--%>
+                <div class="col-sm-4">                   
+                    <asp:Label ID="GroupNameLabel" runat="server" ></asp:Label>
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">ภาค :</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control printText" id="AreaTextbox" runat="server" />
-                    <%--<asp:Label runat="server" ID="AreaTextbox"></asp:Label>--%>
+                     <asp:Label ID="AreaLabel" runat="server" ></asp:Label>                   
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">บริษัท :</label>
                 <div class="col-sm-4">
-                    <asp:Label runat="server" ID="CompanyLabel"></asp:Label>
-                    <%--<input type="text" class="form-control printText" id="CompanyTextbox" runat="server" />--%>
+                     <asp:Label ID="CompanyLabel" runat="server" ></asp:Label>                
                 </div>
             </div>
-
-
 
 
             <div class="form-row mt-3">
@@ -193,56 +152,40 @@
                 </div>
             </div>
 
-
-
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">รอบการบำรุงรักษา ครั้งที่ </label>
                 <div class="col-sm-1">
-                    <input type="text" class="form-control printText" id="maintenanceCountTextbox" runat="server" required="required" />
+                     <asp:Label ID="maintenanceCountLabel" runat="server" ></asp:Label>                       
                 </div>
-                /
-              <div class="col-sm-3">
-                  <input type="text" class="form-control printText" placeholder="ปีพุทธศักราช" id="yearTextbox" runat="server" required="required" />
-              </div>
+                <span>/</span>
+                <div class="col-sm-3">
+                   
+                     <asp:Label ID="yearLabel" runat="server" ></asp:Label>   
+                </div>
             </div>
 
-            <div class="row text-left mt-3">
-                <div class="col-md-12">
-                    <div>
-                        <label>
-                            <div>วัน เดือน ปี</div>
-                        </label>
-                        <input class="form-control printText" type="text" id="startDatepicker" runat="server" required="required" />
-
-                        <%-- QuestionId = 9,--%>
-                        <label>
-                            <div>ถึง</div>
-                        </label>
-                        <input class="form-control printText" type="text" id="endDatepicker" runat="server" required="required" />
-                    </div>
+            <div class="row  text-left mt-3">
+                <div class="col-md-4 form-inline">
+                    <label>วัน เดือน ปี </label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="startDatepickerLabel" runat="server" ></asp:Label>   
+               <%-- <input class="form-control" type="text" id="startDatepicker" runat="server"  />--%>
                 </div>
+                <div class="col-md-6 form-inline">
+                    <label>ถึง</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <%-- <input class="form-control" type="text" id="endDatepicker" runat="server"  />--%>
+                     <asp:Label ID="endDatepickerLabel" runat="server" ></asp:Label>   
+                </div>
+
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">สถานที่ (Site code)</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control printText" id="siteCodeTextbox" runat="server" />
+                <div class="col-sm-4">              
+                    <asp:Label ID="siteCodeLabel" runat="server" ></asp:Label>   
                 </div>
             </div>
-
-
-            <div class="row mt-3">
-                <div class="col-sm-12 bg-primary text-white">Logo</div>
-
-                <%--  <asp:FileUpload ID="pictureOrganize_" runat="server" data-thumbnail="user_img_logo" accept="image/*" onchange="previewImage(this)" />--%>
-
-                <%--    OLD RESOUCE    <input type="file" name="image0" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_0" />--%>
-            </div>
-            <%-- onchange="previewImage(this)"--%>
-            <div class="row ml-3 mt-3">
-                <img id="user_img_logo" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1023).FirstOrDefault().AnsDes); %>' class="placeholder2" />
-            </div>
-            <%--////////////////////////////////    END HEADER CONTENT    ///////////////////////////////////////////////--%>
+            <%---------------------------------//   END HEADER CONTENT  //------------------------------------------%>
 
 
             <%--------------------------------form start-------------------------------------------------------------------%>
@@ -257,7 +200,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Cabinet ID :</label>
                 <div class="col-sm-11">
-                    <input type="text" class="form-control printText" id="cabinetIdTextbox" runat="server" required="required" />
+                     <asp:Label ID="cabinetIdLabel" runat="server" ></asp:Label>                   
                 </div>
             </div>
 
@@ -265,7 +208,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Site Code :</label>
                 <div class="col-sm-11">
-                    <input class="form-control printText" type="text" id="sitecodeTextboxSection2" runat="server" required="required" />
+                   <asp:Label ID="sitecodeLabelSection2" runat="server" ></asp:Label>                     
                 </div>
             </div>
 
@@ -273,7 +216,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Village ID :</label>
                 <div class="col-sm-11">
-                    <input type="text" class="form-control printText" id="VillageIdTextbox" runat="server" required="required" />
+                     <asp:Label  id="VillageIdLabel" runat="server"  />
                 </div>
             </div>
 
@@ -281,23 +224,23 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Village :</label>
                 <div class="col-sm-11">
-                    <input type="text" class="form-control printText" id="villageTextbox" runat="server" required="required" />
+                     <asp:Label  id="villageLabel" runat="server"  />
                 </div>
             </div>
 
 
             <%-- QuestionId = 16,--%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-1">Sub-District :</label>
-                <div class="col-sm-11">
-                    <input type="text" class="form-control printText" id="subdistrictTextbox" runat="server" required="required" />
+                <label class="control-label col-md-1">Sub-District </label>
+                <div class="col">
+                     <asp:Label  id="subdistrictLabel" runat="server"  />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">District :</label>
                 <div class="col-sm-11">
-                    <input type="text" class="form-control printText" id="districtTextbox" runat="server" required="required" />
+                     <asp:Label  id="districtLabel" runat="server"  />
                 </div>
             </div>
 
@@ -307,7 +250,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Province :</label>
                 <div class="col-sm-11">
-                    <input type="text" class="form-control printText" id="provinceTextbox" runat="server" required="required" />
+                     <asp:Label  id="provinceLabel" runat="server"  />
                 </div>
             </div>
 
@@ -315,7 +258,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Type :</label>
                 <div class="col-sm-11">
-                    <input type="text" class="form-control printText" id="typeTextbox" runat="server" required="required" />
+                     <asp:Label  id="typeLabel" runat="server"  />
                 </div>
             </div>
 
@@ -324,7 +267,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">PM Date : </label>
                 <div class="col-sm-11">
-                    <input type="text" class="form-control printText" id="pmdateTextbox" runat="server" required="required" />
+                     <asp:Label  id="pmdateLabel" runat="server"  />
                 </div>
             </div>
 
@@ -332,11 +275,9 @@
             <%-- QuestionId = 6, --%>
             <div class="row mt-3">
                 <div class="col-sm-12 bg-primary text-white">ใส่รูปหน้าตู้</div>
-
-                <asp:FileUpload ID="signboardfontImage" runat="server" data-thumbnail="user_img_0" accept="image/*" onchange="previewImage(this)" />
-
-
+               
             </div>
+
             <%-- onchange="previewImage(this)"--%>
             <div class="row ml-3 mt-3">
                 <img id="user_img_0" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1033).FirstOrDefault().AnsDes); %>' class="placeholder2" />
@@ -346,8 +287,8 @@
 
 
 
-
-            <div class="row mt-3">
+            <%--OLD RESOUCE--%>
+            <%-- <div class="row mt-3">
                 <div class="col-md-12 bg-warning text-white text-center Myfont">
                     <h4>Contractor</h4>
                 </div>
@@ -362,11 +303,11 @@
                     </tr>
                     <tr style="height: 21px;">
                         <td style="height: 21px; width: 10%;">&nbsp;Signature</td>
-                        <td style="height: 21px; width: 45%;">&nbsp;<div id="signatureExecutorTextbox"></div>
+                        <td style="height: 21px; width: 45%;">&nbsp;<div id="signatureExecutorLabel"></div>
                             <input type="hidden" id="signatureExecutorJSON" class="ui-state-active" runat="server" />
                             <div id="redrawSignature1" hidden="hidden"></div>
                         </td>
-                        <td style="height: 21px; width: 45%;">&nbsp;<div id="signatureSupervisorTextbox"></div>
+                        <td style="height: 21px; width: 45%;">&nbsp;<div id="signatureSupervisorLabel"></div>
                             <input type="hidden" id="signatureSupervisorJSON" class="ui-state-active" runat="server" />
                             <div id="redrawSignature1" hidden="hidden"></div>
                         </td>
@@ -374,50 +315,67 @@
                     <tr style="height: 21px;">
                         <td style="height: 21px; width: 10%;">&nbsp;Name</td>
                         <td style="height: 21px; width: 45%;">&nbsp;  
-                                <input type="text" class="form-control printText" id="nameExecutorTextbox" runat="server" required="required" /></td>
+                                 <asp:Label  id="nameExecutorLabel" runat="server"  /></td>
                         <td style="height: 21px; width: 45%;">&nbsp;  
-                                <input type="text" class="form-control printText" id="nameSupervisorTextbox" runat="server" required="required" /></td>
+                                 <asp:Label  id="nameSupervisorLabel" runat="server"  /></td>
                     </tr>
                     <tr style="height: 21px;">
                         <td style="height: 21px; width: 10%;">&nbsp;Date</td>
                         <td style="height: 21px; width: 45%;">&nbsp;
-                                <input type="text" class="form-control printText" id="DateExecutorTextbox" runat="server" required="required" /></td>
+                                 <asp:Label  id="DateExecutorLabel" runat="server"  /></td>
                         <td style="height: 21px; width: 45%;">&nbsp; 
-                                <input type="text" class="form-control printText" id="DateSupervisorTextbox" runat="server" required="required" /></td>
+                                 <asp:Label  id="DateSupervisorLabel" runat="server"  /></td>
                     </tr>
                 </tbody>
-            </table>
-            <!-- DivTable.com -->
+            </table>--%>
 
+            <div class="row mt-3">
+                <div class="col-md-12 bg-warning text-white text-center Myfont">
+                    <h4>Contractor</h4>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Executor
+                        </div>
+                        <div class="card-body">
+                            <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1034).FirstOrDefault().AnsDes); %>' class="signatureImages" />
+                            <div class="form-group">
+                                <label>Name :</label>
+                                 <asp:Label  id="nameExecutorLabel" runat="server"  />
+                            </div>
+                            <div class="form-group">
+                                <label>Date :</label>
+                                 <asp:Label  id="DateExecutorLabel" runat="server"  />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Supervisor
+                        </div>
+                        <div class="card-body">
+                             <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1035).FirstOrDefault().AnsDes); %>' class="signatureImages" />
+                            <div class="form-group">
+                                <label>Name</label>
+                                 <asp:Label  id="nameSupervisorLabel" runat="server"  />
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                 <asp:Label  id="DateSupervisorLabel" runat="server"  />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%--FOR PREVIEW--%>
             <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1034).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
             <%-- <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1035).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
@@ -430,7 +388,7 @@
                 <label class="control-label col-sm-1">Cabinet ID</label>
                 <div class="col-sm-11">
                     <%-- QuestionId = 28, --%>
-                    <input type="text" class="form-control printText" id="cabinetIDTextboxSection4" runat="server" required="required" />
+                     <asp:Label  id="cabinetIDLabelSection4" runat="server"  />
                 </div>
             </div>
 
@@ -439,7 +397,7 @@
                 <label class="control-label col-sm-1">Site Code</label>
                 <div class="col-sm-11">
                     <%-- QuestionId = 28, --%>
-                    <input type="text" class="form-control printText" id="sitecodeTextboxSection4" runat="server" required="required" />
+                     <asp:Label  id="sitecodeLabelSection4" runat="server"  />
                 </div>
             </div>
 
@@ -447,7 +405,7 @@
                 <label class="control-label col-sm-1">Village ID</label>
                 <div class="col-sm-11">
                     <%-- QuestionId = 29, --%>
-                    <input type="text" class="form-control printText" id="villageIDTextboxSection4" runat="server" required="required" />
+                     <asp:Label  id="villageIDLabelSection4" runat="server"  />
                 </div>
             </div>
 
@@ -455,7 +413,7 @@
                 <label class="control-label col-sm-1">LAT & LONG</label>
                 <div class="col-sm-11">
                     <%-- QuestionId = 30, --%>
-                    <input type="text" class="form-control printText" id="latandlongTextbox" runat="server" required="required" />
+                     <asp:Label  id="latandlongLabel" runat="server"  />
                 </div>
             </div>
 
@@ -464,7 +422,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">Type of Signal</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label visible">
+                    <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="typeofsignalRadio" value="OFC" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1044).FirstOrDefault().AnsDes == "OFC") { Response.Write("checked"); } else { Response.Write(""); }  %> />OFC
                     </label>
                 </div>
@@ -479,7 +437,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">OLT ID (USO Network) or ISP (Existing Network)</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control printText" id="oltidTextbox" runat="server" required="required" />
+                     <asp:Label  id="oltidLabel" runat="server"  />
                 </div>
             </div>
 
@@ -515,7 +473,7 @@
                 <%------, ----------------------------------------------------------------------------------------------------------%>
                 <label class="control-label col-sm-2">หมายเลขผู้ใช้ไฟ</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control printText" id="numberuserTextbox" runat="server" required="required" />
+                     <asp:Label  id="numberuserLabel" runat="server"  />
                 </div>
             </div>
 
@@ -523,7 +481,7 @@
                 <%------  ----------------------------------------------------------------------------------------------------------%>
                 <label class="control-label col-sm-2">หน่วยใช้ไฟ (kWh Meter)</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="kwhMeterTextbox" runat="server" required="required" />
+                     <asp:Label  id="kwhMeterLabel" runat="server"  />
                 </div>
                 <label class="control-label col-sm-2">kWh</label>
             </div>
@@ -533,7 +491,7 @@
                 <%------ , ---------------------------------------------------------------------------------------------------------%>
                 <label class="control-label col-sm-2">แรงดัน AC (kWh Meter)</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="acTextbox" runat="server" required="required" />
+                     <asp:Label  id="acLabel" runat="server"  />
                 </div>
                 <label class="control-label col-sm-2">V.</label>
             </div>
@@ -542,7 +500,7 @@
                 <%------  ----------------------------------------------------------------------------------------------------------%>
                 <label class="control-label col-sm-2">กระแส Line AC (kWh Meter)</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="lineAcTextbox" runat="server" required="required" />
+                     <asp:Label  id="lineAcLabel" runat="server"  />
                 </div>
                 <label class="control-label col-sm-2">A.</label>
             </div>
@@ -551,7 +509,7 @@
                 <%------  -----------------------------------------------------------------------------------------------------------%>
                 <label class="control-label col-sm-2">กระแส Neutron AC (kWh Meter)</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="neutronacTextbox" runat="server" required="required" />
+                     <asp:Label  id="neutronacLabel" runat="server"  />
                 </div>
                 <label class="control-label col-sm-2">A.</label>
             </div>
@@ -598,12 +556,12 @@
                 <label class="control-label col-sm-2" for="">UPS ภายในตู้</label>
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" name="inupsRadio" value="มี" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1054).FirstOrDefault().AnsDes == "มี") { Response.Write("checked"); } else { Response.Write(""); } %> />มี
+                        <input type="radio" class="form-check-input" name="inupsRadio" value="มี"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1054).FirstOrDefault().AnsDes == "มี") { Response.Write("checked"); } else { Response.Write(""); } %> />มี
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" name="inupsRadio" value="ไม่มี" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1054).FirstOrDefault().AnsDes == "ไม่มี") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่มี
+                        <input type="radio" class="form-check-input" name="inupsRadio" value="ไม่มี"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1054).FirstOrDefault().AnsDes == "ไม่มี") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่มี
                     </label>
                 </div>
             </div>
@@ -613,7 +571,7 @@
                 <%------  ---------------------------------------------------------------------------------------------------------%>
                 <label class="control-label col-sm-2">แรงดัน AC จาก UPS</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="acfromupsTextbox" runat="server" required="required" />
+                     <asp:Label  id="acfromupsLabel" runat="server"  />
                 </div>
                 <label class="control-label col-sm-2">V.</label>
             </div>
@@ -625,30 +583,30 @@
                 <label class="control-label col-sm-2" for="">ระดับกระแส Load </label>
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" name="levelLoadRadio" value="1" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "1") { Response.Write("checked"); } else { Response.Write(""); } %>>1
+                        <input type="radio" class="form-check-input" name="levelLoadRadio" value="1"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "1") { Response.Write("checked"); } else { Response.Write(""); } %>>1
                     </label>
                 </div>
 
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" name="levelLoadRadio" value="2" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "2") { Response.Write("checked"); } else { Response.Write(""); } %>>2
+                        <input type="radio" class="form-check-input" name="levelLoadRadio" value="2"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "2") { Response.Write("checked"); } else { Response.Write(""); } %>>2
                     </label>
                 </div>
 
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" name="levelLoadRadio" value="3" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "3") { Response.Write("checked"); } else { Response.Write(""); } %>>3
+                        <input type="radio" class="form-check-input" name="levelLoadRadio" value="3"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "3") { Response.Write("checked"); } else { Response.Write(""); } %>>3
                     </label>
                 </div>
 
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" name="levelLoadRadio" value="4" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "4") { Response.Write("checked"); } else { Response.Write(""); } %>>4
+                        <input type="radio" class="form-check-input" name="levelLoadRadio" value="4"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "4") { Response.Write("checked"); } else { Response.Write(""); } %>>4
                     </label>
 
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" name="levelLoadRadio" value="5" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "5") { Response.Write("checked"); } else { Response.Write(""); } %>>5
+                            <input type="radio" class="form-check-input" name="levelLoadRadio" value="5"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "5") { Response.Write("checked"); } else { Response.Write(""); } %>>5
                         </label>
                     </div>
                 </div>
@@ -662,30 +620,30 @@
                 <label class="control-label col-sm-2" for="">ระดับความจุ Battery</label>
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" name="levelBatteryRadio" value="1" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "1") { Response.Write("checked"); } else { Response.Write(""); } %>>1
+                        <input type="radio" class="form-check-input" name="levelBatteryRadio" value="1"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "1") { Response.Write("checked"); } else { Response.Write(""); } %>>1
                     </label>
                 </div>
 
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" name="levelBatteryRadio" value="2" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "2") { Response.Write("checked"); } else { Response.Write(""); } %>>2
+                        <input type="radio" class="form-check-input" name="levelBatteryRadio" value="2"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "2") { Response.Write("checked"); } else { Response.Write(""); } %>>2
                     </label>
                 </div>
 
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" name="levelBatteryRadio" value="3" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "3") { Response.Write("checked"); } else { Response.Write(""); } %>>3
+                        <input type="radio" class="form-check-input" name="levelBatteryRadio" value="3"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "3") { Response.Write("checked"); } else { Response.Write(""); } %>>3
                     </label>
                 </div>
 
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
-                        <input type="radio" class="form-check-input" name="levelBatteryRadio" value="4" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "4") { Response.Write("checked"); } else { Response.Write(""); } %>>4
+                        <input type="radio" class="form-check-input" name="levelBatteryRadio" value="4"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "4") { Response.Write("checked"); } else { Response.Write(""); } %>>4
                     </label>
 
                     <div class="form-check-inline">
                         <label class="form-check-label" for="">
-                            <input type="radio" class="form-check-input" name="levelBatteryRadio" value="5" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "5") { Response.Write("checked"); } else { Response.Write(""); } %>>5
+                            <input type="radio" class="form-check-input" name="levelBatteryRadio" value="5"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1056).FirstOrDefault().AnsDes == "5") { Response.Write("checked"); } else { Response.Write(""); } %>>5
                         </label>
                     </div>
                 </div>
@@ -696,17 +654,17 @@
                 <label class="control-label col-sm-2">UPS MODE</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="upsModeRadio" value="LINE" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1058).FirstOrDefault().AnsDes == "LINE") { Response.Write("checked"); } else { Response.Write(""); } %> />LINE
+                        <input type="radio" class="form-check-input" name="upsModeRadio" value="LINE"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1058).FirstOrDefault().AnsDes == "LINE") { Response.Write("checked"); } else { Response.Write(""); } %> />LINE
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="upsModeRadio" value="BATT." required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1058).FirstOrDefault().AnsDes == "BATT.") { Response.Write("checked"); } else { Response.Write(""); } %> />BATT.
+                        <input type="radio" class="form-check-input" name="upsModeRadio" value="BATT."  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1058).FirstOrDefault().AnsDes == "BATT.") { Response.Write("checked"); } else { Response.Write(""); } %> />BATT.
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="upsModeRadio" value="BYPASS" required="required" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1058).FirstOrDefault().AnsDes == "BYPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />BYPASS
+                        <input type="radio" class="form-check-input" name="upsModeRadio" value="BYPASS"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1058).FirstOrDefault().AnsDes == "BYPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />BYPASS
                     </label>
                 </div>
             </div>
@@ -1257,7 +1215,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดันไฟจาก Inverter</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="voltageInverterTextbox" runat="server" required="required" />
+                     <asp:Label  id="voltageInverterLabel" runat="server"  />
                 </div>
                 <label class="control-label col-sm-2">V.</label>
             </div>
@@ -1268,7 +1226,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">กระแส Load</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="voltageLoadTextbox" runat="server" required="required" />
+                     <asp:Label  id="voltageLoadLabel" runat="server"  />
                 </div>
                 <label class="control-label col-sm-2">A.</label>
             </div>
@@ -1276,7 +1234,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">แรงดัน Battery ก้อนที่ 1</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="powerBatterytext1" runat="server" />
+                     <asp:Label  id="powerBatteryLabel1" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">V.</label>
             </div>
@@ -1285,7 +1243,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">แรงดัน Battery ก้อนที่ 2</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="powerBatterytext2" runat="server" />
+                     <asp:Label  id="powerBatteryLabel2" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">V.</label>
             </div>
@@ -1294,7 +1252,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">แรงดัน Battery ก้อนที่ 3</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="powerBatterytext3" runat="server" />
+                     <asp:Label  id="powerBatteryLabel3" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">V.</label>
             </div>
@@ -1303,7 +1261,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">แรงดัน Battery ก้อนที่ 4</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="powerBatterytext4" runat="server" />
+                     <asp:Label  id="powerBatteryLabel4" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">V.</label>
             </div>
@@ -1316,61 +1274,61 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Download (for ONU/VSAT)</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="dowloadforOnuTextbox" runat="server" required="required" />
+                <label class="control-label col-sm-4">Download (for ONU/VSAT)</label>
+                <div class="col">
+                     <asp:Label  id="dowloadforOnuLabel" runat="server"  />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
             <%----------------------   ---------------------------%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Upload (for ONU/VSAT)</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="uploadforOnuTextbox" runat="server" required="required" />
+                <label class="control-label col-sm-4">Upload (for ONU/VSAT)</label>
+                <div class="col">
+                     <asp:Label  id="uploadforOnuLabel" runat="server"  />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
-            </div>
-
-
-
-            <%----------------------   ---------------------------%>
-            <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Ping Test (for ONU/VSAT)</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="pingTestTextbox" runat="server" required="required" />
-                </div>
-                <label class="control-label col-sm-2">ms</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
 
 
             <%----------------------   ---------------------------%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Download (for WIFI)</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="dowloadForwifiTextbox" runat="server" required="required" />
+                <label class="control-label col-sm-4">Ping Test (for ONU/VSAT)</label>
+                <div class="col">
+                     <asp:Label  id="pingTestLabel" runat="server"  />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">ms</label>
             </div>
 
-            <%----------------------   ---------------------------%>
-            <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Upload (for WIFI)</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="uploadForwifiTextbox" runat="server" required="required" />
-                </div>
-                <label class="control-label col-sm-2">Mb/s</label>
-            </div>
 
 
             <%----------------------   ---------------------------%>
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Ping Test (for WIFI)</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control printText" id="pingtestForwifiTextbox" runat="server" required="required" />
+                <label class="control-label col-sm-4">Download (for WIFI)</label>
+                <div class="col">
+                     <asp:Label  id="dowloadForwifiLabel" runat="server"  />
                 </div>
-                <label class="control-label col-sm-2">ms</label>
+                <label class="control-label col">Mb/s</label>
+            </div>
+
+            <%----------------------   ---------------------------%>
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">Upload (for WIFI)</label>
+                <div class="col">
+                     <asp:Label  id="uploadForwifiLabel" runat="server"  />
+                </div>
+                <label class="control-label col">Mb/s</label>
+            </div>
+
+
+            <%----------------------   ---------------------------%>
+            <div class="form-row mt-3">
+                <label class="control-label col-sm-4">Ping Test (for WIFI)</label>
+                <div class="col">
+                     <asp:Label  id="pingtestForwifiLabel" runat="server"  />
+                </div>
+                <label class="control-label col">ms</label>
             </div>
 
 
@@ -1392,11 +1350,11 @@
                         <div class="divTableCell">&nbsp;1</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox1" runat="server" />
+                             <asp:Label  id="problemLabel1" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox1" runat="server" />
+                             <asp:Label  id="howtoSolveLabel1" runat="server" />
                         </div>
                     </div>
 
@@ -1404,11 +1362,11 @@
                         <div class="divTableCell">&nbsp;2</div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox2" runat="server" />
+                             <asp:Label  id="problemLabel2" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox2" runat="server" />
+                             <asp:Label  id="howtoSolveLabel2" runat="server" />
                         </div>
                     </div>
 
@@ -1416,11 +1374,11 @@
                         <div class="divTableCell">&nbsp;3</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox3" runat="server" />
+                             <asp:Label  id="problemLabel3" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox3" runat="server" />
+                             <asp:Label  id="howtoSolveLabel3" runat="server" />
                         </div>
                     </div>
 
@@ -1428,11 +1386,11 @@
                         <div class="divTableCell">&nbsp;4</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox4" runat="server" />
+                             <asp:Label  id="problemLabel4" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox4" runat="server" />
+                             <asp:Label  id="howtoSolveLabel4" runat="server" />
                         </div>
                     </div>
 
@@ -1440,121 +1398,121 @@
                         <div class="divTableCell">&nbsp;5</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox5" runat="server" />
+                             <asp:Label  id="problemLabel5" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" class="form-control " id="howtoSolveTextbox5" runat="server" />
+                             <asp:Label id="howtoSolveLabel5" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;6</div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox6" runat="server" />
+                             <asp:Label  id="problemLabel6" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox6" runat="server" />
+                             <asp:Label  id="howtoSolveLabel6" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;7</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox7" runat="server" />
+                             <asp:Label  id="problemLabel7" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox7" runat="server" />
+                             <asp:Label  id="howtoSolveLabel7" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;8</div>
                         <div class="divTableCell">
                             <%---------------------- 4  ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox8" runat="server" />
+                             <asp:Label  id="problemLabel8" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox8" runat="server" />
+                             <asp:Label  id="howtoSolveLabel8" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;9</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox9" runat="server" />
+                             <asp:Label  id="problemLabel9" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox9" runat="server" />
+                             <asp:Label  id="howtoSolveLabel9" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;10</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox10" runat="server" />
+                             <asp:Label  id="problemLabel10" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox10" runat="server" />
+                             <asp:Label  id="howtoSolveLabel10" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;11</div>
                         <div class="divTableCell">
                             <%---------------------- ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox11" runat="server" />
+                             <asp:Label  id="problemLabel11" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox11" runat="server" />
+                             <asp:Label  id="howtoSolveLabel11" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;12</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox12" runat="server" />
+                             <asp:Label  id="problemLabel12" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox12" runat="server" />
+                             <asp:Label  id="howtoSolveLabel12" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;13</div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox13" runat="server" />
+                             <asp:Label  id="problemLabel13" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox13" runat="server" />
+                             <asp:Label  id="howtoSolveLabel13" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;14</div>
                         <div class="divTableCell">
                             <%---------------------- ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox14" runat="server" />
+                             <asp:Label  id="problemLabel14" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox14" runat="server" />
+                             <asp:Label  id="howtoSolveLabel14" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;15</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="problemTextbox15" runat="server" />
+                             <asp:Label  id="problemLabel15" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" class="form-control printText" id="howtoSolveTextbox15" runat="server" />
+                             <asp:Label  id="howtoSolveLabel15" runat="server" />
                         </div>
                     </div>
                 </div>
@@ -1570,7 +1528,7 @@
 
 
             <div class="table-responsive-sm text-center Myfont">
-                <table class="table table-sm table-hover" style="width: 100%;" border="0">
+                <table class="table table-sm " style="width: 100%;" border="0">
                     <thead>
                         <tr>
                             <th scope="col">ลำดับ</th>
@@ -1585,227 +1543,227 @@
                             <td>1</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox1" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel1" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox1" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel1" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox1" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel1" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox1" runat="server" /></td>
+                                 <asp:Label  id="noteLabel1" runat="server" /></td>
                         </tr>
                         <tr>
 
                             <td>2</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox2" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel2" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox2" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel2" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox2" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel2" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox2" runat="server" /></td>
+                                 <asp:Label  id="noteLabel2" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox3" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel3" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox3" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel3" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox3" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel3" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox3" runat="server" /></td>
+                                 <asp:Label  id="noteLabel3" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox4" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel4" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox4" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel4" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox4" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel4" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox4" runat="server" /></td>
+                                 <asp:Label  id="noteLabel4" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox5" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel5" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox5" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel5" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox5" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel5" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox5" runat="server" /></td>
+                                 <asp:Label  id="noteLabel5" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>6</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox6" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel6" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox6" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel6" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox6" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel6" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox6" runat="server" /></td>
+                                 <asp:Label  id="noteLabel6" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>7</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox7" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel7" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox7" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel7" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox7" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel7" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox7" runat="server" /></td>
+                                 <asp:Label  id="noteLabel7" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>8</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox8" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel8" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox8" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel8" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox8" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel8" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox8" runat="server" /></td>
+                                 <asp:Label  id="noteLabel8" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>9</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox9" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel9" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox9" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel9" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox9" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel9" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox9" runat="server" /></td>
+                                 <asp:Label  id="noteLabel9" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>10</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox10" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel10" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox10" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel10" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox10" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel10" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox10" runat="server" /></td>
+                                 <asp:Label  id="noteLabel10" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>11</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox11" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel11" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox11" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel11" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox11" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel11" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox11" runat="server" /></td>
+                                 <asp:Label  id="noteLabel11" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>12</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox12" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel12" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox12" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel12" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox12" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel12" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox12" runat="server" /></td>
+                                 <asp:Label  id="noteLabel12" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>13</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox13" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel13" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox13" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel13" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox13" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel13" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox13" runat="server" /></td>
+                                 <asp:Label  id="noteLabel13" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>14</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox14" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel14" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox14" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel14" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox14" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel14" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox14" runat="server" /></td>
+                                 <asp:Label  id="noteLabel14" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>15</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox15" runat="server" /></td>
+                                 <asp:Label  id="toolsListLabel15" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox15" runat="server" /></td>
+                                 <asp:Label  id="serialNumberLabel15" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox15" runat="server" /></td>
+                                 <asp:Label  id="newSerialNumberLabel15" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                <input type="text" class="form-control form-control-sm" id="noteTextbox15" runat="server" /></td>
+                                 <asp:Label  id="noteLabel15" runat="server" /></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1825,7 +1783,7 @@
                     <span>ชื่อ</span>
                 </div>
                 <div class="col-md-9">
-                    <input type="text" class="form-control printText" id="namepmTextbox" runat="server" />
+                     <asp:Label  id="namepmLabel" runat="server" />
                 </div>
 
             </div>
@@ -1836,7 +1794,7 @@
                     <span>วันที่ทำ PM</span>
                 </div>
                 <div class="col-md-9">
-                    <input type="text" class="form-control printText" id="dayDopmTextbox" runat="server" />
+                     <asp:Label  id="dayDopmLabel" runat="server" />
                 </div>
             </div>
 
@@ -2440,9 +2398,7 @@
 
 
             <div class="row mt-3 ">
-                <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
-                <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" />
-
+                <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>              
             </div>
             <div class="row ml-3 mt-3">
                 <img id="user_img_2" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1228).FirstOrDefault().AnsDes); %>' class="placeholder2" />
@@ -2453,7 +2409,7 @@
             <%---------------------- QuestionId = 260  ---------------------------%>
             <div class="row mt-3">
                 <div class="col-sm-12">2.รูป VSAT PICTURE CHECKLIST</div>
-                <asp:FileUpload ID="vsatpictureChecklistImages" runat="server" data-thumbnail="user_img_3" accept="image/" onchange="previewImage(this)" />
+                
                 <%--                    <input type="file" name="image3" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_3" />--%>
             </div>
             <div class="row ml-3 mt-3">
@@ -2463,54 +2419,21 @@
 
             <%---------------------- QuestionId = 261  ---------------------------%>
             <div class="row mt-3">
-                <div class="col-sm-12">3.รูป SOLAR CELL PICTURE CHECKLIST</div>
-                <asp:FileUpload ID="solarcellpictureChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)" />
-                <%--                    <input type="file" name="image4" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_4" />--%>
+                <div class="col-sm-12">3.รูป SOLAR CELL PICTURE CHECKLIST</div>                         
             </div>
             <div class="row ml-3 mt-3">
                 <img id="user_img_4" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1230).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+            <br />      
+            <div class="row justify-content-center">
+                <div class="row">
+                     <button id="printPageButton" onClick="window.print();">พิมพ์หน้านี้</button>
+                </div>             
+            </div>        
+            <div class="row mt-5">
+            </div>
         </div>
-    </form>
-    <script>
-        $(function () {
-            $("#startDatepicker").datepicker();
-        });
-    </script>
-
-    <script>
-        $(function () {
-            $("#endDatepicker").datepicker();
-        });
-    </script>
-
-    <script>
-        $(function () {
-            $("#DateExecutorTextbox").datepicker();
-        });
-    </script>
-
-    <script>
-        $(function () {
-            $("#DateSupervisorTextbox").datepicker();
-        });
-    </script>
+    </form>   
 </body>
 </html>

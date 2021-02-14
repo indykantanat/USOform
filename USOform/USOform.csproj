@@ -208,13 +208,18 @@
     <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\VsatPictureChecklist_25640119104732.jpg" />
     <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\VsatPictureChecklist_BB2_2_3_2_20210120022303.png" />
     <Content Include="PreventiveMaintenanceReportBB2_2_3_2\images\VsatPictureChecklist_BB2_2_3_2_20210203203139.png" />
+    <Content Include="PreventiveMaintenanceReportBB2_2_3_2\preview.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2_2_3_2\previewImg.js" />
+    <Content Include="PreventiveMaintenanceReportBB2_3_3_3\preview.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB2_3_3_3\previewImg.js" />
     <Content Include="PreventiveMaintenanceReportBB_1\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2_2_3_2\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2_3_3_3\default.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB_1\preview.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_1\previewImg.js" />
     <Content Include="PreventiveMaintenanceReportBB_2_4\default.aspx" />
-    <Content Include="PreventiveMaintenanceReportBB_2_4\Prereport_BB_2_4.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB_2_4\preview.aspx" />
+    <Content Include="PreventiveMaintenanceReportBB_2_4\previewImg.js" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\preview.aspx" />
     <Content Include="PreventiveMaintenanceReportBB_USOWrap\previewImg.js" />
@@ -353,6 +358,20 @@
     <Compile Include="PreventiveMaintenanceReportBB2_1_3_1\preview.aspx.designer.cs">
       <DependentUpon>preview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB2_2_3_2\preview.aspx.cs">
+      <DependentUpon>preview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB2_2_3_2\preview.aspx.designer.cs">
+      <DependentUpon>preview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB2_3_3_3\preview.aspx.cs">
+      <DependentUpon>preview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB2_3_3_3\preview.aspx.designer.cs">
+      <DependentUpon>preview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PreventiveMaintenanceReportBB_1\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -374,6 +393,13 @@
     <Compile Include="PreventiveMaintenanceReportBB2_3_3_3\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB_1\preview.aspx.cs">
+      <DependentUpon>preview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreventiveMaintenanceReportBB_1\preview.aspx.designer.cs">
+      <DependentUpon>preview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PreventiveMaintenanceReportBB_2_4\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -381,12 +407,12 @@
     <Compile Include="PreventiveMaintenanceReportBB_2_4\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB_2_4\Prereport_BB_2_4.aspx.cs">
-      <DependentUpon>Prereport_BB_2_4.aspx</DependentUpon>
+    <Compile Include="PreventiveMaintenanceReportBB_2_4\preview.aspx.cs">
+      <DependentUpon>preview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PreventiveMaintenanceReportBB_2_4\Prereport_BB_2_4.aspx.designer.cs">
-      <DependentUpon>Prereport_BB_2_4.aspx</DependentUpon>
+    <Compile Include="PreventiveMaintenanceReportBB_2_4\preview.aspx.designer.cs">
+      <DependentUpon>preview.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreventiveMaintenanceReportBB_USOWrap\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

@@ -181,15 +181,16 @@
                     <input type="text" class="form-control" placeholder="ปีพุทธศักราช" id="yearTextbox" runat="server" required="required" />
                 </div>
             </div>
-     
+
             <div class="row  text-left mt-3">
                 <div class="col-md-4 form-inline">
-                    <label>วัน เดือน ปี </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input class="form-control" type="text" id="startDatepicker" runat="server" required="required" />   
+                    <label>วัน เดือน ปี </label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="form-control" type="text" id="startDatepicker" runat="server" required="required" />
                 </div>
-                  <div class="col-md-6 form-inline">
+                <div class="col-md-6 form-inline">
                     <label>ถึง</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 <input class="form-control" type="text" id="endDatepicker" runat="server" required="required" /> 
+                 <input class="form-control" type="text" id="endDatepicker" runat="server" required="required" />
                 </div>
 
             </div>
@@ -302,8 +303,8 @@
 
 
 
-           <%--OLD RESOUCE--%>
-           <%-- <div class="row mt-3">
+            <%--OLD RESOUCE--%>
+            <%-- <div class="row mt-3">
                 <div class="col-md-12 bg-warning text-white text-center Myfont">
                     <h4>Contractor</h4>
                 </div>
@@ -344,7 +345,7 @@
                 </tbody>
             </table>--%>
 
-               <div class="row mt-3">
+            <div class="row mt-3">
                 <div class="col-md-12 bg-warning text-white text-center Myfont">
                     <h4>Contractor</h4>
                 </div>
@@ -392,37 +393,9 @@
                     </div>
                 </div>
             </div>
-        
-
             <%--FOR PREVIEW--%>
             <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1034).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
             <%-- <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1035).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
@@ -2478,23 +2451,14 @@
             <br />
             <br />
 
-            <div class="row">
-                <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-primary btn-block" OnClick="SubmitButton_Click" />
+            <div class="row text-center ">
+                <div class="col">
+                    <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-primary btn-lg  " OnClick="SubmitButton_Click" />
+                </div>
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+
+            <div class="row mt-5">
+            </div>
         </div>
     </form>
     <script>

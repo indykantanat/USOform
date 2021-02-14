@@ -556,9 +556,6 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
                     string extension = this.pictureOrganize_.PostedFile.FileName.Split('.')[1];
                     string newFileName = "images/PictureOrganize_BB2_1_3_1_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + extension;
                     this.pictureOrganize_.PostedFile.SaveAs(Server.MapPath(newFileName));
-
-
-
                     ans9.AnsDes = newFileName;
                     ans9.QuestionId = 1023;
                     ans9.AnserTypeId = 3;

@@ -103,18 +103,38 @@
             $('#redrawSignature').signature({ disabled: true });
         });
     </script>
+     <script>
+         $(function () {
+             $("#startDatepicker").datepicker();
+         });
+     </script>
+
+    <script>
+        $(function () {
+            $("#endDatepicker").datepicker();
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#DateExecutorTextbox").datepicker();
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#DateSupervisorTextbox").datepicker();
+        });
+    </script>
 </head>
 <body style="background-color: lightgray; ">
-    <form id="form1" runat="server">
-        <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
-            ทำรายการเสร็จสิ้น <a href="#" class="alert-link">ดูรายงานเพื่อพิมพ์</a>
-        </div>
+    <form id="form1" runat="server">    
         <div class="container bg-white Myfont mt-3">
             <%--------------------------------------------    Section id = 25  -------------------------------------------------------%>
             <div class="row pt-5">
                 <div class="col-4">
-                    <asp:FileUpload ID="logoPicture2" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)" />
-                    <img id="user_img_6" src='<% Response.Write(answers.Where(x => x.QuestionId == 264).FirstOrDefault().AnsDes);%>' class="placeholder2 float-left" />
+                    <asp:FileUpload ID="logoPictureff" runat="server" data-thumbnail="user_img_8" accept="image/" onchange="previewImage(this)" />
+                    <img id="user_img_8" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 264).FirstOrDefault().AnsDes); %>' class="placeholder2 float-left" />
                 </div>
 
                 <div class="col-4  d-flex justify-content-center ">
@@ -183,14 +203,13 @@
                 <div class="col-md-12">
                     <div>
                         <label>
-                            <div>วัน เดือน ปี</div>
+                            <span>วัน เดือน ปี</span>&nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
-                        <input data-date-format="dd/mm/yyyy" id="startDatepicker" runat="server" />
-
-                        <label>
-                            <div>ถึง</div>
+                        <input data-date-format="dd/mm/yyyy" id="startDatepicker" runat="server" placeholder="เดือน / วัน / ปี" />&nbsp;&nbsp;&nbsp;&nbsp;
+                       <label>
+                            <span>ถึง</span>
                         </label>
-                        <input data-date-format="dd/mm/yyyy" id="endDatepicker" runat="server" />
+                        <input data-date-format="dd/mm/yyyy" id="endDatepicker" runat="server" placeholder="เดือน / วัน / ปี" />
                     </div>
                 </div>
             </div>
@@ -203,7 +222,7 @@
                     <input type="text" class="form-control" id="siteCodeTextbox" runat="server" />
                 </div>
             </div>
-            <%--////////////////////////////////    END Section id = 25    ///////////////////////////////////////////////--%>
+            <%--//   END Section id = 25    //--%>
 
 
 
@@ -321,7 +340,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server" required="required" />
+                                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" required="required" />
                             </div>
                         </div>
                     </div>
@@ -338,7 +357,7 @@
                             <input type="hidden" id="signatureSupervisorJSON" class="ui-state-active" runat="server" />
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" required="required" />
+                                <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server" required="required" />
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
@@ -349,13 +368,12 @@
                 </div>
             </div>
 
+            <%--FOR PREVIEW--%>
+            <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 282).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
+            <%-- <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 283).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
 
 
-            <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1034).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
-            <%-- <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1035).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
-
-
-            <%-- //////////////////////////////////   END  Sectionid  = 28    /////////////////////////////////--%>
+            <%--------------------------------//   END  Sectionid  = 28  //----------------------------------------%>
 
 
 
@@ -1228,50 +1246,50 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Download (for ONU/VSAT)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3">Download (for ONU/VSAT)</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="dowloadOnuTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Upload (for ONU/VSAT)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3">Upload (for ONU/VSAT)</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="uploadforOnuTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Ping Test (for ONU/VSAT)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3">Ping Test (for ONU/VSAT)</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="pinngtestforOnuTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">ms</label>
+                <label class="control-label col">ms</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Download (for Mobile)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3">Download (for Mobile)</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="dowloadforMobileTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Upload (for Mobile)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3">Upload (for Mobile)</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="uploadforMobileTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Ping Test (for Mobile)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3">Ping Test (for Mobile)</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="pingtestFormobileTextbox" runat="server" />
                 </div>
                 <label class="control-label col-sm-2">Ms</label>

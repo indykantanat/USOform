@@ -24,22 +24,13 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// SuccessPanel control.
+        /// logoPictureff control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SuccessPanel;
-
-        /// <summary>
-        /// logoPicture2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload logoPicture2;
+        protected global::System.Web.UI.WebControls.FileUpload logoPictureff;
 
         /// <summary>
         /// groupTextbox control.
@@ -231,13 +222,13 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
         protected global::System.Web.UI.HtmlControls.HtmlInputText nameExecutorTextbox;
 
         /// <summary>
-        /// nameSupervisorTextbox control.
+        /// DateExecutorTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nameSupervisorTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText DateExecutorTextbox;
 
         /// <summary>
         /// signatureSupervisorJSON control.
@@ -249,13 +240,13 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden signatureSupervisorJSON;
 
         /// <summary>
-        /// DateExecutorTextbox control.
+        /// nameSupervisorTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText DateExecutorTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nameSupervisorTextbox;
 
         /// <summary>
         /// DateSupervisorTextbox control.
