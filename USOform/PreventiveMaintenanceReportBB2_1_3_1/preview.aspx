@@ -90,10 +90,9 @@
         <div class="container bg-white Myfont mt-3">
             <%-------------------------//    HEADER CONTENT    //------------------------------------------------%>
             <div class="row pt-5">
-                <div class="col-4">
-                    
+                <div class="col-4">                  
                     <div class="row ml-3 mt-3">
-                        <img id="user_img_logo" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1023).FirstOrDefault().AnsDes); %>' class="imgLogoOganize  float-left" />
+                        <img id="user_img_logo" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1023).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1023).FirstOrDefault().AnsDes); %>' class="imgLogoOganize  float-left" />
                     </div>
                 </div>
 
@@ -280,54 +279,8 @@
 
             <%-- onchange="previewImage(this)"--%>
             <div class="row ml-3 mt-3">
-                <img id="user_img_0" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1033).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_0" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1033).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1033).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
-
-
-
-
-
-            <%--OLD RESOUCE--%>
-            <%-- <div class="row mt-3">
-                <div class="col-md-12 bg-warning text-white text-center Myfont">
-                    <h4>Contractor</h4>
-                </div>
-            </div>
-
-            <table style="width: 100%;" border="0" class="table-responsive-lg">
-                <tbody>
-                    <tr style="height: 21px;">
-                        <td style="height: 21px; width: 10%;">&nbsp;</td>
-                        <td style="height: 21px; width: 45%;">&nbsp; &nbsp; &nbsp; Executor</td>
-                        <td style="height: 21px; width: 45%;">&nbsp; &nbsp; &nbsp; Supervisor</td>
-                    </tr>
-                    <tr style="height: 21px;">
-                        <td style="height: 21px; width: 10%;">&nbsp;Signature</td>
-                        <td style="height: 21px; width: 45%;">&nbsp;<div id="signatureExecutorLabel"></div>
-                            <input type="hidden" id="signatureExecutorJSON" class="ui-state-active" runat="server" />
-                            <div id="redrawSignature1" hidden="hidden"></div>
-                        </td>
-                        <td style="height: 21px; width: 45%;">&nbsp;<div id="signatureSupervisorLabel"></div>
-                            <input type="hidden" id="signatureSupervisorJSON" class="ui-state-active" runat="server" />
-                            <div id="redrawSignature1" hidden="hidden"></div>
-                        </td>
-                    </tr>
-                    <tr style="height: 21px;">
-                        <td style="height: 21px; width: 10%;">&nbsp;Name</td>
-                        <td style="height: 21px; width: 45%;">&nbsp;  
-                                 <asp:Label  id="nameExecutorLabel" runat="server"  /></td>
-                        <td style="height: 21px; width: 45%;">&nbsp;  
-                                 <asp:Label  id="nameSupervisorLabel" runat="server"  /></td>
-                    </tr>
-                    <tr style="height: 21px;">
-                        <td style="height: 21px; width: 10%;">&nbsp;Date</td>
-                        <td style="height: 21px; width: 45%;">&nbsp;
-                                 <asp:Label  id="DateExecutorLabel" runat="server"  /></td>
-                        <td style="height: 21px; width: 45%;">&nbsp; 
-                                 <asp:Label  id="DateSupervisorLabel" runat="server"  /></td>
-                    </tr>
-                </tbody>
-            </table>--%>
 
             <div class="row mt-3">
                 <div class="col-md-12 bg-warning text-white text-center Myfont">
@@ -341,7 +294,7 @@
                             Executor
                         </div>
                         <div class="card-body">
-                            <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1034).FirstOrDefault().AnsDes); %>' class="signatureImages" />
+                            <img id="user_img_6" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1034).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1034).FirstOrDefault().AnsDes); %>' class="signatureImages" />
                             <div class="form-group">
                                 <label>Name :</label>
                                  <asp:Label  id="nameExecutorLabel" runat="server"  />
@@ -360,7 +313,7 @@
                             Supervisor
                         </div>
                         <div class="card-body">
-                             <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1035).FirstOrDefault().AnsDes); %>' class="signatureImages" />
+                             <img id="user_img_7" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1035).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1035).FirstOrDefault().AnsDes); %>' class="signatureImages" />
                             <div class="form-group">
                                 <label>Name</label>
                                  <asp:Label  id="nameSupervisorLabel" runat="server"  />
@@ -2401,7 +2354,7 @@
                 <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>              
             </div>
             <div class="row ml-3 mt-3">
-                <img id="user_img_2" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1228).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_2" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1228).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1228).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
 
@@ -2413,7 +2366,7 @@
                 <%--                    <input type="file" name="image3" onchange="previewImage(this)" accept="image/*" data-thumbnail="user_img_3" />--%>
             </div>
             <div class="row ml-3 mt-3">
-                <img id="user_img_3" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1229).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_3" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1229).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1229).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
 
@@ -2422,7 +2375,7 @@
                 <div class="col-sm-12">3.รูป SOLAR CELL PICTURE CHECKLIST</div>                         
             </div>
             <div class="row ml-3 mt-3">
-                <img id="user_img_4" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1230).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_4" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1230).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1230).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
             <br />
             <br />      

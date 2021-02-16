@@ -5,6 +5,8 @@
 <head runat="server">
     <title>รายงาน PM From BB Zone C+ บริการที่ 1</title>
      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />--%>
+
     <link href="../style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <%------//     font style    //---------%>
@@ -41,68 +43,25 @@
             border: none;
         }
     </style>
-    <!--[if IE]>
-    <script src="excanvas.js"></script>
-    <![endif]-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="../sig/js/jquery.signature.js"></script>
-    <script>
-        //-----------------  ลายเซ็น  //----------------------
-        $(function () {
-            $('#signatureExecutorTextbox').signature({ syncField: '#<%= this.signatureExecutorJSON.ClientID %>' });
-
-            $('#clearButton1').click(function () {
-                $('#signatureExecutorTextbox').signature('clear');
-            });
-
-            $('input[name="syncFormat"]').change(function () {
-                var syncFormat = $('input[name="syncFormat"]:checked').val();
-                $('#signatureExecutorTextbox').signature('option', 'syncFormat', syncFormat);
-            });
-
-            $('#svgStyles').change(function () {
-                $('#signatureExecutorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
-            });
-
-            $('#redrawButton').click(function () {
-                $('#redrawSignature1').signature('enable').
-                    signature('draw', $('#<%= this.signatureExecutorJSON.ClientID %>').val()).
-                    signature('disable');
-            });
-
-            $('#redrawSignature1').signature({ disabled: true });
-        });
-
-     
-    </script>
-    <script>
-        $(function () {
-            $('#signatureSupervisorTextbox').signature({ syncField: '#<%= this.signatureSupervisorJSON.ClientID %>' });
-
-            $('#clear2Button').click(function () {
-                $('#signatureSupervisorTextbox').signature('clear');
-            });
-
-            $('input[name="syncFormat"]').change(function () {
-                var syncFormat = $('input[name="syncFormat"]:checked').val();
-                $('#signatureSupervisorTextbox').signature('option', 'syncFormat', syncFormat);
-            });
-
-            $('#svgStyles').change(function () {
-                $('#signatureSupervisorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
-            });
-
-            $('#redrawButton').click(function () {
-                $('#redrawSignature').signature('enable').
-                    signature('draw', $('#<%= this.signatureSupervisorJSON.ClientID %>').val()).
-                    signature('disable');
-            });
-
-            $('#redrawSignature').signature({ disabled: true });
-        });
-       
-    </script>
+    <style>
+		* {
+			font-size: 16px;
+			font-family: Arial;
+		}
+		.site-title {
+			margin: 1em 0;
+		}
+		.center {
+			text-align: center;
+		}
+		td {
+			padding-top: 8px !important;
+			padding-bottom: 8px !important;
+		}
+		li {
+			margin: 8px 0;
+		}
+	</style>
 </head>
 
 <body style="background-color: lightgray">
@@ -1638,7 +1597,22 @@
                  <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-primary btn-block" OnClick="SubmitButton_Click" />
             </div>          
         </div>
-         
+
+          
+         <div class="row">
+		<div class="col-xs-12">
+			<h3>Complete Example</h3>
+			<p>Sign Below:</p>
+			<div class="js-signature" data-width="600" data-height="200" data-border="1px solid black" data-line-color="#bc0000" data-auto-fit="true"></div>
+			<p><button id="clearBtn" class="btn btn-default" onclick="clearCanvas();" type="button">Clear Canvas</button>&nbsp;
+                <button id="saveBtn" class="btn btn-default" onclick="saveSignature();" type="button">Save Signature</button></p>
+			<div id="signature">
+				<p><em>Your signature will appear here when you click "Save Signature"</em></p>
+			</div>
+		</div>
+	</div>
+
+	
         <br />
         <br />
         <br />
@@ -1683,6 +1657,114 @@
     <script>
         $(function () {
             $("#DateSupervisorTextbox").datepicker();
+        });
+    </script>
+     <!--[if IE]>
+    <script src="excanvas.js"></script>
+    <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../sig/js/jquery.signature.js"></script>
+    <script>
+        //-----------------  ลายเซ็น  //----------------------
+        $(function () {
+            $('#signatureExecutorTextbox').signature({ syncField: '#<%= this.signatureExecutorJSON.ClientID %>' });
+
+            $('#clearButton1').click(function () {
+                $('#signatureExecutorTextbox').signature('clear');
+            });
+
+            $('input[name="syncFormat"]').change(function () {
+                var syncFormat = $('input[name="syncFormat"]:checked').val();
+                $('#signatureExecutorTextbox').signature('option', 'syncFormat', syncFormat);
+            });
+
+            $('#svgStyles').change(function () {
+                $('#signatureExecutorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
+            });
+
+            $('#redrawButton').click(function () {
+                $('#redrawSignature1').signature('enable').
+                    signature('draw', $('#<%= this.signatureExecutorJSON.ClientID %>').val()).
+                    signature('disable');
+            });
+
+            $('#redrawSignature1').signature({ disabled: true });
+        });
+
+
+    </script>
+    <script>
+        $(function () {
+            $('#signatureSupervisorTextbox').signature({ syncField: '#<%= this.signatureSupervisorJSON.ClientID %>' });
+
+            $('#clear2Button').click(function () {
+                $('#signatureSupervisorTextbox').signature('clear');
+            });
+
+            $('input[name="syncFormat"]').change(function () {
+                var syncFormat = $('input[name="syncFormat"]:checked').val();
+                $('#signatureSupervisorTextbox').signature('option', 'syncFormat', syncFormat);
+            });
+
+            $('#svgStyles').change(function () {
+                $('#signatureSupervisorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
+            });
+
+            $('#redrawButton').click(function () {
+                $('#redrawSignature').signature('enable').
+                    signature('draw', $('#<%= this.signatureSupervisorJSON.ClientID %>').val()).
+                    signature('disable');
+            });
+
+            $('#redrawSignature').signature({ disabled: true });
+        });
+
+    </script>
+      <script >
+          function signatureValidation() {
+              if ($('#<%= this.signatureSupervisorJSON.ClientID %>').val().length > 0 && $('#<%= this.signatureExecutorJSON.ClientID %>').val().length > 0) {
+                  return true;
+              } else {
+                  alert('กรุณาเซ็นลายเซ็น');
+                  return false;
+              }
+          }
+      </script>
+    <!-- Scripts -->
+
+
+
+    <script src="../jq-signature-master/jq-signature.min.js"></script>
+    <script src="../jq-signature-master/jq-signature.js"></script>
+    <script>
+        $(document).on('ready', function () {
+            if ($('.js-signature').length) {
+                $('.js-signature').jqSignature();
+            }
+        });
+
+        /*
+        * Demo
+        */
+
+        function clearCanvas() {
+            $('#signature').html('<p><em>Your signature will appear here when you click "Save Signature"</em></p>');
+            $('.js-signature').eq(1).jqSignature('clearCanvas');
+            $('#saveBtn').attr('disabled', true);
+        }
+
+        function saveSignature() {
+            $('#signature').empty();
+            var dataUrl = $('.js-signature').eq(1).jqSignature('getDataURL');
+            var img = $('<img>').attr('src', dataUrl);
+            $('#signature').append($('<p>').text("Here's your signature:"));
+            $('#signature').append(img);
+        }
+
+        $('.js-signature').eq(1).on('jq.signature.changed', function () {
+            console.log("jq.signature.changed")
+            $('#saveBtn').attr('disabled', false);
         });
     </script>
 

@@ -2855,5 +2855,24 @@
             height: 200px;
         }
     </style>
+       <style type="text/css">
+        @media print {
+            #non-printable {
+                display: none !important;
+            }
+
+            #printable {
+                display: block;
+            }
+
+            .printText {
+                border: none !important;
+            }
+
+            #printPageButton {
+                display: none;
+            }
+        }
+    </style>
 </body>
 </html>

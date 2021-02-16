@@ -20,11 +20,11 @@
 
 <body>
     <form id="form1" runat="server">
-        <div class="container-fluid bg-white p-5">              
+        <div class="container bg-white p-5">              
             <div class="loading text-center">
                 Loading. Please wait.<br />
                 <br />
-                <img src="../assets/loader2.gif" alt="loading..." />
+                <img src="/assets/loader2.gif" alt="loading..." />
             </div>
 
 
@@ -36,14 +36,14 @@
                         <td>จุดที่</td>
                         <td>SR
                         </td>
-                        <td>Name                                               
-                        </td>
-                        <td>CabinetId                                                
-                        </td>
-                        <td>SiteCode                                              
+                       <%-- <td>Name                                               
+                        </td>--%>
+                      <%--  <td>CabinetId                                                
+                        </td>--%>
+                      <%--  <td>SiteCode                                              
                         </td>
                         <td>VillageId                                               
-                        </td>
+                        </td>--%>
                         <td>Village
                         </td>
                         <td>SubDistrict
@@ -52,13 +52,22 @@
                         </td>
                         <td>Province
                         </td>
-                        <td>Contract
-                        </td>
+                       <%-- <td>Contract
+                        </td>--%>
                         <td>Type
                         </td>
-                        <td>TypeofSignal
+                        <td>ครั้งที่ 1 ม.ค.- มี.ค.
                         </td>
-                        <td>Create/Edit
+                        <td>ครั้งที่ 2 เม.ย.- มิ.ย.
+                        </td>
+                        <td>ครั้งที่ 3 ก.ค. - มิ.ย.
+                        </td>
+                        <td>ครั้งที่ 4 ต.ค. - ธ.ค.
+                        </td>
+                      <%--  <td>TypeofSignal
+                        </td>--%>
+                        <td>
+                            Edite/Preview
                                     
                         </td>
                     </tr>
@@ -70,14 +79,14 @@
                                 <td style="text-align: center;"><%# Eval("id") %></td>
                                 <td><%# Eval("Name") %>
                                 </td>
-                                <td><%# Eval("Head.Name") %>                                                
-                                </td>
-                                <td><%# Eval("CabinetId") %>                                                
+                               <%-- <td><%# Eval("Head.Name") %>                                                
+                                </td>--%>
+                              <%--  <td><%# Eval("CabinetId") %>                                                
                                 </td>
                                 <td><%# Eval("SiteCode") %>                                                
                                 </td>
                                 <td><%# Eval("VillageId") %>                                                
-                                </td>
+                                </td>--%>
                                 <td>
                                     <%# Eval("Village") %>
                                 </td>
@@ -90,17 +99,29 @@
                                 <td>
                                     <%# Eval("Province") %>
                                 </td>
-                                <td>
+                               <%-- <td>
                                     <%# Eval("Contract") %>
-                                </td>
+                                </td>--%>
                                 <td>
                                     <%# Eval("Type") %>
                                 </td>
-                                <td>
+                                 <td>
+                                     <asp:HyperLink ID="Q1Label" runat="server" Text="Q1/"></asp:HyperLink>/<asp:HyperLink ID="preview1" runat="server">Preview</asp:HyperLink>
+                        </td>
+                                 <td>
+                                     <asp:HyperLink ID="Q2Label" runat="server" Text="Q2/"></asp:HyperLink>/<asp:HyperLink ID="preview2" runat="server">Preview</asp:HyperLink>
+                        </td>
+                                 <td>
+                                     <asp:HyperLink ID="Q3Label" runat="server" Text="Q3/"></asp:HyperLink>/<asp:HyperLink ID="preview3" runat="server">Preview</asp:HyperLink>
+                        </td>
+                                 <td>
+                                     <asp:HyperLink ID="Q4Label" runat="server" Text="Q4/"></asp:HyperLink>/<asp:HyperLink ID="preview4" runat="server">Preview</asp:HyperLink>
+                        </td>
+                              <%--  <td>
                                     <%# Eval("TypeofSignal") %>
-                                </td>
+                                </td>--%>
                                 <td>
-                                    <asp:HyperLink ID="HyperLink1" runat="server">Edit</asp:HyperLink>
+                                    <asp:HyperLink ID="HyperLink1" runat="server">Edit/</asp:HyperLink>
                                     <asp:HyperLink ID="HyperLink2" runat="server">Preview</asp:HyperLink>
 
                                 </td>

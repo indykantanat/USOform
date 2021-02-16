@@ -43,71 +43,16 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="../sig/js/jquery.signature.js"></script>
-    <script>
-        //-----------------  ลายเซ็น  //----------------------
-        $(function () {
-            $('#signatureExecutorTextbox').signature({ syncField: '#<%= this.signatureExecutorJSON.ClientID %>' });
-
-            $('#clearButton1').click(function () {
-                $('#signatureExecutorTextbox').signature('clear');
-            });
-
-            $('input[name="syncFormat"]').change(function () {
-                var syncFormat = $('input[name="syncFormat"]:checked').val();
-                $('#signatureExecutorTextbox').signature('option', 'syncFormat', syncFormat);
-            });
-
-            $('#svgStyles').change(function () {
-                $('#signatureExecutorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
-            });
-            $('#redrawButton').click(function () {
-                $('#redrawSignature1').signature('enable').
-                    signature('draw', $('#<%= this.signatureExecutorJSON.ClientID %>').val()).
-                    signature('disable');
-            });
-
-            $('#redrawSignature1').signature({ disabled: true });
-        });
-    </script>
-    <script>
-        $(function () {
-            $('#signatureSupervisorTextbox').signature({ syncField: '#<%= this.signatureSupervisorJSON.ClientID %>' });
-
-            $('#clear2Button').click(function () {
-                $('#signatureSupervisorTextbox').signature('clear');
-            });
-
-            $('input[name="syncFormat"]').change(function () {
-                var syncFormat = $('input[name="syncFormat"]:checked').val();
-                $('#signatureSupervisorTextbox').signature('option', 'syncFormat', syncFormat);
-            });
-
-            $('#svgStyles').change(function () {
-                $('#signatureSupervisorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
-            });
-
-            $('#redrawButton').click(function () {
-                $('#redrawSignature').signature('enable').
-                    signature('draw', $('#<%= this.signatureSupervisorJSON.ClientID %>').val()).
-                    signature('disable');
-            });
-
-            $('#redrawSignature').signature({ disabled: true });
-        });
-    </script>
+   
 </head>
-
-
 
 <body style="background-color: lightgray">
     <form id="form1" runat="server">
         <div class="container bg-white">
-            <div class="alert alert-success" role="alert" runat="server" id="SuccessPanel" visible="false">
-                This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-            </div>
             <div class="row pt-5">
                 <div class="col-4">
-                    <asp:FileUpload ID="logoPicture" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)"  />
+                    <asp:FileUpload ID="logoPicture" runat="server" data-thumbnail="user_img_12" accept="image/" onchange="previewImage(this)"  />
+                     <img id="user_img_12" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1408).FirstOrDefault().AnsDes); %>' class="imgLogoOganize float-left" />
                     <%-- img src='<% if(answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1408).FirstOrDefault().AnsDes); %>'--%>
                 </div>
                 <div class="col-4  d-flex justify-content-center ">
@@ -227,21 +172,21 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Site Code :</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="sitecodeTextboxSection2" runat="server" />
+                    <input type="text" class="form-control" id="sitecodeTextboxSection2" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Village ID :</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="VillageIdTextbox" runat="server" />
+                    <input type="text" class="form-control" id="VillageIdTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Village :</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="villageTextbox" runat="server" />
+                    <input type="text" class="form-control" id="villageTextbox" runat="server" />
                 </div>
             </div>
 
@@ -249,21 +194,21 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Sub-District:</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="subdistrictTextbox" runat="server" />
+                    <input type="text" class="form-control" id="subdistrictTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">District:</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="DistrictTextbox1" runat="server" />
+                    <input type="text" class="form-control" id="DistrictTextbox1" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Province :</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="provinceTextbox" runat="server" />
+                    <input type="text" class="form-control" id="provinceTextbox" runat="server" />
                 </div>
             </div>
 
@@ -271,7 +216,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Type :</label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="typeTextbox" runat="server" />
+                    <input type="text" class="form-control" id="typeTextbox" runat="server" />
                 </div>
             </div>
 
@@ -279,7 +224,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">PM Date : </label>
                 <div class="col-sm-11">
-                    <input class="form-control" id="pmdateTextbox" runat="server" />
+                    <input type="text" class="form-control" id="pmdateTextbox" runat="server" />
                 </div>
             </div>
 
@@ -296,81 +241,63 @@
 
             <%-- //////////////////////////////////     Sectionid  = 126    /////////////////////////////////--%>
 
-            <div class="row mt-3">
+           <div class="row mt-3">
                 <div class="col-md-12 bg-warning text-white text-center Myfont">
                     <h4>Contractor</h4>
                 </div>
             </div>
-
-            <div class="row mt-3">
-                <div class="col-md-6  text-center Myfont">
-                    <span>Executor</span>
+            <div class="row mt-2">
+                <div class="col-lg-6">               
+                         <div class="card">
+                        <div class="card-header">
+                            Executor
+                        </div>                                        
+                              <div class="card-body">
+                            <div id="signatureExecutorTextbox"></div>
+                            <div id="redrawSignature1" hidden="hidden"></div>
+                    
+                            <input type="text" id="signatureExecutorJSON" class="ui-state-active" runat="server"   hidden="hidden" required="required"/>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" id="nameExecutorTextbox" runat="server"  />
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server"  />
+                            </div>
+                
+                        </div>                                   
+                    </div>                                    
                 </div>
-                <div class="col-md-6 text-center  Myfont">
-                    <span>Supervisor</span>
-                </div>
-            </div>
 
-
-            <div class="row mt-3">
-                <div class="col-md-1 text-center">
-                    <span>Signature</span>
-                </div>
-                <div class="col-md-5 text-center">
-                    <%-- QuestionId = 21, --%>
-                    <div id="signatureExecutorTextbox"></div>
-                    <input type="hidden" id="signatureExecutorJSON" class="ui-state-active" runat="server"  />
-                   
-
-                      <div id="redrawSignature1" hidden="hidden"></div>
-
-                    <%--  <asp:Image ID="redrawSignature1" runat="server" />--%>
-
-
-
-                   <%-- <asp:Image ID="SignatureExcutorImage" runat="server" />--%>
-                    <p style="clear: both;">
-                        <span class="demoLabel">&nbsp;</span>
-                        <button type="button" id="clearButton1">Clear</button>
-                </div>
-                <div class="col-md-6 text-center">
-                    <%-- QuestionId = 22, --%>
-                    <div id="signatureSupervisorTextbox"></div>
-                    <input type="hidden" id="signatureSupervisorJSON"  class="ui-state-active" runat="server"  />
-                    <p style="clear: both;">
-                        <span class="demoLabel">&nbsp;</span>
-                        <button type="button" id="clear2Button">Clear</button>
-                </div>
-            </div>
-
-            <div class="row mt-3">
-                <div class="col-md-1 text-center">
-                    <span>Name</span>
-                </div>
-                <div class="col-md-5 text-center">
-                    <%-- QuestionId = 23, --%>
-                    <input type="text" class="form-control" id="nameExecutorTextbox" runat="server" required="required" />
-                </div>
-                <div class="col-md-6 text-center">
-                    <%-- QuestionId = 24, --%>
-                    <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server" required="required" />
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Supervisor
+                        </div>
+                        <div class="card-body">
+                            <div id="signatureSupervisorTextbox"></div>
+                            <div id="redrawSignature1" hidden="hidden"></div>
+                            <input type="text" id="signatureSupervisorJSON" class="ui-state-active" runat="server"   hidden="hidden"  required="required"/>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server"  />
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server"  />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <%--------// FOR PREVIEW/  /-----------%>
+            <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1428).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
+            <%-- <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1431).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
 
-            <div class="row mt-3">
-                <div class="col-md-1 text-center">
-                    <span>Date</span>
-                </div>
-                <div class="col-md-5 text-center">
-                    <%-- QuestionId = 25, --%>
-                    <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" required="required" />
-                </div>
-                <div class="col-md-6 text-center">
-                    <%-- QuestionId = 26, --%>
-                    <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server" required="required" />
-                </div>
-            </div>
+
+
 
 
             <%-- //////////////////////////////////   END  Sectionid  = 126    /////////////////////////////////--%>
@@ -449,7 +376,7 @@
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">หมายเลขผู้ใช้ไฟ</label>
-                <div class="col-sm-10">
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="numberIdTextbox" runat="server" required="required" />
                 </div>
             </div>
@@ -457,35 +384,35 @@
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">หน่วยใช้ไฟ (kWh Meter)</label>
-                <div class="col-sm-8">
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="kwhMeterTextbox" runat="server" required="required" />
                 </div>
-                <label class="control-label col-sm-2">kWh</label>
+                <label class="control-label col">kWh</label>
             </div>
 
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน AC (kWh Meter)</label>
-                <div class="col-sm-8">
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="acvoltTextbox" runat="server" required="required" />
                 </div>
-                <label class="control-label col-sm-2">V.</label>
+                <label class="control-label col">V.</label>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">กระแส Line AC (kWh Meter)</label>
-                <div class="col-sm-8">
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="lineAcTextbox" runat="server" required="required" />
                 </div>
-                <label class="control-label col-sm-2">A.</label>
+                <label class="control-label col">A.</label>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">กระแส Neutron AC (kWh Meter)</label>
-                <div class="col-sm-8">
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="neutronAcTextbox" runat="server" required="required" />
                 </div>
-                <label class="control-label col-sm-2">A.</label>
+                <label class="control-label col">A.</label>
             </div>
 
 
@@ -547,10 +474,10 @@
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน AC จาก UPS</label>
-                <div class="col-sm-8">
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="acfromupsTextbox" runat="server" required="required" />
                 </div>
-                <label class="control-label col-sm-2">V.</label>
+                <label class="control-label col">V.</label>
             </div>
 
 
@@ -577,14 +504,13 @@
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="voltageLoadRadio" value="4" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1451).FirstOrDefault().AnsDes == "4") { Response.Write("checked"); } else { Response.Write(""); } %> />4
-                    </label>
-
-                    <div class="form-check-inline">
+                    </label>                 
+                </div>
+                  <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="voltageLoadRadio" value="5" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1451).FirstOrDefault().AnsDes == "5") { Response.Write("checked"); } else { Response.Write(""); } %> />5
                         </label>
                     </div>
-                </div>
                 <label class="control-label col-sm-2">(ขีดล่าง =1 , ขีดบน = 5)</label>
 
             </div>
@@ -614,14 +540,13 @@
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="batteryCapacityRadio" value="4" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1452).FirstOrDefault().AnsDes == "4") { Response.Write("checked"); } else { Response.Write(""); } %> />4
-                    </label>
-
-                    <div class="form-check-inline">
+                    </label>                 
+                </div>
+                  <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="batteryCapacityRadio" value="5" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1452).FirstOrDefault().AnsDes == "5") { Response.Write("checked"); } else { Response.Write(""); } %> />5
                         </label>
                     </div>
-                </div>
                 <label class="control-label col-sm-2">(ขีดล่าง =1 , ขีดบน = 5)</label>
             </div>
 
@@ -727,10 +652,10 @@
 
             <div class="form-row mt-3 ">
                 <label class="control-label col-sm-2">FEMTO</label>
-                <div class="form-check-inline col-4 ">
+                <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="femToRadio" value="3G" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1457).FirstOrDefault().AnsDes == "3G") { Response.Write("checked"); } else { Response.Write(""); } %> />3G
-                    </label>
+                    </label>&nbsp;&nbsp;&nbsp;
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="femToRadio" value="4G" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1457).FirstOrDefault().AnsDes == "4G") { Response.Write("checked"); } else { Response.Write(""); } %> />4G
                     </label>
@@ -738,7 +663,7 @@
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="femToanswerRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1458).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
-                    </label>
+                    </label>&nbsp;&nbsp;&nbsp;
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="femToanswerRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1458).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                     </label>
@@ -746,20 +671,22 @@
             </div>
 
             <div class="form-row mt-3 ">
-                <label class="control-label ">การระบายอากาศ (T-Power)</label>
+                <label class="control-label  col-sm-4">การระบายอากาศ (T-Power)</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="tpowerRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1459).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ                
-                    </label>
-                    <label class="form-check-label">
+                    </label>                
+                </div>
+                  <div class="form-check-inline">
+                  <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="tpowerRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1459).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                     </label>
-                </div>
+                      </div>
             </div>
 
 
             <div class="form-row mt-3 ">
-                <label class="control-label ">การ Wiring สายไฟและสาย Ground</label>
+                <label class="control-label  col-sm-4">การ Wiring สายไฟและสาย Ground</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="wireingGroundRadio" value="เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1460).FirstOrDefault().AnsDes == "เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> />เรียบร้อย                          
@@ -770,7 +697,7 @@
                 </div>
             </div>
             <div class="form-row mt-3 ">
-                <label class="control-label ">การ Wiring Patch cord และ สาย LAN</label>
+                <label class="control-label  col-sm-4">การ Wiring Patch cord และ สาย LAN</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="WirinlanRadio" value="เรียบร้อย" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1633).FirstOrDefault().AnsDes == "เรียบร้อย") { Response.Write("checked"); } else { Response.Write(""); } %> />เรียบร้อย                          
@@ -1158,38 +1085,38 @@
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดันไฟจาก Inverter</label>
-                <div class="col-sm-8">
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="voltInverterTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">V.</label>
+                <label class="control-label col">V.</label>
             </div>
 
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">กระแส Load</label>
-                <div class="col-sm-8">
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="loadVoltTageTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">A.</label>
+                <label class="control-label col">A.</label>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน Battery ก้อนที่ 1</label>
-                <div class="col-sm-8">
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="batterTextbox1" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">V.</label>
+                <label class="control-label col">V.</label>
             </div>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน Battery ก้อนที่ 2</label>
-                <div class="col-sm-8">
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="batterTextbox2" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">V.</label>
+                <label class="control-label col">V.</label>
             </div>
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน Battery ก้อนที่ 3</label>
-                <div class="col-sm-8">
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="batterTextbox3" runat="server" />
                 </div>
                 <label class="control-label col-sm-2">V.</label>
@@ -1197,10 +1124,10 @@
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน Battery ก้อนที่ 4</label>
-                <div class="col-sm-8">
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="batterTextbox4" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">V.</label>
+                <label class="control-label col">V.</label>
             </div>
 
             <%-- //////////////////////////////////  END Sectionid  = 134     /////////////////////////////////--%>
@@ -1236,85 +1163,85 @@
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">Cell ID/Bsrid (for Femto)</label>
-                <div class="col-sm-8">
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="cellIdTextbox" runat="server" />
                 </div>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Network strength (>= -77.5 dBm) Section 1</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-4">Network strength (>= -77.5 dBm) Section 1</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="netWorkstrTextboxS1" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">dBm</label>
+                <label class="control-label col">dBm</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Network strength (>= -77.5 dBm) Section 2</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-4">Network strength (>= -77.5 dBm) Section 2</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="netWorkstrTextboxS2" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">dBm</label>
+                <label class="control-label col">dBm</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Network strength (>= -77.5 dBm) Section 3</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-4">Network strength (>= -77.5 dBm) Section 3</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="netWorkstrTextboxS3" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">dBm</label>
+                <label class="control-label col">dBm</label>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Download (for ONU/VSAT)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3">Download (for ONU/VSAT)</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="dowloadOnuTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Upload (for ONU/VSAT)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3">Upload (for ONU/VSAT)</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="uploadforOnuTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Ping Test (for ONU/VSAT)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3">Ping Test (for ONU/VSAT)</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="pinngtestforOnuTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">ms</label>
+                <label class="control-label col">ms</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Download (for Mobile)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3">Download (for Mobile)</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="dowloadforMobileTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Upload (for Mobile)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3">Upload (for Mobile)</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="uploadforMobileTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Mb/s</label>
+                <label class="control-label col">Mb/s</label>
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-2">Ping Test (for Mobile)</label>
-                <div class="col-sm-8">
+                <label class="control-label col-sm-3">Ping Test (for Mobile)</label>
+                <div class="col-sm-3">
                     <input type="text" class="form-control" id="pingtestFormobileTextbox" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">Ms</label>
+                <label class="control-label col">Ms</label>
             </div>
             <%-- //////////////////////////////////  END Sectionid  = 135     /////////////////////////////////--%>
 
@@ -2032,7 +1959,7 @@
 
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูปการ Test Network strength (>= -77.5 dBm) Section 1 </label>
+                <label class="control-label col-sm-5">รูปการ Test Network strength (>= -77.5 dBm) Section 1 </label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="pictestNetworkRadioSec1" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1607).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
@@ -2046,7 +1973,7 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูปการ Test Network strength (>= -77.5 dBm) Section 2</label>
+                <label class="control-label col-sm-5">รูปการ Test Network strength (>= -77.5 dBm) Section 2</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="pictestNetworkRadioSec2" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1608).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
@@ -2060,7 +1987,7 @@
             </div>
 
             <div class="form-row mt-3">
-                <label class="control-label col-sm-4">รูปการ Test Network strength (>= -77.5 dBm) Section 3</label>
+                <label class="control-label col-sm-5">รูปการ Test Network strength (>= -77.5 dBm) Section 3</label>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="pictestNetworkRadioSec3" value="PASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1609).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />PASS
@@ -2325,7 +2252,7 @@
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="sunRiseingRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1625).FirstOrDefault().AnsDes == "PASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
+                        <input type="radio" class="form-check-input" name="sunRiseingRadio" value="NOTPASS" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1625).FirstOrDefault().AnsDes == "NOTPASS") { Response.Write("checked"); } else { Response.Write(""); } %> />NOT PASS
                     </label>
                 </div>
             </div>
@@ -2395,11 +2322,11 @@
 
             <div class="row mt-3 ">
                 <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
-                <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_2" accept="image/" onchange="previewImage(this)"  />
+                <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_10" accept="image/" onchange="previewImage(this)"  />
 
             </div>
             <div class="row ml-3 mt-3">
-                <img id="user_img_2" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1630).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_10" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1630).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
 
@@ -2440,8 +2367,11 @@
             <br />
 
 
-            <div class="row">
-                <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-primary btn-block" OnClick="SubmitButton_Click" />
+           <div class="row  justify-content-center">
+                <div class="col-md-6">
+                    <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-success btn-block" OnClick="SubmitButton_Click" OnClientClick="signatureValidation()"  />
+                </div>
+
             </div>
 
             <br />
@@ -2453,10 +2383,6 @@
             <br />
             <br />
             <br />
-
-
-
-
         </div>
     </form>
 
@@ -2490,6 +2416,68 @@
         $(function () {
             $("#dayDopmTextbox").datepicker();
         });
+    </script>
+     <script>
+         //-----------------  ลายเซ็น  //----------------------
+         $(function () {
+             $('#signatureExecutorTextbox').signature({ syncField: '#<%= this.signatureExecutorJSON.ClientID %>' });
+
+            $('#clearButton1').click(function () {
+                $('#signatureExecutorTextbox').signature('clear');
+            });
+
+            $('input[name="syncFormat"]').change(function () {
+                var syncFormat = $('input[name="syncFormat"]:checked').val();
+                $('#signatureExecutorTextbox').signature('option', 'syncFormat', syncFormat);
+            });
+
+            $('#svgStyles').change(function () {
+                $('#signatureExecutorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
+            });
+            $('#redrawButton').click(function () {
+                $('#redrawSignature1').signature('enable').
+                    signature('draw', $('#<%= this.signatureExecutorJSON.ClientID %>').val()).
+                    signature('disable');
+            });
+
+            $('#redrawSignature1').signature({ disabled: true });
+        });
+     </script>
+    <script>
+        $(function () {
+            $('#signatureSupervisorTextbox').signature({ syncField: '#<%= this.signatureSupervisorJSON.ClientID %>' });
+
+            $('#clear2Button').click(function () {
+                $('#signatureSupervisorTextbox').signature('clear');
+            });
+
+            $('input[name="syncFormat"]').change(function () {
+                var syncFormat = $('input[name="syncFormat"]:checked').val();
+                $('#signatureSupervisorTextbox').signature('option', 'syncFormat', syncFormat);
+            });
+
+            $('#svgStyles').change(function () {
+                $('#signatureSupervisorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
+            });
+
+            $('#redrawButton').click(function () {
+                $('#redrawSignature').signature('enable').
+                    signature('draw', $('#<%= this.signatureSupervisorJSON.ClientID %>').val()).
+                    signature('disable');
+            });
+
+            $('#redrawSignature').signature({ disabled: true });
+        });
+    </script>
+    <script >
+        function signatureValidation() {
+            if ($('#<%= this.signatureSupervisorJSON.ClientID %>').val().length > 0 && $('#<%= this.signatureExecutorJSON.ClientID %>').val().length > 0) {
+                return true;
+            } else {
+                alert('กรุณาเซ็นลายเซ็น');
+                return false;
+            }
+        }
     </script>
 
 </body>

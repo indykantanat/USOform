@@ -1421,7 +1421,7 @@
 
 
             <div class="table-responsive-sm text-center Myfont">
-                <table class="table table-sm" style="width: 100%;" border="0">
+                <table class="table table-md" style="width: 100%;" border="0">
                     <thead>
                         <tr>
                             <th scope="col">ลำดับ</th>

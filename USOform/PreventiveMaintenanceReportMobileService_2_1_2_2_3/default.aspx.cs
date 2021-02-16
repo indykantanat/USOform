@@ -148,7 +148,7 @@ namespace USOform
             this.howtoSolveTextbox8.Value = answers.Where(x => x.QuestionId == 1516).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1516).FirstOrDefault().AnsDes : "";
             this.problemTextbox9.Value = answers.Where(x => x.QuestionId == 1517).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1517).FirstOrDefault().AnsDes : "";
             this.howtoSolveTextbox9.Value = answers.Where(x => x.QuestionId == 1518).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1518).FirstOrDefault().AnsDes : "";
-            this.problemTextbox10.Value = answers.Where(x => x.QuestionId == 1519).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1419).FirstOrDefault().AnsDes : "";
+            this.problemTextbox10.Value = answers.Where(x => x.QuestionId == 1519).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1519).FirstOrDefault().AnsDes : "";
             this.howtoSolveTextbox10.Value = answers.Where(x => x.QuestionId == 1520).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1520).FirstOrDefault().AnsDes : "";
             this.problemTextbox11.Value = answers.Where(x => x.QuestionId == 1521).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1521).FirstOrDefault().AnsDes : "";
             this.howtoSolveTextbox11.Value = answers.Where(x => x.QuestionId == 1522).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1522).FirstOrDefault().AnsDes : "";
@@ -893,7 +893,7 @@ namespace USOform
             {
 
 
-                ans1425.QuestionId = 1424;
+                ans1425.QuestionId = 1425;
                 ans1425.AnsDes = this.typeTextbox.Value;
                 ans1425.AnserTypeId = 1;
                 ans1425.CreateDate = DateTime.Now;
@@ -986,24 +986,25 @@ namespace USOform
 
 
 
+
             //////////////////////////////////    Sectionid  = 126    /////////////////////////////////
 
+            //signature Executor :       
             var ans1428 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 7 && x.SRId == sR.Id && x.QuestionId == 1428).FirstOrDefault();
             string sx = "";
             sx = this.signatureExecutorJSON.Value.Replace(' ', '+');
             sx = sx.Replace("data:image/jpeg;base64,", String.Empty);
             byte[] imageBytes = Convert.FromBase64String(sx);
             string filename = "";
-
-
-
             using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
             {
-                filename = $"SignatureExecutor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
+                filename = $"signatureExecutor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
                 System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
                 image.Save(Server.MapPath($"images/{filename}"));
             }
-            string ans1428eiei = string.Format("images/{0}", filename);
+
+            string ans1428EIEI = string.Format("images/{0}", filename);
+
 
             int mod1428 = sx.Length % 4;
             if (mod1428 > 0)
@@ -1015,7 +1016,7 @@ namespace USOform
                 //signature Executor :
                 Answer answer21 = new Answer()
                 {
-                    AnsDes = ans1428eiei,
+                    AnsDes = ans1428EIEI,
                     QuestionId = 1428,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
@@ -1027,47 +1028,46 @@ namespace USOform
             }
             else
             {
-
-                ans1428.AnsDes = ans1428eiei;
-                ans1428.QuestionId = 1428;               
+                ans1428.QuestionId = 1428;
+                ans1428.AnsDes = ans1428EIEI;
                 ans1428.AnserTypeId = 3;
                 ans1428.CreateDate = DateTime.Now;
                 ans1428.UserId = user.Id;
                 ans1428.AnsMonth = ansMonth;
                 ans1428.SRId = sR.Id;
 
-
             }
 
 
+
+
+
+            //signature Supervisor :
             var ans1431 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 7 && x.SRId == sR.Id && x.QuestionId == 1431).FirstOrDefault();
             string s = "";
             s = this.signatureSupervisorJSON.Value.Replace(' ', '+');
             s = s.Replace("data:image/jpeg;base64,", String.Empty);
             string filename2 = "";
-
             byte[] imageBytes2 = Convert.FromBase64String(s);
-            using (var ms2 = new MemoryStream(imageBytes2, 0, imageBytes2.Length))         
+            using (var ms2 = new MemoryStream(imageBytes2, 0, imageBytes2.Length))
             {
-                filename2 = $"SignatureSupervisor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
+                filename2 = $"signatureSupervisor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
                 System.Drawing.Image image2 = System.Drawing.Image.FromStream(ms2, true);
                 image2.Save(Server.MapPath($"images/{filename2}"));
             }
-            
+            string ans1431Images = string.Format("images/{0}", filename2);
+
             int mod4 = s.Length % 4;
             if (mod4 > 0)
             {
                 s += new string('=', 4 - mod4);
             }
-
-
-            string ans1431eiei = string.Format("images/{0}", filename);
             if (ans1431 == null)
             {
                 //signature Supervisor :
                 Answer answer22 = new Answer()
                 {
-                    AnsDes = ans1431eiei,
+                    AnsDes = ans1431Images,
                     QuestionId = 1431,
                     AnserTypeId = 3,
                     CreateDate = DateTime.Now,
@@ -1080,13 +1080,12 @@ namespace USOform
             else
             {
                 ans1431.QuestionId = 1431;
-                ans1431.AnsDes = ans1431eiei;
+                ans1431.AnsDes = ans1431Images;
                 ans1431.AnserTypeId = 3;
                 ans1431.CreateDate = DateTime.Now;
                 ans1431.UserId = user.Id;
                 ans1431.AnsMonth = ansMonth;
                 ans1431.SRId = sR.Id;
-
 
             }
 
@@ -7981,7 +7980,7 @@ namespace USOform
             int result = uSOEntities.SaveChanges();
             if (result > 0)
             {
-                this.SuccessPanel.Visible = true;
+                Response.Redirect("~/success.aspx");
             }
         }
 
