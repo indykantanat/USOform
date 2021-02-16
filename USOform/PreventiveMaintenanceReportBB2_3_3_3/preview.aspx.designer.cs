@@ -186,15 +186,6 @@ namespace USOform.PreventiveMaintenanceReportBB2_3_3_3
         protected global::System.Web.UI.WebControls.Label pmdateLabel;
 
         /// <summary>
-        /// signatureExecutorJSON control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label signatureExecutorJSON;
-
-        /// <summary>
         /// nameExecutorLabel control.
         /// </summary>
         /// <remarks>
@@ -211,15 +202,6 @@ namespace USOform.PreventiveMaintenanceReportBB2_3_3_3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label DateExecutorLabel;
-
-        /// <summary>
-        /// signatureSupervisorJSON control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label signatureSupervisorJSON;
 
         /// <summary>
         /// nameSupervisorLabel control.

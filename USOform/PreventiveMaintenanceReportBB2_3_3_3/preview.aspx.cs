@@ -179,7 +179,7 @@ namespace USOform.PreventiveMaintenanceReportBB2_3_3_3
             this.toolsListLabel8.Text = answers.Where(x => x.QuestionId == 646).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 646).FirstOrDefault().AnsDes : "";
             this.serialNumberLabel8.Text = answers.Where(x => x.QuestionId == 647).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 647).FirstOrDefault().AnsDes : "";
             this.newSerialNumberLabel8.Text = answers.Where(x => x.QuestionId == 648).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 648).FirstOrDefault().AnsDes : "";
-            this.noteLabel7.Text = answers.Where(x => x.QuestionId == 649).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 649).FirstOrDefault().AnsDes : "";
+            this.noteLabel8.Text = answers.Where(x => x.QuestionId == 649).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 649).FirstOrDefault().AnsDes : "";
             this.toolsListLabel9.Text = answers.Where(x => x.QuestionId == 650).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 650).FirstOrDefault().AnsDes : "";
             this.serialNumberLabel9.Text = answers.Where(x => x.QuestionId == 651).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 651).FirstOrDefault().AnsDes : "";
             this.newSerialNumberLabel9.Text = answers.Where(x => x.QuestionId == 652).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 652).FirstOrDefault().AnsDes : "";

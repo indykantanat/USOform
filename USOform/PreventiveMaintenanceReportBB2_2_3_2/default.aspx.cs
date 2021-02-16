@@ -3595,7 +3595,8 @@ namespace USOform.PreventiveMaintenanceReportBB2._2_3._2
                 ans72_.CreateDate = DateTime.Now;
                 ans72_.QuestionId = 849;
                 ans72_.UserId = user.Id;
-                ans72_.AnsMonth = ansMonth; ans72_.SRId = sR.Id;
+                ans72_.AnsMonth = ansMonth; 
+                ans72_.SRId = sR.Id;
             }
 
 

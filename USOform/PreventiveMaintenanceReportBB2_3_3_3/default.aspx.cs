@@ -3169,7 +3169,8 @@ namespace USOform.PreventiveMaintenanceReportBB2._3_3._3
                 ans575.AnserTypeId = 4;
                 ans575.CreateDate = DateTime.Now;
                 ans575.UserId = user.Id;
-                ans575.AnsMonth = ansMonth; ans575.SRId = sR.Id;
+                ans575.AnsMonth = ansMonth; 
+                ans575.SRId = sR.Id;
 
             }
 
@@ -5432,7 +5433,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._3_3._3
                 {
                     AnsDes = this.noteTextbox8.Value,
                     QuestionId = 649,
-                    AnserTypeId = 1,
+                    AnserTypeId = 4,
                     CreateDate = DateTime.Now,
                     UserId = user.Id,
                     AnsMonth = ansMonth,
@@ -5448,7 +5449,8 @@ namespace USOform.PreventiveMaintenanceReportBB2._3_3._3
                 ans649.AnserTypeId = 4;
                 ans649.CreateDate = DateTime.Now;
                 ans649.UserId = user.Id;
-                ans649.AnsMonth = ansMonth; ans649.SRId = sR.Id;
+                ans649.AnsMonth = ansMonth; 
+                ans649.SRId = sR.Id;
             }
 
 

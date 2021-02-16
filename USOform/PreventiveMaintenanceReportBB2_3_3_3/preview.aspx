@@ -270,10 +270,7 @@
                             Executor
                         </div>                                        
                               <div class="card-body">
-                            <div id="signatureExecutorLabel"></div>
-                            <div id="redrawSignature1" hidden="hidden"></div>
-                    
-                            <asp:Label id="signatureExecutorJSON" class="ui-state-active" runat="server"   hidden="hidden"/>
+                        <img src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 504).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 504).FirstOrDefault().AnsDes); %>' />
                             <div class="form-group">
                                 <label>Name</label>
                                 <asp:Label  id="nameExecutorLabel" runat="server"  />
@@ -293,15 +290,13 @@
                             Supervisor
                         </div>
                         <div class="card-body">
-                            <div id="signatureSupervisorLabel"></div>
-                            <div id="redrawSignature1" hidden="hidden"></div>
-                            <asp:Label id="signatureSupervisorJSON" class="ui-state-active" runat="server"   hidden="hidden" />
+                            <img src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 505).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 505).FirstOrDefault().AnsDes); %>' />
                             <div class="form-group">
-                                <label>Name</label>
+                                <label>Name : </label>
                                 <asp:Label  id="nameSupervisorLabel" runat="server"  />
                             </div>
                             <div class="form-group">
-                                <label>Date</label>
+                                <label>Date : </label>
                                 <asp:Label  id="DateSupervisorLabel" runat="server"  />
                             </div>
                         </div>
