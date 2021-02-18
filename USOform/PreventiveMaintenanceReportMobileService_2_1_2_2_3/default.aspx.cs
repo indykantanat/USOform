@@ -36,7 +36,7 @@ namespace USOform
             {
 
                 long siteId = long.Parse(Request["SiteId"]);
-                int currentQuarter = this.GetQuarter(DateTime.Now);
+                int currentQuarter = int.Parse(Request["qurter"]);
                 SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.SiteId == siteId && x.Status == 1).FirstOrDefault();
 
 
@@ -232,10 +232,10 @@ namespace USOform
 
 
 
-        int GetQuarter(DateTime dt)
-        {
-            return (dt.Month - 1) / 3 + 1;
-        }
+        //int GetQuarter(DateTime dt)
+        //{
+        //    return (dt.Month - 1) / 3 + 1;
+        //}
 
 
 
@@ -262,7 +262,7 @@ namespace USOform
             string ansMonth = DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
 
             long siteId = long.Parse(Request["SiteId"]);
-            int currentQuarter = this.GetQuarter(DateTime.Now);
+            int currentQuarter = int.Parse(Request["qurter"]);
             SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.SiteId == siteId && x.Status == 1).FirstOrDefault();
             if (sR == null)
             {

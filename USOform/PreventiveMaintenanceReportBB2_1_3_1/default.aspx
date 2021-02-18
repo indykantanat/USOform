@@ -31,6 +31,10 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet" />
     <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
+
+        
+
+
 </head>
 
 <body style="background-color: lightgray">
@@ -95,12 +99,12 @@
                 <label class="control-label col-sm-8" for="">ส่วนที่ 1 การจัดให้มีบริการอินเทอร์เน็ตความเร็วสูง (Broadband Internet Service) บริการประเภทที่ </label>
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
-                        <input type="radio" required="required" class="form-check-input" name="category" value="2.1" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1017).FirstOrDefault().AnsDes == "2.1") { Response.Write("checked"); } else { Response.Write(""); }  %> />2.1
+                        <input type="radio" required="required" class="form-check-input" name="category" value="2.1"  <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1017).FirstOrDefault().AnsDes == "2.1") { Response.Write("checked"); } else { Response.Write("");  }  %> readonly="readonly" />2.1
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label" for="">
-                        <input type="radio" required="required" class="form-check-input" name="category" value="3.1" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1017).FirstOrDefault().AnsDes == "3.1") { Response.Write("checked"); } else { Response.Write(""); }  %> />3.1
+                        <input type="radio" required="required" class="form-check-input" name="category" value="3.1" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1017).FirstOrDefault().AnsDes == "3.1") { Response.Write("checked"); } else { Response.Write(""); }  %>  />3.1
                     </label>
                 </div>
             </div>
@@ -1018,7 +1022,7 @@
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" required="required" class="form-check-input" name="baseOnRadio" value="ไม่ได้ระดับ/เอียง" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1082).FirstOrDefault().AnsDes == "ไม่ได้ระดับ/เอีย") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่ได้ระดับ/เอียง
+                        <input type="radio" required="required" class="form-check-input" name="baseOnRadio" value="ไม่ได้ระดับ/เอียง" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1082).FirstOrDefault().AnsDes == "ไม่ได้ระดับ/เอียง") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่ได้ระดับ/เอียง
                     </label>
                 </div>
             </div>
@@ -2444,7 +2448,7 @@
     <![endif]-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="../sig/js/jquery.signature.js"></script>
+    <script src="/sig/js/jquery.signature.js"></script>
     <script>
         //-----------------  ลายเซ็น  //----------------------
         $(function () {
@@ -2469,6 +2473,40 @@
             });
 
             $('#redrawSignature1').signature({ disabled: true });
+
+
+            //$(canvas).on('touchstart', function (e) {
+            //    leftMButtonDown = true;
+            //    canvasContext.fillStyle = "#000";
+            //    var t = e.originalEvent.touches[0];
+            //    var x = t.pageX - $(e.target).offset().left;
+            //    var y = t.pageY - $(e.target).offset().top;
+            //    canvasContext.moveTo(x, y);
+
+            //    e.preventDefault();
+            //    return false;
+            //});
+
+            //$(canvas).on('touchmove', function (e) {
+            //    canvasContext.fillStyle = "#000";
+            //    var t = e.originalEvent.touches[0];
+            //    var x = t.pageX - $(e.target).offset().left;
+            //    var y = t.pageY - $(e.target).offset().top;
+            //    canvasContext.lineTo(x, y);
+            //    canvasContext.stroke();
+
+            //    e.preventDefault();
+            //    return false;
+            //});
+
+            //$(canvas).on('touchend', function (e) {
+            //    if (leftMButtonDown) {
+            //        leftMButtonDown = false;
+            //        isSign = true;
+            //    }
+
+            //});
+
         });
     </script>
     <script>
@@ -2495,6 +2533,38 @@
             });
 
             $('#redrawSignature').signature({ disabled: true });
+
+            //$(canvas).on('touchstart', function (e) {
+            //    leftMButtonDown = true;
+            //    canvasContext.fillStyle = "#000";
+            //    var t = e.originalEvent.touches[0];
+            //    var x = t.pageX - $(e.target).offset().left;
+            //    var y = t.pageY - $(e.target).offset().top;
+            //    canvasContext.moveTo(x, y);
+
+            //    e.preventDefault();
+            //    return false;
+            //});
+
+            //$(canvas).on('touchmove', function (e) {
+            //    canvasContext.fillStyle = "#000";
+            //    var t = e.originalEvent.touches[0];
+            //    var x = t.pageX - $(e.target).offset().left;
+            //    var y = t.pageY - $(e.target).offset().top;
+            //    canvasContext.lineTo(x, y);
+            //    canvasContext.stroke();
+
+            //    e.preventDefault();
+            //    return false;
+            //});
+
+            //$(canvas).on('touchend', function (e) {
+            //    if (leftMButtonDown) {
+            //        leftMButtonDown = false;
+            //        isSign = true;
+            //    }
+
+            //});
         });
     </script>
     <script>
@@ -2507,5 +2577,7 @@
             }
         }
     </script>
-</body>
+
+
+    </body>
 </html>

@@ -85,15 +85,15 @@ namespace USOform
             {
                 case 1:
 
-                    Q1Label.NavigateUrl    = "PreventiveMaintenanceReportBB_USOWrap/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    Q2Label.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    Q3Label.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    Q4Label.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    HyperLink1.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    preview1.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/preview.aspx?SiteId=" + dataItem.Id.ToString();
-                    preview2.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/preview.aspx?SiteId=" + dataItem.Id.ToString();
-                    preview3.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/preview.aspx?SiteId=" + dataItem.Id.ToString();
-                    preview4.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/preview.aspx?SiteId=" + dataItem.Id.ToString();
+                    Q1Label.NavigateUrl    = "PreventiveMaintenanceReportBB_USOWrap/default.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=1";
+                    Q2Label.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/default.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=2";
+                    Q3Label.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/default.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=3";
+                    Q4Label.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/default.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=4";
+                    //HyperLink1.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/default.aspx?SiteId=" + dataItem.Id.ToString();
+                    preview1.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/preview.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=1";
+                    preview2.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/preview.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=2";
+                    preview3.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/preview.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=3";
+                    preview4.NavigateUrl = "PreventiveMaintenanceReportBB_USOWrap/preview.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=4";
 
                     break;
                 case 2:
@@ -101,7 +101,7 @@ namespace USOform
                     Q2Label.NavigateUrl = "PreventiveMaintenanceReportBB_2_4/default.aspx?SiteId=" + dataItem.Id.ToString();
                     Q3Label.NavigateUrl = "PreventiveMaintenanceReportBB_2_4/default.aspx?SiteId=" + dataItem.Id.ToString();
                     Q4Label.NavigateUrl = "PreventiveMaintenanceReportBB_2_4/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    HyperLink1.NavigateUrl = "PreventiveMaintenanceReportBB_2_4/default.aspx?SiteId=" + dataItem.Id.ToString();
+                    //HyperLink1.NavigateUrl = "PreventiveMaintenanceReportBB_2_4/default.aspx?SiteId=" + dataItem.Id.ToString();
                     preview1.NavigateUrl = "PreventiveMaintenanceReportBB_2_4/preview.aspx?SiteId=" + dataItem.Id.ToString();
                     preview2.NavigateUrl = "PreventiveMaintenanceReportBB_2_4/preview.aspx?SiteId=" + dataItem.Id.ToString();
                     preview3.NavigateUrl = "PreventiveMaintenanceReportBB_2_4/preview.aspx?SiteId=" + dataItem.Id.ToString();
@@ -116,7 +116,7 @@ namespace USOform
                     Q2Label.NavigateUrl = "PreventiveMaintenanceReportBB2_3_3_3/default.aspx?SiteId=" + dataItem.Id.ToString();
                     Q3Label.NavigateUrl = "PreventiveMaintenanceReportBB2_3_3_3/default.aspx?SiteId=" + dataItem.Id.ToString();
                     Q4Label.NavigateUrl = "PreventiveMaintenanceReportBB2_3_3_3/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    HyperLink1.NavigateUrl = "PreventiveMaintenanceReportBB2_3_3_3/default.aspx?SiteId=" + dataItem.Id.ToString();
+                    //HyperLink1.NavigateUrl = "PreventiveMaintenanceReportBB2_3_3_3/default.aspx?SiteId=" + dataItem.Id.ToString();
                     preview1.NavigateUrl = "PreventiveMaintenanceReportBB2_3_3_3/preview.aspx?SiteId=" + dataItem.Id.ToString();
                     preview2.NavigateUrl = "PreventiveMaintenanceReportBB2_3_3_3/preview.aspx?SiteId=" + dataItem.Id.ToString();
                     preview3.NavigateUrl = "PreventiveMaintenanceReportBB2_3_3_3/preview.aspx?SiteId=" + dataItem.Id.ToString();
@@ -127,29 +127,29 @@ namespace USOform
                     Q2Label.NavigateUrl = "PreventiveMaintenanceReportBB2_2_3_2/default.aspx?SiteId=" + dataItem.Id.ToString();
                     Q3Label.NavigateUrl = "PreventiveMaintenanceReportBB2_2_3_2/default.aspx?SiteId=" + dataItem.Id.ToString();
                     Q4Label.NavigateUrl = "PreventiveMaintenanceReportBB2_2_3_2/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    HyperLink1.NavigateUrl = "PreventiveMaintenanceReportBB2_2_3_2/default.aspx?SiteId=" + dataItem.Id.ToString();
+                    //HyperLink1.NavigateUrl = "PreventiveMaintenanceReportBB2_2_3_2/default.aspx?SiteId=" + dataItem.Id.ToString();
                     preview1.NavigateUrl = "PreventiveMaintenanceReportBB2_2_3_2/preview.aspx?SiteId=" + dataItem.Id.ToString();
                     preview2.NavigateUrl = "PreventiveMaintenanceReportBB2_2_3_2/preview.aspx?SiteId=" + dataItem.Id.ToString();
                     preview3.NavigateUrl = "PreventiveMaintenanceReportBB2_2_3_2/preview.aspx?SiteId=" + dataItem.Id.ToString();
                     preview4.NavigateUrl = "PreventiveMaintenanceReportBB2_2_3_2/preview.aspx?SiteId=" + dataItem.Id.ToString();
                     break;
                 case 5:
-                    Q1Label.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    Q2Label.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    Q3Label.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    Q4Label.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    HyperLink1.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    preview1.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/preview.aspx?SiteId=" + dataItem.Id.ToString();
-                    preview2.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/preview.aspx?SiteId=" + dataItem.Id.ToString();
-                    preview3.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/preview.aspx?SiteId=" + dataItem.Id.ToString();
-                    preview4.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/preview.aspx?SiteId=" + dataItem.Id.ToString();
+                    Q1Label.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/default.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=1";
+                    Q2Label.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/default.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=2";
+                    Q3Label.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/default.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=3";
+                    Q4Label.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/default.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=4";
+                    //HyperLink1.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/default.aspx?SiteId=" + dataItem.Id.ToString();
+                    preview1.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/preview.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=1";
+                    preview2.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/preview.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=2";
+                    preview3.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/preview.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=3";
+                    preview4.NavigateUrl = "PreventiveMaintenanceReportBB2_1_3_1/preview.aspx?SiteId=" + dataItem.Id.ToString() + "&qurter=4";
                     break;
                 case 6:
                     Q1Label.NavigateUrl = "PreventiveMaintenanceReportBB_1/default.aspx?SiteId=" + dataItem.Id.ToString();
                     Q2Label.NavigateUrl = "PreventiveMaintenanceReportBB_1/default.aspx?SiteId=" + dataItem.Id.ToString();
                     Q3Label.NavigateUrl = "PreventiveMaintenanceReportBB_1/default.aspx?SiteId=" + dataItem.Id.ToString();
                     Q4Label.NavigateUrl = "PreventiveMaintenanceReportBB_1/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    HyperLink1.NavigateUrl = "PreventiveMaintenanceReportBB_1/default.aspx?SiteId=" + dataItem.Id.ToString();
+                    //HyperLink1.NavigateUrl = "PreventiveMaintenanceReportBB_1/default.aspx?SiteId=" + dataItem.Id.ToString();
                     preview1.NavigateUrl = "PreventiveMaintenanceReportBB_1/preview.aspx?SiteId=" + dataItem.Id.ToString();
                     preview2.NavigateUrl = "PreventiveMaintenanceReportBB_1/preview.aspx?SiteId=" + dataItem.Id.ToString();
                     preview3.NavigateUrl = "PreventiveMaintenanceReportBB_1/preview.aspx?SiteId=" + dataItem.Id.ToString();
@@ -161,7 +161,7 @@ namespace USOform
                     Q2Label.NavigateUrl = "PreventiveMaintenanceReportMobileService_2_1_2_2_3/default.aspx?SiteId=" + dataItem.Id.ToString();
                     Q3Label.NavigateUrl = "PreventiveMaintenanceReportMobileService_2_1_2_2_3/default.aspx?SiteId=" + dataItem.Id.ToString();
                     Q4Label.NavigateUrl = "PreventiveMaintenanceReportMobileService_2_1_2_2_3/default.aspx?SiteId=" + dataItem.Id.ToString();
-                    HyperLink1.NavigateUrl = "PreventiveMaintenanceReportMobileService_2_1_2_2_3/default.aspx?SiteId=" + dataItem.Id.ToString();
+                    //HyperLink1.NavigateUrl = "PreventiveMaintenanceReportMobileService_2_1_2_2_3/default.aspx?SiteId=" + dataItem.Id.ToString();
                     preview1.NavigateUrl = "PreventiveMaintenanceReportMobileService_2_1_2_2_3/preview.aspx?SiteId=" + dataItem.Id.ToString();
                     preview2.NavigateUrl = "PreventiveMaintenanceReportMobileService_2_1_2_2_3/preview.aspx?SiteId=" + dataItem.Id.ToString();
                     preview3.NavigateUrl = "PreventiveMaintenanceReportMobileService_2_1_2_2_3/preview.aspx?SiteId=" + dataItem.Id.ToString();

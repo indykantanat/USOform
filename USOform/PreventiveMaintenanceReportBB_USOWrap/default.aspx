@@ -97,6 +97,8 @@
             });
 
             $('#redrawSignature').signature({ disabled: true });
+
+
         });
     </script>
 </head>

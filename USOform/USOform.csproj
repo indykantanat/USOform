@@ -81,6 +81,7 @@
     <Content Include="assets\loader.gif" />
     <Content Include="assets\logo_3-03.png" />
     <Content Include="assets\logo_uso.png" />
+    <Content Include="assets\pdf.png" />
     <Content Include="assets\successImages.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -88,11 +89,6 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="jq-signature-master\.gitignore" />
-    <Content Include="jq-signature-master\Gruntfile.js" />
-    <Content Include="jq-signature-master\index.html" />
-    <Content Include="jq-signature-master\jq-signature.js" />
-    <Content Include="jq-signature-master\jq-signature.min.js" />
     <Content Include="login\login.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2_1_3_1\default.aspx" />
     <Content Include="PreventiveMaintenanceReportBB2_1_3_1\images\ComputerPictureChecklist_25640119104732.jpg" />
@@ -254,11 +250,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="jq-signature-master\.editorconfig" />
-    <Content Include="jq-signature-master\bower.json" />
-    <Content Include="jq-signature-master\LICENSE.md" />
-    <Content Include="jq-signature-master\package.json" />
-    <Content Include="jq-signature-master\README.md" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -343,6 +334,7 @@
     <Content Include="sig\testsig.aspx" />
     <Content Include="style\Mystyle.css" />
     <Content Include="success.aspx" />
+    <Content Include="testsig\default.aspx" />
     <Content Include="Web.config" />
     <Content Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\default.aspx" />
     <Content Include="dashboard.aspx" />
@@ -481,6 +473,13 @@
     </Compile>
     <Compile Include="success.aspx.designer.cs">
       <DependentUpon>success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testsig\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testsig\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

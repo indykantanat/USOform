@@ -20,31 +20,28 @@
 
 <body>
     <form id="form1" runat="server">
-        <div class="container bg-white p-5">              
+        <div class="container bg-white p-5 justify-content-center">
             <div class="loading text-center">
                 Loading. Please wait.<br />
                 <br />
                 <img src="/assets/loader2.gif" alt="loading..." />
             </div>
 
-
-         
-            
-            <table id="example" class="table table-striped table-responsive" style="width: 100%">
+            <table id="example" class="table table-striped table-responsive-md table-hover" style="width: 100%">
                 <thead>
                     <tr>
-                        <td>จุดที่</td>
+                        <td>ลำดับ</td>
                         <td>SR
                         </td>
-                       <%-- <td>Name                                               
+                        <%-- <td>Name                                               
                         </td>--%>
-                      <%--  <td>CabinetId                                                
+                        <%--  <td>CabinetId                                                
                         </td>--%>
-                      <%--  <td>SiteCode                                              
+                        <%--  <td>SiteCode                                              
                         </td>
                         <td>VillageId                                               
                         </td>--%>
-                        <td>Village
+                        <td style="width: 25%">Village
                         </td>
                         <td>SubDistrict
                         </td>
@@ -52,24 +49,24 @@
                         </td>
                         <td>Province
                         </td>
-                       <%-- <td>Contract
+                        <%-- <td>Contract
                         </td>--%>
                         <td>Type
                         </td>
-                        <td>ครั้งที่ 1 ม.ค.- มี.ค.
+                        <td style="width: 10%">ครั้งที่ 1 ม.ค.-มี.ค.
                         </td>
-                        <td>ครั้งที่ 2 เม.ย.- มิ.ย.
+                        <td style="width: 10%">ครั้งที่ 2 เม.ย.-มิ.ย.
                         </td>
-                        <td>ครั้งที่ 3 ก.ค. - มิ.ย.
+                        <td style="width: 10%">ครั้งที่ 3 ก.ค.-มิ.ย.
                         </td>
-                        <td>ครั้งที่ 4 ต.ค. - ธ.ค.
+                        <td style="width: 10%">ครั้งที่ 4 ต.ค.-ธ.ค.
                         </td>
-                      <%--  <td>TypeofSignal
+                        <%--  <td>TypeofSignal
                         </td>--%>
-                        <td>
+                        <%--  <td>
                             Edite/Preview
                                     
-                        </td>
+                        </td>--%>
                     </tr>
                 </thead>
                 <tbody>
@@ -79,15 +76,15 @@
                                 <td style="text-align: center;"><%# Eval("id") %></td>
                                 <td><%# Eval("Name") %>
                                 </td>
-                               <%-- <td><%# Eval("Head.Name") %>                                                
+                                <%-- <td><%# Eval("Head.Name") %>                                                
                                 </td>--%>
-                              <%--  <td><%# Eval("CabinetId") %>                                                
+                                <%--  <td><%# Eval("CabinetId") %>                                                
                                 </td>
                                 <td><%# Eval("SiteCode") %>                                                
                                 </td>
                                 <td><%# Eval("VillageId") %>                                                
                                 </td>--%>
-                                <td>
+                                <td style="width: 15%">
                                     <%# Eval("Village") %>
                                 </td>
                                 <td>
@@ -99,38 +96,38 @@
                                 <td>
                                     <%# Eval("Province") %>
                                 </td>
-                               <%-- <td>
+                                <%-- <td>
                                     <%# Eval("Contract") %>
                                 </td>--%>
                                 <td>
                                     <%# Eval("Type") %>
                                 </td>
-                                 <td>
-                                     <asp:HyperLink ID="Q1Label" runat="server" Text="Q1/"></asp:HyperLink>/<asp:HyperLink ID="preview1" runat="server">Preview</asp:HyperLink>
-                        </td>
-                                 <td>
-                                     <asp:HyperLink ID="Q2Label" runat="server" Text="Q2/"></asp:HyperLink>/<asp:HyperLink ID="preview2" runat="server">Preview</asp:HyperLink>
-                        </td>
-                                 <td>
-                                     <asp:HyperLink ID="Q3Label" runat="server" Text="Q3/"></asp:HyperLink>/<asp:HyperLink ID="preview3" runat="server">Preview</asp:HyperLink>
-                        </td>
-                                 <td>
-                                     <asp:HyperLink ID="Q4Label" runat="server" Text="Q4/"></asp:HyperLink>/<asp:HyperLink ID="preview4" runat="server">Preview</asp:HyperLink>
-                        </td>
-                              <%--  <td>
+                                <td style="width: 15%">
+                                    <asp:HyperLink ID="Q1Label" runat="server" Text="Q1/"></asp:HyperLink>/<asp:HyperLink ID="preview1" runat="server">  <img src="assets/pdf.png" style="width:20px;height:20px;" />     </asp:HyperLink>
+                                </td>
+                                <td style="width: 15%">
+                                    <asp:HyperLink ID="Q2Label" runat="server" Text="Q2/"></asp:HyperLink>/<asp:HyperLink ID="preview2" runat="server"> <img src="assets/pdf.png" style="width:20px;height:20px;" /></asp:HyperLink>
+                                </td>
+                                <td style="width: 15%">
+                                    <asp:HyperLink ID="Q3Label" runat="server" Text="Q3/"></asp:HyperLink>/<asp:HyperLink ID="preview3" runat="server"> <img src="assets/pdf.png" style="width:20px;height:20px;" /></asp:HyperLink>
+                                </td>
+                                <td style="width: 15%">
+                                    <asp:HyperLink ID="Q4Label" runat="server" Text="Q4/"></asp:HyperLink>/<asp:HyperLink ID="preview4" runat="server"> <img src="assets/pdf.png" style="width:20px;height:20px;" /></asp:HyperLink>
+                                </td>
+                                <%--  <td>
                                     <%# Eval("TypeofSignal") %>
                                 </td>--%>
-                                <td>
+                                <%-- <td>
                                     <asp:HyperLink ID="HyperLink1" runat="server">Edit/</asp:HyperLink>
                                     <asp:HyperLink ID="HyperLink2" runat="server">Preview</asp:HyperLink>
 
-                                </td>
+                                </td>--%>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>
                 </tbody>
             </table>
-               
+
 
             <br />
             <br />
@@ -175,6 +172,7 @@
         body {
             background-color: #f3f6fb;
             font-family: 'Prompt', sans-serif;
+            font-size: small;
         }
 
         thead {

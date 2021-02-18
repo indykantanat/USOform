@@ -2848,7 +2848,6 @@
                 <div class="col-md-6">
                     <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-success btn-block" OnClick="SubmitButton_Click"  OnClientClick ="return signatureValidation();" />
                 </div>
-
             </div>
             <br />
             <br />

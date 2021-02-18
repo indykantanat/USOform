@@ -34,7 +34,8 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
             {
                
                 long siteId = long.Parse(Request["SiteId"]);
-                int currentQuarter = this.GetQuarter(DateTime.Now);
+                //int currentQuarter = this.GetQuarter(DateTime.Now);
+                int currentQuarter = int.Parse(Request["qurter"]);
                 SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.SiteId == siteId && x.Status == 1).FirstOrDefault();
 
 
@@ -214,11 +215,6 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
         }
 
 
-        int GetQuarter(DateTime dt)
-        {
-            return (dt.Month - 1) / 3 + 1;
-        }
-
 
 
         protected void SubmitButton_Click(object sender, EventArgs e)
@@ -240,7 +236,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
             string ansMonth = DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
 
             long siteId = long.Parse(Request["SiteId"]);
-            int currentQuarter = this.GetQuarter(DateTime.Now);
+            int currentQuarter = int.Parse(Request["qurter"]);
             SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.SiteId == siteId && x.Status == 1).FirstOrDefault();
             if (sR == null)
             {

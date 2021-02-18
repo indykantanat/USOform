@@ -32,7 +32,7 @@ namespace USOform.PreventiveMaintenanceReportBB2_3_3_3
             if (user != null)
             {
                 long siteId = long.Parse(Request["SiteId"]);
-                int currentQuarter = this.GetQuarter(DateTime.Now);
+                int currentQuarter = int.Parse(Request["qurter"]);
                 SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.SiteId == siteId && x.Status == 1).FirstOrDefault();
                 if (sR != null)
                 {
@@ -56,10 +56,6 @@ namespace USOform.PreventiveMaintenanceReportBB2_3_3_3
             }
         }
 
-        int GetQuarter(DateTime dt)
-        {
-            return (dt.Month - 1) / 3 + 1;
-        }
 
 
 

@@ -32,7 +32,7 @@ namespace USOform.PreventiveMaintenanceReportBB2_2_3_2
             {
                 //string ansMonth = Request["AnsMonth"] != null ? Request["AnsMonth"] : DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
                 long siteId = long.Parse(Request["SiteId"]);
-                int currentQuarter = this.GetQuarter(DateTime.Now);
+                int currentQuarter = int.Parse(Request["qurter"]);
                 SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.SiteId == siteId && x.Status == 1).FirstOrDefault();
                 if (sR != null)
                 {
@@ -211,10 +211,7 @@ namespace USOform.PreventiveMaintenanceReportBB2_2_3_2
             this.telephoneAgentLabel.Text = answers.Where(x => x.QuestionId == 954).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 954).FirstOrDefault().AnsDes : "";
         }
 
-        int GetQuarter(DateTime dt)
-        {
-            return (dt.Month - 1) / 3 + 1;
-        }
+     
 
     }
 }

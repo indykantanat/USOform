@@ -36,14 +36,13 @@
         height: 200px;
     }
 </style>
+
 <body style="background-color: white;">
     <form id="form1" runat="server">
         <div class="container bg-white">
             <div class="row pt-5">
                 <div class="col-4">
-
-                    <img id="user_img_12" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1408).FirstOrDefault().AnsDes); %>' class="imgLogoOganize float-left" />
-                    <%-- img src='<% if(answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1408).FirstOrDefault().AnsDes); %>'--%>
+                    <img id="user_img_12" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1408).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1408).FirstOrDefault().AnsDes); %>' class="imgLogoOganize float-left" />                  
                 </div>
                 <div class="col-4  d-flex justify-content-center ">
                     <h5 class="headerText">Preventive Maintenance Site Report USO (Mobile)</h5>
@@ -223,7 +222,7 @@
 
             </div>
             <div class="row ml-3 mt-3">
-                <img id="user_img_0" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1427).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_0" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1427).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1427).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
             <%-----------//   END  Sectionid  = 125    //-----------------%>
@@ -244,7 +243,7 @@
                             Executor
                         </div>                                        
                               <div class="card-body">
-                            <img id="user_img_20" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1428).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                            <img id="user_img_20" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1428).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1428).FirstOrDefault().AnsDes); %>' class="placeholder2" />
                             <div class="form-group">
                                 <label>Name</label>
                                 <asp:Label  id="nameExecutorLabel" runat="server"  />
@@ -264,7 +263,7 @@
                             Supervisor
                         </div>
                         <div class="card-body">
-                             <img id="user_img_30" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1431).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                             <img id="user_img_30" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1431).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1431).FirstOrDefault().AnsDes); %>' class="placeholder2" />
                             <div class="form-group">
                                 <label>Name</label>
                                 <asp:Label  id="nameSupervisorLabel" runat="server"  />
@@ -2312,7 +2311,7 @@
 
             </div>
             <div class="row ml-3 mt-3">
-                <img id="user_img_10" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1630).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_10" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1630).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1630).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
 
@@ -2324,13 +2323,13 @@
 
             </div>
             <div class="row ml-3 mt-3">
-                <img id="user_img_3" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1631).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_3" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1631).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1631).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
             <div class="row mt-3">
                 <div class="col-sm-12">3.รูป SOLAR CELL PICTURE CHECKLIST</div>
             </div>
             <div class="row ml-3 mt-3">
-                <img id="user_img_4" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1632).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_4" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1632).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1632).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
 

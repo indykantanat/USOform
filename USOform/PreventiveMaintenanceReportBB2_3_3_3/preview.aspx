@@ -308,39 +308,6 @@
             <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 758).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
             <%-- <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 759).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
                     <h4>1. รายละเอียดสถานี</h4>
@@ -398,30 +365,6 @@
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <div class="row mt-3">
                 <div class="col-md-12 bg-primary text-white text-center Myfont">
                     <h4>2. ระบบไฟฟ้า (หลัก)</h4>
@@ -451,7 +394,7 @@
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" >หน่วยใช้ไฟ (kWh Meter)</label>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <asp:Label  id="kwhMeterLabel" runat="server" />
                 </div>
                 <label class="control-label col-sm-1" >kWh</label>
@@ -459,7 +402,7 @@
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" >แรงดัน AC (kWh Meter)</label>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <asp:Label  id="acvoltLabel" runat="server" />
                 </div>
                 <label class="control-label col-sm-1" >V.</label>
