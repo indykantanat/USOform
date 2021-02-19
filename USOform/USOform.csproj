@@ -83,6 +83,7 @@
     <Content Include="assets\logo_uso.png" />
     <Content Include="assets\pdf.png" />
     <Content Include="assets\successImages.png" />
+    <Content Include="assets\whiteBackground.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -326,6 +327,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="SignaturePadTest\testSIgnature.aspx" />
     <Content Include="sig\css\jquery.signature.css" />
     <Content Include="sig\js\jquery.signature.js" />
     <Content Include="sig\js\jquery.signature.min.js" />
@@ -452,6 +454,13 @@
     </Compile>
     <Compile Include="PreventiveMaintenanceReportMobileService_2_1_2_2_3\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignaturePadTest\testSIgnature.aspx.cs">
+      <DependentUpon>testSIgnature.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignaturePadTest\testSIgnature.aspx.designer.cs">
+      <DependentUpon>testSIgnature.aspx</DependentUpon>
     </Compile>
     <Compile Include="sig\testsig.aspx.cs">
       <DependentUpon>testsig.aspx</DependentUpon>

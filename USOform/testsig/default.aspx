@@ -68,7 +68,7 @@
                             <div class="row">
                                 <canvas id="canvas2">Canvas is not supported</canvas>
                                 <div>
-                                    <input id="btnSubmitSign2" type="button" data-inline="true" data-mini="true" data-theme="b" value="Submit Sign" onclick="fun_submit2()" />
+                                    <input id="btnSubmitSign2" type="button" data-inline="true" data-mini="true" data-theme="b" value="Submit Sign" onclick="fun_submitTWO()" />
                                     <input id="btnClearSign2" type="button" data-inline="true" data-mini="true" data-theme="b" value="Clear" onclick="init_Sign_Canvas2()" />
                                 </div>
 
@@ -101,18 +101,19 @@
             init_Sign_Canvas2();
         });
 
-        function fun_submit2() {
+        function fun_submitTWO() {
             if (isSign) {
                 var canvas = $("#canvas2").get(0);
                 var imgData = canvas.toDataURL();
-                var imageData = "S";
+                var imageData = "Sf";
                 var hid = "hidden";
                 jQuery('#page2').find('p').remove();
                 jQuery('#page2').find('img').remove();
                 //jQuery('#page').append(jQuery('<p>Your Sign:</p>'));
                 jQuery('#page2').append($('<img/>').attr('src', imgData).attr('id', imageData).attr('hidden', hid));
-
-                closePopUp2();
+               
+                //closePopUp2();
+                console.log(sf);
             } else {
                 alert('Please sign');
             }
@@ -249,7 +250,8 @@
                 //jQuery('#page').append(jQuery('<p>Your Sign:</p>'));
                 jQuery('#page').append($('<img/>').attr('src', imgData).attr('id', imageData).attr('hidden', hid));
 
-                closePopUp();
+                //closePopUp();
+                console.log(Ss);
             } else {
                 alert('Please sign');
             }

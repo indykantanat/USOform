@@ -31,7 +31,8 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet" />
     <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
-
+     <%--//  SIGNATURE PAD  //--%>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
         
 
 
@@ -295,17 +296,20 @@
                         <div class="card-header">
                             Executor
                         </div>
-                        <div class="card-body">
-                            <div id="signatureExecutorTextbox"></div>
-                            <div id="redrawSignature1" hidden="hidden"></div>
-                            <input type="hidden" id="signatureExecutorJSON" class="ui-state-active" runat="server" />
-                            <div class="form-group">
+                        <div class="card-body">                                                                     
+                            <canvas id="signature-pad" class="signature-pad" width="400" height="200"></canvas>
+                             <asp:HiddenField ID="SignatureHiddenfieldExecutor" runat="server" />
+                              <div>
+                                   <button  type="button" id="save">save</button>
+                                 <button type="button" id="clear">Clear</button>
+                                </div>
+                             <div class="form-group">
                                 <label>Name</label>
-                                 <input type="text" required="required" class="form-control" id="nameExecutorTextbox" runat="server"  />
+                                <input type="text"  class="form-control" id="nameExecutorTextbox" runat="server" />
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                 <input type="text" required="required" class="form-control" id="DateExecutorTextbox" runat="server"  />
+                                <input type="text"  class="form-control" id="DateExecutorTextbox" runat="server" />
                             </div>
                         </div>
                     </div>
@@ -316,18 +320,21 @@
                         <div class="card-header">
                             Supervisor
                         </div>
-                        <div class="card-body">
-                            <div id="signatureSupervisorTextbox"></div>
-                            <div id="redrawSignature1" hidden="hidden"></div>
-                            <input type="hidden" id="signatureSupervisorJSON" class="ui-state-active" runat="server" />
+                        <div class="card-body">                                                
+                            <canvas id="signature-pad2" class="signature-pad2" width="400" height="200"></canvas>
+                             <asp:HiddenField ID="SignatureHiddenfieldSupervisor" runat="server" />                                            
+                            <div>                            
+                                <button type="button" id="save2">Save</button>
+                                 <button type="button" id="clear2">Clear</button>
+                                </div>                          
                             <div class="form-group">
                                 <label>Name</label>
-                                 <input type="text" required="required" class="form-control" id="nameSupervisorTextbox" runat="server"  />
+                                <input type="text"  class="form-control" id="nameSupervisorTextbox" runat="server" />
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                 <input type="text" required="required" class="form-control" id="DateSupervisorTextbox" runat="server"  />
-                            </div>
+                                <input type="text"  class="form-control" id="DateSupervisorTextbox" runat="server" />
+                            </div>                                       
                         </div>
                     </div>
                 </div>
@@ -2398,7 +2405,7 @@
 
             <div class="row text-center ">
                 <div class="col">
-                    <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-primary btn-lg  " OnClick="SubmitButton_Click" OnClientClick="return signatureValidation();" />
+                    <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-primary btn-lg" OnClick="SubmitButton_Click" OnClientClick="return signatureValidation();" />
                 </div>
             </div>
 
@@ -2406,9 +2413,6 @@
             </div>
         </div>
     </form>
-
-
-
 
     <script>
         $(function () {
@@ -2443,138 +2447,121 @@
             border: none;
         }
     </style>
-    <!--[if IE]>
-    <script src="excanvas.js"></script>
-    <![endif]-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="/sig/js/jquery.signature.js"></script>
-    <script>
-        //-----------------  ลายเซ็น  //----------------------
-        $(function () {
-            $('#signatureExecutorTextbox').signature({ syncField: '#<%= this.signatureExecutorJSON.ClientID %>' });
+   <script>
+       var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
+           backgroundColor: 'rgba(255, 255, 255, 0)',
+           penColor: 'rgb(0, 0, 0)'
+       });
+       // console.log(signaturePad);});
+       var saveButton = document.getElementById('save');
+       var cancelButton = document.getElementById('clear');
 
-            $('#clearButton1').click(function () {
-                $('#signatureExecutorTextbox').signature('clear');
-            });
+       saveButton.addEventListener('click', function (event) {
+           var data = signaturePad.toDataURL('image/png')
+           console.log("data 1 is =>", data);
+           SignatureHiddenfieldExecutor.value = data;
+           alert('Signature Hiddenfield Executor is =>' + SignatureHiddenfieldExecutor.value);
+           // Send data to server instead...
 
-            $('input[name="syncFormat"]').change(function () {
-                var syncFormat = $('input[name="syncFormat"]:checked').val();
-                $('#signatureExecutorTextbox').signature('option', 'syncFormat', syncFormat);
-            });
+       });
 
-            $('#svgStyles').change(function () {
-                $('#signatureExecutorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
-            });
-            $('#redrawButton').click(function () {
-                $('#redrawSignature1').signature('enable').
-                    signature('draw', $('#<%= this.signatureExecutorJSON.ClientID %>').val()).
-                    signature('disable');
-            });
-
-            $('#redrawSignature1').signature({ disabled: true });
+       cancelButton.addEventListener('click', function (event) {
+           signaturePad.clear();
+       });
+   </script>
 
 
-            //$(canvas).on('touchstart', function (e) {
-            //    leftMButtonDown = true;
-            //    canvasContext.fillStyle = "#000";
-            //    var t = e.originalEvent.touches[0];
-            //    var x = t.pageX - $(e.target).offset().left;
-            //    var y = t.pageY - $(e.target).offset().top;
-            //    canvasContext.moveTo(x, y);
+      <script>
+          var signaturePad2 = new SignaturePad(document.getElementById('signature-pad2'), {
+              backgroundColor: 'rgba(255, 255, 255, 0)',
+              penColor: 'rgb(0, 0, 0)'
+          });
 
-            //    e.preventDefault();
-            //    return false;
-            //});
 
-            //$(canvas).on('touchmove', function (e) {
-            //    canvasContext.fillStyle = "#000";
-            //    var t = e.originalEvent.touches[0];
-            //    var x = t.pageX - $(e.target).offset().left;
-            //    var y = t.pageY - $(e.target).offset().top;
-            //    canvasContext.lineTo(x, y);
-            //    canvasContext.stroke();
+          var saveButton2 = document.getElementById('save2');
+          var cancelButton2 = document.getElementById('clear2');
 
-            //    e.preventDefault();
-            //    return false;
-            //});
+          saveButton2.addEventListener('click', function (event) {
+              var dataSignatureSupervisor = signaturePad2.toDataURL('image/png');
+              console.log("data 2 is =>", dataSignatureSupervisor);
+              SignatureHiddenfieldSupervisor.value = dataSignatureSupervisor;
+              alert('Signature Hiddenfield Supervisor is =>' + SignatureHiddenfieldSupervisor.value);
+          });
 
-            //$(canvas).on('touchend', function (e) {
-            //    if (leftMButtonDown) {
-            //        leftMButtonDown = false;
-            //        isSign = true;
-            //    }
+          cancelButton2.addEventListener('click', function (event) {
+              signaturePad2.clear();
+          });
+      </script>
+    <style type="text/css">
+        .wrapper {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
-            //});
+        img {
+            position: relative;
+            left: 0;
+            top: 0;
+        }
 
-        });
-    </script>
-    <script>
-        $(function () {
-            $('#signatureSupervisorTextbox').signature({ syncField: '#<%= this.signatureSupervisorJSON.ClientID %>' });
+        .signature-pad {
+            position: relative;
+            /*  left: 0;
+            top: 0;*/
+            width: 400px;
+            height: 200px;
+            border: solid;
+            border-width: 1px;
+        }
 
-            $('#clear2Button').click(function () {
-                $('#signatureSupervisorTextbox').signature('clear');
-            });
+        
+        .signature-pad2 {
+            position: relative;
+            /*  left: 0;
+            top: 0;*/
+            width: 400px;
+            height: 200px;
+            border: solid;
+            border-width: 1px;
+        }
+    </style>
 
-            $('input[name="syncFormat"]').change(function () {
-                var syncFormat = $('input[name="syncFormat"]:checked').val();
-                $('#signatureSupervisorTextbox').signature('option', 'syncFormat', syncFormat);
-            });
 
-            $('#svgStyles').change(function () {
-                $('#signatureSupervisorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
-            });
+      
 
-            $('#redrawButton').click(function () {
-                $('#redrawSignature').signature('enable').
-                    signature('draw', $('#<%= this.signatureSupervisorJSON.ClientID %>').val()).
-                    signature('disable');
-            });
-
-            $('#redrawSignature').signature({ disabled: true });
-
-            //$(canvas).on('touchstart', function (e) {
-            //    leftMButtonDown = true;
-            //    canvasContext.fillStyle = "#000";
-            //    var t = e.originalEvent.touches[0];
-            //    var x = t.pageX - $(e.target).offset().left;
-            //    var y = t.pageY - $(e.target).offset().top;
-            //    canvasContext.moveTo(x, y);
-
-            //    e.preventDefault();
-            //    return false;
-            //});
-
-            //$(canvas).on('touchmove', function (e) {
-            //    canvasContext.fillStyle = "#000";
-            //    var t = e.originalEvent.touches[0];
-            //    var x = t.pageX - $(e.target).offset().left;
-            //    var y = t.pageY - $(e.target).offset().top;
-            //    canvasContext.lineTo(x, y);
-            //    canvasContext.stroke();
-
-            //    e.preventDefault();
-            //    return false;
-            //});
-
-            //$(canvas).on('touchend', function (e) {
-            //    if (leftMButtonDown) {
-            //        leftMButtonDown = false;
-            //        isSign = true;
-            //    }
-
-            //});
-        });
-    </script>
     <script>
         function signatureValidation() {
-            if ($('#<%= this.signatureSupervisorJSON.ClientID %>').val().length > 0 && $('#<%= this.signatureExecutorJSON.ClientID %>').val().length > 0) {
+            var imgNull = "data:image/png;base64,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"
+            var data = signaturePad.toDataURL('image/png')
+            console.log("data 1 is =>", data);
+            SignatureHiddenfieldExecutor.value = data;
+            alert('Signature Hiddenfield Executor is =>' + SignatureHiddenfieldExecutor.value);
+
+            var dataSignatureSupervisor = signaturePad2.toDataURL('image/png');
+            console.log("data 2 is =>", dataSignatureSupervisor);
+            SignatureHiddenfieldSupervisor.value = dataSignatureSupervisor;
+
+            alert('Signature Hiddenfield Supervisor is =>' + SignatureHiddenfieldSupervisor.value);
+
+            if (SignatureHiddenfieldExecutor.value == SignatureHiddenfieldSupervisor.value) {
+                alert('กรุณาเซ็นลายเซ็น');
+                return false;
+            }
+            if (SignatureHiddenfieldExecutor.value )
+           
+             
+           
+          <%--  if ($('#<%= this.SignatureHiddenfieldExecutor.ClientID %>').val().length > 0 && $('#<%= this.SignatureHiddenfieldSupervisor.ClientID %>').val().length > 0) {
                 return true;
             } else {
                 alert('กรุณาเซ็นลายเซ็น');
                 return false;
-            }
+            }--%>
         }
     </script>
 
