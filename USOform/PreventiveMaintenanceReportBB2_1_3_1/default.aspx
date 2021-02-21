@@ -33,9 +33,6 @@
     <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
      <%--//  SIGNATURE PAD  //--%>
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
-        
-
-
 </head>
 
 <body style="background-color: lightgray">

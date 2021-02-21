@@ -879,9 +879,6 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
                     sx += new string('=', 4 - mod1428);
                 }
 
-
-
-
                 if (ans1034 == null)
 
                 {
@@ -967,57 +964,6 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
                 }
             }
                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
