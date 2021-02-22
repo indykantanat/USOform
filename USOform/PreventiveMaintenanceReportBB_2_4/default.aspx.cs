@@ -33,7 +33,7 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
             {
 
                 long siteId = long.Parse(Request["SiteId"]);
-                int currentQuarter = this.GetQuarter(DateTime.Now);
+                int currentQuarter = int.Parse(Request["qurter"]);
                 SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.SiteId == siteId && x.Status == 1).FirstOrDefault();
 
 
@@ -61,10 +61,7 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
         }
 
 
-        int GetQuarter(DateTime dt)
-        {
-            return (dt.Month - 1) / 3 + 1;
-        }
+       
 
 
 
@@ -92,7 +89,8 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
             string ansMonth = DateTime.Now.ToString("yyyyMM", CultureInfo.GetCultureInfo("en-US"));
 
             long siteId = long.Parse(Request["SiteId"]);
-            int currentQuarter = this.GetQuarter(DateTime.Now);
+            //int currentQuarter = this.GetQuarter(DateTime.Now);
+            int currentQuarter = int.Parse(Request["qurter"]);
             SR sR = uSOEntities.SRs.Where(x => x.Quarter == currentQuarter && x.SiteId == siteId && x.Status == 1).FirstOrDefault();
             if (sR == null)
             {
@@ -766,102 +764,120 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
             //////////////////////////////////    Sectionid  = 27    /////////////////////////////////
 
             var ans282 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 2 && x.SRId == sR.Id && x.QuestionId == 282).FirstOrDefault();
-            string sx = "";
-            sx = this.signatureExecutorJSON.Value.Replace(' ', '+');
-            sx = sx.Replace("data:image/jpeg;base64,", String.Empty);
-            byte[] imageBytes = Convert.FromBase64String(sx);
-            string filename = "";
-            using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+            var imgNull = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAADICAYAAADGFbfiAAAHFklEQVR4Xu3VsQ0AAAjDMPr/0/yQ2exdLKTsHAECBAgQCAILGxMCBAgQIHAC4gkIECBAIAkISGIzIkCAAAEB8QMECBAgkAQEJLEZESBAgICA+AECBAgQSAICktiMCBAgQEBA/AABAgQIJAEBSWxGBAgQICAgfoAAAQIEkoCAJDYjAgQIEBAQP0CAAAECSUBAEpsRAQIECAiIHyBAgACBJCAgic2IAAECBATEDxAgQIBAEhCQxGZEgAABAgLiBwgQIEAgCQhIYjMiQIAAAQHxAwQIECCQBAQksRkRIECAgID4AQIECBBIAgKS2IwIECBAQED8AAECBAgkAQFJbEYECBAgICB+gAABAgSSgIAkNiMCBAgQEBA/QIAAAQJJQEASmxEBAgQICIgfIECAAIEkICCJzYgAAQIEBMQPECBAgEASEJDEZkSAAAECAuIHCBAgQCAJCEhiMyJAgAABAfEDBAgQIJAEBCSxGREgQICAgPgBAgQIEEgCApLYjAgQIEBAQPwAAQIECCQBAUlsRgQIECAgIH6AAAECBJKAgCQ2IwIECBAQED9AgAABAklAQBKbEQECBAgIiB8gQIAAgSQgIInNiAABAgQExA8QIECAQBIQkMRmRIAAAQIC4gcIECBAIAkISGIzIkCAAAEB8QMECBAgkAQEJLEZESBAgICA+AECBAgQSAICktiMCBAgQEBA/AABAgQIJAEBSWxGBAgQICAgfoAAAQIEkoCAJDYjAgQIEBAQP0CAAAECSUBAEpsRAQIECAiIHyBAgACBJCAgic2IAAECBATEDxAgQIBAEhCQxGZEgAABAgLiBwgQIEAgCQhIYjMiQIAAAQHxAwQIECCQBAQksRkRIECAgID4AQIECBBIAgKS2IwIECBAQED8AAECBAgkAQFJbEYECBAgICB+gAABAgSSgIAkNiMCBAgQEBA/QIAAAQJJQEASmxEBAgQICIgfIECAAIEkICCJzYgAAQIEBMQPECBAgEASEJDEZkSAAAECAuIHCBAgQCAJCEhiMyJAgAABAfEDBAgQIJAEBCSxGREgQICAgPgBAgQIEEgCApLYjAgQIEBAQPwAAQIECCQBAUlsRgQIECAgIH6AAAECBJKAgCQ2IwIECBAQED9AgAABAklAQBKbEQECBAgIiB8gQIAAgSQgIInNiAABAgQExA8QIECAQBIQkMRmRIAAAQIC4gcIECBAIAkISGIzIkCAAAEB8QMECBAgkAQEJLEZESBAgICA+AECBAgQSAICktiMCBAgQEBA/AABAgQIJAEBSWxGBAgQICAgfoAAAQIEkoCAJDYjAgQIEBAQP0CAAAECSUBAEpsRAQIECAiIHyBAgACBJCAgic2IAAECBATEDxAgQIBAEhCQxGZEgAABAgLiBwgQIEAgCQhIYjMiQIAAAQHxAwQIECCQBAQksRkRIECAgID4AQIECBBIAgKS2IwIECBAQED8AAECBAgkAQFJbEYECBAgICB+gAABAgSSgIAkNiMCBAgQEBA/QIAAAQJJQEASmxEBAgQICIgfIECAAIEkICCJzYgAAQIEBMQPECBAgEASEJDEZkSAAAECAuIHCBAgQCAJCEhiMyJAgAABAfEDBAgQIJAEBCSxGREgQICAgPgBAgQIEEgCApLYjAgQIEBAQPwAAQIECCQBAUlsRgQIECAgIH6AAAECBJKAgCQ2IwIECBAQED9AgAABAklAQBKbEQECBAgIiB8gQIAAgSQgIInNiAABAgQExA8QIECAQBIQkMRmRIAAAQIC4gcIECBAIAkISGIzIkCAAAEB8QMECBAgkAQEJLEZESBAgICA+AECBAgQSAICktiMCBAgQEBA/AABAgQIJAEBSWxGBAgQICAgfoAAAQIEkoCAJDYjAgQIEBAQP0CAAAECSUBAEpsRAQIECAiIHyBAgACBJCAgic2IAAECBATEDxAgQIBAEhCQxGZEgAABAgLiBwgQIEAgCQhIYjMiQIAAAQHxAwQIECCQBAQksRkRIECAgID4AQIECBBIAgKS2IwIECBAQED8AAECBAgkAQFJbEYECBAgICB+gAABAgSSgIAkNiMCBAgQEBA/QIAAAQJJQEASmxEBAgQICIgfIECAAIEkICCJzYgAAQIEBMQPECBAgEASEJDEZkSAAAECAuIHCBAgQCAJCEhiMyJAgAABAfEDBAgQIJAEBCSxGREgQICAgPgBAgQIEEgCApLYjAgQIEBAQPwAAQIECCQBAUlsRgQIECAgIH6AAAECBJKAgCQ2IwIECBAQED9AgAABAklAQBKbEQECBAgIiB8gQIAAgSQgIInNiAABAgQExA8QIECAQBIQkMRmRIAAAQIC4gcIECBAIAkISGIzIkCAAAEB8QMECBAgkAQEJLEZESBAgICA+AECBAgQSAICktiMCBAgQOABB1wAyWjdfzMAAAAASUVORK5CYII=";
+          
+            if (this.SignatureHiddenfieldExecutor.Value != imgNull) 
             {
-                filename = $"signatureExecutor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
-                System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
-                image.Save(Server.MapPath($"images/{filename}"));
-            }
 
-            string ans282Images = string.Format("images/{0}", filename);
-
-
-            int mod1428 = sx.Length % 4;
-            if (mod1428 > 0)
-            {
-                sx += new string('=', 4 - mod1428);
-            }
-            if (ans282 == null)
-            {
-                //signature Executor :
-                Answer answer21 = new Answer()
+                string sx = "";
+                sx = this.SignatureHiddenfieldExecutor.Value.Replace(' ', '+');
+                sx = sx.Replace("data:image/png;base64,", String.Empty);
+                byte[] imageBytes = Convert.FromBase64String(sx);
+                string filename = "";
+                using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
                 {
-                    AnsDes = ans282Images,
-                    QuestionId = 282,
-                    AnserTypeId = 3,
-                    CreateDate = DateTime.Now,
-                    UserId = user.Id,
-                    AnsMonth = ansMonth,
-                    SRId = sR.Id
-                };
-                uSOEntities.Answers.Add(answer21);
-            }
-            else
-            {
-                ans282.AnsDes = ans282Images;
-                ans282.QuestionId = 282;
-                ans282.AnserTypeId = 3;
-                ans282.CreateDate = DateTime.Now;
-                ans282.UserId = user.Id;
-                ans282.AnsMonth = ansMonth;
-                ans282.SRId = sR.Id;
+                    filename = $"signatureExecutor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
+                    System.Drawing.Image image = System.Drawing.Image.FromStream(ms, true);
+                    image.Save(Server.MapPath($"images/{filename}"));
+                }
 
+                string ans282Images = string.Format("images/{0}", filename);
+
+
+                int mod1428 = sx.Length % 4;
+                if (mod1428 > 0)
+                {
+                    sx += new string('=', 4 - mod1428);
+                }
+                if (ans282 == null)
+                {
+                    //signature Executor :
+                    Answer answer21 = new Answer()
+                    {
+                        AnsDes = ans282Images,
+                        QuestionId = 282,
+                        AnserTypeId = 3,
+                        CreateDate = DateTime.Now,
+                        UserId = user.Id,
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
+                    };
+                    uSOEntities.Answers.Add(answer21);
+                }
+                else
+                {
+                    ans282.AnsDes = ans282Images;
+                    ans282.QuestionId = 282;
+                    ans282.AnserTypeId = 3;
+                    ans282.CreateDate = DateTime.Now;
+                    ans282.UserId = user.Id;
+                    ans282.AnsMonth = ansMonth;
+                    ans282.SRId = sR.Id;
+
+                }
             }
+
+
+
+              
 
 
             //signature Supervisor :
             var ans283 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 2 && x.SRId == sR.Id && x.QuestionId == 283).FirstOrDefault();
-            string s = "";
-            s = this.signatureSupervisorJSON.Value.Replace(' ', '+');
-            s = s.Replace("data:image/jpeg;base64,", String.Empty);
-            string filename2 = "";
-            byte[] imageBytes2 = Convert.FromBase64String(s);
-            using (var ms2 = new MemoryStream(imageBytes2, 0, imageBytes2.Length))
-            {
-                filename2 = $"signatureSupervisor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
-                System.Drawing.Image image2 = System.Drawing.Image.FromStream(ms2, true);
-                image2.Save(Server.MapPath($"images/{filename2}"));
-            }
-            string ans22Images = string.Format("images/{0}", filename2);
+            var imgNullsuperVisor = "data:image/png;base64,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";
 
-            int mod4 = s.Length % 4;
-            if (mod4 > 0)
+            if (this.SignatureHiddenfieldSupervisor.Value != imgNullsuperVisor)
             {
-                s += new string('=', 4 - mod4);
-            }
-            if (ans283 == null)
-            {
-                
-                Answer answer22 = new Answer()
+
+                string s = "";
+                s = this.SignatureHiddenfieldSupervisor.Value.Replace(' ', '+');
+                s = s.Replace("data:image/png;base64,", String.Empty);
+                string filename2 = "";
+                byte[] imageBytes2 = Convert.FromBase64String(s);
+                using (var ms2 = new MemoryStream(imageBytes2, 0, imageBytes2.Length))
                 {
-                    AnsDes = ans22Images,
-                    QuestionId = 283,
-                    AnserTypeId = 3,
-                    CreateDate = DateTime.Now,
-                    UserId = user.Id,
-                    AnsMonth = ansMonth,
-                    SRId = sR.Id
-                };
-                uSOEntities.Answers.Add(answer22);
-            }
-            else
-            {
-                ans283.QuestionId = 283;
-                ans283.AnsDes = ans22Images;
-                ans283.AnserTypeId = 3;
-                ans283.CreateDate = DateTime.Now;
-                ans283.UserId = user.Id;
-                ans283.AnsMonth = ansMonth;
-                ans283.SRId = sR.Id;
+                    filename2 = $"signatureSupervisor{DateTime.Now.ToString("yyyyMMddHHmmss")}.jpg";
+                    System.Drawing.Image image2 = System.Drawing.Image.FromStream(ms2, true);
+                    image2.Save(Server.MapPath($"images/{filename2}"));
+                }
+                string ans22Images = string.Format("images/{0}", filename2);
+
+                int mod4 = s.Length % 4;
+                if (mod4 > 0)
+                {
+                    s += new string('=', 4 - mod4);
+                }
+                if (ans283 == null)
+                {
+
+                    Answer answer22 = new Answer()
+                    {
+                        AnsDes = ans22Images,
+                        QuestionId = 283,
+                        AnserTypeId = 3,
+                        CreateDate = DateTime.Now,
+                        UserId = user.Id,
+                        AnsMonth = ansMonth,
+                        SRId = sR.Id
+                    };
+                    uSOEntities.Answers.Add(answer22);
+                }
+                else
+                {
+                    ans283.QuestionId = 283;
+                    ans283.AnsDes = ans22Images;
+                    ans283.AnserTypeId = 3;
+                    ans283.CreateDate = DateTime.Now;
+                    ans283.UserId = user.Id;
+                    ans283.AnsMonth = ansMonth;
+                    ans283.SRId = sR.Id;
+
+                }
 
             }
 
-          
+
+
             var ans284 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 2 && x.SRId == sR.Id && x.QuestionId == 284).FirstOrDefault();
             if (ans284 == null)
             {

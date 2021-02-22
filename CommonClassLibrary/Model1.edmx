@@ -79,8 +79,8 @@
           <Property Name="SubDistrict" Type="nvarchar" MaxLength="100" />
           <Property Name="District" Type="nvarchar" MaxLength="100" />
           <Property Name="Province" Type="nvarchar" MaxLength="100" />
-          <Property Name="Contract" Type="nvarchar" MaxLength="50" />
-          <Property Name="Type" Type="nvarchar" MaxLength="100" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contract" Type="nvarchar" MaxLength="100" />
           <Property Name="Lat" Type="nvarchar" MaxLength="100" />
           <Property Name="Long" Type="nvarchar" MaxLength="100" />
           <Property Name="TypeofSignal" Type="nvarchar" MaxLength="50" />
@@ -116,13 +116,6 @@ warning 6002: The table/view 'USO.dbo.TBAnswer_Type' does not have a primary key
           <Property Name="TID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TName" Type="varchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'USO.dbo.TBOrganization' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TBOrganization">
-          <Property Name="OrgID" Type="int" />
-          <Property Name="OrgName" Type="varchar(max)" />
-          <Property Name="img" Type="varchar(max)" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'USO.dbo.TBSurvey_answer01' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TBSurvey_answer01">
@@ -165,16 +158,6 @@ warning 6002: The table/view 'USO.dbo.TBSurvey_Section' does not have a primary 
           <Property Name="SID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SName" Type="varchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TBUser">
-          <Property Name="UserID" Type="int" />
-          <Property Name="UserName" Type="varchar(max)" />
-          <Property Name="Password" Type="varchar(max)" />
-          <Property Name="FName" Type="varchar(max)" />
-          <Property Name="LName" Type="varchar(max)" />
-          <Property Name="OrgID" Type="int" />
-        </EntityType>-->
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -522,8 +505,8 @@ warning 6013: The table/view 'USO.dbo.TBUser' does not have a primary key define
           <Property Name="SubDistrict" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Province" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Contract" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Contract" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Lat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Long" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TypeofSignal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

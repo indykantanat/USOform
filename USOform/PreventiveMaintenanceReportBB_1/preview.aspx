@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server" >
-    <title>Preview Report บริการที่ 1</title>
+<head runat="server">
+    <title>ตัวอย่างก่อนพิมพ์ บริการที่ 1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="../style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
@@ -13,44 +13,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
     <%-------//    DATE time picker JQURRY   //--------%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" href="/resources/demos/style.css" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet" />
     <link href="../style/Mystyle.css" rel="stylesheet" />
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <%--  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />--%>
     <%-------//   PREVIEW IMAGES   //--------%>
     <script src="previewImg.js"></script>
-    <%--------------- //   Signature     //-----------------------%>
-    <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
-    <script src="../sig/js/jquery.signature.min.js"></script>
-    <script src="../sig/js/results.js"></script>
-    <script src="../sig/js/results.js"></script>
-    <%----------------//  Important must have for signature !  //---------------%>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet" />
-    <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
 
     <style>
-        .kbw-signature {
-            width: 348px;
-            height: 200px;
+        table, tr, td {
+            border: none;
         }
 
         table, tr, td {
             border: none;
         }
+
+        .signatureImages {
+            width: 200px;
+            height: 200px;
+        }
+
+        @media print {
+            input[type="radio"]:checked + span {
+                font-weight: bold;
+            }
+        }
+
+        input[type="radio"] {
+            pointer-events: none !important;
+        }
+    </style>
+    <style type="text/css">
+        @media print {
+            #non-printable {
+                display: none !important;
+            }
+
+            #printable {
+                display: block;
+            }
+
+            .printText {
+                border: none !important;
+            }
+
+            #printPageButton {
+                display: none;
+            }
+        }
     </style>
 </head>
 
-<body style="background-color: white">
-    <form id="form1" name="form1" runat="server" >
+<body style="background-color: white;">
+    <form id="form1" name="form1" runat="server">
         <div class="container bg-white Myfont mt-3">
             <div class="row pt-5">
-                <div class="col-4">              
+                <div class="col-4">
                     <div class="row ml-3 mt-3">
-                        <img id="user_img_3" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1239).FirstOrDefault().AnsDes); %>' class="imgLogoOganize  float-left" />
+                        <img id="user_img_3" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1239).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1239).FirstOrDefault().AnsDes); %>'  class="imgLogoOganize  float-left" />
                     </div>
                 </div>
 
@@ -79,21 +100,21 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">กลุ่ม :</label>
                 <div class="col-sm-4">
-                     <asp:Label  id="GroupNameLabel" runat="server" />
+                    <asp:Label ID="GroupNameLabel" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">ภาค :</label>
                 <div class="col-sm-4">
-                     <asp:Label  id="AreaLabel" runat="server" />
+                    <asp:Label ID="AreaLabel" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1" for="">บริษัท :</label>
                 <div class="col-sm-4">
-                     <asp:Label  id="CompanyLabel" runat="server" />
+                    <asp:Label ID="CompanyLabel" runat="server" />
                 </div>
             </div>
 
@@ -107,11 +128,11 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">รอบการบำรุงรักษา ครั้งที่ </label>
                 <div class="col-sm-1">
-                     <asp:Label  id="maintenanceCountLabel" runat="server" />
+                    <asp:Label ID="maintenanceCountLabel" runat="server" />
                 </div>
                 /
               <div class="col-sm-3">
-                   <asp:Label  placeholder="ปีพุทธศักราช" id="yearLabel" runat="server" />
+                  <asp:Label placeholder="ปีพุทธศักราช" ID="yearLabel" runat="server" />
               </div>
             </div>
 
@@ -121,13 +142,14 @@
                         <label>
                             <div>วัน เดือน ปี</div>
                         </label>
-                        <asp:Label id="startDatepickerLabel" runat="server" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="startDatepickerLabel" runat="server" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                       
                         <label>
                             <div>ถึง</div>
                         </label>
-                        <asp:Label id="endDatepickerLabel" runat="server" />
+                        <asp:Label ID="endDatepickerLabel" runat="server" />
                     </div>
                 </div>
             </div>
@@ -135,7 +157,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">สถานที่ (Site code)</label>
                 <div class="col-sm-4">
-                     <asp:Label  id="siteCodeLabel" runat="server" />
+                    <asp:Label ID="siteCodeLabel" runat="server" />
                 </div>
             </div>
 
@@ -153,7 +175,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Cabinet ID :</label>
                 <div class="col-sm-11">
-                     <asp:Label  id="cabinetIdLabel" runat="server" />
+                    <asp:Label ID="cabinetIdLabel" runat="server" />
                 </div>
             </div>
 
@@ -161,7 +183,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Site Code :</label>
                 <div class="col-sm-11">
-                    <asp:Label id="sitecodeLabelSection2" runat="server" />
+                    <asp:Label ID="sitecodeLabelSection2" runat="server" />
                 </div>
             </div>
 
@@ -169,7 +191,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Village ID :</label>
                 <div class="col-sm-11">
-                     <asp:Label  id="VillageIdLabel" runat="server" />
+                    <asp:Label ID="VillageIdLabel" runat="server" />
                 </div>
             </div>
 
@@ -177,7 +199,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Village :</label>
                 <div class="col-sm-11">
-                     <asp:Label  id="villageLabel" runat="server" />
+                    <asp:Label ID="villageLabel" runat="server" />
                 </div>
             </div>
 
@@ -187,14 +209,14 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Sub-District :</label>
                 <div class="col-sm-11">
-                     <asp:Label  id="subdistrictLabel" runat="server" />
+                    <asp:Label ID="subdistrictLabel" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">District :</label>
                 <div class="col-sm-11">
-                     <asp:Label  id="districtLabel" runat="server" />
+                    <asp:Label ID="districtLabel" runat="server" />
                 </div>
             </div>
 
@@ -204,7 +226,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Province :</label>
                 <div class="col-sm-11">
-                     <asp:Label  id="provinceLabel" runat="server" />
+                    <asp:Label ID="provinceLabel" runat="server" />
                 </div>
             </div>
 
@@ -212,7 +234,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Type :</label>
                 <div class="col-sm-11">
-                     <asp:Label  id="typeLabel" runat="server" />
+                    <asp:Label ID="typeLabel" runat="server" />
                 </div>
             </div>
 
@@ -221,7 +243,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">PM Date : </label>
                 <div class="col-sm-11">
-                     <asp:Label  id="pmdateLabel" runat="server" />
+                    <asp:Label ID="pmdateLabel" runat="server" />
                 </div>
             </div>
 
@@ -229,10 +251,10 @@
             <%-- QuestionId = 6, --%>
             <div class="row mt-3">
                 <div class="col-sm-12 bg-primary text-white">ใส่รูปหน้าตู้</div>
-                
+
             </div>
             <div class="row ml-3 mt-3">
-                <img id="user_img_0" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1249).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_0" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1249).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1249).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
 
@@ -249,14 +271,14 @@
                             Executor
                         </div>
                         <div class="card-body">
-                             <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1250).FirstOrDefault().AnsDes); %>' class="signatureImages" />
+                            <img id="user_img_10"  src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1250).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1250).FirstOrDefault().AnsDes); %>' class="signatureImages" />
                             <div class="form-group">
                                 <label>Name</label>
-                                 <asp:Label  id="nameExecutorLabel" runat="server" />
+                                <asp:Label ID="nameExecutorLabel" runat="server" />
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                 <asp:Label  id="DateExecutorLabel" runat="server" />
+                                <asp:Label ID="DateExecutorLabel" runat="server" />
                             </div>
 
                         </div>
@@ -269,14 +291,14 @@
                             Supervisor
                         </div>
                         <div class="card-body">
-                            <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1251).FirstOrDefault().AnsDes); %>' class="signatureImages" />
+                            <img id="user_img_7" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1251).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1251).FirstOrDefault().AnsDes); %>' class="signatureImages" />
                             <div class="form-group">
                                 <label>Name</label>
-                                 <asp:Label  id="nameSupervisorLabel" runat="server" />
+                                <asp:Label ID="nameSupervisorLabel" runat="server" />
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                 <asp:Label  id="DateSupervisorLabel" runat="server" />
+                                <asp:Label ID="DateSupervisorLabel" runat="server" />
                             </div>
                         </div>
                     </div>
@@ -297,7 +319,7 @@
                 <%-- QuestionId = 27, --%>
                 <label class="control-label col-sm-1">Cabinet ID </label>
                 <div class="col-sm-11">
-                     <asp:Label  id="CabinetLabel" runat="server" />
+                    <asp:Label ID="CabinetLabel" runat="server" />
                 </div>
             </div>
 
@@ -305,7 +327,7 @@
                 <label class="control-label col-sm-1">Site Code</label>
                 <div class="col-sm-11">
                     <%-- QuestionId = 28, --%>
-                     <asp:Label  id="sitecodeLabelSection4" runat="server" />
+                    <asp:Label ID="sitecodeLabelSection4" runat="server" />
                 </div>
             </div>
 
@@ -313,7 +335,7 @@
                 <label class="control-label col-sm-1">Village ID</label>
                 <div class="col-sm-11">
                     <%-- QuestionId = 29, --%>
-                     <asp:Label  id="villageIDLabelSection4" runat="server" />
+                    <asp:Label ID="villageIDLabelSection4" runat="server" />
                 </div>
             </div>
 
@@ -321,7 +343,7 @@
                 <label class="control-label col-sm-1">LAT & LONG</label>
                 <div class="col-sm-11">
                     <%-- QuestionId = 30, --%>
-                     <asp:Label  id="latandlongLabel" runat="server" />
+                    <asp:Label ID="latandlongLabel" runat="server" />
                 </div>
             </div>
 
@@ -336,59 +358,59 @@
 
             <div class="form-row mt-3">
                 <%------, ----------------------------------------------------------------------------------------------------------%>
-                <label class="control-label col-sm-2">หมายเลขผู้ใช้ไฟ</label>
+                <label class="control-label col-sm-2" for="">หมายเลขผู้ใช้ไฟ</label>
                 <div class="col-sm-10">
-                     <asp:Label  id="numberuserLabel" runat="server" />
+                    <asp:Label ID="numberuserLabel" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <%------  ----------------------------------------------------------------------------------------------------------%>
-                <label class="control-label col-sm-2">หน่วยใช้ไฟ (kWh Meter)</label>
+                <label class="control-label col-sm-2" for="">หน่วยใช้ไฟ (kWh Meter)</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="kwhMeterLabel" runat="server" />
+                    <asp:Label ID="kwhMeterLabel" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">kWh</label>
+                <label class="control-label col-sm-2" for="">kWh</label>
             </div>
 
 
             <div class="form-row mt-3">
                 <%------ , ---------------------------------------------------------------------------------------------------------%>
-                <label class="control-label col-sm-2">แรงดัน AC (kWh Meter)</label>
+                <label class="control-label col-sm-2" for="">แรงดัน AC (kWh Meter)</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="acLabel" runat="server" />
+                    <asp:Label ID="acLabel" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">V.</label>
+                <label class="control-label col-sm-2" for="">V.</label>
             </div>
 
             <div class="form-row mt-3">
                 <%------  ----------------------------------------------------------------------------------------------------------%>
-                <label class="control-label col-sm-2">กระแส Line AC (kWh Meter)</label>
+                <label class="control-label col-sm-2" for="">กระแส Line AC (kWh Meter)</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="lineAcLabel" runat="server" />
+                    <asp:Label ID="lineAcLabel" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">A.</label>
+                <label class="control-label col-sm-2" for="">A.</label>
             </div>
 
             <div class="form-row mt-3">
                 <%------  -----------------------------------------------------------------------------------------------------------%>
-                <label class="control-label col-sm-2">กระแส Neutron AC (kWh Meter)</label>
+                <label class="control-label col-sm-2" for="">กระแส Neutron AC (kWh Meter)</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="neutronacLabel" runat="server" />
+                    <asp:Label ID="neutronacLabel" runat="server" />
                 </div>
-                <label class="control-label col-sm-2">A.</label>
+                <label class="control-label col-sm-2" for="">A.</label>
             </div>
 
             <div class="form-row mt-3">
                 <%------  -----------------------------------------------------------------------------------------------------------%>
-                <label class="control-label col-sm-2">สภาพ kWh Meter</label>
+                <label class="control-label col-sm-2" for="">สภาพ kWh Meter</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="">
                         <input type="radio" class="form-check-input" name="conditionRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1265).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="">
                         <input type="radio" class="form-check-input" name="conditionRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1265).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
@@ -397,14 +419,14 @@
 
             <div class="form-row mt-3">
                 <%------  ----------------------------------------------------------------------------------------------------------%>
-                <label class="control-label col-sm-2">สภาพ Circuit Breaker</label>
+                <label class="control-label col-sm-2" for="">สภาพ Circuit Breaker</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="">
                         <input type="radio" class="form-check-input" name="MDBCircuitBreakerRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1266).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="">
                         <input type="radio" class="form-check-input" name="MDBCircuitBreakerRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1266).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                     </label>
                 </div>
@@ -421,7 +443,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">แรงดัน DC</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="dcLabel" runat="server" />
+                    <asp:Label ID="dcLabel" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">V.</label>
             </div>
@@ -429,7 +451,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">กระแส Load DC</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="loaddcLabel" runat="server" />
+                    <asp:Label ID="loaddcLabel" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">A.</label>
             </div>
@@ -437,7 +459,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">จำนวน Rectifier Module</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="RectifierLabel" runat="server" />
+                    <asp:Label ID="RectifierLabel" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">Unit.</label>
             </div>
@@ -452,7 +474,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">Battery Voltage</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="BatteryVoltageLabel" runat="server" />
+                    <asp:Label ID="BatteryVoltageLabel" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">V.</label>
             </div>
@@ -460,7 +482,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">Battery Temperature</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="BatteryTempTexbox" runat="server" />
+                    <asp:Label ID="BatteryTempTexbox" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">°C</label>
             </div>
@@ -468,7 +490,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">Battery Voltage ก้อนที่ 1</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="BatteryVoltageLabel1" runat="server" />
+                    <asp:Label ID="BatteryVoltageLabel1" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">V.</label>
             </div>
@@ -476,7 +498,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">Battery Voltage ก้อนที่ 2</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="BatteryVoltageLabel2" runat="server" />
+                    <asp:Label ID="BatteryVoltageLabel2" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">V.</label>
             </div>
@@ -484,7 +506,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">Battery Voltage ก้อนที่ 3</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="BatteryVoltageLabel3" runat="server" />
+                    <asp:Label ID="BatteryVoltageLabel3" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">V.</label>
             </div>
@@ -492,7 +514,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">Battery Voltage ก้อนที่ 4</label>
                 <div class="col-sm-8">
-                     <asp:Label  id="BatteryVoltageLabel4" runat="server" />
+                    <asp:Label ID="BatteryVoltageLabel4" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">V.</label>
             </div>
@@ -500,7 +522,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2" for="">Battery Capacity </label>
                 <div class="col-sm-8">
-                     <asp:Label  id="BatteryCapacityLabel" runat="server" />
+                    <asp:Label ID="BatteryCapacityLabel" runat="server" />
                 </div>
                 <label class="control-label col-sm-2" for="">Ah.</label>
             </div>
@@ -589,12 +611,12 @@
                 <%----------------------  ---------------------------%>
                 <label class="control-label col-sm-3">ความแข็งแรงจุดต่อ Ground Bar</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="">
                         <input type="radio" class="form-check-input" name="groundbarRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1281).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="">
                         <input type="radio" class="form-check-input" name="groundbarRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1281).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด
                     </label>
                 </div>
@@ -604,12 +626,12 @@
                 <%----------------------  ---------------------------%>
                 <label class="control-label col-sm-3">ความแข็งแรงของน็อตขันหางปลาอุปกรณ์</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="">
                         <input type="radio" class="form-check-input" name="notfishRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1282).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="">
                         <input type="radio" class="form-check-input" name="notfishRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1282).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด
                     </label>
                 </div>
@@ -619,12 +641,12 @@
                 <%---------------------- , ---------------------------%>
                 <label class="control-label col-sm-3">สายกราวด์เรียบร้อย ปลอดภัย สมบูรณ์</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="">
                         <input type="radio" class="form-check-input" name="safegroundRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1283).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="">
                         <input type="radio" class="form-check-input" name="safegroundRadio" value="ชำรุด" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1283).FirstOrDefault().AnsDes == "ชำรุด") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด
                     </label>
                 </div>
@@ -636,12 +658,12 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-3">สถานะไฟฟ้ารั่วลง Ground</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="">
                         <input type="radio" class="form-check-input" name="brokenElecRadio" value="ไม่พบไฟฟ้ารั่ว" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1284).FirstOrDefault().AnsDes == "ไม่พบไฟฟ้ารั่ว") { Response.Write("checked"); } else { Response.Write(""); } %> />ไม่พบไฟฟ้ารั่ว
                     </label>
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="">
                         <input type="radio" class="form-check-input" name="brokenElecRadio" value="พบไฟฟ้ารั่ว" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1284).FirstOrDefault().AnsDes == "พบไฟฟ้ารั่ว") { Response.Write("checked"); } else { Response.Write(""); } %> />พบไฟฟ้ารั่ว
                     </label>
                 </div>
@@ -775,11 +797,11 @@
                         <div class="divTableCell">&nbsp;1</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="problemLabel1" runat="server" />
+                            <asp:Label ID="problemLabel1" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel1" runat="server" />
+                            <asp:Label ID="howtoSolveLabel1" runat="server" />
                         </div>
                     </div>
 
@@ -787,11 +809,11 @@
                         <div class="divTableCell">&nbsp;2</div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                             <asp:Label  id="problemLabel2" runat="server" />
+                            <asp:Label ID="problemLabel2" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel2" runat="server" />
+                            <asp:Label ID="howtoSolveLabel2" runat="server" />
                         </div>
                     </div>
 
@@ -799,11 +821,11 @@
                         <div class="divTableCell">&nbsp;3</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="problemLabel3" runat="server" />
+                            <asp:Label ID="problemLabel3" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel3" runat="server" />
+                            <asp:Label ID="howtoSolveLabel3" runat="server" />
                         </div>
                     </div>
 
@@ -811,11 +833,11 @@
                         <div class="divTableCell">&nbsp;4</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="problemLabel4" runat="server" />
+                            <asp:Label ID="problemLabel4" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel4" runat="server" />
+                            <asp:Label ID="howtoSolveLabel4" runat="server" />
                         </div>
                     </div>
 
@@ -823,121 +845,121 @@
                         <div class="divTableCell">&nbsp;5</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="problemLabel5" runat="server" />
+                            <asp:Label ID="problemLabel5" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel5" runat="server" />
+                            <asp:Label ID="howtoSolveLabel5" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;6</div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                             <asp:Label  id="problemLabel6" runat="server" />
+                            <asp:Label ID="problemLabel6" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel6" runat="server" />
+                            <asp:Label ID="howtoSolveLabel6" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;7</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="problemLabel7" runat="server" />
+                            <asp:Label ID="problemLabel7" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel7" runat="server" />
+                            <asp:Label ID="howtoSolveLabel7" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;8</div>
                         <div class="divTableCell">
                             <%---------------------- 4  ---------------------------%>
-                             <asp:Label  id="problemLabel8" runat="server" />
+                            <asp:Label ID="problemLabel8" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel8" runat="server" />
+                            <asp:Label ID="howtoSolveLabel8" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;9</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="problemLabel9" runat="server" />
+                            <asp:Label ID="problemLabel9" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel9" runat="server" />
+                            <asp:Label ID="howtoSolveLabel9" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;10</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="problemLabel10" runat="server" />
+                            <asp:Label ID="problemLabel10" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel10" runat="server" />
+                            <asp:Label ID="howtoSolveLabel10" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;11</div>
                         <div class="divTableCell">
                             <%---------------------- ---------------------------%>
-                             <asp:Label  id="problemLabel11" runat="server" />
+                            <asp:Label ID="problemLabel11" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel11" runat="server" />
+                            <asp:Label ID="howtoSolveLabel11" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;12</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="problemLabel12" runat="server" />
+                            <asp:Label ID="problemLabel12" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel12" runat="server" />
+                            <asp:Label ID="howtoSolveLabel12" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;13</div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                             <asp:Label  id="problemLabel13" runat="server" />
+                            <asp:Label ID="problemLabel13" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel13" runat="server" />
+                            <asp:Label ID="howtoSolveLabel13" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;14</div>
                         <div class="divTableCell">
                             <%---------------------- ---------------------------%>
-                             <asp:Label  id="problemLabel14" runat="server" />
+                            <asp:Label ID="problemLabel14" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel14" runat="server" />
+                            <asp:Label ID="howtoSolveLabel14" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;15</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="problemLabel15" runat="server" />
+                            <asp:Label ID="problemLabel15" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                             <asp:Label  id="howtoSolveLabel15" runat="server" />
+                            <asp:Label ID="howtoSolveLabel15" runat="server" />
                         </div>
                     </div>
                 </div>
@@ -967,227 +989,227 @@
                             <td>1</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel1" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel1" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel1" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel1" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel1" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel1" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel1" runat="server" /></td>
+                                <asp:Label ID="noteLabel1" runat="server" /></td>
                         </tr>
                         <tr>
 
                             <td>2</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel2" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel2" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel2" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel2" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel2" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel2" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel2" runat="server" /></td>
+                                <asp:Label ID="noteLabel2" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel3" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel3" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel3" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel3" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel3" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel3" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel3" runat="server" /></td>
+                                <asp:Label ID="noteLabel3" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel4" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel4" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel4" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel4" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel4" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel4" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel4" runat="server" /></td>
+                                <asp:Label ID="noteLabel4" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel5" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel5" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel5" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel5" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel5" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel5" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel5" runat="server" /></td>
+                                <asp:Label ID="noteLabel5" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>6</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel6" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel6" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel6" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel6" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel6" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel6" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel6" runat="server" /></td>
+                                <asp:Label ID="noteLabel6" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>7</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel7" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel7" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel7" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel7" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel7" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel7" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel7" runat="server" /></td>
+                                <asp:Label ID="noteLabel7" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>8</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel8" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel8" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel8" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel8" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel8" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel8" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel8" runat="server" /></td>
+                                <asp:Label ID="noteLabel8" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>9</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel9" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel9" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel9" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel9" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel9" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel9" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel9" runat="server" /></td>
+                                <asp:Label ID="noteLabel9" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>10</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel10" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel10" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel10" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel10" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel10" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel10" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel10" runat="server" /></td>
+                                <asp:Label ID="noteLabel10" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>11</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel11" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel11" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel11" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel11" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel11" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel11" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel11" runat="server" /></td>
+                                <asp:Label ID="noteLabel11" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>12</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel12" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel12" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel12" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel12" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel12" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel12" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel12" runat="server" /></td>
+                                <asp:Label ID="noteLabel12" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>13</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel13" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel13" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel13" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel13" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel13" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel13" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel13" runat="server" /></td>
+                                <asp:Label ID="noteLabel13" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>14</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel14" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel14" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel14" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel14" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel14" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel14" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel14" runat="server" /></td>
+                                <asp:Label ID="noteLabel14" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>15</td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="toolsListLabel15" runat="server" /></td>
+                                <asp:Label ID="toolsListLabel15" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="serialNumberLabel15" runat="server" /></td>
+                                <asp:Label ID="serialNumberLabel15" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="newSerialNumberLabel15" runat="server" /></td>
+                                <asp:Label ID="newSerialNumberLabel15" runat="server" /></td>
                             <td>
                                 <%---------------------- QuestionId =   ---------------------------%>
-                                 <asp:Label  id="noteLabel15" runat="server" /></td>
+                                <asp:Label ID="noteLabel15" runat="server" /></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1207,7 +1229,7 @@
                     <span>ชื่อทีม</span>
                 </div>
                 <div class="col-sm-5">
-                     <asp:Label  id="nameTeampmLabel" runat="server" />
+                    <asp:Label ID="nameTeampmLabel" runat="server" />
                 </div>
 
             </div>
@@ -1218,7 +1240,7 @@
                     <span>วันที่ทำ PM</span>
                 </div>
                 <div class="col-sm-5">
-                     <asp:Label  id="dayDopmLabel" runat="server" />
+                    <asp:Label ID="dayDopmLabel" runat="server" />
                 </div>
             </div>
 
@@ -1557,11 +1579,11 @@
             <%---------------------- QuestionId = 259  ---------------------------%>
             <div class="row mt-3 ">
                 <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
-              
-                
+
+
             </div>
             <div class="row ml-3 mt-3">
-                <img id="user_img_2" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1407).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_2" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1407).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1407).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
 
@@ -1588,25 +1610,7 @@
 
     </form>
 
-     <style type="text/css">
-        @media print {
-            #non-printable {
-                display: none !important;
-            }
-
-            #printable {
-                display: block;
-            }
-
-            .printText {
-                border: none !important;
-            }
-
-            #printPageButton {
-                display: none;
-            }
-        }
-    </style>
+   
 
 </body>
 </html>

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <title>รายงาน PM Form Mobile Service</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="../style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
@@ -11,49 +12,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
     <%-------//    date time picker JQURRY   //--------%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" href="/resources/demos/style.css" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet">
     <link href="../style/Mystyle.css" rel="stylesheet" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <%-------//   PREVIEW IMAGES   //--------%>
     <script src="previewImg.js"></script>
-    <%--------------- //   Signature     //-----------------------%>
-    <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
-    <script src="../sig/js/jquery.signature.min.js"></script>
-    <script src="../sig/js/results.js"></script>
-    <script src="../sig/js/results.js"></script>
-    <%----------------//  Important must have for signature !  //---------------%>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet" />
-    <link href="../sig/css/jquery.signature.css" rel="stylesheet" />
-    <title>รายงาน PM Form Mobile Service</title>
-    <%----------------------------------------%>
-    <style>
-        .kbw-signature {
-            width: 400px;
-            height: 200px;
-        }
-    </style>
-    <!--[if IE]>
-    <script src="excanvas.js"></script>
-    <![endif]-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="../sig/js/jquery.signature.js"></script>
-   
+    <%-----------//  SIGNATURE PAD  //--------------%>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
 </head>
+
 
 <body style="background-color: lightgray">
     <form id="form1" runat="server">
         <div class="container bg-white">
             <div class="row pt-5">
                 <div class="col-4">
-                    <asp:FileUpload ID="logoPicture" runat="server" data-thumbnail="user_img_12" accept="image/" onchange="previewImage(this)"  />
-                     <img id="user_img_12" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1408).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1408).FirstOrDefault().AnsDes); %>' class="imgLogoOganize float-left" />
-                   
+                    <asp:FileUpload ID="logoPicture" runat="server" data-thumbnail="user_img_12" accept="image/" onchange="previewImage(this)" />
+                    <img id="user_img_12" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1408).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1408).FirstOrDefault().AnsDes); %>' class="imgLogoOganize float-left" />
+
                 </div>
                 <div class="col-4  d-flex justify-content-center ">
                     <h5 class="headerText">Preventive Maintenance Site Report USO (Mobile)</h5>
@@ -230,7 +207,7 @@
 
             <div class="form-row mt-3 table-bordered">
                 <div class="col-sm-12 bg-primary text-white">ใส่รูปหน้าตู้</div>
-                <asp:FileUpload ID="picinfrontCabinetImages" runat="server" data-thumbnail="user_img_0" accept="image/" onchange="previewImage(this)"  />
+                <asp:FileUpload ID="picinfrontCabinetImages" runat="server" data-thumbnail="user_img_0" accept="image/" onchange="previewImage(this)" />
             </div>
             <div class="row ml-3 mt-3">
                 <img id="user_img_0" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1427).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1427).FirstOrDefault().AnsDes); %>' class="placeholder2" />
@@ -241,33 +218,34 @@
 
             <%-- //////////////////////////////////     Sectionid  = 126    /////////////////////////////////--%>
 
-           <div class="row mt-3">
+            <div class="row mt-3">
                 <div class="col-md-12 bg-warning text-white text-center Myfont">
                     <h4>Contractor</h4>
                 </div>
             </div>
             <div class="row mt-2">
-                <div class="col-lg-6">               
-                         <div class="card">
+                <div class="col-lg-6">
+                    <div class="card">
                         <div class="card-header">
                             Executor
-                        </div>                                        
-                              <div class="card-body">
-                            <div id="signatureExecutorTextbox"></div>
-                            <div id="redrawSignature1" hidden="hidden"></div>
-                    
-                            <input type="text" required="required" id="signatureExecutorJSON" class="ui-state-active" runat="server"   hidden="hidden" />
+                        </div>
+                        <div class="card-body">
+                            <canvas id="signature-pad" class="signature-pad" width="400" height="200"></canvas>
+                            <asp:HiddenField ID="SignatureHiddenfieldExecutor" runat="server" />
+                            <div>
+
+                                <button type="button" id="clear">Clear</button>
+                            </div>
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" required="required" class="form-control" id="nameExecutorTextbox" runat="server"  />
+                                <input type="text" class="form-control" id="nameExecutorTextbox" runat="server" />
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                <input type="text" required="required" class="form-control" id="DateExecutorTextbox" runat="server"  />
+                                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" />
                             </div>
-                
-                        </div>                                   
-                    </div>                                    
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-lg-6">
@@ -276,16 +254,19 @@
                             Supervisor
                         </div>
                         <div class="card-body">
-                            <div id="signatureSupervisorTextbox"></div>
-                            <div id="redrawSignature1" hidden="hidden"></div>
-                            <input type="text" required="required" id="signatureSupervisorJSON" class="ui-state-active" runat="server"   hidden="hidden"  />
+                            <canvas id="signature-pad2" class="signature-pad2" width="400" height="200"></canvas>
+                            <asp:HiddenField ID="SignatureHiddenfieldSupervisor" runat="server" />
+                            <div>
+
+                                <button type="button" id="clear2">Clear</button>
+                            </div>
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" required="required" class="form-control" id="nameSupervisorTextbox" runat="server"  />
+                                <input type="text" class="form-control" id="nameSupervisorTextbox" runat="server" />
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                <input type="text" required="required" class="form-control" id="DateSupervisorTextbox" runat="server"  />
+                                <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server" />
                             </div>
                         </div>
                     </div>
@@ -295,12 +276,7 @@
             <%--------// FOR PREVIEW/  /-----------%>
             <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1428).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
             <%-- <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 1431).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
-
-
-
-
-
-            <%-- //////////////////////////////////   END  Sectionid  = 126    /////////////////////////////////--%>
+            <%----------------------------//   END  Sectionid  = 126   //-----------------------------------------%>
 
 
 
@@ -315,35 +291,35 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Cabinet ID</label>
                 <div class="col-sm-11">
-                    <input type="text" required="required" class="form-control" id="cabinetId2Textbox" runat="server"  />
+                    <input type="text" required="required" class="form-control" id="cabinetId2Textbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Site Code</label>
                 <div class="col-sm-11">
-                    <input type="text" required="required" class="form-control" id="sitecodeTextboxSection4" runat="server"  />
+                    <input type="text" required="required" class="form-control" id="sitecodeTextboxSection4" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">Village ID</label>
                 <div class="col-sm-11">
-                    <input type="text" required="required" class="form-control" id="villageIDTextboxSection4" runat="server"  />
+                    <input type="text" required="required" class="form-control" id="villageIDTextboxSection4" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-1">LAT & LONG</label>
                 <div class="col-sm-11">
-                    <input type="text" required="required" class="form-control" id="latandlongTextbox" runat="server"  />
+                    <input type="text" required="required" class="form-control" id="latandlongTextbox" runat="server" />
                 </div>
             </div>
 
             <div class="form-row mt-3">
                 <label class="control-label col-sm-4">OLT ID (USO Network) or ISP (Existing Network)</label>
                 <div class="col-sm-8">
-                    <input type="text" required="required" class="form-control" id="oltorispTextbox" runat="server"  />
+                    <input type="text" required="required" class="form-control" id="oltorispTextbox" runat="server" />
                 </div>
             </div>
 
@@ -377,7 +353,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">หมายเลขผู้ใช้ไฟ</label>
                 <div class="col-sm-4">
-                    <input type="text" required="required" class="form-control" id="numberIdTextbox" runat="server"  />
+                    <input type="text" required="required" class="form-control" id="numberIdTextbox" runat="server" />
                 </div>
             </div>
 
@@ -385,7 +361,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">หน่วยใช้ไฟ (kWh Meter)</label>
                 <div class="col-sm-4">
-                    <input type="text" required="required" class="form-control" id="kwhMeterTextbox" runat="server"  />
+                    <input type="text" required="required" class="form-control" id="kwhMeterTextbox" runat="server" />
                 </div>
                 <label class="control-label col">kWh</label>
             </div>
@@ -394,7 +370,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน AC (kWh Meter)</label>
                 <div class="col-sm-4">
-                    <input type="text" required="required" class="form-control" id="acvoltTextbox" runat="server"  />
+                    <input type="text" required="required" class="form-control" id="acvoltTextbox" runat="server" />
                 </div>
                 <label class="control-label col">V.</label>
             </div>
@@ -402,7 +378,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">กระแส Line AC (kWh Meter)</label>
                 <div class="col-sm-4">
-                    <input type="text" required="required" class="form-control" id="lineAcTextbox" runat="server"  />
+                    <input type="text" required="required" class="form-control" id="lineAcTextbox" runat="server" />
                 </div>
                 <label class="control-label col">A.</label>
             </div>
@@ -410,7 +386,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">กระแส Neutron AC (kWh Meter)</label>
                 <div class="col-sm-4">
-                    <input type="text" required="required" class="form-control" id="neutronAcTextbox" runat="server"  />
+                    <input type="text" required="required" class="form-control" id="neutronAcTextbox" runat="server" />
                 </div>
                 <label class="control-label col">A.</label>
             </div>
@@ -475,7 +451,7 @@
             <div class="form-row mt-3">
                 <label class="control-label col-sm-2">แรงดัน AC จาก UPS</label>
                 <div class="col-sm-4">
-                    <input type="text" required="required" class="form-control" id="acfromupsTextbox" runat="server"  />
+                    <input type="text" required="required" class="form-control" id="acfromupsTextbox" runat="server" />
                 </div>
                 <label class="control-label col">V.</label>
             </div>
@@ -504,13 +480,13 @@
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" required="required" class="form-check-input" name="voltageLoadRadio" value="4" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1451).FirstOrDefault().AnsDes == "4") { Response.Write("checked"); } else { Response.Write(""); } %> />4
-                    </label>                 
+                    </label>
                 </div>
-                  <div class="form-check-inline">
-                        <label class="form-check-label">
-                            <input type="radio" required="required" class="form-check-input" name="voltageLoadRadio" value="5" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1451).FirstOrDefault().AnsDes == "5") { Response.Write("checked"); } else { Response.Write(""); } %> />5
-                        </label>
-                    </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" required="required" class="form-check-input" name="voltageLoadRadio" value="5" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1451).FirstOrDefault().AnsDes == "5") { Response.Write("checked"); } else { Response.Write(""); } %> />5
+                    </label>
+                </div>
                 <label class="control-label col-sm-2">(ขีดล่าง =1 , ขีดบน = 5)</label>
 
             </div>
@@ -540,13 +516,13 @@
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" required="required" class="form-check-input" name="batteryCapacityRadio" value="4" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1452).FirstOrDefault().AnsDes == "4") { Response.Write("checked"); } else { Response.Write(""); } %> />4
-                    </label>                 
+                    </label>
                 </div>
-                  <div class="form-check-inline">
-                        <label class="form-check-label">
-                            <input type="radio" required="required" class="form-check-input" name="batteryCapacityRadio" value="5" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1452).FirstOrDefault().AnsDes == "5") { Response.Write("checked"); } else { Response.Write(""); } %> />5
-                        </label>
-                    </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" required="required" class="form-check-input" name="batteryCapacityRadio" value="5" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1452).FirstOrDefault().AnsDes == "5") { Response.Write("checked"); } else { Response.Write(""); } %> />5
+                    </label>
+                </div>
                 <label class="control-label col-sm-2">(ขีดล่าง =1 , ขีดบน = 5)</label>
             </div>
 
@@ -655,7 +631,8 @@
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" required="required" class="form-check-input" name="femToRadio" value="3G" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1457).FirstOrDefault().AnsDes == "3G") { Response.Write("checked"); } else { Response.Write(""); } %> />3G
-                    </label>&nbsp;&nbsp;&nbsp;
+                    </label>
+                    &nbsp;&nbsp;&nbsp;
                     <label class="form-check-label">
                         <input type="radio" required="required" class="form-check-input" name="femToRadio" value="4G" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1457).FirstOrDefault().AnsDes == "4G") { Response.Write("checked"); } else { Response.Write(""); } %> />4G
                     </label>
@@ -663,7 +640,8 @@
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" required="required" class="form-check-input" name="femToanswerRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1458).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ
-                    </label>&nbsp;&nbsp;&nbsp;
+                    </label>
+                    &nbsp;&nbsp;&nbsp;
                     <label class="form-check-label">
                         <input type="radio" required="required" class="form-check-input" name="femToanswerRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1458).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                     </label>
@@ -675,13 +653,13 @@
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" required="required" class="form-check-input" name="tpowerRadio" value="ปกติ" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1459).FirstOrDefault().AnsDes == "ปกติ") { Response.Write("checked"); } else { Response.Write(""); } %> />ปกติ                
-                    </label>                
+                    </label>
                 </div>
-                  <div class="form-check-inline">
-                  <label class="form-check-label">
+                <div class="form-check-inline">
+                    <label class="form-check-label">
                         <input type="radio" required="required" class="form-check-input" name="tpowerRadio" value="ชำรุด/ใช้งานไม่ได้" <% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 1459).FirstOrDefault().AnsDes == "ชำรุด/ใช้งานไม่ได้") { Response.Write("checked"); } else { Response.Write(""); } %> />ชำรุด/ใช้งานไม่ได้
                     </label>
-                      </div>
+                </div>
             </div>
 
 
@@ -1275,11 +1253,11 @@
                         <div class="divTableCell">&nbsp;1</div>
                         <div class="divTableCell">
 
-                            <input type="text" required="required" class="form-control" id="problemTextbox1" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox1" runat="server" />
                         </div>
                         <div class="divTableCell">
 
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox1" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox1" runat="server" />
                         </div>
                     </div>
 
@@ -1287,11 +1265,11 @@
                         <div class="divTableCell">&nbsp;2</div>
                         <div class="divTableCell">
 
-                            <input type="text" required="required" class="form-control" id="problemTextbox2" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox2" runat="server" />
                         </div>
                         <div class="divTableCell">
 
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox2" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox2" runat="server" />
                         </div>
                     </div>
 
@@ -1299,11 +1277,11 @@
                         <div class="divTableCell">&nbsp;3</div>
                         <div class="divTableCell">
 
-                            <input type="text" required="required" class="form-control" id="problemTextbox3" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox3" runat="server" />
                         </div>
                         <div class="divTableCell">
 
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox3" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox3" runat="server" />
                         </div>
                     </div>
 
@@ -1311,11 +1289,11 @@
                         <div class="divTableCell">&nbsp;4</div>
                         <div class="divTableCell">
 
-                            <input type="text" required="required" class="form-control" id="problemTextbox4" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox4" runat="server" />
                         </div>
                         <div class="divTableCell">
 
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox4" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox4" runat="server" />
                         </div>
                     </div>
 
@@ -1323,121 +1301,121 @@
                         <div class="divTableCell">&nbsp;5</div>
                         <div class="divTableCell">
 
-                            <input type="text" required="required" class="form-control" id="problemTextbox5" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox5" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" required="required" class="form-control " id="howtoSolveTextbox5" runat="server" />
+                            <input type="text" class="form-control " id="howtoSolveTextbox5" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;6</div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="problemTextbox6" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox6" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox6" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox6" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;7</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="problemTextbox7" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox7" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox7" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox7" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;8</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="problemTextbox8" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox8" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox8" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox8" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;9</div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="problemTextbox9" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox9" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox9" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox9" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;10</div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="problemTextbox10" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox10" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%---------------------- ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox10" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox10" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;11</div>
                         <div class="divTableCell">
                             <%---------------------- ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="problemTextbox11" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox11" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox11" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox11" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;12</div>
                         <div class="divTableCell">
                             <%---------------------- ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="problemTextbox12" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox12" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------   ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox12" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox12" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;13</div>
                         <div class="divTableCell">
                             <%---------------------- ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="problemTextbox13" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox13" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox13" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox13" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;14</div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="problemTextbox14" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox14" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%----------------------  ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox14" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox14" runat="server" />
                         </div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableCell">&nbsp;15</div>
                         <div class="divTableCell">
                             <%-------------------------------------------------%>
-                            <input type="text" required="required" class="form-control" id="problemTextbox15" runat="server" />
+                            <input type="text" class="form-control" id="problemTextbox15" runat="server" />
                         </div>
                         <div class="divTableCell">
                             <%---------------------- ---------------------------%>
-                            <input type="text" required="required" class="form-control" id="howtoSolveTextbox15" runat="server" />
+                            <input type="text" class="form-control" id="howtoSolveTextbox15" runat="server" />
                         </div>
                     </div>
                 </div>
@@ -1475,227 +1453,227 @@
                             <td>1</td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox1" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox1" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox1" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox1" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox1" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox1" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox1" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox1" runat="server" /></td>
                         </tr>
                         <tr>
 
                             <td>2</td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox2" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox2" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox2" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox2" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox2" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox2" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox2" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox2" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox3" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox3" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox3" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox3" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox3" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox3" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox3" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox3" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox4" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox4" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox4" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox4" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox4" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox4" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox4" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox4" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox5" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox5" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox5" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox5" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox5" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox5" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox5" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox5" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>6</td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox6" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox6" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox6" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox6" runat="server" /></td>
                             <td>
 
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox6" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox6" runat="server" /></td>
                             <td>
                                 <%----------------------  ---------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox6" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox6" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>7</td>
                             <td>
                                 <%---------------------- ---------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox7" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox7" runat="server" /></td>
                             <td>
                                 <%----------------------   ---------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox7" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox7" runat="server" /></td>
                             <td>
                                 <%----------------------  ---------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox7" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox7" runat="server" /></td>
                             <td>
                                 <%---------------------- --------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox7" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox7" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>8</td>
                             <td>
                                 <%--------------------- ---------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox8" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox8" runat="server" /></td>
                             <td>
                                 <%-----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox8" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox8" runat="server" /></td>
                             <td>
                                 <%-----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox8" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox8" runat="server" /></td>
                             <td>
                                 <%------------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox8" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox8" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>9</td>
                             <td>
                                 <%----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox9" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox9" runat="server" /></td>
                             <td>
                                 <%----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox9" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox9" runat="server" /></td>
                             <td>
                                 <%-----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox9" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox9" runat="server" /></td>
                             <td>
                                 <%---------------------- -------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox9" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox9" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>10</td>
                             <td>
                                 <%-----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox10" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox10" runat="server" /></td>
                             <td>
                                 <%-------------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox10" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox10" runat="server" /></td>
                             <td>
                                 <%-----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox10" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox10" runat="server" /></td>
                             <td>
                                 <%-----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox10" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox10" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>11</td>
                             <td>
                                 <%---------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox11" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox11" runat="server" /></td>
                             <td>
                                 <%---------------------- --------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox11" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox11" runat="server" /></td>
                             <td>
                                 <%---------------------- --------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox11" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox11" runat="server" /></td>
                             <td>
                                 <%-----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox11" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox11" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>12</td>
                             <td>
                                 <%----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox12" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox12" runat="server" /></td>
                             <td>
                                 <%--------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox12" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox12" runat="server" /></td>
                             <td>
                                 <%-----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox12" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox12" runat="server" /></td>
                             <td>
                                 <%-------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox12" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox12" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>13</td>
                             <td>
                                 <%------------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox13" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox13" runat="server" /></td>
                             <td>
                                 <%---------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox13" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox13" runat="server" /></td>
                             <td>
                                 <%---------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox13" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox13" runat="server" /></td>
                             <td>
                                 <%---------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox13" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox13" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>14</td>
                             <td>
                                 <%----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox14" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox14" runat="server" /></td>
                             <td>
                                 <%----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox14" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox14" runat="server" /></td>
                             <td>
                                 <%----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox14" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox14" runat="server" /></td>
                             <td>
                                 <%----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox14" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox14" runat="server" /></td>
                         </tr>
                         <tr>
                             <td>15</td>
                             <td>
                                 <%------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="toolsListTextbox15" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="toolsListTextbox15" runat="server" /></td>
                             <td>
                                 <%----------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="serialNumberTextbox15" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="serialNumberTextbox15" runat="server" /></td>
                             <td>
                                 <%-------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="newSerialNumberTextbox15" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="newSerialNumberTextbox15" runat="server" /></td>
                             <td>
                                 <%-------------------------------------------%>
-                                <input type="text" required="required" class="form-control form-control-sm" id="noteTextbox15" runat="server" /></td>
+                                <input type="text" class="form-control form-control-sm" id="noteTextbox15" runat="server" /></td>
                         </tr>
                     </tbody>
                 </table>
@@ -2318,11 +2296,11 @@
 
 
             <%--////////////// ---------------------    SECTION ID 142   ---------------------------  //////////////////--%>
-     
+
 
             <div class="row mt-3 ">
                 <div class="col-sm-12">1.รูป PICTURE CHECKLIST </div>
-                <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_10" accept="image/" onchange="previewImage(this)"  />
+                <asp:FileUpload ID="pictureChecklistImages" runat="server" data-thumbnail="user_img_10" accept="image/" onchange="previewImage(this)" />
 
             </div>
             <div class="row ml-3 mt-3">
@@ -2345,7 +2323,7 @@
 
             <div class="row mt-3">
                 <div class="col-sm-12">3.รูป SOLAR CELL PICTURE CHECKLIST</div>
-                <asp:FileUpload ID="solarcellpictureChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)"  />
+                <asp:FileUpload ID="solarcellpictureChecklistImages" runat="server" data-thumbnail="user_img_4" accept="image/" onchange="previewImage(this)" />
 
             </div>
             <div class="row ml-3 mt-3">
@@ -2367,9 +2345,9 @@
             <br />
 
 
-           <div class="row  justify-content-center">
+            <div class="row  justify-content-center">
                 <div class="col-md-6">
-                    <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-success btn-block" OnClick="SubmitButton_Click" OnClientClick="signatureValidation()"  />
+                    <asp:Button ID="SubmitButton" runat="server" Text="บันทึก" CssClass="btn btn-success btn-block" OnClick="SubmitButton_Click" OnClientClick="signatureValidation()" />
                 </div>
 
             </div>
@@ -2417,70 +2395,103 @@
             $("#dayDopmTextbox").datepicker();
         });
     </script>
-     <script>
-         //-----------------  ลายเซ็น  //----------------------
-         $(function () {
-             $('#signatureExecutorTextbox').signature({ syncField: '#<%= this.signatureExecutorJSON.ClientID %>' });
 
-            $('#clearButton1').click(function () {
-                $('#signatureExecutorTextbox').signature('clear');
-            });
 
-            $('input[name="syncFormat"]').change(function () {
-                var syncFormat = $('input[name="syncFormat"]:checked').val();
-                $('#signatureExecutorTextbox').signature('option', 'syncFormat', syncFormat);
-            });
-
-            $('#svgStyles').change(function () {
-                $('#signatureExecutorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
-            });
-            $('#redrawButton').click(function () {
-                $('#redrawSignature1').signature('enable').
-                    signature('draw', $('#<%= this.signatureExecutorJSON.ClientID %>').val()).
-                    signature('disable');
-            });
-
-            $('#redrawSignature1').signature({ disabled: true });
-        });
-     </script>
+    <%--//  NEW Signature  //--%>
     <script>
-        $(function () {
-            $('#signatureSupervisorTextbox').signature({ syncField: '#<%= this.signatureSupervisorJSON.ClientID %>' });
+        var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
+            backgroundColor: 'rgba(255, 255, 255, 0)',
+            penColor: 'rgb(0, 0, 0)'
+        });
+        // console.log(signaturePad);});
+        var saveButton = document.getElementById('save');
+        var cancelButton = document.getElementById('clear');
 
-            $('#clear2Button').click(function () {
-                $('#signatureSupervisorTextbox').signature('clear');
-            });
+        saveButton.addEventListener('click', function (event) {
+            var data = signaturePad.toDataURL('image/png')
+            console.log("data 1 is =>", data);
+            SignatureHiddenfieldExecutor.value = data;
+            alert('Signature Hiddenfield Executor is =>' + SignatureHiddenfieldExecutor.value);
+            // Send data to server instead...
 
-            $('input[name="syncFormat"]').change(function () {
-                var syncFormat = $('input[name="syncFormat"]:checked').val();
-                $('#signatureSupervisorTextbox').signature('option', 'syncFormat', syncFormat);
-            });
+        });
 
-            $('#svgStyles').change(function () {
-                $('#signatureSupervisorTextbox').signature('option', 'svgStyles', $(this).is(':checked'));
-            });
-
-            $('#redrawButton').click(function () {
-                $('#redrawSignature').signature('enable').
-                    signature('draw', $('#<%= this.signatureSupervisorJSON.ClientID %>').val()).
-                    signature('disable');
-            });
-
-            $('#redrawSignature').signature({ disabled: true });
+        cancelButton.addEventListener('click', function (event) {
+            signaturePad.clear();
         });
     </script>
-    <script >
+
+
+    <script>
+        var signaturePad2 = new SignaturePad(document.getElementById('signature-pad2'), {
+            backgroundColor: 'rgba(255, 255, 255, 0)',
+            penColor: 'rgb(0, 0, 0)'
+        });
+
+
+        var saveButton2 = document.getElementById('save2');
+        var cancelButton2 = document.getElementById('clear2');
+
+        saveButton2.addEventListener('click', function (event) {
+            var dataSignatureSupervisor = signaturePad2.toDataURL('image/png');
+            console.log("data 2 is =>", dataSignatureSupervisor);
+            SignatureHiddenfieldSupervisor.value = dataSignatureSupervisor;
+            alert('Signature Hiddenfield Supervisor is =>' + SignatureHiddenfieldSupervisor.value);
+        });
+
+        cancelButton2.addEventListener('click', function (event) {
+            signaturePad2.clear();
+        });
+    </script>
+
+    <style type="text/css">
+        img {
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+
+        .signature-pad {
+            position: relative;
+            /*  left: 0;
+            top: 0;*/
+            width: 400px;
+            height: 200px;
+            border: solid;
+            border-width: 1px;
+        }
+        .signature-pad2 {
+            position: relative;
+            /*  left: 0;
+            top: 0;*/
+            width: 400px;
+            height: 200px;
+            border: solid;
+            border-width: 1px;
+        }
+    </style>
+
+    <script>
         function signatureValidation() {
-            if ($('#<%= this.signatureSupervisorJSON.ClientID %>').val().length > 0 && $('#<%= this.signatureExecutorJSON.ClientID %>').val().length > 0) {
-                return true;
-            } else {
+            //SIGNATURE EXECUTOR PAD
+            var data = signaturePad.toDataURL('image/png')
+            console.log("data 1 is =>", data);
+            SignatureHiddenfieldExecutor.value = data;
+            console.log('Signature Hiddenfield Executor is =>' + SignatureHiddenfieldExecutor.value);
+            //SIGNATURE SUPERVISOR PAD
+            var dataSignatureSupervisor = signaturePad2.toDataURL('image/png');
+            console.log("data 2 is =>", dataSignatureSupervisor);
+            SignatureHiddenfieldSupervisor.value = dataSignatureSupervisor;
+            console.log('Signature Hiddenfield Supervisor is =>' + SignatureHiddenfieldSupervisor.value);
+
+            if (SignatureHiddenfieldExecutor.value == SignatureHiddenfieldSupervisor.value) {
                 alert('กรุณาเซ็นลายเซ็น');
-                return false;
+                return;
             }
+
         }
     </script>
 
+
 </body>
-
-
 </html>

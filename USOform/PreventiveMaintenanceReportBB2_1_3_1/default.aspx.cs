@@ -26,13 +26,13 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+
 
             //this.GetData();
             User user = (User)Session["strUsername"];
             if (user != null)
             {
-               
+
                 long siteId = long.Parse(Request["SiteId"]);
                 //int currentQuarter = this.GetQuarter(DateTime.Now);
                 int currentQuarter = int.Parse(Request["qurter"]);
@@ -67,6 +67,10 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
             }
         }
 
+        //int GetQuarter(DateTime dt)
+        //{
+        //    return (dt.Month - 1) / 3 + 1;
+        //}
 
 
         void SetForm()
@@ -88,8 +92,6 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
             this.provinceTextbox.Value = answers.Where(x => x.QuestionId == 1030).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1030).FirstOrDefault().AnsDes : "";
             this.typeTextbox.Value = answers.Where(x => x.QuestionId == 1031).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1031).FirstOrDefault().AnsDes : "";
             this.pmdateTextbox.Value = answers.Where(x => x.QuestionId == 1032).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1032).FirstOrDefault().AnsDes : "";
-            //this.signatureExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1034).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1034).FirstOrDefault().AnsDes : "";
-            //this.signatureSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 1035).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1035).FirstOrDefault().AnsDes : "";
             this.nameExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1036).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1036).FirstOrDefault().AnsDes : "";
             this.nameSupervisorTextbox.Value = answers.Where(x => x.QuestionId == 1037).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1037).FirstOrDefault().AnsDes : "";
             this.DateExecutorTextbox.Value = answers.Where(x => x.QuestionId == 1038).FirstOrDefault() != null ? answers.Where(x => x.QuestionId == 1038).FirstOrDefault().AnsDes : "";
@@ -916,7 +918,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
             var ans1035 = uSOEntities.Answers.Where(x => x.Question.Section.HeadId == 5 && x.SRId == sR.Id && x.QuestionId == 1035).FirstOrDefault();
             var imgNull2 = "data:image/png;base64,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";
 
-            if (this.SignatureHiddenfieldExecutor.Value != imgNull2)
+            if (this.SignatureHiddenfieldSupervisor.Value != imgNull2)
             {
                 string s = "";
                 s = this.SignatureHiddenfieldSupervisor.Value.Replace(' ', '+');
@@ -963,7 +965,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
 
                 }
             }
-               
+
 
 
 
@@ -2509,7 +2511,7 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
                 ans72_.CreateDate = DateTime.Now;
                 ans72_.QuestionId = 1090;
                 ans72_.UserId = user.Id;
-                ans72_.AnsMonth = ansMonth; 
+                ans72_.AnsMonth = ansMonth;
                 ans72_.SRId = sR.Id;
             }
 
@@ -6604,8 +6606,8 @@ namespace USOform.PreventiveMaintenanceReportBB2._1_3._1
             int result = uSOEntities.SaveChanges();
             if (result > 0)
             {
-              
-                Response.Redirect("~/success.aspx");          
+
+                Response.Redirect("~/success.aspx");
             }
 
         }

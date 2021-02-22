@@ -222,13 +222,13 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
-        /// signatureExecutorJSON control.
+        /// SignatureHiddenfieldExecutor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden signatureExecutorJSON;
+        protected global::System.Web.UI.WebControls.HiddenField SignatureHiddenfieldExecutor;
 
         /// <summary>
         /// nameExecutorTextbox control.
@@ -249,13 +249,13 @@ namespace USOform.Preventive_Maintenance__PM__Report_BB2._4
         protected global::System.Web.UI.HtmlControls.HtmlInputText DateExecutorTextbox;
 
         /// <summary>
-        /// signatureSupervisorJSON control.
+        /// SignatureHiddenfieldSupervisor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden signatureSupervisorJSON;
+        protected global::System.Web.UI.WebControls.HiddenField SignatureHiddenfieldSupervisor;
 
         /// <summary>
         /// nameSupervisorTextbox control.
