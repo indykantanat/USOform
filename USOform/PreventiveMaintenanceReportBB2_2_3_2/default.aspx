@@ -323,8 +323,7 @@
                             <canvas id="signature-pad" class="signature-pad" width="400" height="200"></canvas>
                             <asp:HiddenField ID="SignatureHiddenfieldExecutor" runat="server" />
                             <div>
-                                <button type="button" id="save">save</button>
-                                <button type="button" id="clear">Clear</button>
+                                 <button type="button" id="clear" onclick="signaturePad.clear();">Clear</button>
                             </div>
                             <div class="form-group">
                                 <label>Name</label>
@@ -346,9 +345,8 @@
                         <div class="card-body">
                             <canvas id="signature-pad2" class="signature-pad2" width="400" height="200"></canvas>
                             <asp:HiddenField ID="SignatureHiddenfieldSupervisor" runat="server" />
-                            <div>
-                                <button type="button" id="save2">Save</button>
-                                <button type="button" id="clear2">Clear</button>
+                            <div>                              
+                                <button type="button" id="clear2" onclick="signaturePad2.clear();">Clear</button>
                             </div>
                             <div class="form-group">
                                 <label>Name</label>
@@ -3423,21 +3421,6 @@
             penColor: 'rgb(0, 0, 0)'
         });
         // console.log(signaturePad);});
-        var saveButton = document.getElementById('save');
-        var cancelButton = document.getElementById('clear');
-
-        saveButton.addEventListener('click', function (event) {
-            var data = signaturePad.toDataURL('image/png')
-            console.log("data 1 is =>", data);
-            SignatureHiddenfieldExecutor.value = data;
-            alert('Signature Hiddenfield Executor is =>' + SignatureHiddenfieldExecutor.value);
-            // Send data to server instead...
-
-        });
-
-        cancelButton.addEventListener('click', function (event) {
-            signaturePad.clear();
-        });
     </script>
 
 
@@ -3445,21 +3428,6 @@
         var signaturePad2 = new SignaturePad(document.getElementById('signature-pad2'), {
             backgroundColor: 'rgba(255, 255, 255, 0)',
             penColor: 'rgb(0, 0, 0)'
-        });
-
-
-        var saveButton2 = document.getElementById('save2');
-        var cancelButton2 = document.getElementById('clear2');
-
-        saveButton2.addEventListener('click', function (event) {
-            var dataSignatureSupervisor = signaturePad2.toDataURL('image/png');
-            console.log("data 2 is =>", dataSignatureSupervisor);
-            SignatureHiddenfieldSupervisor.value = dataSignatureSupervisor;
-            alert('Signature Hiddenfield Supervisor is =>' + SignatureHiddenfieldSupervisor.value);
-        });
-
-        cancelButton2.addEventListener('click', function (event) {
-            signaturePad2.clear();
         });
     </script>
 
@@ -3487,12 +3455,12 @@
     </style>
     <script>
         function signatureValidation() {
-            var imgNull = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAADICAYAAADGFbfiAAAHFklEQVR4Xu3VsQ0AAAjDMPr/0/yQ2exdLKTsHAECBAgQCAILGxMCBAgQIHAC4gkIECBAIAkISGIzIkCAAAEB8QMECBAgkAQEJLEZESBAgICA+AECBAgQSAICktiMCBAgQEBA/AABAgQIJAEBSWxGBAgQICAgfoAAAQIEkoCAJDYjAgQIEBAQP0CAAAECSUBAEpsRAQIECAiIHyBAgACBJCAgic2IAAECBATEDxAgQIBAEhCQxGZEgAABAgLiBwgQIEAgCQhIYjMiQIAAAQHxAwQIECCQBAQksRkRIECAgID4AQIECBBIAgKS2IwIECBAQED8AAECBAgkAQFJbEYECBAgICB+gAABAgSSgIAkNiMCBAgQEBA/QIAAAQJJQEASmxEBAgQICIgfIECAAIEkICCJzYgAAQIEBMQPECBAgEASEJDEZkSAAAECAuIHCBAgQCAJCEhiMyJAgAABAfEDBAgQIJAEBCSxGREgQICAgPgBAgQIEEgCApLYjAgQIEBAQPwAAQIECCQBAUlsRgQIECAgIH6AAAECBJKAgCQ2IwIECBAQED9AgAABAklAQBKbEQECBAgIiB8gQIAAgSQgIInNiAABAgQExA8QIECAQBIQkMRmRIAAAQIC4gcIECBAIAkISGIzIkCAAAEB8QMECBAgkAQEJLEZESBAgICA+AECBAgQSAICktiMCBAgQEBA/AABAgQIJAEBSWxGBAgQICAgfoAAAQIEkoCAJDYjAgQIEBAQP0CAAAECSUBAEpsRAQIECAiIHyBAgACBJCAgic2IAAECBATEDxAgQIBAEhCQxGZEgAABAgLiBwgQIEAgCQhIYjMiQIAAAQHxAwQIECCQBAQksRkRIECAgID4AQIECBBIAgKS2IwIECBAQED8AAECBAgkAQFJbEYECBAgICB+gAABAgSSgIAkNiMCBAgQEBA/QIAAAQJJQEASmxEBAgQICIgfIECAAIEkICCJzYgAAQIEBMQPECBAgEASEJDEZkSAAAECAuIHCBAgQCAJCEhiMyJAgAABAfEDBAgQIJAEBCSxGREgQICAgPgBAgQIEEgCApLYjAgQIEBAQPwAAQIECCQBAUlsRgQIECAgIH6AAAECBJKAgCQ2IwIECBAQED9AgAABAklAQBKbEQECBAgIiB8gQIAAgSQgIInNiAABAgQExA8QIECAQBIQkMRmRIAAAQIC4gcIECBAIAkISGIzIkCAAAEB8QMECBAgkAQEJLEZESBAgICA+AECBAgQSAICktiMCBAgQEBA/AABAgQIJAEBSWxGBAgQICAgfoAAAQIEkoCAJDYjAgQIEBAQP0CAAAECSUBAEpsRAQIECAiIHyBAgACBJCAgic2IAAECBATEDxAgQIBAEhCQxGZEgAABAgLiBwgQIEAgCQhIYjMiQIAAAQHxAwQIECCQBAQksRkRIECAgID4AQIECBBIAgKS2IwIECBAQED8AAECBAgkAQFJbEYECBAgICB+gAABAgSSgIAkNiMCBAgQEBA/QIAAAQJJQEASmxEBAgQICIgfIECAAIEkICCJzYgAAQIEBMQPECBAgEASEJDEZkSAAAECAuIHCBAgQCAJCEhiMyJAgAABAfEDBAgQIJAEBCSxGREgQICAgPgBAgQIEEgCApLYjAgQIEBAQPwAAQIECCQBAUlsRgQIECAgIH6AAAECBJKAgCQ2IwIECBAQED9AgAABAklAQBKbEQECBAgIiB8gQIAAgSQgIInNiAABAgQExA8QIECAQBIQkMRmRIAAAQIC4gcIECBAIAkISGIzIkCAAAEB8QMECBAgkAQEJLEZESBAgICA+AECBAgQSAICktiMCBAgQEBA/AABAgQIJAEBSWxGBAgQICAgfoAAAQIEkoCAJDYjAgQIEBAQP0CAAAECSUBAEpsRAQIECAiIHyBAgACBJCAgic2IAAECBATEDxAgQIBAEhCQxGZEgAABAgLiBwgQIEAgCQhIYjMiQIAAAQHxAwQIECCQBAQksRkRIECAgID4AQIECBBIAgKS2IwIECBAQED8AAECBAgkAQFJbEYECBAgICB+gAABAgSSgIAkNiMCBAgQEBA/QIAAAQJJQEASmxEBAgQICIgfIECAAIEkICCJzYgAAQIEBMQPECBAgEASEJDEZkSAAAECAuIHCBAgQCAJCEhiMyJAgAABAfEDBAgQIJAEBCSxGREgQICAgPgBAgQIEEgCApLYjAgQIEBAQPwAAQIECCQBAUlsRgQIECAgIH6AAAECBJKAgCQ2IwIECBAQED9AgAABAklAQBKbEQECBAgIiB8gQIAAgSQgIInNiAABAgQExA8QIECAQBIQkMRmRIAAAQIC4gcIECBAIAkISGIzIkCAAAEB8QMECBAgkAQEJLEZESBAgICA+AECBAgQSAICktiMCBAgQOABB1wAyWjdfzMAAAAASUVORK5CYII="
-            var data = signaturePad.toDataURL('image/png')
+            //SIGNATURE EXECUTOR
+            var data = signaturePad.toDataURL('image/png');
             console.log("data 1 is =>", data);
             SignatureHiddenfieldExecutor.value = data;
             console.log('Signature Hiddenfield Executor is =>' + SignatureHiddenfieldExecutor.value);
-
+            //SIGNATURE SUPERVISOR
             var dataSignatureSupervisor = signaturePad2.toDataURL('image/png');
             console.log("data 2 is =>", dataSignatureSupervisor);
             SignatureHiddenfieldSupervisor.value = dataSignatureSupervisor;
@@ -3500,7 +3468,7 @@
 
             if (SignatureHiddenfieldExecutor.value == SignatureHiddenfieldSupervisor.value) {
                 alert('กรุณาเซ็นลายเซ็น');
-                return;
+                return false;
             }
 
         }

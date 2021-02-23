@@ -269,7 +269,7 @@
                             <asp:HiddenField ID="SignatureHiddenfieldExecutor" runat="server" />
                             <div>
 
-                                <button type="button" id="clear">Clear</button>
+                                <button type="button" id="clear" onclick="signaturePad.clear();" >Clear</button>
                             </div>
                             <div class="form-group">
                                 <label>Name</label>
@@ -292,8 +292,7 @@
                             <canvas id="signature-pad2" class="signature-pad2" width="400" height="200"></canvas>
                             <asp:HiddenField ID="SignatureHiddenfieldSupervisor" runat="server" />
                             <div>
-
-                                <button type="button" id="clear2">Clear</button>
+                                <button type="button" id="clear2" onclick="signaturePad2.clear();" >Clear</button>
                             </div>
                             <div class="form-group">
                                 <label>Name</label>
@@ -1650,45 +1649,15 @@
         var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
             backgroundColor: 'rgba(255, 255, 255, 0)',
             penColor: 'rgb(0, 0, 0)'
-        });
-        // console.log(signaturePad);});
-        var saveButton = document.getElementById('save');
-        var cancelButton = document.getElementById('clear');
-
-        saveButton.addEventListener('click', function (event) {
-            var data = signaturePad.toDataURL('image/png')
-            console.log("data 1 is =>", data);
-            SignatureHiddenfieldExecutor.value = data;
-            alert('Signature Hiddenfield Executor is =>' + SignatureHiddenfieldExecutor.value);
-            // Send data to server instead...
-
-        });
-
-        cancelButton.addEventListener('click', function (event) {
-            signaturePad.clear();
-        });
+        });      
     </script>
     <script>
         var signaturePad2 = new SignaturePad(document.getElementById('signature-pad2'), {
             backgroundColor: 'rgba(255, 255, 255, 0)',
             penColor: 'rgb(0, 0, 0)'
         });
-
-
-        var saveButton2 = document.getElementById('save2');
-        var cancelButton2 = document.getElementById('clear2');
-
-        saveButton2.addEventListener('click', function (event) {
-            var dataSignatureSupervisor = signaturePad2.toDataURL('image/png');
-            console.log("data 2 is =>", dataSignatureSupervisor);
-            SignatureHiddenfieldSupervisor.value = dataSignatureSupervisor;
-            alert('Signature Hiddenfield Supervisor is =>' + SignatureHiddenfieldSupervisor.value);
-        });
-
-        cancelButton2.addEventListener('click', function (event) {
-            signaturePad2.clear();
-        });
     </script>
+
     <script>
         function signatureValidation() {
             //SIGNATURE EXECUTOR PAD
@@ -1696,6 +1665,7 @@
             console.log("data 1 is =>", data);
             SignatureHiddenfieldExecutor.value = data;
             console.log('Signature Hiddenfield Executor is =>' + SignatureHiddenfieldExecutor.value);
+
             //SIGNATURE SUPERVISOR PAD
             var dataSignatureSupervisor = signaturePad2.toDataURL('image/png');
             console.log("data 2 is =>", dataSignatureSupervisor);
@@ -1704,7 +1674,7 @@
 
             if (SignatureHiddenfieldExecutor.value == SignatureHiddenfieldSupervisor.value) {
                 alert('กรุณาเซ็นลายเซ็นด้วยค่ะ');
-                return;
+                return false;
             }
 
         }
