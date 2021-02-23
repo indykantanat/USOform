@@ -5,7 +5,7 @@
 <head runat="server">
     <title>PreventiveMaintenanceReportBB2.2,3.2</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="~/style/Mystyle.css" rel="stylesheet" />
+    <link href="../style/Mystyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="previewImg.js"></script>
     <%--font style--%>
@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;300;400;500;600;700&display=swap" rel="stylesheet" />
     <%--    date time picker JQURRY--%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <%--//  SIGNATURE PAD  //--%>
@@ -106,13 +105,13 @@
                         <label>
                             <div>วัน เดือน ปี</div>
                         </label>
-                        <input class="form-control" type="text" id="startDatepicker" runat="server" />
+                        <input class="form-control" type="text" placeholder="เดือน/วัน/ปี"  id="startDatepicker" runat="server" />
 
                         <%-- QuestionId = 9,--%>
                         <label>
                             <div>ถึง</div>
                         </label>
-                        <input class="form-control" type="text" id="endDatepicker" runat="server" />
+                        <input class="form-control" type="text" placeholder="เดือน/วัน/ปี" id="endDatepicker" runat="server" />
                     </div>
                 </div>
             </div>
@@ -331,7 +330,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" />
+                                <input type="text" class="form-control" placeholder="เดือน/วัน/ปี" id="DateExecutorTextbox" runat="server" />
                             </div>
                         </div>
                     </div>
@@ -354,7 +353,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server" />
+                                <input type="text" class="form-control" placeholder="เดือน/วัน/ปี" id="DateSupervisorTextbox" runat="server" />
                             </div>
                         </div>
                     </div>
@@ -2369,7 +2368,7 @@
                     <span>วันที่ทำ PM</span>
                 </div>
                 <div class="col-md-9">
-                    <input type="text" required="required" class="form-control" id="dayDopmTextbox" runat="server" />
+                    <input type="text" required="required" class="form-control" placeholder="เดือน/วัน/ปี"  id="dayDopmTextbox" runat="server" />
                 </div>
             </div>
             <%--////////////// --------------------- END   ---------------------------  //////////////////--%
@@ -3412,6 +3411,12 @@
             $("#DateSupervisorTextbox").datepicker();
         });
     </script>
+
+     <script>
+         $(function () {
+             $("#dayDopmTextbox").datepicker();
+         });
+     </script>
 
 
     <%--//  NEW Signature  //--%>

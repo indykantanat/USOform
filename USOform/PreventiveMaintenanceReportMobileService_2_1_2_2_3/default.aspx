@@ -109,13 +109,13 @@
             <div class="row text-left mt-3">
                 <div class="col-md-6">
                     <label>
-                        <div>วัน เดือน ปี</div>
+                        <span>วัน เดือน ปี</span>
                     </label>
-                    <input class="form-control" type="text" data-date-format="dd/mm/yyyy" id="startDatepicker" runat="server" />
+                    <input class="form-control" type="text" placeholder="เดือน/วัน/ปี"  id="startDatepicker" runat="server" />
                     <label>
-                        <div>ถึง</div>
+                        <span>ถึง</span>
                     </label>
-                    <input class="form-control" type="text" data-date-format="dd/mm/yyyy" id="endDatepicker" runat="server" />
+                    <input class="form-control" type="text" placeholder="เดือน/วัน/ปี"  id="endDatepicker" runat="server" />
                 </div>
             </div>
             <div class="form-row mt-3">
@@ -237,11 +237,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" class="form-control" id="nameExecutorTextbox" runat="server" />
+                                <input type="text" class="form-control"  id="nameExecutorTextbox" runat="server" />
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" />
+                                <input type="text" class="form-control" placeholder="เดือน/วัน/ปี" id="DateExecutorTextbox" runat="server" />
                             </div>
                         </div>
                     </div>
@@ -264,7 +264,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server" />
+                                <input type="text" class="form-control" placeholder="เดือน/วัน/ปี" id="DateSupervisorTextbox" runat="server" />
                             </div>
                         </div>
                     </div>
@@ -1715,7 +1715,7 @@
                     <span>วันที่ทำ PM</span>
                 </div>
                 <div class="col-md-9">
-                    <input type="text" required="required" class="form-control" id="dayDopmTextbox" runat="server" />
+                    <input type="text" required="required" class="form-control" placeholder="เดือน/วัน/ปี" id="dayDopmTextbox" runat="server" />
                 </div>
             </div>
 

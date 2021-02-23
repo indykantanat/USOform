@@ -15,7 +15,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link href="../style/Mystyle.css" rel="stylesheet" />
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <%--  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />--%>
     <%-----------//   PREVIEW IMAGES   //-----------%>
     <script src="previewImg.js"></script>
     <%-----------//  SIGNATURE PAD  //--------------%>
@@ -104,14 +104,14 @@
                 <div class="col-md-12">
                     <div>
                         <label>
-                            <div>วัน เดือน ปี</div>
+                            <span>วัน เดือน ปี</span>
                         </label>
-                        <input class="form-control" type="text" data-date-format="dd/mm/yyyy" id="startDatepicker" runat="server" />
+                        <input class="form-control" type="text" placeholder="เดือน/วัน/ปี" id="startDatepicker" runat="server" />
 
                         <label>
-                            <div>ถึง</div>
+                            <span>ถึง</span>
                         </label>
-                        <input class="form-control" type="text" data-date-format="dd/mm/yyyy" id="endDatepicker" runat="server" />
+                        <input class="form-control" type="text" placeholder="เดือน/วัน/ปี"  id="endDatepicker" runat="server" />
                     </div>
                 </div>
             </div>
@@ -263,7 +263,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                <input type="text"  class="form-control" id="DateExecutorTextbox" runat="server" />
+                                <input type="text"  class="form-control" placeholder="เดือน/วัน/ปี" id="DateExecutorTextbox" runat="server" />
                             </div>
                         </div>
                     </div>
@@ -286,7 +286,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                <input type="text"  class="form-control" id="DateSupervisorTextbox" runat="server" />
+                                <input type="text"  class="form-control" placeholder="เดือน/วัน/ปี" id="DateSupervisorTextbox" runat="server" />
                             </div>                                       
                         </div>
                     </div>
@@ -296,38 +296,6 @@
             <%--------// FOR PREVIEW/  /-----------%>
             <%-- <img id="user_img_6" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 758).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
             <%-- <img id="user_img_7" src='<% if (answers.Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 759).FirstOrDefault().AnsDes); %>' class="placeholder2" />--%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             <div class="row mt-3">
@@ -386,28 +354,6 @@
                     <input type="text" required="required" class="form-control" id="oltIdTextbox" runat="server" />
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -649,23 +595,6 @@
                     </label>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             <div class="row mt-3">
@@ -1954,7 +1883,7 @@
                     <span>วันที่ทำ PM</span>
                 </div>
                 <div class="col-md-9">
-                    <input type="text" required="required" class="form-control" id="dayDopmTextbox" runat="server" />
+                    <input type="text" required="required" class="form-control" placeholder="เดือน/วัน/ปี" id="dayDopmTextbox" runat="server" />
                 </div>
             </div>
 
@@ -2797,7 +2726,7 @@
 
             </div>
             <div class="row ml-3 mt-3">
-                <img id="user_img_5" ssrc='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 735).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 735).FirstOrDefault().AnsDes); %>' class="placeholder2" />
+                <img id="user_img_5" src='<% if (answers.Count() > 0 && answers.Where(x => x.QuestionId == 735).Count() > 0) Response.Write(answers.Where(x => x.QuestionId == 735).FirstOrDefault().AnsDes); %>' class="placeholder2" />
             </div>
 
 
@@ -2850,6 +2779,13 @@
             $("#DateSupervisorTextbox").datepicker();
         });
     </script>
+
+    <script>
+        $(function () {
+            $("#dayDopmTextbox").datepicker();
+        });
+    </script>
+
 
       <style>
         table, tr, td {

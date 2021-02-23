@@ -111,11 +111,11 @@
                 <div class="col-md-4 form-inline">
                     <label>วัน เดือน ปี </label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input class="form-control" type="text" id="startDatepicker" runat="server" />
+                <input class="form-control" type="text" placeholder="เดือน/วัน/ปี" id="startDatepicker" runat="server" />
                 </div>
                 <div class="col-md-6 form-inline">
                     <label>ถึง</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 <input class="form-control" type="text" id="endDatepicker" runat="server" />
+                 <input class="form-control" type="text" placeholder="เดือน/วัน/ปี" id="endDatepicker" runat="server" />
                 </div>
 
             </div>
@@ -295,7 +295,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                <input type="text" class="form-control" id="DateExecutorTextbox" runat="server" />
+                                <input type="text" class="form-control" placeholder="เดือน/วัน/ปี" id="DateExecutorTextbox" runat="server" />
                             </div>
                         </div>
                     </div>
@@ -318,7 +318,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Date</label>
-                                <input type="text" class="form-control" id="DateSupervisorTextbox" runat="server" />
+                                <input type="text" class="form-control" placeholder="เดือน/วัน/ปี" id="DateSupervisorTextbox" runat="server" />
                             </div>
                         </div>
                     </div>
@@ -1745,7 +1745,7 @@
                     <span>วันที่ทำ PM</span>
                 </div>
                 <div class="col-md-9">
-                    <input type="text" required="required" class="form-control" id="dayDopmTextbox" runat="server" />
+                    <input type="text" required="required" class="form-control" id="dayDopmTextbox" placeholder="เดือน/วัน/ปี" runat="server" />
                 </div>
             </div>
 
@@ -2423,6 +2423,12 @@
         });
     </script>
 
+      <script>
+          $(function () {
+              $("#dayDopmTextbox").datepicker();
+          });
+      </script>
+
     <style>
         table, tr, td {
             border: none;
@@ -2435,18 +2441,7 @@
         var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
             backgroundColor: 'rgba(255, 255, 255, 0)',
             penColor: 'rgb(0, 0, 0)'
-        });
-        // console.log(signaturePad);});
-        //var saveButton = document.getElementById('save');
-        //var cancelButton = document.getElementById('clear');
-       
-
-        //saveButton.addEventListener('click', function (event) {
-        //    var data = signaturePad.toDataURL('image/png')
-        //    console.log("data 1 is =>", data);
-        //    SignatureHiddenfieldExecutor.value = data;
-        //    alert('Signature Hiddenfield Executor is =>' + SignatureHiddenfieldExecutor.value);         
-        //});      
+        });       
     </script>
 
 
@@ -2454,18 +2449,7 @@
         var signaturePad2 = new SignaturePad(document.getElementById('signature-pad2'), {
             backgroundColor: 'rgba(255, 255, 255, 0)',
             penColor: 'rgb(0, 0, 0)'
-        });
-
-
-        //var saveButton2 = document.getElementById('save2');
-        //var cancelButton2 = document.getElementById('clear2');
-
-        //saveButton2.addEventListener('click', function (event) {
-        //    var dataSignatureSupervisor = signaturePad2.toDataURL('image/png');
-        //    console.log("data 2 is =>", dataSignatureSupervisor);
-        //    SignatureHiddenfieldSupervisor.value = dataSignatureSupervisor;
-        //    alert('Signature Hiddenfield Supervisor is =>' + SignatureHiddenfieldSupervisor.value);
-        //});
+        });   
     </script>
 
     <style type="text/css">
